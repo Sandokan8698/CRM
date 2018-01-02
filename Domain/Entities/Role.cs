@@ -11,7 +11,7 @@ namespace Domain.Entities
         #endregion
 
         #region Scalar Properties
-        public Guid RoleId { get; set; }
+        public int RoleId { get; set; }
 
         [Required]
         [MaxLength(50)]

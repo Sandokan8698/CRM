@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,12 +61,37 @@
     <Compile Include="Implementations\TareaRepository.cs" />
     <Compile Include="Implementations\UnitOfWork.cs" />
     <Compile Include="Implementations\UserRepository.cs" />
-    <Compile Include="Migrations\201801090651554_Initial.cs" />
-    <Compile Include="Migrations\201801090651554_Initial.Designer.cs">
-      <DependentUpon>201801090651554_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201801020609077_initial.cs" />
+    <Compile Include="Migrations\201801020609077_initial.Designer.cs">
+      <DependentUpon>201801020609077_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801020623259_Migration2.cs" />
+    <Compile Include="Migrations\201801020623259_Migration2.Designer.cs">
+      <DependentUpon>201801020623259_Migration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801020629434_Migration3.cs" />
+    <Compile Include="Migrations\201801020629434_Migration3.Designer.cs">
+      <DependentUpon>201801020629434_Migration3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801020631542_Migration_4.cs" />
+    <Compile Include="Migrations\201801020631542_Migration_4.Designer.cs">
+      <DependentUpon>201801020631542_Migration_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801020636481_Migration_5.cs" />
+    <Compile Include="Migrations\201801020636481_Migration_5.Designer.cs">
+      <DependentUpon>201801020636481_Migration_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801020652162_Migration_6.cs" />
+    <Compile Include="Migrations\201801020652162_Migration_6.Designer.cs">
+      <DependentUpon>201801020652162_Migration_6.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
@@ -76,10 +102,33 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801090651554_Initial.resx">
-      <DependentUpon>201801090651554_Initial.cs</DependentUpon>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801020609077_initial.resx">
+      <DependentUpon>201801020609077_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801020623259_Migration2.resx">
+      <DependentUpon>201801020623259_Migration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801020629434_Migration3.resx">
+      <DependentUpon>201801020629434_Migration3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801020631542_Migration_4.resx">
+      <DependentUpon>201801020631542_Migration_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801020636481_Migration_5.resx">
+      <DependentUpon>201801020636481_Migration_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801020652162_Migration_6.resx">
+      <DependentUpon>201801020652162_Migration_6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

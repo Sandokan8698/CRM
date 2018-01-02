@@ -9,7 +9,7 @@ using Entities = Domain.Entities;
 
 namespace WebUI.Areas.Admin.Identity
 {
-    public class UserStore : IUserLoginStore<IdentityUser, Guid>, IUserClaimStore<IdentityUser, Guid>, IUserRoleStore<IdentityUser, Guid>, IUserPasswordStore<IdentityUser, Guid>, IUserSecurityStampStore<IdentityUser, Guid>, IUserStore<IdentityUser, Guid>, IDisposable
+    public class UserStore : IUserLoginStore<IdentityUser, int>, IUserClaimStore<IdentityUser, int>, IUserRoleStore<IdentityUser, int>, IUserPasswordStore<IdentityUser, int>, IUserSecurityStampStore<IdentityUser, int>, IUserStore<IdentityUser, int>, IDisposable
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -41,7 +41,7 @@ namespace WebUI.Areas.Admin.Identity
             return _unitOfWork.SaveChangesAsync();
         }
 
-        public Task<IdentityUser> FindByIdAsync(Guid userId)
+        public Task<IdentityUser> FindByIdAsync(int userId)
         {
             var user = _unitOfWork.UserRepository.FindById(userId);
             return Task.FromResult<IdentityUser>(getIdentityUser(user));

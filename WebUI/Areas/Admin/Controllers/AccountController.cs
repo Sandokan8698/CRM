@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Data.Abstract;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using WebUI.Areas.Admin.Identity;
@@ -12,12 +13,13 @@ namespace WebUI.Areas.Admin.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private readonly UserManager<IdentityUser, Guid> _userManager;
+        private readonly UserManager<IdentityUser, int> _userManager;
+        private IUnitOfWork _unitOfWork; 
         
-        
-        public AccountController(UserManager<IdentityUser, Guid> userManager)
+        public AccountController(UserManager<IdentityUser, int> userManager, IUnitOfWork unitOfWork)
         {
             _userManager = userManager;
+            _unitOfWork = unitOfWork;
         }
 
         //
@@ -79,6 +81,7 @@ namespace WebUI.Areas.Admin.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    user.Id = _unitOfWork.UserRepository.FindByUserName(user.UserName).UserId;
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home", new {area = ""});
                 }
@@ -99,7 +102,7 @@ namespace WebUI.Areas.Admin.Controllers
         public async Task<ActionResult> Disassociate(string loginProvider, string providerKey)
         {
             ManageMessageId? message = null;
-            IdentityResult result = await _userManager.RemoveLoginAsync(getGuid(User.Identity.GetUserId()), new UserLoginInfo(loginProvider, providerKey));
+            IdentityResult result = await _userManager.RemoveLoginAsync(getint(User.Identity.GetUserId()), new UserLoginInfo(loginProvider, providerKey));
             if (result.Succeeded)
             {
                 message = ManageMessageId.RemoveLoginSuccess;
@@ -139,7 +142,7 @@ namespace WebUI.Areas.Admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    IdentityResult result = await _userManager.ChangePasswordAsync(getGuid(User.Identity.GetUserId()), model.OldPassword, model.NewPassword);
+                    IdentityResult result = await _userManager.ChangePasswordAsync(getint(User.Identity.GetUserId()), model.OldPassword, model.NewPassword);
                     if (result.Succeeded)
                     {
                         return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
@@ -161,7 +164,7 @@ namespace WebUI.Areas.Admin.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    IdentityResult result = await _userManager.AddPasswordAsync(getGuid(User.Identity.GetUserId()), model.NewPassword);
+                    IdentityResult result = await _userManager.AddPasswordAsync(getint(User.Identity.GetUserId()), model.NewPassword);
                     if (result.Succeeded)
                     {
                         return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
@@ -234,7 +237,7 @@ namespace WebUI.Areas.Admin.Controllers
             {
                 return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
             }
-            var result = await _userManager.AddLoginAsync(getGuid(User.Identity.GetUserId()), loginInfo.Login);
+            var result = await _userManager.AddLoginAsync(getint(User.Identity.GetUserId()), loginInfo.Login);
             if (result.Succeeded)
             {
                 return RedirectToAction("Manage");
@@ -301,7 +304,7 @@ namespace WebUI.Areas.Admin.Controllers
         [ChildActionOnly]
         public ActionResult RemoveAccountList()
         {
-            var linkedAccounts = _userManager.GetLogins(getGuid(User.Identity.GetUserId()));
+            var linkedAccounts = _userManager.GetLogins(getint(User.Identity.GetUserId()));
             ViewBag.ShowRemoveButton = HasPassword() || linkedAccounts.Count > 1;
             return (ActionResult)PartialView("_RemoveAccountPartial", linkedAccounts);
         }
@@ -311,6 +314,10 @@ namespace WebUI.Areas.Admin.Controllers
             if (disposing && _userManager != null)
             {
                 _userManager.Dispose();
+            }
+            if (disposing && _unitOfWork != null)
+            {
+                _unitOfWork.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -344,7 +351,7 @@ namespace WebUI.Areas.Admin.Controllers
 
         private bool HasPassword()
         {
-            var user = _userManager.FindById(getGuid(User.Identity.GetUserId()));
+            var user = _userManager.FindById(getint(User.Identity.GetUserId()));
             if (user != null)
             {
                 return user.PasswordHash != null;
@@ -400,10 +407,10 @@ namespace WebUI.Areas.Admin.Controllers
             }
         }
 
-        private Guid getGuid(string value)
+        private int getint(string value)
         {
-            var result = default(Guid);
-            Guid.TryParse(value, out result);
+            var result = default(int);
+            int.TryParse(value, out result);
             return result;
         }
         #endregion

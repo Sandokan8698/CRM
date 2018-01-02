@@ -11,12 +11,11 @@ namespace Domain.Entities
     {
         public int TareaId { get; set; }
 
-        
-        public Guid CreadoPorId { get; set; }
-        public User CreadoPor { get; set; }
 
-       
-        public Guid AsignadoAId { get; set; }
-        public User AsignadoA { get; set; }
+        public int CreadoPorId { get; set; }
+        public virtual User CreadoPor { get; set; }
+
+        public int AsignadoAId { get; set; }
+        public virtual User AsignadoA { get; set; }
     }
 }

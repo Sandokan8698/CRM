@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data;
 using Data.Implementations;
+using Domain.Entities;
 
 namespace Test
 {
@@ -14,12 +15,16 @@ namespace Test
         {
             var context = new CRMContex();
 
-            var group = (from g in context.GroupDbSet select  g).ToList();
+            var user = context.UserDbSet.FirstOrDefault(u => u.UserId == 1);
 
-            foreach (var g in group)
-            {
-                var a = g.User;
-            }
+            var vendedor = new Vendedor();
+            vendedor.PefilId = 1;
+
+            user.Perfil = vendedor;
+
+            context.Entry<User>(user).State = System.Data.Entity.EntityState.Modified;
+
+            context.SaveChanges();
         }
     }
 }

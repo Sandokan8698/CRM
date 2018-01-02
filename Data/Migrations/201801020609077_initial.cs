@@ -3,7 +3,7 @@ namespace Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,7 @@ namespace Data.Migrations
                 c => new
                     {
                         ClaimId = c.Int(nullable: false, identity: true),
-                        UserId = c.Guid(nullable: false),
+                        UserId = c.Int(nullable: false),
                         ClaimType = c.String(),
                         ClaimValue = c.String(),
                     })
@@ -24,7 +24,7 @@ namespace Data.Migrations
                 "dbo.User",
                 c => new
                     {
-                        UserId = c.Guid(nullable: false),
+                        UserId = c.Int(nullable: false, identity: true),
                         UserName = c.String(nullable: false, maxLength: 15),
                         PasswordHash = c.String(nullable: false),
                         SecurityStamp = c.String(nullable: false),
@@ -38,7 +38,7 @@ namespace Data.Migrations
                         ExternalLoginId = c.Int(nullable: false, identity: true),
                         LoginProvider = c.String(),
                         ProviderKey = c.String(),
-                        UserId = c.Guid(nullable: false),
+                        UserId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ExternalLoginId)
                 .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)
@@ -48,7 +48,7 @@ namespace Data.Migrations
                 "dbo.Role",
                 c => new
                     {
-                        RoleId = c.Guid(nullable: false),
+                        RoleId = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 50),
                     })
                 .PrimaryKey(t => t.RoleId);
@@ -58,27 +58,21 @@ namespace Data.Migrations
                 c => new
                     {
                         TareaId = c.Int(nullable: false, identity: true),
-                        CreadoPorId = c.Guid(nullable: false),
-                        AsignadoAId = c.Guid(nullable: false),
-                        AsignadoA_UserId = c.Guid(),
-                        CreadoPor_UserId = c.Guid(),
+                        CreadoPorId = c.Int(nullable: false),
+                        AsignadoAId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.TareaId)
-                .ForeignKey("dbo.User", t => t.AsignadoA_UserId)
-                .ForeignKey("dbo.User", t => t.CreadoPor_UserId)
-                .ForeignKey("dbo.User", t => t.AsignadoAId, cascadeDelete: false)
-                .ForeignKey("dbo.User", t => t.CreadoPorId, cascadeDelete: false)
+                .ForeignKey("dbo.User", t => t.AsignadoAId)
+                .ForeignKey("dbo.User", t => t.CreadoPorId)
                 .Index(t => t.CreadoPorId)
-                .Index(t => t.AsignadoAId)
-                .Index(t => t.AsignadoA_UserId)
-                .Index(t => t.CreadoPor_UserId);
+                .Index(t => t.AsignadoAId);
             
             CreateTable(
                 "dbo.Group",
                 c => new
                     {
                         GroupId = c.Int(nullable: false, identity: true),
-                        UserId = c.Guid(nullable: false),
+                        UserId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.GroupId)
                 .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)
@@ -88,8 +82,8 @@ namespace Data.Migrations
                 "dbo.RoleUser",
                 c => new
                     {
-                        Role_RoleId = c.Guid(nullable: false),
-                        User_UserId = c.Guid(nullable: false),
+                        Role_RoleId = c.Int(nullable: false),
+                        User_UserId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.Role_RoleId, t.User_UserId })
                 .ForeignKey("dbo.Role", t => t.Role_RoleId, cascadeDelete: true)
@@ -101,7 +95,7 @@ namespace Data.Migrations
                 "dbo.Gerente",
                 c => new
                     {
-                        UserId = c.Guid(nullable: false),
+                        UserId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.UserId)
                 .ForeignKey("dbo.User", t => t.UserId)
@@ -111,7 +105,7 @@ namespace Data.Migrations
                 "dbo.Vendedor",
                 c => new
                     {
-                        UserId = c.Guid(nullable: false),
+                        UserId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.UserId)
                 .ForeignKey("dbo.User", t => t.UserId)
@@ -126,8 +120,6 @@ namespace Data.Migrations
             DropForeignKey("dbo.Group", "UserId", "dbo.User");
             DropForeignKey("dbo.Tarea", "CreadoPorId", "dbo.User");
             DropForeignKey("dbo.Tarea", "AsignadoAId", "dbo.User");
-            DropForeignKey("dbo.Tarea", "CreadoPor_UserId", "dbo.User");
-            DropForeignKey("dbo.Tarea", "AsignadoA_UserId", "dbo.User");
             DropForeignKey("dbo.RoleUser", "User_UserId", "dbo.User");
             DropForeignKey("dbo.RoleUser", "Role_RoleId", "dbo.Role");
             DropForeignKey("dbo.ExternalLogin", "UserId", "dbo.User");
@@ -137,8 +129,6 @@ namespace Data.Migrations
             DropIndex("dbo.RoleUser", new[] { "User_UserId" });
             DropIndex("dbo.RoleUser", new[] { "Role_RoleId" });
             DropIndex("dbo.Group", new[] { "UserId" });
-            DropIndex("dbo.Tarea", new[] { "CreadoPor_UserId" });
-            DropIndex("dbo.Tarea", new[] { "AsignadoA_UserId" });
             DropIndex("dbo.Tarea", new[] { "AsignadoAId" });
             DropIndex("dbo.Tarea", new[] { "CreadoPorId" });
             DropIndex("dbo.ExternalLogin", new[] { "UserId" });

@@ -17,7 +17,7 @@ namespace Domain.Entities
 
         #region Scalar Properties
 
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         [MaxLength(15)]
@@ -53,20 +53,10 @@ namespace Domain.Entities
             set { _roles = value; }
         }
 
-        [ForeignKey("CreadoPorId")]
-        public virtual ICollection<Tarea> TareasCreadas
-        {
-            get { return _tareasCreadas ?? (_tareasCreadas = new List<Tarea>()); }
-            set { _tareasCreadas = value; }
-        }
+        public ICollection<Tarea> TareasCreadas { get; set; }
+        public ICollection<Tarea> TareasAsignadas { get; set; }
 
-
-        [ForeignKey("AsignadoAId")]
-        public virtual ICollection<Tarea> TareasAsignadas
-        {
-            get { return _tareasAsignadas ?? (_tareasAsignadas = new List<Tarea>()); }
-            set { _tareasAsignadas = value; }
-        }
+        public virtual Perfil Perfil { get; set; }
 
         #endregion
     }

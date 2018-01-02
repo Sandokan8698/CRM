@@ -43,8 +43,8 @@
   <ItemGroup>
     <Compile Include="Entities\Claim.cs" />
     <Compile Include="Entities\ExternalLogin.cs" />
-    <Compile Include="Entities\Gerente.cs" />
-    <Compile Include="Entities\Group.cs" />
+    <Compile Include="Entities\Gerencia.cs" />
+    <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Tarea.cs" />
     <Compile Include="Entities\User.cs" />

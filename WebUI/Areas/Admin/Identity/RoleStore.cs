@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity;
 
 namespace WebUI.Areas.Admin.Identity
 {
-    public class RoleStore : IRoleStore<IdentityRole, Guid>, IQueryableRoleStore<IdentityRole, Guid>, IDisposable
+    public class RoleStore : IRoleStore<IdentityRole, int>, IQueryableRoleStore<IdentityRole, int>, IDisposable
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -39,7 +39,7 @@ namespace WebUI.Areas.Admin.Identity
             return _unitOfWork.SaveChangesAsync();
         }
 
-        public System.Threading.Tasks.Task<IdentityRole> FindByIdAsync(Guid roleId)
+        public System.Threading.Tasks.Task<IdentityRole> FindByIdAsync(int roleId)
         {
             var role = _unitOfWork.RoleRepository.FindById(roleId);
             return Task.FromResult<IdentityRole>(getIdentityRole(role));

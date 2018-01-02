@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Data;
 using Data.Abstract;
-using Domain.Entities;
 using WebUI.Controllers;
+using Domain.Entities;
 
 namespace WebUI.Areas.Crm.Controllers
 {
@@ -19,6 +20,10 @@ namespace WebUI.Areas.Crm.Controllers
 
         public ActionResult Index()
         {
+
+
+            var usuarios = _unitOfWork.UserRepository.GetAll();
+
             var tareas = _unitOfWork.TareaRepository.GetAll();
             return View(tareas);
         }
@@ -40,8 +45,7 @@ namespace WebUI.Areas.Crm.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    tarea.AsignadoA = _unitOfWork.UserRepository.FindById(tarea.AsignadoAId);
-                    tarea.CreadoPor = _unitOfWork.UserRepository.FindById(tarea.CreadoPorId);
+                   
                     _unitOfWork.TareaRepository.Add(tarea);
                     _unitOfWork.SaveChanges();
                 }
@@ -52,8 +56,9 @@ namespace WebUI.Areas.Crm.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception e)
             {
+                
                 return View(tarea);
             }
         }

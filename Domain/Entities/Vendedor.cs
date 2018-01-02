@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
 {
     [Table("Vendedor")]
-    public class Vendedor: User
+    public class Vendedor: Perfil
     {
-        public virtual ICollection<Tarea> TareasAsignadas { get; set; }
+        public decimal PresuspuestoAsignado { get; set; }
+        public int PefilId { get; set; }
     }
 }

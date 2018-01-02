@@ -3,11 +3,11 @@ using Microsoft.AspNet.Identity;
 
 namespace WebUI.Areas.Admin.Identity
 {
-    public class IdentityRole : IRole<Guid>
+    public class IdentityRole : IRole<int>
     {
         public IdentityRole()
         {
-            this.Id = Guid.NewGuid();
+           
         }
 
         public IdentityRole(string name)
@@ -16,13 +16,13 @@ namespace WebUI.Areas.Admin.Identity
             this.Name = name;
         }
 
-        public IdentityRole(string name, Guid id)
+        public IdentityRole(string name, int id)
         {
             this.Name = name;
             this.Id = id;
         }
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

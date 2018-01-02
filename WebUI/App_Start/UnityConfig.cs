@@ -24,7 +24,7 @@ namespace WebUI
            
 
             container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager());
-            container.RegisterType<IUserStore<IdentityUser, System.Guid>, UserStore>(new TransientLifetimeManager());
+            container.RegisterType<IUserStore<IdentityUser,int>, UserStore>(new TransientLifetimeManager());
             container.RegisterType<RoleStore>(new TransientLifetimeManager());
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));

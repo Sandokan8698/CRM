@@ -23,10 +23,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CreadoPorId)
+            @Html.DisplayFor(modelItem => item.CreadoPor.UserName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AsignadoAId)
+            @Html.DisplayFor(modelItem => item.AsignadoA.UserName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TareaId }) |

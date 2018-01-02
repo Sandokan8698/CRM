@@ -13,6 +13,7 @@ using Domain.Entities;
 
 namespace Data
 {
+    
     public class CRMContex: DbContext
     {
         public CRMContex():base("name=CRM")
@@ -22,20 +23,31 @@ namespace Data
         }
         
 
-    public DbSet<User> UserDbSet { get; set; }
+        public DbSet<User> UserDbSet { get; set; }
         public DbSet<Claim> ClaimDbSet { get; set; }
         public DbSet<ExternalLogin> ExternalLoginDbSet { get; set; }
         public DbSet<Role> RoleDbSet { get; set; }
         public DbSet<Tarea> TareaDbSet { get; set; }
-        public DbSet<Vendedor> VendedorDbSet { get; set; }
-        public DbSet<Group> GroupDbSet { get; set; }
-        public DbSet<Gerente> GerenteDbSet { get; set; }
-            
+        public DbSet<Perfil> PefilDbset { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            
+
+            modelBuilder.Entity<Tarea>()
+                    .HasRequired(m => m.AsignadoA)
+                    .WithMany(t => t.TareasAsignadas)
+                    .HasForeignKey(m => m.AsignadoAId)
+                    .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Tarea>()
+                  .HasRequired(m => m.CreadoPor)
+                  .WithMany(t => t.TareasCreadas)
+                  .HasForeignKey(m => m.CreadoPorId)
+                  .WillCascadeOnDelete(false);
+
+
         }
     }
 }
