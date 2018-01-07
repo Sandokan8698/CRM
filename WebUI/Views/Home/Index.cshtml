@@ -1,0 +1,380 @@
+﻿@using System.Collections.Specialized
+<div class="content-box">
+    <!--START - Control panel above projects-->
+    <div class="os-tabs-w mx-4">
+        <div class="os-tabs-controls">
+            <ul class="nav nav-tabs upper">
+                <li class="nav-item"><a aria-expanded="false" class="nav-link" data-toggle="tab" href="#tab_overview"> Active</a></li>
+            </ul>
+            <ul class="nav nav-pills smaller hidden-md-down">
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" aria-expanded="false"> Today</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" aria-expanded="false"> 7 Days</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" aria-expanded="false"> 14 Days</a></li>
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#" aria-expanded="true"> Last Month</a></li>
+            </ul>
+        </div>
+    </div><!--END - Control panel above projects-->
+    <div class="row">
+
+        <div class="col-lg-7">
+            <div class="padded-lg">
+                <div class="element-wrapper">
+                    <h6 class="element-header">
+                        Recent Orders
+                    </h6>
+                    <div class="element-box-tp">
+                        <div class="controls-above-table">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="btn btn-sm btn-secondary" href="#">Download CSV</a><a class="btn btn-sm btn-secondary" href="#">Archive</a><a class="btn btn-sm btn-danger" href="#">Delete</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <form class="form-inline justify-content-sm-end">
+
+                                        <select class="form-control form-control-sm rounded bright">
+                                            <option selected="selected" value="">
+                                                Select Status
+                                            </option>
+                                            <option value="Pending">
+                                                Pending
+                                            </option>
+                                            <option value="Active">
+                                                Active
+                                            </option>
+                                            <option value="Cancelled">
+                                                Cancelled
+                                            </option>
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-lg table-v2 table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            <input class="form-control" type="checkbox">
+                                        </th>
+                                        <th>
+                                            Customer Name
+                                        </th>
+                                        <th>
+                                            Country
+                                        </th>
+                                        <th>
+                                            Order Total
+                                        </th>
+                                        <th>
+                                            Referral
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">
+                                            <input class="form-control" type="checkbox">
+                                        </td>
+                                        <td>
+                                            John Mayers
+                                        </td>
+                                        <td>
+                                            <img alt="" src="img/flags-icons/us.png" width="25px">
+                                        </td>
+                                        <td class="text-right">
+                                            $245
+                                        </td>
+                                        <td>
+                                            Organic
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="status-pill green" data-title="Complete" data-toggle="tooltip"></div>
+                                        </td>
+                                        <td class="row-actions">
+                                            <a href="#"><i class="os-icon os-icon-pencil-2"></i></a><a href="#"><i class="os-icon os-icon-link-3"></i></a><a class="danger" href="#"><i class="os-icon os-icon-database-remove"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <input class="form-control" type="checkbox">
+                                        </td>
+                                        <td>
+                                            Mike Astone
+                                        </td>
+                                        <td>
+                                            <img alt="" src="img/flags-icons/fr.png" width="25px">
+                                        </td>
+                                        <td class="text-right">
+                                            $154
+                                        </td>
+                                        <td>
+                                            Organic
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="status-pill red" data-title="Cancelled" data-toggle="tooltip"></div>
+                                        </td>
+                                        <td class="row-actions">
+                                            <a href="#"><i class="os-icon os-icon-pencil-2"></i></a><a href="#"><i class="os-icon os-icon-link-3"></i></a><a class="danger" href="#"><i class="os-icon os-icon-database-remove"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <input class="form-control" type="checkbox">
+                                        </td>
+                                        <td>
+                                            Kira Knight
+                                        </td>
+                                        <td>
+                                            <img alt="" src="img/flags-icons/us.png" width="25px">
+                                        </td>
+                                        <td class="text-right">
+                                            $23
+                                        </td>
+                                        <td>
+                                            Adwords
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="status-pill green" data-title="Complete" data-toggle="tooltip"></div>
+                                        </td>
+                                        <td class="row-actions">
+                                            <a href="#"><i class="os-icon os-icon-pencil-2"></i></a><a href="#"><i class="os-icon os-icon-link-3"></i></a><a class="danger" href="#"><i class="os-icon os-icon-database-remove"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <input class="form-control" type="checkbox">
+                                        </td>
+                                        <td>
+                                            Jessica Bloom
+                                        </td>
+                                        <td>
+                                            <img alt="" src="img/flags-icons/ca.png" width="25px">
+                                        </td>
+                                        <td class="text-right">
+                                            $112
+                                        </td>
+                                        <td>
+                                            Organic
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="status-pill green" data-title="Complete" data-toggle="tooltip"></div>
+                                        </td>
+                                        <td class="row-actions">
+                                            <a href="#"><i class="os-icon os-icon-pencil-2"></i></a><a href="#"><i class="os-icon os-icon-link-3"></i></a><a class="danger" href="#"><i class="os-icon os-icon-database-remove"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <input class="form-control" type="checkbox">
+                                        </td>
+                                        <td>
+                                            Gary Lineker
+                                        </td>
+                                        <td>
+                                            <img alt="" src="img/flags-icons/ca.png" width="25px">
+                                        </td>
+                                        <td class="text-right">
+                                            $64
+                                        </td>
+                                        <td>
+                                            Organic
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="status-pill yellow" data-title="Pending" data-toggle="tooltip"></div>
+                                        </td>
+                                        <td class="row-actions">
+                                            <a href="#"><i class="os-icon os-icon-pencil-2"></i></a><a href="#"><i class="os-icon os-icon-link-3"></i></a><a class="danger" href="#"><i class="os-icon os-icon-database-remove"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="controls-below-table">
+                            <div class="table-records-info">
+                                Showing records 1 - 5
+                            </div>
+                            <div class="table-records-pages">
+                                <ul>
+                                    <li>
+                                        <a href="#">Previous</a>
+                                    </li>
+                                    <li>
+                                        <a class="current" href="#">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">4</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-5 b-l-lg">
+            <div class="padded-lg">
+                <!--START - Projects Statistics-->
+                <div class="element-wrapper">
+                    <div class="element-actions">
+                        <form class="form-inline justify-content-sm-end">
+                            <select class="form-control form-control-sm rounded"><option value="Pending">Today</option><option value="Active">Last Week </option><option value="Cancelled">Last 30 Days</option></select>
+                        </form>
+                    </div><h6 class="element-header">Project Statistics</h6>
+                    <div class="element-box">
+                        <div class="padded m-b">
+                            <div class="centered-header">
+                                <h6>Period Statistics</h6>
+                            </div>
+
+                            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+                        </div>
+                        <div class="padded m-b">
+                            <div class="centered-header">
+                                <h6>Completions</h6>
+                            </div>
+                            <div class="os-progress-bar primary">
+                                <div class="bar-labels">
+                                    <div class="bar-label-left">
+                                        <span>Progress</span><span class="positive">+12</span>
+                                    </div>
+                                    <div class="bar-label-right">
+                                        <span class="info">72/100</span>
+                                    </div>
+                                </div>
+                                <div class="bar-level-1" style="width: 100%">
+                                    <div class="bar-level-2" style="width: 72%">
+                                        <div class="bar-level-3" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="os-progress-bar primary">
+                                <div class="bar-labels">
+                                    <div class="bar-label-left">
+                                        <span>Progress</span><span class="negative">-5</span>
+                                    </div>
+                                    <div class="bar-label-right">
+                                        <span class="info">54/100</span>
+                                    </div>
+                                </div>
+                                <div class="bar-level-1" style="width: 100%">
+                                    <div class="bar-level-2" style="width: 54%">
+                                        <div class="bar-level-3" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="os-progress-bar primary">
+                                <div class="bar-labels">
+                                    <div class="bar-label-left">
+                                        <span>Progress</span><span class="positive">+5</span>
+                                    </div>
+                                    <div class="bar-label-right">
+                                        <span class="info">86/100</span>
+                                    </div>
+                                </div>
+                                <div class="bar-level-1" style="width: 100%">
+                                    <div class="bar-level-2" style="width: 86%">
+                                        <div class="bar-level-3" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="padded">
+                            <div class="centered-header">
+                                <h6>Tasks Closed</h6>
+                            </div>
+                            <div class="el-chart-w">
+                                <iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe><canvas height="267" id="liteLineChart" width="618" style="display: block; width: 618px; height: 267px;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--END - Projects Statistics-->
+            </div>
+        </div>
+    </div>
+    <!--------------------
+    START - Chat Popup Box
+    -------------------->
+    <div class="floated-chat-btn">
+        <i class="os-icon os-icon-mail-07"></i>
+        <span>Demo Chat</span>
+    </div><div class="floated-chat-w">
+        <div class="floated-chat-i">
+            <div class="chat-close"><i class="os-icon os-icon-close"></i></div>
+            <div class="chat-head">
+                <div class="user-w with-status status-green">
+                    <div class="user-avatar-w">
+
+                        <div class="user-avatar">
+                            <img alt="" src="img/avatar1.jpg">
+                        </div>
+                    </div><div class="user-name">
+                        <h6 class="user-title">John Mayers</h6>
+                        <div class="user-role">Account Manager</div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-messages ps ps--theme_default" data-ps-id="9a4c0262-3034-bc21-6cf6-237c9bc84926">
+                <div class="message">
+                    <div class="message-content">Hi, how can I help you?</div>
+                </div>
+                <div class="date-break">Mon 10:20am</div>
+                <div class="message">
+                    <div class="message-content">Hi, my name is Mike, I will be happy to assist you</div>
+                </div>
+                <div class="message self"><div class="message-content">Hi, I tried ordering this product and it keeps showing me error code.</div></div><div class="ps__scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps__scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps__scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+            </div><div class="chat-controls"><input class="message-input" placeholder="Type your message here..." type="text"><div class="chat-extra"><a href="#"><span class="extra-tooltip">Attach Document</span><i class="os-icon os-icon-documents-07"></i></a><a href="#"><span class="extra-tooltip">Insert Photo</span><i class="os-icon os-icon-others-29"></i></a><a href="#"><span class="extra-tooltip">Upload Video</span><i class="os-icon os-icon-ui-51"></i></a></div></div>
+        </div>
+    </div>
+    <!--------------------
+    END - Chat Popup Box
+    -------------------->
+</div>
+@section Scripts
+{
+    
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+ }
+
+<script>
+    window.onload = function() {
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title: {
+                text: "Desktop Search Engine Market Share - 2016"
+            },
+            data: [{
+                type: "pie",
+                startAngle: 240,
+                yValueFormatString: "##0.00\"%\"",
+                indexLabel: "{label} {y}",
+                dataPoints: [
+                    {y: 79.45, label: "Google"},
+                    {y: 7.31, label: "Bing"},
+                    {y: 7.06, label: "Baidu"},
+                    {y: 4.91, label: "Yahoo"},
+                    {y: 1.26, label: "Others"}
+                ]
+            }]
+        });
+        chart.render();
+
+    }
+</script>

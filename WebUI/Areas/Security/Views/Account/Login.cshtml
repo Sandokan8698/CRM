@@ -1,0 +1,75 @@
+﻿@model WebUI.Areas.Security.Models.LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard HTML Template</title>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="template language" name="keywords">
+    <meta content="Tamerlan Soziev" name="author">
+    <meta content="Admin dashboard html template" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="favicon.png" rel="shortcut icon">
+    <link href="apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="//fast.fonts.net/cssapi/175a63a1-3f26-476a-ab32-4e21cbdb8be2.css" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/bower_components/select2/dist/css/select2.min.css")" rel="stylesheet">
+    <link href=@Url.Content("~/bower_components/bootstrap-daterangepicker/daterangepicker.css") rel="stylesheet">
+    <link href=@Url.Content("~/bower_components/dropzone/dist/dropzone.css") rel="stylesheet">
+    <link href=@Url.Content("~/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css") rel="stylesheet">
+    <link href=@Url.Content("~/bower_components/fullcalendar/dist/fullcalendar.min.css") rel="stylesheet">
+    <link href=@Url.Content("~/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css") rel="stylesheet">
+    <link href="@Url.Content("~/Content/main.css?version=2.6")" rel="stylesheet">
+</head>
+<body class="auth-wrapper">
+    <div class="all-wrapper menu-side with-pattern">
+        <div class="auth-box-w">
+            <div class="logo-w">
+                <a href="index.html"><img alt="" src="@Url.Content("~/img/logo-big.png")"></a>
+            </div>
+            <h4 class="auth-header">
+                Login Form
+            </h4>
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+
+                <div class="form-group">
+                    <label for="">Nomrbe Usuario</label>
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Entre su nombre de usuario" })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                    <div class="pre-icon os-icon os-icon-user-male-circle"></div>
+                </div>
+                <div class="form-group">
+                    <label for="">Contraseña</label>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Entre su contraseña" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                    <div class="pre-icon os-icon os-icon-fingerprint"></div>
+                </div>
+                <div class="buttons-w">
+                    <button class="btn btn-primary">Ingresar</button>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            Recordarme
+                        </label>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    @Scripts.Render("~/bundles/jqueryval")
+    </script>
+</body>
+</html>
+
+
