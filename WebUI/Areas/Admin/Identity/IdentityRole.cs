@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNet.Identity;
 
-namespace WebUI.Areas.Security.Identity
+namespace WebUI.Areas.Admin.Identity
 {
     public class IdentityRole : IRole<Guid>
     {

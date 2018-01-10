@@ -5,7 +5,7 @@ using Data.Abstract;
 using Domain.Entities;
 using Microsoft.AspNet.Identity;
 
-namespace WebUI.Areas.Security.Identity
+namespace WebUI.Areas.Admin.Identity
 {
     public class RoleStore : IRoleStore<IdentityRole, Guid>, IQueryableRoleStore<IdentityRole, Guid>, IDisposable
     {

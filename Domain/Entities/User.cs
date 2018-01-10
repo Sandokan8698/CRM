@@ -11,6 +11,8 @@ namespace Domain.Entities
         private ICollection<Claim> _claims;
         private ICollection<ExternalLogin> _externalLogins;
         private ICollection<Role> _roles;
+        private ICollection<Tarea> _tareasCreadas;
+        private ICollection<Tarea> _tareasAsignadas;
         #endregion
 
         #region Scalar Properties
@@ -50,6 +52,22 @@ namespace Domain.Entities
             get { return _roles ?? (_roles = new List<Role>()); }
             set { _roles = value; }
         }
+
+        [ForeignKey("CreadoPorId")]
+        public virtual ICollection<Tarea> TareasCreadas
+        {
+            get { return _tareasCreadas ?? (_tareasCreadas = new List<Tarea>()); }
+            set { _tareasCreadas = value; }
+        }
+
+
+        [ForeignKey("AsignadoAId")]
+        public virtual ICollection<Tarea> TareasAsignadas
+        {
+            get { return _tareasAsignadas ?? (_tareasAsignadas = new List<Tarea>()); }
+            set { _tareasAsignadas = value; }
+        }
+
         #endregion
     }
 }

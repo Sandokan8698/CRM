@@ -20,20 +20,17 @@
             <div class="padded-lg">
                 <div class="element-wrapper">
                     <h6 class="element-header">
-                        Recent Orders
+                       Tareas
                     </h6>
                     <div class="element-box-tp">
                         <div class="controls-above-table">
                             <div class="row">
+                                
                                 <div class="col-sm-6">
-                                    <a class="btn btn-sm btn-secondary" href="#">Download CSV</a><a class="btn btn-sm btn-secondary" href="#">Archive</a><a class="btn btn-sm btn-danger" href="#">Delete</a>
-                                </div>
-                                <div class="col-sm-6">
-                                    <form class="form-inline justify-content-sm-end">
-
+                                    <form class="form-inline ">
                                         <select class="form-control form-control-sm rounded bright">
                                             <option selected="selected" value="">
-                                                Select Status
+                                               Seleccionar Estado
                                             </option>
                                             <option value="Pending">
                                                 Pending
@@ -41,6 +38,7 @@
                                             <option value="Active">
                                                 Active
                                             </option>
+
                                             <option value="Cancelled">
                                                 Cancelled
                                             </option>
@@ -242,7 +240,7 @@
                                 <h6>Period Statistics</h6>
                             </div>
 
-                            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                            <div id="chartContainer" style="height: 250px; width: 100%;"></div>
 
                         </div>
                         <div class="padded m-b">
@@ -358,7 +356,7 @@
         var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             title: {
-                text: "Desktop Search Engine Market Share - 2016"
+                text: ""
             },
             data: [{
                 type: "pie",
@@ -366,11 +364,8 @@
                 yValueFormatString: "##0.00\"%\"",
                 indexLabel: "{label} {y}",
                 dataPoints: [
-                    {y: 79.45, label: "Google"},
-                    {y: 7.31, label: "Bing"},
-                    {y: 7.06, label: "Baidu"},
-                    {y: 4.91, label: "Yahoo"},
-                    {y: 1.26, label: "Others"}
+                    {y: 80, label: "Presupuesto T."},
+                    {y: 20, label: "Logrado"}              
                 ]
             }]
         });

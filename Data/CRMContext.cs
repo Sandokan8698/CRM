@@ -17,8 +17,8 @@ namespace Data
     {
         public CRMContex():base("name=CRM")
         {
-            this.Configuration.LazyLoadingEnabled = false;
-            this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = true;
+            this.Configuration.ProxyCreationEnabled = true;
         }
         
 
@@ -26,6 +26,10 @@ namespace Data
         public DbSet<Claim> ClaimDbSet { get; set; }
         public DbSet<ExternalLogin> ExternalLoginDbSet { get; set; }
         public DbSet<Role> RoleDbSet { get; set; }
+        public DbSet<Tarea> TareaDbSet { get; set; }
+        public DbSet<Vendedor> VendedorDbSet { get; set; }
+        public DbSet<Group> GroupDbSet { get; set; }
+        public DbSet<Gerente> GerenteDbSet { get; set; }
             
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

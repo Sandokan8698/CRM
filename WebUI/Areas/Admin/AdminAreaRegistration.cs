@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace WebUI.Areas.Security
+namespace WebUI.Areas.Admin
 {
-    public class SecurityAreaRegistration : AreaRegistration 
+    public class AdminAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Security";
+                return "Admin";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Security_default",
-                "Security/{controller}/{action}/{id}",
+                "Admin_default",
+                "Admin/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

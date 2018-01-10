@@ -10,6 +10,7 @@ namespace Data.Abstract
         IExternalLoginRepository ExternalLoginRepository { get; }
         IRoleRepository RoleRepository { get; }
         IUserRepository UserRepository { get; }
+        ITareaRepository TareaRepository { get; }
         #endregion
 
         #region Methods

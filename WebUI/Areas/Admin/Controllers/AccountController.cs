@@ -4,11 +4,10 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-using WebUI.Areas.Security.Identity;
-using WebUI.Areas.Security.Models;
+using WebUI.Areas.Admin.Identity;
+using WebUI.Areas.Admin.Models;
 
-
-namespace WebUI.Areas.Security.Controllers
+namespace WebUI.Areas.Admin.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -81,7 +80,7 @@ namespace WebUI.Areas.Security.Controllers
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home", new {area = ""});
                 }
                 else
                 {

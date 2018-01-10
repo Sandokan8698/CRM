@@ -9,7 +9,7 @@ namespace Data.Implementations
 {
     internal class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        private CRMContex _context;
+        protected CRMContex _context;
         private DbSet<TEntity> _set;
 
         internal Repository(CRMContex context)
@@ -22,7 +22,7 @@ namespace Data.Implementations
             get { return _set ?? (_set = _context.Set<TEntity>()); }
         }
 
-        public List<TEntity> GetAll()
+        public virtual List<TEntity> GetAll()
         {
             return Set.ToList();
         }

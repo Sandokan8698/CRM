@@ -6,7 +6,7 @@ using Unity;
 using Unity.Injection;
 using Unity.Lifetime;
 using Unity.Mvc5;
-using WebUI.Areas.Security.Identity;
+using WebUI.Areas.Admin.Identity;
 
 namespace WebUI
 {

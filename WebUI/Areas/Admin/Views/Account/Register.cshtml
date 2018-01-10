@@ -1,0 +1,51 @@
+﻿@model WebUI.Areas.Admin.Models.RegisterViewModel
+
+<div class="content-box">
+    <div class="row">
+        <div class="col-lg-6">
+            
+            <div class="element-wrapper"><h6 class="element-header">Usuario</h6>
+                <div class="element-box">
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new {role = "form" }))
+                    {
+                        <h5 class="form-header">Crear usuario:</h5>
+                        <div class="form-desc">Los campos marcados con * son obligatorios</div>
+
+
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary()
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserName, new {@class = "control-label"}) *
+                            @Html.TextBoxFor(m => m.UserName, new {@class = "form-control", @placeholder = "Nombre de usuario"})
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new {@class = "control-label"}) *
+                            @Html.PasswordFor(m => m.Password, new {@class = "form-control", @placeholder = "Contraseña"})
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword, new {@class = "control-label"}) *
+                            @Html.PasswordFor(m => m.ConfirmPassword, new {@class = "form-control", @placeholder = "Confirmar contraseña"})
+                        </div>
+
+                        <div class="form-buttons-w">
+                            <button class="btn btn-primary" type="submit"> Submit</button>
+                        </div>
+                    }
+                        
+                    
+                </div>
+            </div>
+        </div>
+    </div>        
+</div>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

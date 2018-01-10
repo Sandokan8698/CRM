@@ -1,3 +1,5 @@
+using Domain.Entities;
+
 namespace Data.Migrations
 {
     using System;
@@ -18,6 +20,17 @@ namespace Data.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+
+            var usuario = context.UserDbSet.FirstOrDefault();
+            var vendedor = new Vendedor {UserName = usuario.UserName, PasswordHash = usuario.PasswordHash, SecurityStamp =  usuario.SecurityStamp, UserId = Guid.NewGuid()};
+            var gerente = new Gerente{UserName = usuario.UserName, PasswordHash = usuario.PasswordHash, SecurityStamp =  usuario.SecurityStamp, UserId = Guid.NewGuid()};
+            
+            
+
+            context.VendedorDbSet.AddOrUpdate(vendedor);
+            context.GerenteDbSet.AddOrUpdate(gerente);
+
+            context.GroupDbSet.AddOrUpdate(new Group {GroupId = 1, UserId =  vendedor.UserId});
         }
     }
 }

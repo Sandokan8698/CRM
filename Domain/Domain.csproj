@@ -43,8 +43,12 @@
   <ItemGroup>
     <Compile Include="Entities\Claim.cs" />
     <Compile Include="Entities\ExternalLogin.cs" />
+    <Compile Include="Entities\Gerente.cs" />
+    <Compile Include="Entities\Group.cs" />
     <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Tarea.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\Vendedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

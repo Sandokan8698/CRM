@@ -10,6 +10,7 @@ namespace Data.Implementations
         private IExternalLoginRepository _externalLoginRepository;
         private IRoleRepository _roleRepository;
         private IUserRepository _userRepository;
+        private ITareaRepository _tareaRepository;
         #endregion
 
         #region Constructors
@@ -33,6 +34,11 @@ namespace Data.Implementations
         public IUserRepository UserRepository
         {
             get { return _userRepository ?? (_userRepository = new UserRepository(_context)); }
+        }
+
+        public ITareaRepository TareaRepository
+        {
+            get { return _tareaRepository ?? (_tareaRepository = new TareaRepository(_context)); }
         }
 
         public int SaveChanges()

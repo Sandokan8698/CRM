@@ -221,17 +221,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
-    <Compile Include="Areas\Security\Controllers\AccountController.cs" />
-    <Compile Include="Areas\Security\SecurityAreaRegistration.cs" />
-    <Compile Include="Areas\Security\Models\AccountViewModels.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Models\AccountViewModels.cs" />
+    <Compile Include="Areas\Crm\Controllers\TareaController.cs" />
+    <Compile Include="Areas\Crm\CrmAreaRegistration.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Security\Identity\IdentityRole.cs" />
-    <Compile Include="Areas\Security\Identity\IdentityUser.cs" />
-    <Compile Include="Areas\Security\Identity\RoleStore.cs" />
-    <Compile Include="Areas\Security\Identity\UserStore.cs" />
+    <Compile Include="Areas\Admin\Identity\IdentityRole.cs" />
+    <Compile Include="Areas\Admin\Identity\IdentityUser.cs" />
+    <Compile Include="Areas\Admin\Identity\RoleStore.cs" />
+    <Compile Include="Areas\Admin\Identity\UserStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -4630,17 +4633,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\Security\Views\web.config" />
-    <Content Include="Areas\Security\Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Areas\Security\Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Areas\Security\Views\Account\_RemoveAccountPartial.cshtml" />
-    <Content Include="Areas\Security\Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Areas\Security\Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Areas\Security\Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Areas\Security\Views\Account\Login.cshtml" />
-    <Content Include="Areas\Security\Views\Account\Manage.cshtml" />
-    <Content Include="Areas\Security\Views\Account\Register.cshtml" />
-    <Content Include="Areas\Security\Views\_ViewStart.cshtml" />
     <Content Include="bower_components\blueimp-canvas-to-blob\.bower.json" />
     <Content Include="bower_components\blueimp-canvas-to-blob\.npmignore" />
     <Content Include="bower_components\blueimp-canvas-to-blob\.travis.yml" />
@@ -5135,6 +5127,22 @@
     <Content Include="bower_components\dragula.js\license" />
     <Content Include="bower_components\dragula.js\package.json" />
     <Content Include="bower_components\dragula.js\readme.markdown" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Manage.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Crm\Views\web.config" />
+    <Content Include="Areas\Crm\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Crm\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Crm\Views\Tarea\Index.cshtml" />
+    <Content Include="Areas\Crm\Views\Tarea\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -5175,7 +5183,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Security\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Crm\Models\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

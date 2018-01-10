@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity;
 using Claim = System.Security.Claims.Claim;
 using Entities = Domain.Entities;
 
-namespace WebUI.Areas.Security.Identity
+namespace WebUI.Areas.Admin.Identity
 {
     public class UserStore : IUserLoginStore<IdentityUser, Guid>, IUserClaimStore<IdentityUser, Guid>, IUserRoleStore<IdentityUser, Guid>, IUserPasswordStore<IdentityUser, Guid>, IUserSecurityStampStore<IdentityUser, Guid>, IUserStore<IdentityUser, Guid>, IDisposable
     {
