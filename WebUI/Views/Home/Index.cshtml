@@ -1,375 +1,698 @@
-﻿@using System.Collections.Specialized
-<div class="content-box">
-    <!--START - Control panel above projects-->
-    <div class="os-tabs-w mx-4">
-        <div class="os-tabs-controls">
-            <ul class="nav nav-tabs upper">
-                <li class="nav-item"><a aria-expanded="false" class="nav-link" data-toggle="tab" href="#tab_overview"> Active</a></li>
-            </ul>
-            <ul class="nav nav-pills smaller hidden-md-down">
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" aria-expanded="false"> Today</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" aria-expanded="false"> 7 Days</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" aria-expanded="false"> 14 Days</a></li>
-                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#" aria-expanded="true"> Last Month</a></li>
-            </ul>
-        </div>
-    </div><!--END - Control panel above projects-->
-    <div class="row">
+﻿<div class="row">
+    <div class="col-md-3">
 
-        <div class="col-lg-7">
-            <div class="padded-lg">
-                <div class="element-wrapper">
-                    <h6 class="element-header">
-                       Tareas
-                    </h6>
-                    <div class="element-box-tp">
-                        <div class="controls-above-table">
-                            <div class="row">
-                                
-                                <div class="col-sm-6">
-                                    <form class="form-inline ">
-                                        <select class="form-control form-control-sm rounded bright">
-                                            <option selected="selected" value="">
-                                               Seleccionar Estado
-                                            </option>
-                                            <option value="Pending">
-                                                Pending
-                                            </option>
-                                            <option value="Active">
-                                                Active
-                                            </option>
-
-                                            <option value="Cancelled">
-                                                Cancelled
-                                            </option>
-                                        </select>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-lg table-v2 table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">
-                                            <input class="form-control" type="checkbox">
-                                        </th>
-                                        <th>
-                                            Customer Name
-                                        </th>
-                                        <th>
-                                            Country
-                                        </th>
-                                        <th>
-                                            Order Total
-                                        </th>
-                                        <th>
-                                            Referral
-                                        </th>
-                                        <th>
-                                            Status
-                                        </th>
-                                        <th>
-                                            Actions
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center">
-                                            <input class="form-control" type="checkbox">
-                                        </td>
-                                        <td>
-                                            John Mayers
-                                        </td>
-                                        <td>
-                                            <img alt="" src="img/flags-icons/us.png" width="25px">
-                                        </td>
-                                        <td class="text-right">
-                                            $245
-                                        </td>
-                                        <td>
-                                            Organic
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="status-pill green" data-title="Complete" data-toggle="tooltip"></div>
-                                        </td>
-                                        <td class="row-actions">
-                                            <a href="#"><i class="os-icon os-icon-pencil-2"></i></a><a href="#"><i class="os-icon os-icon-link-3"></i></a><a class="danger" href="#"><i class="os-icon os-icon-database-remove"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">
-                                            <input class="form-control" type="checkbox">
-                                        </td>
-                                        <td>
-                                            Mike Astone
-                                        </td>
-                                        <td>
-                                            <img alt="" src="img/flags-icons/fr.png" width="25px">
-                                        </td>
-                                        <td class="text-right">
-                                            $154
-                                        </td>
-                                        <td>
-                                            Organic
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="status-pill red" data-title="Cancelled" data-toggle="tooltip"></div>
-                                        </td>
-                                        <td class="row-actions">
-                                            <a href="#"><i class="os-icon os-icon-pencil-2"></i></a><a href="#"><i class="os-icon os-icon-link-3"></i></a><a class="danger" href="#"><i class="os-icon os-icon-database-remove"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">
-                                            <input class="form-control" type="checkbox">
-                                        </td>
-                                        <td>
-                                            Kira Knight
-                                        </td>
-                                        <td>
-                                            <img alt="" src="img/flags-icons/us.png" width="25px">
-                                        </td>
-                                        <td class="text-right">
-                                            $23
-                                        </td>
-                                        <td>
-                                            Adwords
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="status-pill green" data-title="Complete" data-toggle="tooltip"></div>
-                                        </td>
-                                        <td class="row-actions">
-                                            <a href="#"><i class="os-icon os-icon-pencil-2"></i></a><a href="#"><i class="os-icon os-icon-link-3"></i></a><a class="danger" href="#"><i class="os-icon os-icon-database-remove"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">
-                                            <input class="form-control" type="checkbox">
-                                        </td>
-                                        <td>
-                                            Jessica Bloom
-                                        </td>
-                                        <td>
-                                            <img alt="" src="img/flags-icons/ca.png" width="25px">
-                                        </td>
-                                        <td class="text-right">
-                                            $112
-                                        </td>
-                                        <td>
-                                            Organic
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="status-pill green" data-title="Complete" data-toggle="tooltip"></div>
-                                        </td>
-                                        <td class="row-actions">
-                                            <a href="#"><i class="os-icon os-icon-pencil-2"></i></a><a href="#"><i class="os-icon os-icon-link-3"></i></a><a class="danger" href="#"><i class="os-icon os-icon-database-remove"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">
-                                            <input class="form-control" type="checkbox">
-                                        </td>
-                                        <td>
-                                            Gary Lineker
-                                        </td>
-                                        <td>
-                                            <img alt="" src="img/flags-icons/ca.png" width="25px">
-                                        </td>
-                                        <td class="text-right">
-                                            $64
-                                        </td>
-                                        <td>
-                                            Organic
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="status-pill yellow" data-title="Pending" data-toggle="tooltip"></div>
-                                        </td>
-                                        <td class="row-actions">
-                                            <a href="#"><i class="os-icon os-icon-pencil-2"></i></a><a href="#"><i class="os-icon os-icon-link-3"></i></a><a class="danger" href="#"><i class="os-icon os-icon-database-remove"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="controls-below-table">
-                            <div class="table-records-info">
-                                Showing records 1 - 5
-                            </div>
-                            <div class="table-records-pages">
-                                <ul>
-                                    <li>
-                                        <a href="#">Previous</a>
-                                    </li>
-                                    <li>
-                                        <a class="current" href="#">1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">4</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Next</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+        <ul class="app-feature-gallery app-feature-gallery-noshadow margin-bottom-0">
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile">
+                    <div class="line">
+                        <div class="title">Sales Per Month</div>
+                        <div class="title pull-right"><span class="label label-success label-ghost label-bordered">+14.2%</span></div>
+                    </div>
+                    <div class="intval">9,427</div>
+                    <div class="line">
+                        <div class="subtitle">Total items sold</div>
+                        <div class="subtitle pull-right text-success"><span class="icon-arrow-up"></span> good</div>
                     </div>
                 </div>
-            </div>
-
-        </div>
-        <div class="col-lg-5 b-l-lg">
-            <div class="padded-lg">
-                <!--START - Projects Statistics-->
-                <div class="element-wrapper">
-                    <div class="element-actions">
-                        <form class="form-inline justify-content-sm-end">
-                            <select class="form-control form-control-sm rounded"><option value="Pending">Today</option><option value="Active">Last Week </option><option value="Cancelled">Last 30 Days</option></select>
-                        </form>
-                    </div><h6 class="element-header">Project Statistics</h6>
-                    <div class="element-box">
-                        <div class="padded m-b">
-                            <div class="centered-header">
-                                <h6>Period Statistics</h6>
-                            </div>
-
-                            <div id="chartContainer" style="height: 250px; width: 100%;"></div>
-
-                        </div>
-                        <div class="padded m-b">
-                            <div class="centered-header">
-                                <h6>Completions</h6>
-                            </div>
-                            <div class="os-progress-bar primary">
-                                <div class="bar-labels">
-                                    <div class="bar-label-left">
-                                        <span>Progress</span><span class="positive">+12</span>
-                                    </div>
-                                    <div class="bar-label-right">
-                                        <span class="info">72/100</span>
-                                    </div>
-                                </div>
-                                <div class="bar-level-1" style="width: 100%">
-                                    <div class="bar-level-2" style="width: 72%">
-                                        <div class="bar-level-3" style="width: 25%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="os-progress-bar primary">
-                                <div class="bar-labels">
-                                    <div class="bar-label-left">
-                                        <span>Progress</span><span class="negative">-5</span>
-                                    </div>
-                                    <div class="bar-label-right">
-                                        <span class="info">54/100</span>
-                                    </div>
-                                </div>
-                                <div class="bar-level-1" style="width: 100%">
-                                    <div class="bar-level-2" style="width: 54%">
-                                        <div class="bar-level-3" style="width: 25%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="os-progress-bar primary">
-                                <div class="bar-labels">
-                                    <div class="bar-label-left">
-                                        <span>Progress</span><span class="positive">+5</span>
-                                    </div>
-                                    <div class="bar-label-right">
-                                        <span class="info">86/100</span>
-                                    </div>
-                                </div>
-                                <div class="bar-level-1" style="width: 100%">
-                                    <div class="bar-level-2" style="width: 86%">
-                                        <div class="bar-level-3" style="width: 25%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="padded">
-                            <div class="centered-header">
-                                <h6>Tasks Closed</h6>
-                            </div>
-                            <div class="el-chart-w">
-                                <iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe><canvas height="267" id="liteLineChart" width="618" style="display: block; width: 618px; height: 267px;"></canvas>
-                            </div>
-                        </div>
+                <!-- END WIDGET -->
+            </li>
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile">
+                    <div class="line">
+                        <div class="title">Sales Per Year</div>
+                        <div class="title pull-right text-success">+32.9%</div>
                     </div>
-                </div><!--END - Projects Statistics-->
-            </div>
-        </div>
+                    <div class="intval">24,834</div>
+                    <div class="line">
+                        <div class="subtitle">Total items sold</div>
+                        <div class="subtitle pull-right text-success"><span class="icon-arrow-up"></span> good</div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </li>
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile">
+                    <div class="line">
+                        <div class="title">Profit</div>
+                        <div class="title pull-right text-success">+9.2%</div>
+                    </div>
+                    <div class="intval">539,277 <small>usd</small></div>
+                    <div class="line">
+                        <div class="subtitle">Frofit for the year</div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </li>
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile">
+                    <div class="line">
+                        <div class="title">Outlay</div>
+                        <div class="title pull-right text-success">-12.7%</div>
+                    </div>
+                    <div class="intval">45,385<small>usd</small></div>
+                    <div class="line">
+                        <div class="subtitle">Statistic per year</div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </li>
+        </ul>
+
     </div>
-    <!--------------------
-    START - Chat Popup Box
-    -------------------->
-    <div class="floated-chat-btn">
-        <i class="os-icon os-icon-mail-07"></i>
-        <span>Demo Chat</span>
-    </div><div class="floated-chat-w">
-        <div class="floated-chat-i">
-            <div class="chat-close"><i class="os-icon os-icon-close"></i></div>
-            <div class="chat-head">
-                <div class="user-w with-status status-green">
-                    <div class="user-avatar-w">
+    <div class="col-md-3">
 
-                        <div class="user-avatar">
-                            <img alt="" src="img/avatar1.jpg">
-                        </div>
-                    </div><div class="user-name">
-                        <h6 class="user-title">John Mayers</h6>
-                        <div class="user-role">Account Manager</div>
+        <ul class="app-feature-gallery app-feature-gallery-noshadow margin-bottom-0">
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile app-widget-highlight">
+                    <div class="line">
+                        <div class="title">Visitors</div>
+                        <div class="title pull-right"><span class="label label-warning label-ghost label-bordered">-3.5%</span></div>
+                    </div>
+                    <div class="intval">99,573</div>
+                    <div class="line">
+                        <div class="subtitle">Visitors per month</div>
+                        <div class="subtitle pull-right text-warning"><span class="icon-arrow-down"></span> normal</div>
                     </div>
                 </div>
-            </div>
-            <div class="chat-messages ps ps--theme_default" data-ps-id="9a4c0262-3034-bc21-6cf6-237c9bc84926">
-                <div class="message">
-                    <div class="message-content">Hi, how can I help you?</div>
+                <!-- END WIDGET -->
+            </li>
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile app-widget-highlight">
+                    <div class="line">
+                        <div class="title">Returned</div>
+                        <div class="title pull-right text-success">67.1%</div>
+                    </div>
+                    <div class="intval">61,488</div>
+                    <div class="line">
+                        <div class="subtitle">Returned visitors per month</div>
+                        <div class="subtitle pull-right text-success"><span class="icon-arrow-up"></span></div>
+                    </div>
                 </div>
-                <div class="date-break">Mon 10:20am</div>
-                <div class="message">
-                    <div class="message-content">Hi, my name is Mike, I will be happy to assist you</div>
+                <!-- END WIDGET -->
+            </li>
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile app-widget-highlight">
+                    <div class="line">
+                        <div class="title">New</div>
+                        <div class="title pull-right text-success">33.9%</div>
+                    </div>
+                    <div class="intval">38,085</div>
+                    <div class="line">
+                        <div class="subtitle">New visitors per month</div>
+                        <div class="subtitle pull-right text-success"><span class="icon-arrow-up"></span></div>
+                    </div>
                 </div>
-                <div class="message self"><div class="message-content">Hi, I tried ordering this product and it keeps showing me error code.</div></div><div class="ps__scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps__scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps__scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
-            </div><div class="chat-controls"><input class="message-input" placeholder="Type your message here..." type="text"><div class="chat-extra"><a href="#"><span class="extra-tooltip">Attach Document</span><i class="os-icon os-icon-documents-07"></i></a><a href="#"><span class="extra-tooltip">Insert Photo</span><i class="os-icon os-icon-others-29"></i></a><a href="#"><span class="extra-tooltip">Upload Video</span><i class="os-icon os-icon-ui-51"></i></a></div></div>
-        </div>
+                <!-- END WIDGET -->
+            </li>
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile app-widget-highlight">
+                    <div class="line">
+                        <div class="title">Registred</div>
+                        <div class="title pull-right">+458</div>
+                    </div>
+                    <div class="intval">12,554</div>
+                    <div class="line">
+                        <div class="subtitle">Total registred users</div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </li>
+        </ul>
+
     </div>
-    <!--------------------
-    END - Chat Popup Box
-    -------------------->
+    <div class="col-md-3">
+
+        <ul class="app-feature-gallery app-feature-gallery-noshadow margin-bottom-0">
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile app-widget-highlight">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="icon icon-lg">
+                                <span class="icon-bubble"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="line">
+                                <div class="title">Messages</div>
+                                <div class="title pull-right"><span class="label label-success label-ghost label-bordered">3 NEW</span></div>
+                            </div>
+                            <div class="intval text-left">39 / 1,589</div>
+                            <div class="line">
+                                <div class="subtitle"><a href="#">Open all messages</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </li>
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile app-widget-highlight">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="icon icon-lg">
+                                <span class="icon-warning"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="line">
+                                <div class="title">Server Notifications</div>
+                            </div>
+                            <div class="intval text-left">14 / 631</div>
+                            <div class="line">
+                                <div class="subtitle"><a href="#">Open all notifications</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </li>
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile app-widget-highlight">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="icon icon-lg">
+                                <span class="icon-envelope"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="line">
+                                <div class="title">Inbox Mail</div>
+                            </div>
+                            <div class="intval text-left">2 / 481</div>
+                            <div class="line">
+                                <div class="subtitle"><a href="#">Open inbox messages</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </li>
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile app-widget-highlight">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="icon icon-lg">
+                                <span class="icon-users"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="line">
+                                <div class="title">Customers</div>
+                                <div class="title pull-right"><span class="label label-danger label-bordered">15 NEW</span></div>
+                            </div>
+                            <div class="intval text-left">6,233</div>
+                            <div class="line">
+                                <div class="subtitle"><a href="#">Open contact list</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </li>
+        </ul>
+
+    </div>
+    <div class="col-md-3">
+
+        <ul class="app-feature-gallery app-feature-gallery-noshadow margin-bottom-0">
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile app-widget-highlight">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="icon icon-lg">
+                                <span class="icon-cloud-check"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="line">
+                                <div class="title">Total Server Load</div>
+                                <div class="subtitle pull-right text-success"><span class="fa fa-check"></span> UP</div>
+                            </div>
+                            <div class="intval text-left">85.2%</div>
+                            <div class="line">
+                                <div class="subtitle">Latest back up: <a href="#">12/07/2016</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </li>
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile app-widget-highlight">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="icon icon-lg">
+                                <span class="icon-database"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="line">
+                                <div class="title">Database Load</div>
+                                <div class="subtitle pull-right text-success"><span class="fa fa-check"></span> UP</div>
+                            </div>
+                            <div class="intval text-left">43.16%</div>
+                            <div class="line">
+                                <div class="subtitle">4/10 databases used</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </li>
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile app-widget-highlight">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="icon icon-lg">
+                                <span class="icon-inbox text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="line">
+                                <div class="title">Disk Space</div>
+                                <div class="subtitle pull-right text-danger"><span class="fa fa-times"></span> Critical</div>
+                            </div>
+                            <div class="intval text-left">99.98%</div>
+                            <div class="line">
+                                <div class="subtitle">234.2GB / 240GB used</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </li>
+            <li>
+                <!-- START WIDGET -->
+                <div class="app-widget-tile app-widget-highlight">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="icon icon-lg">
+                                <span class="icon-heart-pulse"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="line">
+                                <div class="title">Proccessor</div>
+                                <div class="subtitle pull-right text-success"><span class="fa fa-check"></span> Normal</div>
+                            </div>
+                            <div class="intval text-left">32.5%</div>
+                            <div class="line">
+                                <div class="subtitle">Intule Cori P7, 3.6Ghz</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END WIDGET -->
+            </li>
+        </ul>
+
+    </div>
 </div>
-@section Scripts
-{
-    
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
- }
 
-<script>
-    window.onload = function() {
+<div class="row">
+    <div class="col-md-6">
 
-        var chart = new CanvasJS.Chart("chartContainer", {
-            animationEnabled: true,
-            title: {
-                text: ""
-            },
-            data: [{
-                type: "pie",
-                startAngle: 240,
-                yValueFormatString: "##0.00\"%\"",
-                indexLabel: "{label} {y}",
-                dataPoints: [
-                    {y: 80, label: "Presupuesto T."},
-                    {y: 20, label: "Logrado"}              
-                ]
-            }]
-        });
-        chart.render();
+        <!-- START PRODUCT SALES HISTORY -->
+        <div class="block block-condensed">
+            <div class="app-heading">
+                <div class="title">
+                    <h2>Product Sales History</h2>
+                    <p>In comparison with "Purchase Button"</p>
+                </div>
+                <div class="heading-elements">
+                    <button type="button" class="btn btn-default btn-icon-fixed dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="icon-calendar-full"></span> June 13, 2016 - July 14, 2016
+                    </button>
+                    <ul class="dropdown-menu dropdown-form dropdown-left">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6">
 
-    }
-</script>
+                                    <div class="form-group margin-bottom-10">
+                                        <label>From:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><span class="icon-calendar-full"></span></div>
+                                            <input type="text" class="form-control bs-datepicker" value="13/06/2016">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label>To:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><span class="icon-calendar-full"></span></div>
+                                            <input type="text" class="form-control bs-datepicker" value="13/07/2016">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button class="btn btn-default btn-block">Confirm</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block-content">
+                <div class="app-chart-wrapper app-chart-with-axis">
+                    <div id="yaxis" class="app-chart-yaxis"></div>
+                    <div class="app-chart-holder" id="dashboard-chart-line" style="height: 325px;"></div>
+                    <div id="xaxis" class="app-chart-xaxis"></div>
+                </div>
+            </div>
+        </div>
+        <!-- END PRODUCT SALES HISTORY -->
+
+    </div>
+    <div class="col-md-6">
+
+        <!-- START LATEST TRANSACTIONS -->
+        <div class="block block-condensed">
+            <div class="app-heading">
+                <div class="title">
+                    <h2>Latest Transactions</h2>
+                    <p>Quick information</p>
+                </div>
+                <div class="heading-elements">
+                    <button class="btn btn-default btn-icon-fixed"><span class="icon-file-add"></span> All Transactions</button>
+                </div>
+            </div>
+            <div class="block-content">
+                <div class="table-responsive">
+                    <table class="table table-clean-paddings margin-bottom-0">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th width="150">Order</th>
+                                <th width="150">Status</th>
+                                <th width="55"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="contact contact-rounded contact-bordered contact-lg">
+                                        <img src="assets/images/users/user_2.jpg">
+                                        <div class="contact-container">
+                                            <a href="#">John Doe</a>
+                                            <span>on July 13, 2016</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>SPW-955-21</td>
+                                <td><span class="label label-success label-bordered">Confirmed</span></td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></button>
+                                        <ul class="dropdown-menu dropdown-left">
+                                            <li><a href="#"><span class="icon-question-circle text-info"></span> More information</a></li>
+                                            <li><a href="#"><span class="icon-arrow-up-circle text-warning"></span> Promote to top</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="contact contact-rounded contact-bordered contact-lg">
+                                        <img src="assets/images/users/user_3.jpg">
+                                        <div class="contact-container">
+                                            <a href="#">Juan Obrien</a>
+                                            <span>on July 12, 2016</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>SPW-955-20</td>
+                                <td><span class="label label-warning label-bordered">Waiting payment</span></td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></button>
+                                        <ul class="dropdown-menu dropdown-left">
+                                            <li><a href="#"><span class="icon-question-circle text-info"></span> More information</a></li>
+                                            <li><a href="#"><span class="icon-arrow-up-circle text-warning"></span> Promote to top</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="contact contact-rounded contact-bordered contact-lg">
+                                        <img src="assets/images/users/user_4.jpg">
+                                        <div class="contact-container">
+                                            <a href="#">Erin Stewart</a>
+                                            <span>on July 12, 2016</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>SPW-955-18</td>
+                                <td><span class="label label-success label-bordered">Confirmed</span></td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></button>
+                                        <ul class="dropdown-menu dropdown-left">
+                                            <li><a href="#"><span class="icon-question-circle text-info"></span> More information</a></li>
+                                            <li><a href="#"><span class="icon-arrow-up-circle text-warning"></span> Promote to top</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="contact contact-rounded contact-bordered contact-lg">
+                                        <img src="assets/images/users/user_5.jpg">
+                                        <div class="contact-container">
+                                            <a href="#">Jeff Kuhn</a>
+                                            <span>on July 11, 2016</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>SPW-955-17</td>
+                                <td><span class="label label-danger label-bordered">Payment expired</span></td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></button>
+                                        <ul class="dropdown-menu dropdown-left">
+                                            <li><a href="#"><span class="icon-question-circle text-info"></span> More information</a></li>
+                                            <li><a href="#"><span class="icon-arrow-up-circle text-warning"></span> Promote to top</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="contact contact-rounded contact-bordered contact-lg">
+                                        <img src="assets/images/users/user_6.jpg">
+                                        <div class="contact-container">
+                                            <a href="#">Jared Stevens</a>
+                                            <span>on July 11, 2016</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>SPW-955-14</td>
+                                <td><span class="label label-primary label-bordered">Delivered</span></td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></button>
+                                        <ul class="dropdown-menu dropdown-left">
+                                            <li><a href="#"><span class="icon-question-circle text-info"></span> More information</a></li>
+                                            <li><a href="#"><span class="icon-arrow-up-circle text-warning"></span> Promote to top</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- END LATEST TRANSACTIONS -->
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+
+        <!-- START PURCHASE STATISTICS -->
+        <div class="block block-condensed">
+            <div class="app-heading">
+                <div class="title">
+                    <h2>Purchase Statistics</h2>
+                    <p>Who purchase products</p>
+                </div>
+                <div class="heading-elements">
+                    <button class="btn btn-default btn-icon-fixed"><span class="icon-sync"></span> Update</button>
+                </div>
+            </div>
+
+            <div class="block-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>20-25</label><span class="pull-right text-bold">37%</span>
+                            <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="37%">
+                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100" style="width: 37%"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>26-30</label><span class="pull-right text-bold">33%</span>
+                            <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="33%">
+                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>31-40</label><span class="pull-right text-bold">25%</span>
+                            <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="25%">
+                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>41-50</label><span class="pull-right text-bold">12%</span>
+                            <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="15%">
+                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width: 15%"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>51+</label><span class="pull-right text-bold">3%</span>
+                            <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="3%">
+                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="100" style="width: 3%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Male</label><span class="pull-right text-bold">75%</span>
+                            <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="75%">
+                                <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Female</label><span class="pull-right text-bold">25%</span>
+                            <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="25%">
+                                <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>&lt; $25</label><span class="pull-right text-bold">68%</span>
+                            <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="68%">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: 68%"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>> $26</label><span class="pull-right text-bold">22%</span>
+                            <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="22%">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 22%"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>&lt; $100</label><span class="pull-right text-bold">10%</span>
+                            <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="10%">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PURCHASE STATISTICS -->
+
+    </div>
+    <div class="col-md-4">
+
+        <!-- START TOP STORES -->
+        <div class="block block-condensed">
+            <div class="app-heading">
+                <div class="title">
+                    <h2>Locations</h2>
+                    <p>Statistics by locations</p>
+                </div>
+                <div class="heading-elements">
+                    <button class="btn btn-default btn-icon-fixed"><span class="icon-sync"></span> Update</button>
+                </div>
+            </div>
+            <div class="block-content">
+
+                <div id="dashboard-map" class="app-chart-holder" style="height: 285px;"></div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+
+        <!-- START TOP STORES -->
+        <div class="block block-condensed">
+            <div class="app-heading">
+                <div class="title">
+                    <h2>Top 5 Stores</h2>
+                    <p>Best sellers per month</p>
+                </div>
+                <div class="heading-elements">
+                    <button class="btn btn-default btn-icon-fixed"><span class="icon-store"></span>All Stores</button>
+                </div>
+            </div>
+            <div class="block-content">
+
+                <div class="form-group">
+                    <label>1. Shopnumone</label><span class="pull-right text-bold">135</span>
+                    <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="75%">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>2. Best Shoptwo</label><span class="pull-right text-bold">121</span>
+                    <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="70%">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>3. Third Awesome</label><span class="pull-right text-bold">107</span>
+                    <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="65%">
+                        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>4. Alltranding</label><span class="pull-right text-bold">83</span>
+                    <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="51%">
+                        <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="51" aria-valuemin="0" aria-valuemax="100" style="width: 51%"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>5. Shop Name</label><span class="pull-right text-bold">77</span>
+                    <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="42%">
+                        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" style="width: 42%"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END TOP STORES -->
+
+    </div>
+</div>

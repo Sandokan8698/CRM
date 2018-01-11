@@ -1,546 +1,177 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Admin Dashboard HTML Template</title>
-    <meta charset="utf-8">
-    <meta content="ie=edge" http-equiv="x-ua-compatible">
-    <meta content="template language" name="keywords">
-    <meta content="Tamerlan Soziev" name="author">
-    <meta content="Admin dashboard html template" name="description">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="favicon.png" ) rel="shortcut icon">
-    <link href="apple-touch-icon.png" ) rel="apple-touch-icon">
-    <link href="//fast.fonts.net/cssapi/175a63a1-3f26-476a-ab32-4e21cbdb8be2.css" ) rel="stylesheet" type="text/css" )>
-    <script src="http://igniteui.com/js/modernizr.min.js"></script>
+    <title>Boooya - Top Navigation</title>
 
-    <link href="@Url.Content("~/bower_components/select2/dist/css/select2.min.css")" rel="stylesheet">
-    <link href="http://cdn-na.infragistics.com/igniteui/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
-    <link href="http://cdn-na.infragistics.com/igniteui/latest/css/structure/infragistics.css" rel="stylesheet" /></link>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <!-- META SECTION -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href=@Url.Content("~/bower_components/bootstrap-daterangepicker/daterangepicker.css") rel="stylesheet">
-    <link href=@Url.Content("~/bower_components/dropzone/dist/dropzone.css") rel="stylesheet">
-    <link href=@Url.Content("~/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css") rel="stylesheet">
-    <link href=@Url.Content("~/bower_components/fullcalendar/dist/fullcalendar.min.css") rel="stylesheet">
-    <link href=@Url.Content("~/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css") rel="stylesheet">
-    <link href="@Url.Content("~/Content/main.css?version=2.6")" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- END META SECTION -->
+    <!-- CSS INCLUDE -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/styles.css")">
+    <!-- EOF CSS INCLUDE -->
 </head>
 <body>
-    <div class="all-wrapper menu-side">
-        <div class="layout-w">
-            <!--------------------
-            START - Mobile Menu
-            -------------------->
-            <div class="menu-mobile menu-activated-on-click color-scheme-dark">
-                <div class="mm-logo-buttons-w">
-                    <a class="mm-logo" href="index.html"><img src="@Url.Content("~/img/logo.png")"><span>Clean Admin</span></a>
-                    <div class="mm-buttons">
-                        <div class="content-panel-open">
-                            <div class="os-icon os-icon-grid-circles"></div>
-                        </div>
-                        <div class="mobile-menu-trigger">
-                            <div class="os-icon os-icon-hamburger-menu-1"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-and-user">
-                    <div class="logged-user-w">
 
-                        <div class="avatar-w">
-                            <img alt="" src="@Url.Content("~/img/avatar1.jpg")">
-                        </div>
-                        <div class="logged-user-info-w">
-                            <div class="logged-user-name">Maria Gomez</div>
-                            <div class="logged-user-role">Administrator</div>
-                        </div>
-                    </div>
-                    <!--------------------
-                    START - Mobile Menu List
-                    -------------------->
-                    <ul class="main-menu">
-                        <li class="has-sub-menu">
-                            <a href="index.html">
-                                <div class="icon-w">
-                                    <div class="os-icon os-icon-window-content"></div>
-                                </div>
-                                <span>Dashboard</span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li><a href="index.html">Dashboard 1</a></li>
-                                <li><a href="apps_support_dashboard.html">Dashboard 2 <strong class="badge badge-danger">New</strong></a></li>
-                                <li><a href="apps_projects.html">Dashboard 3</a></li>
-                                <li><a href="apps_bank.html">Dashboard 4 <strong class="badge badge-danger">New</strong></a></li>
-                                <li><a href="layouts_menu_top_image.html">Dashboard 5</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <div class="os-icon os-icon-hierarchy-structure-2"></div>
-                                </div><span>Menu Styles</span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li><a href="layouts_menu_side.html">Side Menu Light</a></li>
-                                <li><a href="layouts_menu_side_dark.html">Side Menu Dark</a></li>
-                                <li><a href="apps_bank.html">Side Menu V2 <strong class="badge badge-danger">New</strong></a></li>
-                                <li><a href="apps_pipeline.html">Side &amp; Top Dark</a></li>
-                                <li><a href="apps_projects.html">Side &amp; Top <strong class="badge badge-danger">New</strong></a></li>
-                                <li><a href="layouts_menu_side_compact.html">Compact Side Menu</a></li>
-                                <li><a href="layouts_menu_side_compact_dark.html">Compact Menu Dark</a></li>
-                                <li><a href="layouts_menu_top.html">Top Menu Light</a></li>
-                                <li><a href="layouts_menu_top_dark.html">Top Menu Dark</a></li>
-                                <li><a href="layouts_menu_top_image.html">Top Menu Image</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <div class="os-icon os-icon-delivery-box-2"></div>
-                                </div><span>Applications</span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li><a href="apps_email.html">Email Application</a></li>
-                                <li><a href="apps_support_dashboard.html">Support Dashboard <strong class="badge badge-danger">New</strong></a></li>
-                                <li><a href="apps_support_index.html">Tickets Index <strong class="badge badge-danger">New</strong></a></li>
-                                <li><a href="apps_projects.html">Projects List</a></li>
-                                <li><a href="apps_bank.html">Banking <strong class="badge badge-danger">New</strong></a></li>
-                                <li><a href="apps_full_chat.html">Chat Application</a></li>
-                                <li><a href="apps_todo.html">To Do Application <strong class="badge badge-danger">New</strong></a></li>
-                                <li><a href="misc_chat.html">Popup Chat</a></li>
-                                <li><a href="apps_pipeline.html">CRM Pipeline</a></li>
-                                <li><a href="rentals_index_grid.html">Property Listing <strong class="badge badge-danger">New</strong></a></li>
-                                <li><a href="misc_calendar.html">Calendar</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <div class="os-icon os-icon-newspaper"></div>
-                                </div><span>Pages</span>
-                            </a><ul class="sub-menu"><li><a href="misc_invoice.html">Invoice</a></li><li><a href="rentals_index_grid.html">Property Listing <strong class="badge badge-danger">New</strong></a></li><li><a href="misc_charts.html">Charts</a></li><li><a href="auth_login.html">Login</a></li><li><a href="auth_register.html">Register</a></li><li><a href="auth_lock.html">Lock Screen</a></li><li><a href="misc_pricing_plans.html">Pricing Plans</a></li><li><a href="misc_error_404.html">Error 404</a></li><li><a href="misc_error_500.html">Error 500</a></li></ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <div class="os-icon os-icon-pencil-12"></div>
-                                </div><span>UI Kit</span>
-                            </a><ul class="sub-menu"><li><a href="uikit_modals.html">Modals</a></li><li><a href="uikit_alerts.html">Alerts</a></li><li><a href="uikit_grid.html">Grid</a></li><li><a href="uikit_progress.html">Progress</a></li><li><a href="uikit_popovers.html">Popover</a></li><li><a href="uikit_tooltips.html">Tooltips</a></li><li><a href="uikit_buttons.html">Buttons</a></li><li><a href="uikit_dropdowns.html">Dropdowns</a></li><li><a href="uikit_typography.html">Typography</a></li></ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <div class="os-icon os-icon-user-male-circle"></div>
-                                </div><span>Users</span>
-                            </a><ul class="sub-menu"><li><a href="users_profile_big.html">Big Profile</a></li><li><a href="users_profile_small.html">Compact Profile</a></li></ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <div class="os-icon os-icon-tasks-checked"></div>
-                                </div><span>Forms</span>
-                            </a><ul class="sub-menu"><li><a href="forms_regular.html">Regular Forms</a></li><li><a href="forms_validation.html">Form Validation</a></li><li><a href="forms_wizard.html">Form Wizard</a></li><li><a href="forms_uploads.html">File Uploads</a></li><li><a href="forms_wisiwig.html">Wisiwig Editor</a></li></ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <div class="os-icon os-icon-grid-squares"></div>
-                                </div><span>Tables</span>
-                            </a><ul class="sub-menu"><li><a href="tables_regular.html">Regular Tables</a></li><li><a href="tables_datatables.html">Data Tables</a></li><li><a href="tables_editable.html">Editable Tables</a></li></ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <div class="os-icon os-icon-robot-1"></div>
-                                </div><span>Icons</span>
-                            </a><ul class="sub-menu"><li><a href="icon_fonts_simple_line_icons.html">Simple Line Icons</a></li><li><a href="icon_fonts_themefy.html">Themefy Icons</a></li><li><a href="icon_fonts_picons_thin.html">Picons Thin</a></li><li><a href="icon_fonts_dripicons.html">Dripicons</a></li><li><a href="icon_fonts_eightyshades.html">Eightyshades</a></li><li><a href="icon_fonts_entypo.html">Entypo</a></li><li><a href="icon_fonts_font_awesome.html">Font Awesome</a></li><li><a href="icon_fonts_foundation_icon_font.html">Foundation Icon Font</a></li><li><a href="icon_fonts_metrize_icons.html">Metrize Icons</a></li><li><a href="icon_fonts_picons_social.html">Picons Social</a></li><li><a href="icon_fonts_batch_icons.html">Batch Icons</a></li><li><a href="icon_fonts_dashicons.html">Dashicons</a></li><li><a href="icon_fonts_typicons.html">Typicons</a></li><li><a href="icon_fonts_weather_icons.html">Weather Icons</a></li><li><a href="icon_fonts_light_admin.html">Light Admin</a></li></ul>
-                        </li>
-                    </ul>
-                    <!--------------------
-                    END - Mobile Menu List
-                    -------------------->
-                    <div class="mobile-menu-magic"><h4>Light Admin</h4><p>Clean Bootstrap 4 Template</p><div class="btn-w"><a class="btn btn-white btn-rounded" href="https://themeforest.net/item/light-admin-clean-bootstrap-dashboard-html-template/19760124?ref=Osetin" target="_blank">Purchase Now</a></div></div>
-                </div>
-            </div>
-            <!--------------------
-            END - Mobile Menu
-            -------------------->
-            <!--------------------
-            START - Menu side compact
-            -------------------->
-            <div class="desktop-menu menu-side-compact-w menu-activated-on-hover color-scheme-dark">
+    <!-- APP WRAPPER -->
+    <div class="app">
 
-                <div class="logo-w">
-                    <a class="logo" href="index.html"><img src="@Url.Content("~/img/logo.png")"></a>
-                </div>
-                <div class="menu-and-user">
-                    <div class="logged-user-w">
-                        <div class="logged-user-i">
-                            <div class="avatar-w">
-                                <img alt="" src="@Url.Content("~/img/avatar1.jpg")">
-                            </div>
-                            <div class="logged-user-menu">
-                                <div class="logged-user-avatar-info">
-                                    <div class="avatar-w">
-                                        <img alt="" src="@Url.Content("~/img/avatar1.jpg")">
-                                    </div>
-                                    <div class="logged-user-info-w">
-                                        <div class="logged-user-name">Maria Gomez</div>
-                                        <div class="logged-user-role">Administrator</div>
-                                    </div>
-                                </div>
-                                <div class="bg-icon">
-                                    <i class="os-icon os-icon-wallet-loaded"></i>
-                                </div>
-                                <ul>
-                                    <li>
-                                        <a href="apps_email.html"><i class="os-icon os-icon-mail-01"></i><span>Incoming Mail</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="users_profile_big.html"><i class="os-icon os-icon-user-male-circle2"></i><span>Profile Details</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="users_profile_small.html"><i class="os-icon os-icon-coins-4"></i><span>Billing Details</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="os-icon os-icon-others-43"></i><span>Notifications</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("LogOff","Account", new {area = "Security"})"><i class="os-icon os-icon-signs-11"></i><span>Salir</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div><ul class="main-menu">
-                        <li class="has-sub-menu">
-                            <a href="index.html">
-                                <div class="icon-w">
-                                    <i class="os-icon os-icon-window-content"></i>
-                                </div>
-                            </a>
-                            <div class="sub-menu-w">
-                                <div class="sub-menu-title">Dashboard</div>
-                                <div class="sub-menu-icon">
-                                    <i class="os-icon os-icon-window-content"></i>
-                                </div>
-                                <div class="sub-menu-i">
-                                    <ul class="sub-menu"><li><a href="index.html">Dashboard 1</a></li><li><a href="apps_support_dashboard.html">Dashboard 2 <strong class="badge badge-danger">New</strong></a></li><li><a href="apps_projects.html">Dashboard 3</a></li><li><a href="apps_bank.html">Dashboard 4 <strong class="badge badge-danger">New</strong></a></li><li><a href="layouts_menu_top_image.html">Dashboard 5</a></li></ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <i class="os-icon os-icon-hierarchy-structure-2"></i>
-                                </div>
-                            </a>
-                            <div class="sub-menu-w">
-                                <div class="sub-menu-title">Menu Styles</div>
-                                <div class="sub-menu-icon">
-                                    <i class="os-icon os-icon-hierarchy-structure-2"></i>
-                                </div>
-                                <div class="sub-menu-i">
-                                    <ul class="sub-menu"><li><a href="layouts_menu_side.html">Side Menu Light</a></li><li><a href="layouts_menu_side_dark.html">Side Menu Dark</a></li><li><a href="apps_bank.html">Side Menu V2 <strong class="badge badge-danger">New</strong></a></li><li><a href="apps_pipeline.html">Side &amp; Top Dark</a></li><li><a href="apps_projects.html">Side &amp; Top <strong class="badge badge-danger">New</strong></a></li></ul><ul class="sub-menu"><li><a href="layouts_menu_side_compact.html">Compact Side Menu</a></li><li><a href="layouts_menu_side_compact_dark.html">Compact Menu Dark</a></li><li><a href="layouts_menu_top.html">Top Menu Light</a></li><li><a href="layouts_menu_top_dark.html">Top Menu Dark</a></li><li><a href="layouts_menu_top_image.html">Top Menu Image</a></li></ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <i class="os-icon os-icon-delivery-box-2"></i>
-                                </div>
-                            </a>
-                            <div class="sub-menu-w">
-                                <div class="sub-menu-title">Applications</div>
-                                <div class="sub-menu-icon">
-                                    <i class="os-icon os-icon-delivery-box-2"></i>
-                                </div>
-                                <div class="sub-menu-i">
-                                    <ul class="sub-menu"><li><a href="apps_email.html">Email Application</a></li><li><a href="apps_support_dashboard.html">Support Dashboard <strong class="badge badge-danger">New</strong></a></li><li><a href="apps_support_index.html">Tickets Index <strong class="badge badge-danger">New</strong></a></li><li><a href="apps_projects.html">Projects List</a></li><li><a href="apps_bank.html">Banking <strong class="badge badge-danger">New</strong></a></li><li><a href="apps_full_chat.html">Chat Application</a></li></ul><ul class="sub-menu"><li><a href="apps_todo.html">To Do Application <strong class="badge badge-danger">New</strong></a></li><li><a href="misc_chat.html">Popup Chat</a></li><li><a href="apps_pipeline.html">CRM Pipeline</a></li><li><a href="rentals_index_grid.html">Property Listing <strong class="badge badge-danger">New</strong></a></li><li><a href="misc_calendar.html">Calendar</a></li></ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <i class="os-icon os-icon-newspaper"></i>
-                                </div>
-                            </a>
-                            <div class="sub-menu-w">
-                                <div class="sub-menu-title">Pages</div>
-                                <div class="sub-menu-icon">
-                                    <i class="os-icon os-icon-newspaper"></i>
-                                </div>
-                                <div class="sub-menu-i">
-                                    <ul class="sub-menu"><li><a href="misc_invoice.html">Invoice</a></li><li><a href="rentals_index_grid.html">Property Listing <strong class="badge badge-danger">New</strong></a></li><li><a href="misc_charts.html">Charts</a></li><li><a href="auth_login.html">Login</a></li><li><a href="auth_register.html">Register</a></li></ul><ul class="sub-menu"><li><a href="auth_lock.html">Lock Screen</a></li><li><a href="misc_pricing_plans.html">Pricing Plans</a></li><li><a href="misc_error_404.html">Error 404</a></li><li><a href="misc_error_500.html">Error 500</a></li></ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <i class="os-icon os-icon-pencil-12"></i>
-                                </div>
-                            </a>
-                            <div class="sub-menu-w">
-                                <div class="sub-menu-title">UI Kit</div>
-                                <div class="sub-menu-icon">
-                                    <i class="os-icon os-icon-pencil-12"></i>
-                                </div>
-                                <div class="sub-menu-i">
-                                    <ul class="sub-menu"><li><a href="uikit_modals.html">Modals</a></li><li><a href="uikit_alerts.html">Alerts</a></li><li><a href="uikit_grid.html">Grid</a></li><li><a href="uikit_progress.html">Progress</a></li><li><a href="uikit_popovers.html">Popover</a></li></ul><ul class="sub-menu"><li><a href="uikit_tooltips.html">Tooltips</a></li><li><a href="uikit_buttons.html">Buttons</a></li><li><a href="uikit_dropdowns.html">Dropdowns</a></li><li><a href="uikit_typography.html">Typography</a></li></ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <i class="os-icon os-icon-user-male-circle"></i>
-                                </div>
-                            </a>
-                            <div class="sub-menu-w">
-                                <div class="sub-menu-title">Users</div>
-                                <div class="sub-menu-icon">
-                                    <i class="os-icon os-icon-user-male-circle"></i>
-                                </div>
-                                <div class="sub-menu-i">
-                                    <ul class="sub-menu"><li><a href="users_profile_big.html">Big Profile</a></li><li><a href="users_profile_small.html">Compact Profile</a></li></ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <i class="os-icon os-icon-tasks-checked"></i>
-                                </div>
-                            </a>
-                            <div class="sub-menu-w">
-                                <div class="sub-menu-title">Forms</div>
-                                <div class="sub-menu-icon">
-                                    <i class="os-icon os-icon-tasks-checked"></i>
-                                </div>
-                                <div class="sub-menu-i">
-                                    <ul class="sub-menu"><li><a href="forms_regular.html">Regular Forms</a></li><li><a href="forms_validation.html">Form Validation</a></li><li><a href="forms_wizard.html">Form Wizard</a></li><li><a href="forms_uploads.html">File Uploads</a></li><li><a href="forms_wisiwig.html">Wisiwig Editor</a></li></ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <i class="os-icon os-icon-grid-squares"></i>
-                                </div>
-                            </a>
-                            <div class="sub-menu-w">
-                                <div class="sub-menu-title">Tables</div>
-                                <div class="sub-menu-icon">
-                                    <i class="os-icon os-icon-grid-squares"></i>
-                                </div>
-                                <div class="sub-menu-i">
-                                    <ul class="sub-menu"><li><a href="tables_regular.html">Regular Tables</a></li><li><a href="tables_datatables.html">Data Tables</a></li><li><a href="tables_editable.html">Editable Tables</a></li></ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#">
-                                <div class="icon-w">
-                                    <i class="os-icon os-icon-robot-1"></i>
-                                </div>
-                            </a>
-                            <div class="sub-menu-w">
-                                <div class="sub-menu-title">Icons</div>
-                                <div class="sub-menu-icon">
-                                    <i class="os-icon os-icon-robot-1"></i>
-                                </div>
-                                <div class="sub-menu-i">
-                                    <ul class="sub-menu"><li><a href="icon_fonts_simple_line_icons.html">Simple Line Icons</a></li><li><a href="icon_fonts_themefy.html">Themefy Icons</a></li><li><a href="icon_fonts_picons_thin.html">Picons Thin</a></li><li><a href="icon_fonts_dripicons.html">Dripicons</a></li><li><a href="icon_fonts_eightyshades.html">Eightyshades</a></li><li><a href="icon_fonts_entypo.html">Entypo</a></li></ul><ul class="sub-menu"><li><a href="icon_fonts_font_awesome.html">Font Awesome</a></li><li><a href="icon_fonts_foundation_icon_font.html">Foundation Icon Font</a></li><li><a href="icon_fonts_metrize_icons.html">Metrize Icons</a></li><li><a href="icon_fonts_picons_social.html">Picons Social</a></li><li><a href="icon_fonts_batch_icons.html">Batch Icons</a></li><li><a href="icon_fonts_dashicons.html">Dashicons</a></li></ul><ul class="sub-menu"><li><a href="icon_fonts_typicons.html">Typicons</a></li><li><a href="icon_fonts_weather_icons.html">Weather Icons</a></li><li><a href="icon_fonts_light_admin.html">Light Admin</a></li></ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!--------------------
-            END - Menu side compact
-            -------------------->
-            <div class="content-w">
-                <div class="top-menu-secondary color-scheme-dark">
-                    <ul>
-                        <li class="active">
-                            <a href="#">Dashboard</a>
-                        </li>
-                    </ul>
-                    <div class="top-menu-controls">
-                        <div class="element-search hidden-lg-down"><input placeholder="Start typing to search..." type="text"></div><div class="top-icon top-search hidden-xl-up"><i class="os-icon os-icon-ui-37"></i></div>
-                        <!--------------------
-                        START - Messages Link in secondary top menu
-                        -------------------->
-                        <div class="messages-notifications os-dropdown-trigger os-dropdown-center">
-                            <i class="os-icon os-icon-mail-14"></i>
-                            <div class="new-messages-count">12</div>
-                            <div class="os-dropdown light message-list">
-                                <div class="icon-w">
-                                    <i class="os-icon os-icon-mail-14"></i>
-                                </div><ul>
-                                    <li>
-                                        <a href="#">
-                                            <div class="user-avatar-w">
-                                                <img alt="" src="@Url.Content("~/img/avatar1.jpg")">
-                                            </div>
-                                            <div class="message-content">
-                                                <h6 class="message-from">John Mayers</h6><h6 class="message-title">Account Update</h6>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="user-avatar-w">
-                                                <img alt="" src="@Url.Content("~/img/avatar2.jpg")">
-                                            </div>
-                                            <div class="message-content">
-                                                <h6 class="message-from">Phil Jones</h6><h6 class="message-title">Secutiry Updates</h6>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="user-avatar-w">
-                                                <img alt="" src="@Url.Content("~/img/avatar3.jpg")">
-                                            </div>
-                                            <div class="message-content">
-                                                <h6 class="message-from">Bekky Simpson</h6><h6 class="message-title">Vacation Rentals</h6>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="user-avatar-w">
-                                                <img alt="" src="@Url.Content("~/img/avatar4.jpg")">
-                                            </div>
-                                            <div class="message-content">
-                                                <h6 class="message-from">Alice Priskon</h6><h6 class="message-title">Payment Confirmation</h6>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--------------------
-                        END - Messages Link in secondary top menu
-                        -------------------->
-                        <!--------------------
-                        START - Settings Link in secondary top menu
-                        -------------------->
-                        <div class="top-icon top-settings os-dropdown-trigger os-dropdown-center">
-                            <i class="os-icon os-icon-ui-46"></i>
-                            <div class="os-dropdown">
-                                <div class="icon-w">
-                                    <i class="os-icon os-icon-ui-46"></i>
-                                </div><ul><li><a href="#"><i class="os-icon os-icon-ui-49"></i><span>Profile Settings</span></a></li><li><a href="#"><i class="os-icon os-icon-grid-10"></i><span>Billing Info</span></a></li><li><a href="#"><i class="os-icon os-icon-ui-44"></i><span>My Invoices</span></a></li><li><a href="#"><i class="os-icon os-icon-ui-15"></i><span>Deactivate Account</span></a></li></ul>
-                            </div>
-                        </div>
-                        <!--------------------
-                        END - Settings Link in secondary top menu
-                        -------------------->
-                        <!--------------------
-                        START - User avatar and menu in secondary top menu
-                        -------------------->
-                        <div class="logged-user-w">
+        <!-- START APP CONTAINER -->
+        <div class="app-container">
+            <!-- START APP HEADER -->
+            <div class="app-header">
+                <ul class="app-header-buttons visible-mobile">
+                    <li><a href="#" class="btn btn-link btn-icon" data-navigation-horizontal-toggle="true"><span class="icon-menu"></span></a></li>
+                </ul>
+                <a href="index.html" class="app-header-logo app-header-logo-light app-header-logo-condensed">Project</a>
 
-                            <div class="logged-user-i">
-                                <div class="avatar-w">
-                                    <img alt="" src="@Url.Content("~/img/avatar1.jpg")">
-                                </div>
-                                <div class="logged-user-menu">
-                                    <div class="logged-user-avatar-info">
-                                        <div class="avatar-w">
-                                            <img alt="" src="@Url.Content("~/img/avatar1.jpg")">
-                                        </div>
-                                        <div class="logged-user-info-w">
-                                            <div class="logged-user-name">Maria Gomez</div>
-                                            <div class="logged-user-role">Administrator</div>
-                                        </div>
-                                    </div>
-                                    <div class="bg-icon">
-                                        <i class="os-icon os-icon-wallet-loaded"></i>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <a href="apps_email.html"><i class="os-icon os-icon-mail-01"></i><span>Incoming Mail</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="users_profile_big.html">
-                                                <i class="os-icon os-icon-user-male-circle2"></i><span>Profile Details</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="users_profile_small.html"><i class="os-icon os-icon-coins-4"></i><span>Billing Details</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="os-icon os-icon-others-43"></i><span>Notifications</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:document.getElementById('logoutForm').submit()">
-                                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                                                {
-                                                    @Html.AntiForgeryToken()
-
-                                                }
-                                                <i class="os-icon os-icon-signs-11"></i><span>Salir</span>
-                                            </a>
-                                        </li>
+                <ul class="app-header-buttons pull-right">
+                    <li>
+                        <div class="contact contact-rounded contact-bordered contact-lg contact-ps-controls">
+                            <img src="assets/images/users/user_1.jpg" alt="John Doe">
+                            <div class="contact-container">
+                                <a href="#">John Doe</a>
+                                <span>Administrator</span>
+                            </div>
+                            <div class="contact-controls">
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-default btn-icon" data-toggle="dropdown"><span class="icon-cog"></span></button>
+                                    <ul class="dropdown-menu dropdown-left">
+                                        <li><a href="#"><span class="icon-cog"></span> Settings</a></li>
+                                        <li><a href="#"><span class="icon-envelope"></span> Messages <span class="label label-danger pull-right">+24</span></a></li>
+                                        <li><a href="#"><span class="icon-users"></span> Contacts <span class="label label-default pull-right">76</span></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#"><span class="icon-exit"></span> Log Out</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <!--------------------
-                        END - User avatar and menu in secondary top menu
-                        -------------------->
-                    </div>
-                </div><div class="content-i">
-                    @RenderBody()
-                </div>
+                    </li>
+                </ul>
             </div>
+            <!-- END APP HEADER  -->
+            <!-- START APP CONTENT -->
+            <div class="app-content">
+                <div class="app-navigation-horizontal">
+                    <nav>
+                        <ul>
+                            <li class="active">
+                                <a href="index.html"><span class="icon-laptop-phone"></span> Dashboard</a>
+                                <ul>
+                                    <li class="active"><a href="#">Statistics</a></li>
+                                    <li><a href="#">Visitors</a></li>
+                                    <li><a href="#">Sales</a></li>
+                                    <li><a href="#">Customers</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><span class="icon-archive2"></span> Navigation Item 1</a>
+                                <ul>
+                                    <li><a href="#">Sub Element 1-1</a></li>
+                                    <li><a href="#">Sub Element 1-2</a></li>
+                                    <li><a href="#">Sub Element 1-3</a></li>
+                                    <li><a href="#">Sub Element 1-4</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><span class="icon-user-plus"></span> Another Item 2</a>
+                                <ul>
+                                    <li><a href="#">Another Sub 2-1</a></li>
+                                    <li><a href="#">Another Sub 2-2</a></li>
+                                    <li><a href="#">Another Sub 2-3</a></li>
+                                    <li><a href="#">Another Sub 2-4</a></li>
+                                    <li><a href="#">Another Sub 2-5</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><span class="icon-calendar-full"></span> Perfect Item 3</a>
+                                <ul>
+                                    <li><a href="#">Perfect Sub 3-1</a></li>
+                                    <li><a href="#">Perfect Sub 3-2</a></li>
+                                    <li><a href="#">Perfect Sub 3-3</a></li>
+                                    <li><a href="#">Perfect Sub 3-4</a></li>
+                                    <li><a href="#">Perfect Sub 3-5</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- START PAGE HEADING -->
+                <div class="app-heading app-heading-bordered app-heading-page">
+                    <div class="icon icon-lg">
+                        <span class="icon-laptop-phone"></span>
+                    </div>
+                    <div class="title">
+                        <h1>Boooya - Admin Template</h1>
+                        <p>The revolution in admin template build</p>
+                    </div>
+                    <!--<div class="heading-elements">
+                        <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
+                        <a href="https://themeforest.net/item/boooya-revolution-admin-template/17227946?ref=aqvatarius&license=regular&open_purchase_for_item_id=17227946" class="btn btn-success btn-icon-fixed"><span class="icon-text">$24</span> Purchase</a>
+                    </div>-->
+                </div>
+                <div class="app-heading-container app-heading-bordered bottom">
+                    <ul class="breadcrumb">
+                        <li><a href="#">Application</a></li>
+                        <li class="active">Dashboard</li>
+                    </ul>
+                </div>
+                <!-- END PAGE HEADING -->
+                <!-- START PAGE CONTAINER -->
+                <div class="container">
+                   
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div class="alert alert-danger alert-icon-block alert-dismissible" role="alert">
+                                <div class="alert-icon">
+                                    <span class="icon-menu-circle"></span>
+                                </div>
+                               
+                                <strong>Error!</strong> @ViewBag.Error.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="fa fa-times"></span></button>
+                            </div>
+                        </div>
+                    }
+                   
+
+                    @RenderBody()
+
+
+                </div>
+                <!-- END PAGE CONTAINER -->
+
+            </div>
+            <!-- END APP CONTENT -->
+
         </div>
-        <div class="display-type"></div>
+        <!-- END APP CONTAINER -->
+
     </div>
-    <script src=@Url.Content("~/bower_components/jquery/dist/jquery.min.js")></script>
+    <!-- END APP WRAPPER -->
+    <!-- IMPORTANT SCRIPTS -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery/jquery-ui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/bootstrap/bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/moment/moment.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/customscrollbar/jquery.mCustomScrollbar.min.js")"></script>
+    <!-- END IMPORTANT SCRIPTS -->
 
-    <script src=@Url.Content("~/bower_components/moment/moment.js")></script>
-    <script src=@Url.Content("~/bower_components/chart.js/dist/Chart.min.js")></script>
-    <script src=@Url.Content("~/bower_components/select2/dist/js/select2.full.min.js")></script>
-    <script src=@Url.Content("~/bower_components/ckeditor/ckeditor.js")></script>
-    <script src=@Url.Content("~/bower_components/bootstrap-validator/dist/validator.min.js")></script>
-    <script src=@Url.Content("~/bower_components/bootstrap-daterangepicker/daterangepicker.js")></script>
-    <script src=@Url.Content("~/bower_components/dropzone/dist/dropzone.js")></script>
-    <script src=@Url.Content("~/bower_components/editable-table/mindmup-editabletable.js")></script>
-    <script src=@Url.Content("~/bower_components/datatables.net/js/jquery.dataTables.min.js")></script>
-    <script src=@Url.Content("~/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js")></script>
-    <script src=@Url.Content("~/bower_components/fullcalendar/dist/fullcalendar.min.js")></script>
-    <script src=@Url.Content("~/bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js")></script>
-    <script src=@Url.Content("~/bower_components/bootstrap/js/dist/util.js")></script>
-    <script src=@Url.Content("~/bower_components/bootstrap/js/dist/tab.js")></script>
-    <script src=@Url.Content("~/bower_components/bootstrap/js/dist/tab.js")></script>
+    <!--PAGE SCRIPST-->
+     @RenderSection("PageScripts",false)
+    <!--END PAGE SCRIPST-->
 
-    <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-    <script src="http://cdn-na.infragistics.com/igniteui/latest/js/infragistics.core.js"></script>
-    <script src="http://cdn-na.infragistics.com/igniteui/latest/js/infragistics.lob.js"></script>
-    <script src="http://igniteui.com/js-data/nw-products"></script>
-
-    <script src=@Url.Content("~/Scripts/js/main.js?version=2.6")></script>
-    @RenderSection("Scripts", false);
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-42863888-9', 'auto');
-        ga('send', 'pageview');
-    </script>
-
-    
+    <!-- APP SCRIPTS -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app_plugins.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app_demo.js")"></script>
+    @RenderSection("Script", false)
+    <!-- END APP SCRIPTS -->
 </body>
 </html>

@@ -7,6 +7,7 @@ using Data;
 using Data.Abstract;
 using WebUI.Controllers;
 using Domain.Entities;
+using WebUI.Areas.Crm.Models;
 
 namespace WebUI.Areas.Crm.Controllers
 {
@@ -19,11 +20,7 @@ namespace WebUI.Areas.Crm.Controllers
         }
 
         public ActionResult Index()
-        {
-
-
-            var usuarios = _unitOfWork.UserRepository.GetAll();
-
+        {     
             var tareas = _unitOfWork.TareaRepository.GetAll();
             return View(tareas);
         }
@@ -32,7 +29,11 @@ namespace WebUI.Areas.Crm.Controllers
         // GET: Crm/Tarea/Create
         public ActionResult Create()
         {
-            return View();
+            var TareaVM = new TareaViewModel
+            {
+                Users =  _unitOfWork.UserRepository.GetAll()
+            };
+            return View(TareaVM);
         }
 
 
@@ -41,12 +42,61 @@ namespace WebUI.Areas.Crm.Controllers
         [HttpPost]
         public ActionResult Create(Tarea tarea)
         {
+            TareaViewModel tareaVM;
             try
             {
                 if (ModelState.IsValid)
                 {
                    
                     _unitOfWork.TareaRepository.Add(tarea);
+                    _unitOfWork.SaveChanges();
+                }
+                else
+                {
+                    tareaVM = new TareaViewModel
+                    {
+                        Tarea = tarea,
+                        Users = _unitOfWork.UserRepository.GetAll()
+                    };
+                    return View(tareaVM);
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch(Exception e)
+            {
+
+                tareaVM = new TareaViewModel
+                {
+                    Tarea = tarea,
+                    Users = _unitOfWork.UserRepository.GetAll()
+                };
+                ViewBag.Error = e.Message;
+                return View(tareaVM);
+            }
+        }
+
+        // GET: Test/Edit/5
+        public ActionResult Edit(int id)
+        {
+            var tarea = _unitOfWork.TareaRepository.FindById(id);
+            if (tarea == null)
+            {
+                return  new HttpNotFoundResult();
+            }
+            return View(tarea);
+        }
+
+        // POST: Test/Edit/5
+        [HttpPost]
+        public ActionResult Edit(Tarea tarea)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+
+                    _unitOfWork.TareaRepository.Update(tarea);
                     _unitOfWork.SaveChanges();
                 }
                 else
@@ -58,12 +108,45 @@ namespace WebUI.Areas.Crm.Controllers
             }
             catch(Exception e)
             {
-                
+                ViewBag.Error = e.Message;
                 return View(tarea);
             }
         }
 
+        // GET: Test/Delete/5
+        public ActionResult Delete(int id)
+        {
+            var tarea = _unitOfWork.TareaRepository.FindById(id);
+            if (tarea == null)
+            {
+                return new HttpNotFoundResult();
+            }
+            return View(tarea);
+        }
 
+        // POST: Test/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            Tarea tarea = _unitOfWork.TareaRepository.FindById(id);
+            try
+            {
+                if (tarea == null)
+                {
+                    return  new HttpNotFoundResult();
+                }
+
+                _unitOfWork.TareaRepository.Remove(tarea);
+                _unitOfWork.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                ViewBag.Error = e.Message;
+                return View(tarea);
+            }
+        }
 
 
     }
