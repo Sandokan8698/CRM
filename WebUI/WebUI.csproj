@@ -226,7 +226,7 @@
     <Compile Include="Areas\Admin\Models\AccountViewModels.cs" />
     <Compile Include="Areas\Crm\Controllers\TareaController.cs" />
     <Compile Include="Areas\Crm\CrmAreaRegistration.cs" />
-    <Compile Include="Areas\Crm\Models\TareaViewModel.cs" />
+    <Compile Include="Areas\Crm\Models\CreateTareaViewModel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -5218,10 +5218,13 @@
     <Content Include="img\navigation\Thumbs.db" />
     <Content Include="img\switch\Thumbs.db" />
     <Content Include="img\user\Thumbs.db" />
+    <Content Include="Areas\Crm\Views\Shared\TareaEditDialog.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -5572,6 +5575,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{990ae060-5d59-427c-b236-bef286f7a817}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{bec0204a-5016-4453-a55c-0ffb59296df4}</Project>
       <Name>Data</Name>

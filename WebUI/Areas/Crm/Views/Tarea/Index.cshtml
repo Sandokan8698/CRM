@@ -1,51 +1,112 @@
-﻿@model IEnumerable<Domain.Entities.Tarea>
+﻿@using System.Data
+@using Common.Web.HelperMethods
+@using Domain.Entities
+@model IEnumerable<Domain.Entities.Tarea>
 
 @{
     ViewBag.Title = "Index";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "TareaEditModal"
+    };
 }
 
-<h2>Index</h2>
+<div class="block block-condensed">
+    <div class="app-heading">
+        <div class="title">
+            <h2>Latest Transactions</h2>
+            <p>Quick information</p>
+        </div>
+        <div class="heading-elements">
+            <button class="btn btn-default btn-icon-fixed"><span class="icon-file-add"></span> All Transactions</button>
+        </div>
+    </div>
+    <div class="block-content">
+        <div class="table-responsive">
+            <table class="table table-clean-paddings margin-bottom-0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreadoPor)
+                        </th>
+                        <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+                        <th>@Html.DisplayNameFor(model => model.AsignadoA)</th>
+                        <th width="100">@Html.DisplayNameFor(model => model.FechaCumplimiento)</th>
+                        <th width="55">@Html.DisplayNameFor(model => model.TareaEstado)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="contact contact-rounded contact-bordered contact-lg">
+                                    <img src="assets/images/users/user_2.jpg">
+                                    <div class="contact-container">
+                                        <a href="#">@item.CreadoPor.UserName</a>
+                                        <span>@item.Fecha.ToString("D")</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>@item.Descripcion</td>
+                            <td>
+                                <div class="contact contact-rounded contact-bordered contact-lg">
+                                    <img src="assets/images/users/user_2.jpg">
+                                    <div class="contact-container">
+                                        <a href="#">@item.AsignadoA.UserName</a>
+                                        <span>@item.Fecha.ToString("D")</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>@item.FechaCumplimiento</td>
+                            <td><span class="label @Html.StatusClass((int)item.TareaEstado) label-bordered">@item.TareaEstado</span></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="icon-cog"></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-left">
+                                        <li>
+                                            <a href="#" data-toggle="modal" data-target="#modal-primary-@item.TareaId"><span class="icon-pencil text-info"></span>        Editar Tarea</a>
+                                        </li>
+                                        <li><a href="#"><span class="icon-arrow-up-circle text-warning"></span> Promote to top</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CreadoPor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AsignadoA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th></th>
-    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreadoPor.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AsignadoA.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TareaId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TareaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TareaId })
-        </td>
-    </tr>
+@foreach (var tarea in Model)
+{
+    <!-- MODAL PRIMARY -->
+    <div class="modal fade" id="modal-primary-@tarea.TareaId" tabindex="-1" role="dialog" aria-labelledby="modal-primary-header">
+        <div class="modal-dialog modal-primary" role="document">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="icon-cross"></span>
+            </button>
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-primary-header">Primary Modal</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("TareaEditDialog",tarea)
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MODAL PRIMARY -->
 }
 
-</table>

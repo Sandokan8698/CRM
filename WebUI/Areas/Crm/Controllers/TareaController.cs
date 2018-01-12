@@ -29,7 +29,7 @@ namespace WebUI.Areas.Crm.Controllers
         // GET: Crm/Tarea/Create
         public ActionResult Create()
         {
-            var TareaVM = new TareaViewModel
+            var TareaVM = new CreateTareaViewModel
             {
                 Users =  _unitOfWork.UserRepository.GetAll()
             };
@@ -42,7 +42,7 @@ namespace WebUI.Areas.Crm.Controllers
         [HttpPost]
         public ActionResult Create(Tarea tarea)
         {
-            TareaViewModel tareaVM;
+            CreateTareaViewModel createTareaVm;
             try
             {
                 if (ModelState.IsValid)
@@ -53,12 +53,12 @@ namespace WebUI.Areas.Crm.Controllers
                 }
                 else
                 {
-                    tareaVM = new TareaViewModel
+                    createTareaVm = new CreateTareaViewModel
                     {
                         Tarea = tarea,
                         Users = _unitOfWork.UserRepository.GetAll()
                     };
-                    return View(tareaVM);
+                    return View(createTareaVm);
                 }
 
                 return RedirectToAction("Index");
@@ -66,13 +66,13 @@ namespace WebUI.Areas.Crm.Controllers
             catch(Exception e)
             {
 
-                tareaVM = new TareaViewModel
+                createTareaVm = new CreateTareaViewModel
                 {
                     Tarea = tarea,
                     Users = _unitOfWork.UserRepository.GetAll()
                 };
                 ViewBag.Error = e.Message;
-                return View(tareaVM);
+                return View(createTareaVm);
             }
         }
 
@@ -148,6 +148,11 @@ namespace WebUI.Areas.Crm.Controllers
             }
         }
 
+        public PartialViewResult GetTareaEditView(Tarea tarea)
+        {
+           
+            return PartialView("TareaEditDialog",tarea);
+        }
 
     }
 }

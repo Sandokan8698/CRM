@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -13,10 +14,11 @@ namespace Domain.Entities
     {
         public int TareaId { get; set; }
 
-
+        [DisplayName("Creado Por")]
         public int CreadoPorId { get; set; }
         public virtual User CreadoPor { get; set; }
 
+        [DisplayName("Asignado A")]
         public int AsignadoAId { get; set; }
         public virtual User AsignadoA { get; set; }
 
@@ -25,7 +27,11 @@ namespace Domain.Entities
         [MaxLength(255)]
         public string Descripcion { get; set; }
 
-        public TipoSeguimiento TipoSeguimiento { get; set; }
+        [DisplayName("Estado")]
+        public TareaEstado TareaEstado { get; set; }
+
+        [DisplayName("Fecha Cumplimiento")]
+        public DateTime FechaCumplimiento  { get; set; }  
 
         public Tarea()
         {
@@ -34,9 +40,11 @@ namespace Domain.Entities
 
     }
 
-    public enum TipoSeguimiento
+    public enum TareaEstado
     {
-        EnviandoPropuesta,
-        LLamando
+        Activo,
+        Cancelada,
+        Cumplida,
+        Retrasada
     }
 }
