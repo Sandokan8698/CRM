@@ -1,0 +1,4 @@
+﻿@using Common.Web.HelperMethods
+@model Domain.Entities.TareaEstado
+
+<span class="label @Html.StatusClass((int)Model) label-bordered">@Model</span>

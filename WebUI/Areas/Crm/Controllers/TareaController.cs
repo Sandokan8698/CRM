@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Ajax;
 using Data;
 using Data.Abstract;
 using WebUI.Controllers;
@@ -29,7 +31,7 @@ namespace WebUI.Areas.Crm.Controllers
         // GET: Crm/Tarea/Create
         public ActionResult Create()
         {
-            var TareaVM = new CreateTareaViewModel
+            var TareaVM = new TareaEditCreateViewModel
             {
                 Users =  _unitOfWork.UserRepository.GetAll()
             };
@@ -42,23 +44,29 @@ namespace WebUI.Areas.Crm.Controllers
         [HttpPost]
         public ActionResult Create(Tarea tarea)
         {
-            CreateTareaViewModel createTareaVm;
+            TareaEditCreateViewModel tareaEditCreateVm;
             try
             {
                 if (ModelState.IsValid)
                 {
-                   
+                     var history = new TareaHistorial
+                     {
+                         Tarea = tarea,
+                         Descripcion = tarea.Descripcion,
+                         TareaEstado = tarea.TareaEstado
+                     };
                     _unitOfWork.TareaRepository.Add(tarea);
+                    _unitOfWork.TareaHistorialRepository.Add(history);
                     _unitOfWork.SaveChanges();
                 }
                 else
                 {
-                    createTareaVm = new CreateTareaViewModel
+                    tareaEditCreateVm = new TareaEditCreateViewModel
                     {
                         Tarea = tarea,
                         Users = _unitOfWork.UserRepository.GetAll()
                     };
-                    return View(createTareaVm);
+                    return View(tareaEditCreateVm);
                 }
 
                 return RedirectToAction("Index");
@@ -66,13 +74,13 @@ namespace WebUI.Areas.Crm.Controllers
             catch(Exception e)
             {
 
-                createTareaVm = new CreateTareaViewModel
+                tareaEditCreateVm = new TareaEditCreateViewModel
                 {
                     Tarea = tarea,
                     Users = _unitOfWork.UserRepository.GetAll()
                 };
                 ViewBag.Error = e.Message;
-                return View(createTareaVm);
+                return View(tareaEditCreateVm);
             }
         }
 
@@ -84,15 +92,29 @@ namespace WebUI.Areas.Crm.Controllers
             {
                 return  new HttpNotFoundResult();
             }
-            return View(tarea);
+
+            var viewModel = new TareaEditCreateViewModel
+            {
+                Tarea = tarea,
+                Users = _unitOfWork.UserRepository.GetAll()
+            };
+
+            return View(viewModel);
         }
 
         // POST: Test/Edit/5
         [HttpPost]
         public ActionResult Edit(Tarea tarea)
         {
+            var viewModel = new TareaEditCreateViewModel
+            {
+                Tarea = tarea,
+                Users = _unitOfWork.UserRepository.GetAll()
+            };
+
             try
             {
+                
                 if (ModelState.IsValid)
                 {
 
@@ -101,7 +123,7 @@ namespace WebUI.Areas.Crm.Controllers
                 }
                 else
                 {
-                    return View(tarea);
+                    return View(viewModel);
                 }
 
                 return RedirectToAction("Index");
@@ -109,7 +131,7 @@ namespace WebUI.Areas.Crm.Controllers
             catch(Exception e)
             {
                 ViewBag.Error = e.Message;
-                return View(tarea);
+                return View(viewModel);
             }
         }
 
@@ -148,10 +170,45 @@ namespace WebUI.Areas.Crm.Controllers
             }
         }
 
-        public PartialViewResult GetTareaEditView(Tarea tarea)
+        public ActionResult ChangeTareaEstado(int tareaId, TareaHistorial tareaHistorial)
         {
-           
-            return PartialView("TareaEditDialog",tarea);
+            if (ModelState.IsValid && tareaId > 0)
+            {
+                try
+                {
+                    tareaHistorial.TareaId = tareaId;
+                    var tarea = _unitOfWork.TareaRepository.FindById(tareaId);
+                    tarea.TareaEstado = tareaHistorial.TareaEstado;
+
+                    _unitOfWork.TareaRepository.Update(tarea);
+                    _unitOfWork.TareaHistorialRepository.Add(tareaHistorial);
+
+                    _unitOfWork.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest,e.ToString());
+                   
+                }
+
+                return PartialView("~/Areas/Crm/Views/Shared/SpanStates.cshtml", tareaHistorial.TareaEstado);
+            }
+
+            String messages = String.Join(Environment.NewLine, ModelState.Values.SelectMany(v => v.Errors)
+                .Select(v => v.ErrorMessage + " " + v.Exception));
+
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest,messages);
+
+        }
+
+        public PartialViewResult CreateTareaModals(IEnumerable<Tarea> Tareas)
+        {
+            var viewModel = new TareaModalsViewModel
+            {
+                Tareas = Tareas,
+                
+            };
+            return PartialView("~/Areas/Crm/Views/Tarea/TareaModals.cshtml", viewModel);
         }
 
     }

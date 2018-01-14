@@ -1,61 +1,60 @@
-﻿@model Domain.Entities.Tarea
+﻿@using Common.Web.HelperMethods
+@using Domain.Entities
+@model WebUI.Areas.Crm.Models.TareaEditCreateViewModel
 
 @{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<div class="row">
+    <div>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Tarea</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.TareaId)
+        <div class="col-md-5">
+            <div class="block">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CreadoPorId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CreadoPorId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CreadoPorId, "", new { @class = "text-danger" })
+                <div class="app-heading app-heading-small">
+                    <div class="title">
+                        <h2>Crear nueva tarea</h2>
+                        <p>Los campos marcados con * son obligatorios</p>
+                    </div>
+                </div>
+
+                @Html.Partial("TareaEditCreate", Model)
+
+                
             </div>
+
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.AsignadoAId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AsignadoAId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AsignadoAId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <div class="col-md-7">
+            <div class="app-timeline">
+                
+                @foreach (var history in Model.Tarea.Historial)
+                {
+                    <div class="app-timeline-item">
+                        <div class="user"><img src="@Url.Content("~/img/avatar1.jpg")" alt="Taylor Watson"></div>
+                        <div class="content">
+                            <div class="title"><a href="#">@history.Tarea.CreadoPor.UserName</a> comentó sobre esta tarea: </div>
+                            <p>@history.Descripcion</p>
+                            <p>
+                                <a href="#" class="text-muted margin-right-10"><span class="label @Html.StatusClass((int)history.TareaEstado) label-bordered">@history.TareaEstado</span></a>
+                                <span class="pull-right text-muted"><i class="fa fa-clock-o"></i> @history.Fecha.ToString("D")</span>
+                            </p>
+                       
+                        </div>
+                    </div>
+                }
+             
+                <div class="app-timeline-more">
+                    <a href="#">...</a>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <!-- END DATE EXAMPLE -->
+
 </div>
+
+

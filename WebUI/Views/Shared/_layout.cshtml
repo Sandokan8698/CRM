@@ -124,7 +124,7 @@
                 <!-- END PAGE HEADING -->
                 <!-- START PAGE CONTAINER -->
                 <div class="container">
-                   
+
                     @if (ViewBag.Error != null)
                     {
                         <div class="col-md-2"></div>
@@ -133,13 +133,13 @@
                                 <div class="alert-icon">
                                     <span class="icon-menu-circle"></span>
                                 </div>
-                               
+
                                 <strong>Error!</strong> @ViewBag.Error.
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="fa fa-times"></span></button>
                             </div>
                         </div>
                     }
-                   
+
 
                     @RenderBody()
 
@@ -152,6 +152,15 @@
 
         </div>
         <!-- END APP CONTAINER -->
+        <!-- LIST OF STATUSBARS -->
+
+
+        <div class="app-statusbar app-statusbar-top app-statusbar-danger" id="errorStatusBar">
+            <div class="app-statusbar-icon"><span class="icon-volume-high"></span></div>
+            <div class="app-statusbar-text"></div>
+            <div class="app-statusbar-close fa fa-times"></div>
+        </div>
+        <!-- END LIST OF STATUSBARS-->
 
     </div>
     <!-- END APP WRAPPER -->
@@ -163,16 +172,31 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/customscrollbar/jquery.mCustomScrollbar.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
     <!-- END IMPORTANT SCRIPTS -->
-
     <!--PAGE SCRIPST-->
-     @RenderSection("PageScripts",false)
+    @RenderSection("PageScripts", false)
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/noty/jquery.noty.packaged.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/bootstrap-select/bootstrap-select.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js")"></script>
     <!--END PAGE SCRIPST-->
-
     <!-- APP SCRIPTS -->
     <script type="text/javascript" src="@Url.Content("~/Scripts/app.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/app_plugins.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/app_demo.js")"></script>
     @RenderSection("Script", false)
     <!-- END APP SCRIPTS -->
+
+<script type="text/javascript">
+    
+    function OnSuccess(data) {
+        $('.modal').modal('hide');
+        app_plugins.notificar("success", "Exito!", "La tarea fue modificada con éxito");
+    }
+    function OnFailure(request, error) {
+        $('.modal').modal('hide');
+        app_plugins.notificar("error", "Error", request.statusText);
+    }
+</script>
+   
+   
 </body>
 </html>

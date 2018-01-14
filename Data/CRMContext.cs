@@ -47,7 +47,6 @@ namespace Data
                   .HasForeignKey(m => m.CreadoPorId)
                   .WillCascadeOnDelete(false);
 
-
         }
     }
 }

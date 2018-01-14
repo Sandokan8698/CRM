@@ -9,6 +9,8 @@ namespace Domain.Entities
     public abstract class Perfil
     {
         public int PerfilId { get; set; }
-                
+        
+        public string ImagenUrl { get; set; }
+
     }
 }

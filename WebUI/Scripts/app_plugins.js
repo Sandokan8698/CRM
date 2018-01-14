@@ -332,6 +332,23 @@ var app_plugins = {
         app_plugins.noty();
         app_plugins.wizard();
         app_plugins.bootstrap_daterange();
+    },
+
+    notificar: function (type, header, text) {
+
+        noty({
+            layout: 'topRight',
+            theme: 'defaultTheme', // or relax
+            type: type, // success, error, warning, information, notification
+            text: '<strong>' + header + '</strong>' + text, // 
+            timeout: 8000, 
+            animation: {
+                open: 'animated bounceInLeft', // Animate.css class names
+                close: 'animated bounceOutLeft', // Animate.css class names
+                easing: 'swing', // unavailable - no need
+                speed: 500 // unavailable - no need
+            }
+        });
     }
 };
 

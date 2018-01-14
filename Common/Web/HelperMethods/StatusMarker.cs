@@ -15,8 +15,12 @@ namespace Common.Web.HelperMethods
 
             switch (estado)
             {
-                case 1:
-                    return new MvcHtmlString("label-success");
+                case 4:
+                    return new MvcHtmlString("label-warning");
+                case 2:
+                    return  new MvcHtmlString("label-success");
+                case 3:
+                    return  new MvcHtmlString("label-danger");
                 default:
                     return  new MvcHtmlString("label-primary");
             }

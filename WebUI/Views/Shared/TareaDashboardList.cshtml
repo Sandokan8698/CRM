@@ -15,7 +15,7 @@
             <p></p>
         </div>
         <div class="heading-elements">
-            <button class="btn btn-default btn-icon-fixed"><span class="icon-file-add"></span> All Transactions</button>
+            <a href="@Url.Action("Index","Tarea",new {area = "Crm"})"><button class="btn btn-default btn-icon-fixed"><span class="icon-list"></span> Todas las Tareas</button></a>
         </div>
     </div>
     <div class="block-content">
@@ -27,8 +27,6 @@
                             @Html.DisplayNameFor(model => model.CreadoPor)
                         </th>
                         <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
-                        <th>@Html.DisplayNameFor(model => model.AsignadoA)</th>
-                        <th width="100">@Html.DisplayNameFor(model => model.FechaCumplimiento)</th>
                         <th width="55">@Html.DisplayNameFor(model => model.TareaEstado)</th>
                     </tr>
                 </thead>
@@ -45,17 +43,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>@item.Descripcion</td>
-                            <td>
-                                <div class="contact contact-rounded contact-bordered contact-lg">
-                                    <img src="@item.AsignadoA.Perfil.ImagenUrl">
-                                    <div class="contact-container">
-                                        <a href="#">@item.AsignadoA.UserName</a>
-                                        <span>@item.Fecha.ToString("D")</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>@item.FechaCumplimiento</td>
+                            <td></td>
                             <td id="tareaModal-@item.TareaId"><span class="label @Html.StatusClass((int)item.TareaEstado) label-bordered">@item.TareaEstado</span></td>
                             <td>
                                 <div class="dropdown">
@@ -66,7 +54,7 @@
                                         <li>
                                             <a href="#" data-toggle="modal" data-target="#modal-primary-@item.TareaId"><span class="icon-pencil text-info"></span>        Editar Tarea</a>
                                         </li>
-                                        <li><a href="@Url.Action("Edit","Tarea", new {id = item.TareaId})"><span class="icon-spell-check text-warning"></span> Detalle</a></li>
+                                        <li><a href="@Url.Action("Edit","Tarea", new {area = "Crm", id = item.TareaId})"><span class="icon-spell-check text-warning"></span> Detalle</a></li>
                                         <li class="divider"></li>
                                         <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li>
                                     </ul>
@@ -81,7 +69,8 @@
     </div>
 </div>
 
-@Html.Action("CreateTareaModals", new { Tareas = Model })
+@Html.Action("CreateTareaModals","Tarea", new { Tareas = Model })
+
 
 
 

@@ -1,6 +1,6 @@
 ﻿@using System.Web.UI.WebControls
 @using Domain.Entities
-@model WebUI.Areas.Crm.Models.CreateTareaViewModel
+@model WebUI.Areas.Crm.Models.TareaEditCreateViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -72,6 +72,5 @@
 
 @section PageScripts
 {
-    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/bootstrap-select/bootstrap-select.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js")"></script>
+  <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/summernote/summernote.min.js")"></script>
 }

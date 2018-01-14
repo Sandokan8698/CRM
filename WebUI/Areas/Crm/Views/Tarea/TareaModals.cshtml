@@ -1,0 +1,68 @@
+﻿@using Domain.Entities
+@model WebUI.Areas.Crm.Models.TareaModalsViewModel
+
+
+@foreach (var tarea in Model.Tareas)
+{
+
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "tareaModal-" + tarea.TareaId,
+        Url = Url.Action("ChangeTareaEstado"),
+        InsertionMode = InsertionMode.Replace,
+        OnSuccess = "OnSuccess",
+        OnFailure = "OnFailure"
+    };
+
+    <!-- MODAL PRIMARY -->
+    <div class="modal fade" id="modal-primary-@tarea.TareaId" tabindex="-1" role="dialog" aria-labelledby="modal-primary-header">
+        <div class="modal-dialog modal-primary" role="document">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="icon-cross"></span>
+            </button>
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-primary-header">Tarea</h4>
+                </div>
+                @using (Ajax.BeginForm(ajaxOpts))
+                {
+                    <div class="modal-body">
+                        <div class="block">
+                            <div class="app-heading app-heading-small">
+                                <div class="title">
+                                    <h2>Cambiar estadado de la tarea</h2>
+                                    <p>Los campos marcados con <code>*</code> son obligatorios</p>
+                                </div>
+                            </div>
+
+                            @Html.AntiForgeryToken()
+
+                            <input type="hidden" name="tareaId" value="@tarea.TareaId" />
+                            
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TareaHistorial.TareaEstado) <code>*</code>
+                                @Html.DropDownListFor(model => model.TareaHistorial.TareaEstado, new SelectList(Enum.GetValues(typeof(TareaEstado))), new { @class = "bs-select" })
+                                @Html.ValidationMessageFor(model => model.TareaHistorial.TareaEstado, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TareaHistorial.Descripcion) <code>*</code>
+                                @Html.TextAreaFor(model => model.TareaHistorial.Descripcion, new { @class = "form-control", rows = 5 })
+                                @Html.ValidationMessageFor(model => model.TareaHistorial.Descripcion, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+
+
+                }
+            </div>
+        </div>
+    </div>
+    <!-- END MODAL PRIMARY -->
+}

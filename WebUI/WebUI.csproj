@@ -226,7 +226,7 @@
     <Compile Include="Areas\Admin\Models\AccountViewModels.cs" />
     <Compile Include="Areas\Crm\Controllers\TareaController.cs" />
     <Compile Include="Areas\Crm\CrmAreaRegistration.cs" />
-    <Compile Include="Areas\Crm\Models\CreateTareaViewModel.cs" />
+    <Compile Include="Areas\Crm\Models\TareaEditCreateViewModel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -237,6 +237,7 @@
     <Compile Include="Areas\Admin\Identity\IdentityUser.cs" />
     <Compile Include="Areas\Admin\Identity\RoleStore.cs" />
     <Compile Include="Areas\Admin\Identity\UserStore.cs" />
+    <Compile Include="model\DashboarViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -5185,7 +5186,6 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Crm\Views\web.config" />
     <Content Include="Areas\Crm\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Crm\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Crm\Views\Tarea\Index.cshtml" />
     <Content Include="Areas\Crm\Views\Tarea\Create.cshtml" />
     <Content Include="Areas\Crm\Views\Tarea\Edit.cshtml" />
@@ -5218,7 +5218,10 @@
     <Content Include="img\navigation\Thumbs.db" />
     <Content Include="img\switch\Thumbs.db" />
     <Content Include="img\user\Thumbs.db" />
-    <Content Include="Areas\Crm\Views\Shared\TareaEditDialog.cshtml" />
+    <Content Include="Areas\Crm\Views\Shared\SpanStates.cshtml" />
+    <Content Include="Areas\Crm\Views\Tarea\TareaModals.cshtml" />
+    <Content Include="Areas\Crm\Views\Tarea\TareaEditCreate.cshtml" />
+    <Content Include="Views\Shared\TareaDashboardList.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -5543,7 +5546,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\DashBoard.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />

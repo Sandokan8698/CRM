@@ -47,6 +47,7 @@
     <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Tarea.cs" />
+    <Compile Include="Entities\TareaHistorial.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Vendedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

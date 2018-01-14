@@ -31,7 +31,9 @@ namespace Domain.Entities
         public TareaEstado TareaEstado { get; set; }
 
         [DisplayName("Fecha Cumplimiento")]
-        public DateTime FechaCumplimiento  { get; set; }  
+        public DateTime FechaCumplimiento  { get; set; }
+
+        public virtual ICollection<TareaHistorial> Historial { get; set; }
 
         public Tarea()
         {
@@ -42,9 +44,9 @@ namespace Domain.Entities
 
     public enum TareaEstado
     {
-        Activo,
-        Cancelada,
-        Cumplida,
-        Retrasada
+        Activo = 1,
+        Cancelada = 4,
+        Cumplida = 2,
+        Retrasada = 3
     }
 }

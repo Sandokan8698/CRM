@@ -7,7 +7,7 @@ using Data.Abstract;
 
 namespace Data.Implementations
 {
-    internal class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected CRMContex _context;
         private DbSet<TEntity> _set;
