@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Mvc.Ajax;
-using Data;
 using Data.Abstract;
 using WebUI.Controllers;
 using Domain.Entities;

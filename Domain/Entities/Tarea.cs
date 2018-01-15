@@ -34,10 +34,14 @@ namespace Domain.Entities
         public DateTime FechaCumplimiento  { get; set; }
 
         public virtual ICollection<TareaHistorial> Historial { get; set; }
+        
+        [MaxLength(20)]
+        public string Identificador { get; set; }
 
         public Tarea()
         {
             Fecha = DateTime.Now;
+            
         }
 
     }

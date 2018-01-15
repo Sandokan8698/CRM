@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Data.Abstract;
+using Data.Implementations;
+using Microsoft.AspNet.Identity;
 using WebUI.model;
 
 namespace WebUI.Controllers
@@ -18,10 +20,10 @@ namespace WebUI.Controllers
         {
             var viewModel = new DashboarViewModel
             {
-                Tareas = _unitOfWork.TareaRepository.GetAll()
+                Tareas = _unitOfWork.TareaRepository.GetAll().OrderByDescending(t => t.Fecha).Take(5)
             };
 
-            return View("DashBoard",viewModel);
+            return View("DashBoard", viewModel);
         }
 
         public ActionResult About()
@@ -36,6 +38,18 @@ namespace WebUI.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public PartialViewResult GetUserToBarCredential()
+        {
+            //Esto esta mal averigual pq el control hace dispose antes de
+            //llamar a este metodo
+            var uw = new UnitOfWork();
+
+            var user = uw.UserRepository.FindByUserName(HttpContext.User.Identity.Name);
+            return PartialView("UserTopBarCredential", user);
+
+
         }
     }
 }

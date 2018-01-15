@@ -2,74 +2,97 @@
 @{
     Layout = null;
 }
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Admin Dashboard HTML Template</title>
-    <meta charset="utf-8">
-    <meta content="ie=edge" http-equiv="x-ua-compatible">
-    <meta content="template language" name="keywords">
-    <meta content="Tamerlan Soziev" name="author">
-    <meta content="Admin dashboard html template" name="description">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="favicon.png" rel="shortcut icon">
-    <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="//fast.fonts.net/cssapi/175a63a1-3f26-476a-ab32-4e21cbdb8be2.css" rel="stylesheet" type="text/css">
-    <link href="@Url.Content("~/bower_components/select2/dist/css/select2.min.css")" rel="stylesheet">
-    <link href=@Url.Content("~/bower_components/bootstrap-daterangepicker/daterangepicker.css") rel="stylesheet">
-    <link href=@Url.Content("~/bower_components/dropzone/dist/dropzone.css") rel="stylesheet">
-    <link href=@Url.Content("~/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css") rel="stylesheet">
-    <link href=@Url.Content("~/bower_components/fullcalendar/dist/fullcalendar.min.css") rel="stylesheet">
-    <link href=@Url.Content("~/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css") rel="stylesheet">
-    <link href="@Url.Content("~/Content/main.css?version=2.6")" rel="stylesheet">
+    <title>Boooya - Login With Background</title>
+
+    <!-- META SECTION -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- END META SECTION -->
+    <!-- CSS INCLUDE -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/styles.css")">
+    <!-- EOF CSS INCLUDE -->
 </head>
-<body class="auth-wrapper">
-    <div class="all-wrapper menu-side with-pattern">
-        <div class="auth-box-w">
-            <div class="logo-w">
-                <a href="index.html"><img alt="" src="@Url.Content("~/img/logo-big.png")"></a>
+<body>
+
+    <!-- APP WRAPPER -->
+    <div class="app app-fh">
+
+        <!-- START APP CONTAINER -->
+        <div class="app-container" style="background: url(@Url.Content("~/img/img-2.jpg")) center center no-repeat fixed;">
+
+            <div class="app-login-box">
+                <div class="app-login-box-user"><img src="@Url.Content("~/img/user/no-image.png")"></div>
+                <div class="app-login-box-title">
+                    <div class="title">SP.CRM</div>
+                    <div class="subtitle">Iniciar sesión en su cuenta</div>
+                </div>
+                <div class="app-login-box-container">
+                   @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                   {
+                       @Html.AntiForgeryToken()
+                       @Html.ValidationSummary(true)
+
+
+                       <div class="form-group">                        
+                           @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "nombre usuario" })
+                           @Html.ValidationMessageFor(m => m.UserName)
+                       </div>
+                       <div class="form-group">
+                           @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "contraseña" })
+                           @Html.ValidationMessageFor(m => m.Password)
+                       </div>
+                       <div class="form-group">
+
+                           <div class="row">
+                               <div class="col-md-6 col-xs-6">
+                                   <div class="app-checkbox">
+                                       <label><input type="checkbox" name="app-checkbox-1" value="0"> Remember me</label>
+                                   </div>
+                               </div>
+                               <div class="col-md-6 col-xs-6">
+                                   <button class="btn btn-success btn-block">Autenticar</button>
+                               </div>
+                           </div>
+
+                       </div>
+                   }
+                </div>
+                <div class="app-login-box-or">
+                    <div class="or">OR</div>
+                </div>
+                <div class="app-login-box-container">
+                    <button class="btn btn-facebook btn-block">Connect With Facebook</button>
+                    <button class="btn btn-twitter btn-block">Connect With Twitter</button>
+                </div>
+                <div class="app-login-box-footer">
+                    &copy; Boooya 2016. All rights reserved.
+                </div>
             </div>
-            <h4 class="auth-header">
-                Login Form
-            </h4>
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
-
-
-                <div class="form-group">
-                    <label for="">Nomrbe Usuario</label>
-                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Entre su nombre de usuario" })
-                    @Html.ValidationMessageFor(m => m.UserName)
-                    <div class="pre-icon os-icon os-icon-user-male-circle"></div>
-                </div>
-                <div class="form-group">
-                    <label for="">Contraseña</label>
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Entre su contraseña" })
-                    @Html.ValidationMessageFor(m => m.Password)
-                    <div class="pre-icon os-icon os-icon-fingerprint"></div>
-                </div>
-                <div class="buttons-w">
-                    <button class="btn btn-primary">Ingresar</button>
-                    <div class="form-check-inline">
-                        <label class="form-check-label">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            Recordarme
-                        </label>
-                    </div>
-                </div>
-
-            }
 
         </div>
-    </div>
+        <!-- END APP CONTAINER -->
 
-    <script type="text/javascript">
-    @Scripts.Render("~/bundles/jqueryval")
-    </script>
+    </div>
+    <!-- END APP WRAPPER -->
+    <!-- IMPORTANT SCRIPTS -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery/jquery-ui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/bootstrap/bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/moment/moment.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/customscrollbar/jquery.mCustomScrollbar.min.js")"></script>
+    <!-- END IMPORTANT SCRIPTS -->
+    <!-- APP SCRIPTS -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app_plugins.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app_demo.js")"></script>
+    <!-- END APP SCRIPTS -->
 </body>
 </html>
-
-

@@ -4374,6 +4374,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\6.png" />
     <Content Include="img\avatar1.jpg" />
     <Content Include="img\avatar2.jpg" />
     <Content Include="img\avatar3.jpg" />
@@ -4626,6 +4627,7 @@
     <Content Include="img\icons\word.png" />
     <Content Include="img\icons\xls.png" />
     <Content Include="img\icons\xml.png" />
+    <Content Include="img\img-2.jpg" />
     <Content Include="img\img1.jpg" />
     <Content Include="img\logo-big.png" />
     <Content Include="img\logo-dark-lg.png" />
@@ -5557,6 +5559,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_layout.cshtml" />
     <Content Include="Views\Shared\SidePanel.cshtml" />
+    <Content Include="Views\Shared\UserTopBarCredential.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

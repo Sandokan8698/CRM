@@ -11,6 +11,6 @@ namespace Domain.Entities
     public class Vendedor: Perfil
     {
         public decimal PresuspuestoAsignado { get; set; }
-        public int PefilId { get; set; }
+        
     }
 }
