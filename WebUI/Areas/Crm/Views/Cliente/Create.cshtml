@@ -1,0 +1,255 @@
+﻿@model WebUI.Areas.Crm.Models.ClienteCreateViewModel
+
+
+<div class="row margin-bottom-30 margin-top-10">
+    <div class="col-md-6 col-md-offset-3 col-sm-12">
+        <div class="btn-group btn-group-justified" role="group">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary" data-filter="*">All</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" data-filter=".filter-life">Life</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" data-filter=".filter-business">Business</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" data-filter=".filter-education">Education</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" data-filter=".filter-nature">Nature</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+@using (Html.BeginForm("Create", "Cliente", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="row">
+        <div>
+            <div class="col-md-1">
+
+            </div>
+
+            <div class="col-md-10">
+                <div class="block">
+
+                    <div class="app-heading app-heading-small">
+                        <div class="title">
+                            <h2>Crear nuevo cliente</h2>
+                            <p>Los campos marcados con * son obligatorios</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Cliente.Ruc, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-license"></span>
+                                    </span>
+                                    @Html.TextBoxFor(model => model.Cliente.Ruc, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Cliente.Ruc, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-2">
+                                @Html.LabelFor(model => model.Cliente.Nombre, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-user"></span>
+                                    </span>
+                                    @Html.TextBoxFor(model => model.Cliente.Nombre, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Cliente.Nombre, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="col-md-2">
+                                @Html.LabelFor(model => model.Cliente.FechaNacimiento, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-calendar-full"></span>
+                                    </span>
+                                    @Html.TextBoxFor(model => model.Cliente.FechaNacimiento, new { @class = "form-control bs-datepicker" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Cliente.FechaNacimiento, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="col-md-2">
+                                @Html.LabelFor(model => model.Cliente.Email, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-envelope-o"></span></span>
+                                    @Html.TextBoxFor(model => model.Cliente.Email, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Cliente.Email, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="col-md-2">
+                                @Html.LabelFor(model => model.Cliente.Telefono, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="icon-phone-handset"></span></span>
+                                    @Html.TextBoxFor(model => model.Cliente.Telefono, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Cliente.Telefono, "", new { @class = "text-danger" })
+                                <span class="help-block">Example: 98 (765) 432-10-98</span>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="col-md-2">
+                                @Html.LabelFor(model => model.Cliente.Provincia, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-map-o"></span></span>
+                                    @Html.TextBoxFor(model => model.Cliente.Provincia, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Cliente.Provincia, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="col-md-2">
+                                @Html.LabelFor(model => model.Cliente.Ciudad, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-map"></span></span>
+                                    @Html.TextBoxFor(model => model.Cliente.Ciudad, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Cliente.Ciudad, "", new { @class = "text-danger" })
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="col-md-1">
+                                @Html.LabelFor(model => model.Cliente.Direccion, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-11">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="icon-home"></span></span>
+                                    @Html.TextBoxFor(model => model.Cliente.Direccion, new { @class = "form-control" })
+
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Cliente.Direccion, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+            <div class="col-md-1">
+
+            </div>
+
+            <div class="col-md-10">
+                <div class="block">
+
+                    <div class="app-heading app-heading-small">
+                        <div class="title">
+                            <h2>Crear nuevo cliente</h2>
+                            <p>Los campos marcados con * son obligatorios</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Cliente.Division, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-license"></span>
+                                    </span>
+                                    @Html.TextBoxFor(model => model.Cliente.Division, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Cliente.Division, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-2">
+                                @Html.LabelFor(model => model.Cliente.Sector, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-user"></span>
+                                    </span>
+                                    @Html.TextBoxFor(model => model.Cliente.Sector, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Cliente.Sector, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Cliente.DescripcionSector, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-license"></span>
+                                    </span>
+                                    @Html.TextBoxFor(model => model.Cliente.DescripcionSector, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Cliente.DescripcionSector, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                     
+                    </div>
+                    
+                    <div class="form-group margin-top-20 pull-right">
+                        <button class="btn btn-primary" type="submit">Enviar &amp; Validar</button>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

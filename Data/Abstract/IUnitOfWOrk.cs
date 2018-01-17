@@ -12,6 +12,7 @@ namespace Data.Abstract
         IUserRepository UserRepository { get; }
         ITareaRepository TareaRepository { get; }
         ITareaHistorialRepository TareaHistorialRepository { get; }
+        IClienteRepository ClienteRepository { get; }
         #endregion
 
         #region Methods
