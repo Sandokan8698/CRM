@@ -61,5 +61,7 @@ namespace Domain.Entities
 
         public int? VendedorId { get; set; }
         public virtual Vendedor Vendedor { get; set; }
+
+
     }
 }

@@ -18,7 +18,7 @@ namespace Test
             var user = context.UserDbSet.FirstOrDefault(u => u.UserId == 1);
 
             var vendedor = new Vendedor();
-            vendedor.PefilId = 1;
+           
 
             user.Perfil = vendedor;
 
