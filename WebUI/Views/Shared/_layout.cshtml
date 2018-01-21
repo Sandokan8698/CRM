@@ -114,20 +114,29 @@
 
                     @if (ViewBag.Error != null)
                     {
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
-                            <div class="alert alert-danger alert-icon-block alert-dismissible" role="alert">
-                                <div class="alert-icon">
-                                    <span class="icon-menu-circle"></span>
-                                </div>
-
-                                <strong>Error!</strong> @ViewBag.Error.
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="fa fa-times"></span></button>
-                            </div>
+                        <div class="app-statusbar app-statusbar-danger" id="errorStatusBar" style="display: block">
+                            <div class="app-statusbar-icon"><span class="icon-volume-high"></span></div>
+                            <div class="app-statusbar-text">@ViewBag.Error</div>
+                            <div class="app-statusbar-close fa fa-times"></div>
                         </div>
+
                     }
 
+                    @if (ViewBag.Success != null)
+                    {
+                        <div class="app-statusbar app-statusbar-success" id="errorStatusBar" style="display: block">
+                            <div class="app-statusbar-icon"><span class="icon-volume-high"></span></div>
+                            <div class="app-statusbar-text">@ViewBag.Error</div>
+                            <div class="app-statusbar-close fa fa-times"></div>
+                        </div>
 
+                    }
+
+                    <div class="row margin-bottom-15" style="display: none" id="loading">
+                        <div class="col-md-1 col-sm-2">
+                            <div class="app-spinner pulse pulse-success"></div>
+                        </div>
+                    </div>
                     @RenderBody()
 
 
@@ -140,13 +149,6 @@
         </div>
         <!-- END APP CONTAINER -->
         <!-- LIST OF STATUSBARS -->
-
-
-        <div class="app-statusbar app-statusbar-top app-statusbar-danger" id="errorStatusBar">
-            <div class="app-statusbar-icon"><span class="icon-volume-high"></span></div>
-            <div class="app-statusbar-text"></div>
-            <div class="app-statusbar-close fa fa-times"></div>
-        </div>
         <!-- END LIST OF STATUSBARS-->
 
     </div>
@@ -180,13 +182,32 @@
         }
         function OnFailure(request, error) {
             $('.modal').modal('hide');
-            app_plugins.notificar("error", "Error", request.statusText);
+            app_plugins.notificar("error", "Error", request.responseJSON);
         }
 
-        var chart = AmCharts.makeChart( "chartdiv", {
+        //REGION DE CONTACTOS
+        function OnCoctactoDeleteSuccess(data) {
+            $('.modal').modal('hide');
+            $('#contactoRow-' + data.id).remove();
+            app_plugins.notificar("success", "Exito!", "La acción se completo con éxito");
+
+        }
+
+        function OnContactoAddSuccess(data) {
+            $('.modal').modal('hide');
+            $('.modal input').val("");
+            app_plugins.notificar("success", "Exito!", "El contacto se agrego  con éxito");
+        }
+
+        function DeleteContacto(form) {
+            form.submit();
+        }
+        //END REGION DE CONTACTOS
+
+        var chart = AmCharts.makeChart("chartdiv", {
             "type": "funnel",
             "theme": "light",
-            "dataProvider": [ {
+            "dataProvider": [{
                 "title": "Ganado",
                 "value": 100
             }, {
@@ -223,8 +244,9 @@
             "export": {
                 "enabled": true
             }
-        } );
-      
+        });
+
+
     </script>
 
 

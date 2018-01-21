@@ -1,0 +1,32 @@
+﻿@model Domain.Entities.Contacto
+@{
+    AjaxOptions ajaxOptions = new AjaxOptions
+    {
+        Url = Url.Action("Delete", "Contacto", new { id = Model.ContactoId }),
+        OnSuccess = "OnCoctactoDeleteSuccess",
+        OnFailure = "OnFailure",
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "loading"
+    };
+}
+
+<tr id="contactoRow-@Model.ContactoId">
+    <td>
+        <a>@Model.Nombre</a>
+    </td>
+    <td>@Model.Cargo</td>
+    <td>@Model.FechaNacimiento.ToString("D")</td>
+    <td>@Model.Celular</td>
+    <td align ="center" >@if (Model.TomaDecision)
+        {
+            <span class="icon-thumbs-up success" style="font-size: 19px"></span>
+        }
+    </td>
+    <td>@Model.Email</td>
+    <td>
+        @using (Ajax.BeginForm("Delete", "Contacto", new { id = Model.ContactoId }, ajaxOptions, new {@id = "formDeleteContacto-" + Model.ContactoId})){}
+
+        <button type="button" class="btn btn-default btn-icon"><span class="fa fa-pencil"></span></button>
+        <button class="btn btn-default btn-icon" onclick="DeleteContacto($('#formDeleteContacto-@Model.ContactoId'))"><span class="fa fa-times"></span></button>
+    </td>
+</tr> 

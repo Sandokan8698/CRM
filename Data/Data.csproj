@@ -57,8 +57,10 @@
     <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="CRMContext.cs" />
     <Compile Include="Implementations\ClienteRepository.cs" />
+    <Compile Include="Implementations\ContactoRepository.cs" />
     <Compile Include="Implementations\ExternalLoginRepository.cs" />
     <Compile Include="Abstract\IClienteRepository.cs" />
+    <Compile Include="Abstract\IContactoRepository.cs" />
     <Compile Include="Implementations\Repository.cs" />
     <Compile Include="Implementations\RoleRepository.cs" />
     <Compile Include="Implementations\TareaHistorialRepository.cs" />
@@ -120,6 +122,18 @@
     <Compile Include="Migrations\201801170413209_Migration_14.cs" />
     <Compile Include="Migrations\201801170413209_Migration_14.Designer.cs">
       <DependentUpon>201801170413209_Migration_14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801180558417_Migration_15.cs" />
+    <Compile Include="Migrations\201801180558417_Migration_15.Designer.cs">
+      <DependentUpon>201801180558417_Migration_15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801190348537_Migration_16.cs" />
+    <Compile Include="Migrations\201801190348537_Migration_16.Designer.cs">
+      <DependentUpon>201801190348537_Migration_16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801210447505_Migration_17.cs" />
+    <Compile Include="Migrations\201801210447505_Migration_17.Designer.cs">
+      <DependentUpon>201801210447505_Migration_17.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -189,6 +203,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801170413209_Migration_14.resx">
       <DependentUpon>201801170413209_Migration_14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801180558417_Migration_15.resx">
+      <DependentUpon>201801180558417_Migration_15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801190348537_Migration_16.resx">
+      <DependentUpon>201801190348537_Migration_16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801210447505_Migration_17.resx">
+      <DependentUpon>201801210447505_Migration_17.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

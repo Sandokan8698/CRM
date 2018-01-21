@@ -13,6 +13,7 @@ namespace Data.Implementations
         private ITareaRepository _tareaRepository;
         private ITareaHistorialRepository _tareaHistorialRepository;
         private IClienteRepository _clienteRepository;
+        private IContactoRepository _contactoRepository;
         #endregion
 
         #region Constructors
@@ -51,6 +52,12 @@ namespace Data.Implementations
         public IClienteRepository ClienteRepository
         {
             get { return _clienteRepository ?? (_clienteRepository = new ClienteRepository(_context)); }
+        }
+
+
+        public IContactoRepository ContactoRepository
+        {
+            get { return _contactoRepository ?? (_contactoRepository = new ContactoRepository(_context)); }
         }
 
         public int SaveChanges()

@@ -17,8 +17,13 @@ namespace Domain.Entities
         [MaxLength(15)]
         public string Ruc { get; set; }
 
+        [Required]
         [MaxLength(10)]
         public string Telefono { get; set; }
+
+        [MaxLength(10)]
+        [DisplayName("T. Convencional")]
+        public string TelefonoConvencional { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -62,6 +67,13 @@ namespace Domain.Entities
         public int? VendedorId { get; set; }
         public virtual Vendedor Vendedor { get; set; }
 
+        public virtual ICollection<Contacto> Contactos { get; set; }
 
+        public Cliente()
+        {
+            Contactos = new List<Contacto>();
+            FechaNacimiento = DateTime.Now;
+        }
+        
     }
 }

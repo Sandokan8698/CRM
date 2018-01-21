@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Entities\Claim.cs" />
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\Conctacto.cs" />
     <Compile Include="Entities\ExternalLogin.cs" />
     <Compile Include="Entities\Gerencia.cs" />
     <Compile Include="Entities\Perfil.cs" />

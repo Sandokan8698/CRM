@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Data.Implementations;
 
 namespace Data.Abstract
 {
@@ -13,6 +14,7 @@ namespace Data.Abstract
         ITareaRepository TareaRepository { get; }
         ITareaHistorialRepository TareaHistorialRepository { get; }
         IClienteRepository ClienteRepository { get; }
+        IContactoRepository ContactoRepository { get; }
         #endregion
 
         #region Methods

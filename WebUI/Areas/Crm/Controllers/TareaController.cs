@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using Common.Web.Views;
 using Data.Abstract;
 using WebUI.Controllers;
 using Domain.Entities;
@@ -191,8 +192,7 @@ namespace WebUI.Areas.Crm.Controllers
                 return PartialView("~/Areas/Crm/Views/Shared/SpanStates.cshtml", tareaHistorial.TareaEstado);
             }
 
-            String messages = String.Join(Environment.NewLine, ModelState.Values.SelectMany(v => v.Errors)
-                .Select(v => v.ErrorMessage + " " + v.Exception));
+            String messages = MvcGeneralHelper.GetModelStateErrors(ModelState);
 
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest,messages);
 

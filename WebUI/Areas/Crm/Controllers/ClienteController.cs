@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Common.Web.Views;
 using Data.Abstract;
 using Domain.Entities;
 using WebUI.Areas.Crm.Models;
@@ -31,23 +33,23 @@ namespace WebUI.Areas.Crm.Controllers
         // GET: Crm/Cliente/Create
         public ActionResult Create()
         {
-            return View();
+            ClienteCreateViewModel viewModel = new ClienteCreateViewModel();
+            return View(viewModel);
         }
 
         // POST: Crm/Cliente/Create
         [HttpPost]
-        public ActionResult Create(Cliente cliente)
+        public ActionResult Create(ClienteCreateViewModel viewModel)
         {
-            var viewModel = new ClienteCreateViewModel
-            {
-                Cliente =  cliente
-            };
+
             try
             {
                 if (ModelState.IsValid)
                 {
-                   _unitOfWork.ClienteRepository.Add(cliente);
+                    _unitOfWork.ClienteRepository.Add(viewModel.Cliente);
                     _unitOfWork.SaveChanges();
+
+                    return RedirectToAction("Edit", new { id = viewModel.Cliente.ClienteId });
                 }
                 else
                 {
@@ -56,17 +58,25 @@ namespace WebUI.Areas.Crm.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 ViewBag.Error = e.Message;
-                return View(cliente);
+                return View(viewModel);
             }
         }
 
         // GET: Crm/Cliente/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var cliente = _unitOfWork.ClienteRepository.FindById(id);
+            if (cliente == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new ClienteCreateViewModel { Cliente = cliente };
+
+            return View(viewModel);
         }
 
         // POST: Crm/Cliente/Edit/5
@@ -106,5 +116,7 @@ namespace WebUI.Areas.Crm.Controllers
                 return View();
             }
         }
+
+       
     }
 }
