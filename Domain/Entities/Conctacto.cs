@@ -38,6 +38,8 @@ namespace Domain.Entities
 
         public bool TomaDecision { get; set; }
 
+        public virtual ICollection<Oportunidad> Oportunidades { get; set; }
+
         public Contacto()
         {
             FechaNacimiento = DateTime.Now;

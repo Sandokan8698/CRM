@@ -31,6 +31,7 @@ namespace Data
         public DbSet<Perfil> PefilDbset { get; set; }
         public DbSet<Provincia> ProviciaDbSet  { get; set; }
         public DbSet<Ciudad> CiudadDbSet { get; set; }
+        public DbSet<Oportunidad> OportunidadDsDbSet { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -48,6 +49,24 @@ namespace Data
                   .WithMany(t => t.TareasCreadas)
                   .HasForeignKey(m => m.CreadoPorId)
                   .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Oportunidad>()
+                .HasRequired(m => m.Asesor)
+                .WithMany(v => v.Oportunidades)
+                .HasForeignKey(m => m.AsesorId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Oportunidad>()
+                .HasRequired(m => m.ContactoVenta)
+                .WithMany(c => c.Oportunidades)
+                .HasForeignKey(m => m.ContactoVentaId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Oportunidad>()
+                .HasRequired(m => m.TomadorDesicion)
+                .WithMany(c => c.Oportunidades)
+                .HasForeignKey(m => m.TomadorDesicion)
+                .WillCascadeOnDelete(false);
 
         }
     }

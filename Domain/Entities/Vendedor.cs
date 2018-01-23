@@ -9,5 +9,7 @@ namespace Domain.Entities
         public decimal PresuspuestoAsignado { get; set; }
 
         public virtual ICollection<Cliente> Clientes { get; set; }
+
+        public virtual ICollection<Oportunidad> Oportunidades { get; set; }
     }
 }
