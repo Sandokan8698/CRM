@@ -124,7 +124,7 @@
 
                     @if (ViewBag.Success != null)
                     {
-                        <div class="app-statusbar app-statusbar-success" id="errorStatusBar" style="display: block">
+                        <div class="app-statusbar app-statusbar-success" id="successStatusBar" style="display: block">
                             <div class="app-statusbar-icon"><span class="icon-volume-high"></span></div>
                             <div class="app-statusbar-text">@ViewBag.Error</div>
                             <div class="app-statusbar-close fa fa-times"></div>
@@ -176,6 +176,10 @@
 
     <script type="text/javascript">
 
+        String.prototype.isEmpty = function() {
+            return (this.length === 0 || !this.trim());
+        };
+
         function OnSuccess(data) {
             $('.modal').modal('hide');
             app_plugins.notificar("success", "Exito!", "La tarea fue modificada con éxito");
@@ -185,6 +189,24 @@
             app_plugins.notificar("error", "Error", request.responseJSON);
         }
 
+        //REGION CLIENTES
+        var provinciasDropDown = $("#clienteProvinciaDropDown");
+
+       
+           provinciasDropDown.change(function() {
+                $.ajax({
+                    url: "@Url.Action("GetCiudadByProvincia","Cliente")",
+                    type: "POST", //send it through get method
+                    data: { provicinciaId : provinciasDropDown.val()},
+                    success: function(response) {
+                        $('#ciudadDropDownContainer').replaceWith(response);
+                    },
+                    error: function (request, error) {
+                        OnFailure(request, error);
+                    }
+                });
+            });
+        
         //REGION DE CONTACTOS
         function OnCoctactoDeleteSuccess(data) {
             $('.modal').modal('hide');
@@ -195,12 +217,48 @@
 
         function OnContactoAddSuccess(data) {
             $('.modal').modal('hide');
-            $('.modal input').val("");
+          
+            $('#createConctactoModal #Contacto_Nombre').val("");
+            $('#createConctactoModal #Contacto_Cargo').val("");
+            $('#createConctactoModal #Contacto_FechaNacimiento').val("");
+            $('#createConctactoModal #Contacto_Celular').val("");
+            $('#createConctactoModal #Contacto_TomaDecision').prop("checked", false);
+            $('#createConctactoModal #Contacto_Email').val("");
+
             app_plugins.notificar("success", "Exito!", "El contacto se agrego  con éxito");
         }
 
         function DeleteContacto(form) {
             form.submit();
+        }
+
+        function ShowModalEditContacto(id) {
+            
+            var clienteId = $('#contactoRow-' + id +' #ClienteId').val();
+            var nombre = $('#contactoRowNombre-' + id).html();
+            var cargo = $('#contactoRowCargo-' + id).html();
+            var fechaNacimiento = $('#contactoRowFechaNacimiento-' + id).html();
+            var celular = $('#contactoRowCelular-' + id).html();
+            var tomaDecision =  $('#contactoRowTomaDecision-' + id).html().isEmpty() ? false: true;
+            var email = $('#contactoRowEmail-' + id).html();
+            
+
+            $('#contactoEditoModal #ClienteId').val(clienteId);
+            $('#contactoEditoModal #Contacto_ContactoId').val(id);
+            $('#contactoEditoModal #Contacto_Nombre').val(nombre);
+            $('#contactoEditoModal #Contacto_Cargo').val(cargo);
+            $('#contactoEditoModal #Contacto_FechaNacimiento').val(fechaNacimiento);
+            $('#contactoEditoModal #Contacto_Celular').val(celular);
+            $('#contactoEditoModal #Contacto_TomaDecision').prop("checked", tomaDecision);
+            $('#contactoEditoModal #Contacto_Email').val(email);
+
+            $('#contactoEditoModal').modal('show');
+        }
+
+        function OnContactoEditSuccess(data) {
+            $('.modal').modal('hide');
+            $('#contactoRow-' + data.id).replaceWith(data.view);
+            app_plugins.notificar("success", "Exito!", "El contacto se modifico con éxito");
         }
         //END REGION DE CONTACTOS
 

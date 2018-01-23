@@ -2,13 +2,21 @@
 @model WebUI.Areas.Crm.Models.ClienteCreateViewModel
 
 @{
-    AjaxOptions ajaxOptions = new AjaxOptions
+    AjaxOptions createAjaxOptions = new AjaxOptions
     {
         UpdateTargetId = "tbListaContacto",
         Url = Url.Action("Create", "Contacto"),
         InsertionMode = InsertionMode.InsertAfter,
         OnSuccess = "OnContactoAddSuccess",
         OnFailure = "OnFailure"
+    };
+
+    AjaxOptions editAjaxOptions = new AjaxOptions
+    {
+        UpdateTargetId = "",
+        Url = Url.Action("Edit", "Contacto"),
+        OnFailure = "OnFailure",
+        OnSuccess = "OnContactoEditSuccess"
     };
 }
 
@@ -28,7 +36,7 @@
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
+        @Html.HiddenFor(model => model.Cliente.ClienteId)
         <div class="row">
 
             <div class="col-md-12">
@@ -112,7 +120,7 @@
                             </div>
                             <div class="col-md-10">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><span class="icon-phone-handset"></span></span>
+                                    <span class="input-group-addon"><span class="fa fa-mobile" style="font-size: 25px"></span></span>
                                     @Html.TextBoxFor(model => model.Cliente.Telefono, new { @class = "form-control" })
                                 </div>
                                 @Html.ValidationMessageFor(model => model.Cliente.Telefono, "", new { @class = "text-danger" })
@@ -127,7 +135,7 @@
                             </div>
                             <div class="col-md-10">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><span class="fa fa-map-o"></span></span>
+                                    <span class="input-group-addon"><span class="icon-phone-handset"></span></span>
                                     @Html.TextBoxFor(model => model.Cliente.TelefonoConvencional, new { @class = "form-control" })
                                 </div>
                                 @Html.ValidationMessageFor(model => model.Cliente.TelefonoConvencional, "", new { @class = "text-danger" })
@@ -146,7 +154,7 @@
                             <div class="col-md-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-map-o"></span></span>
-                                    @Html.TextBoxFor(model => model.Cliente.Provincia, new { @class = "form-control" })
+                                    @Html.DropDownListFor(model => model.Cliente.ProvinciaId, new SelectList(Model.Provincias, "ProvinciaId", "Nombre"), new { @class = "bs-select form-control", @id = "clienteProvinciaDropDown", data_live_search = "true" })
                                 </div>
                                 @Html.ValidationMessageFor(model => model.Cliente.Provincia, "", new { @class = "text-danger" })
                             </div>
@@ -159,7 +167,10 @@
                             <div class="col-md-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-map"></span></span>
-                                    @Html.TextBoxFor(model => model.Cliente.Ciudad, new { @class = "form-control" })
+                                    <div id="ciudadDropDownContainer">
+                                        @Html.DropDownListFor(model => Model.Cliente.CiudadId, new SelectList(Model.Ciudadades, "CiudadId", "Nombre"),
+                                                 new { @class = "form-control" })
+                                    </div>
                                 </div>
                                 @Html.ValidationMessageFor(model => model.Cliente.Ciudad, "", new { @class = "text-danger" })
                             </div>
@@ -183,8 +194,6 @@
                     </div>
 
                 </div>
-
-
             </div>
 
         </div>
@@ -296,7 +305,7 @@
                         {
                             foreach (var contacto in Model.Cliente.Contactos)
                             {
-                                @Html.Partial("ContactoRow", contacto)
+                                @Html.Partial("ContactoRowPartialView", contacto)
                             }
                         }
                     </tbody>
@@ -316,7 +325,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true" class="icon-cross"></span>
         </button>
-        @using (Ajax.BeginForm("Create", "Contacto", ajaxOptions))
+        @using (Ajax.BeginForm("Create", "Contacto", createAjaxOptions))
         {
             <div class="modal-content">
                 <div class="modal-header">
@@ -415,9 +424,9 @@
                                     @Html.LabelFor(model => model.Contacto.TomaDecision, new { @class = "control-label" })
                                 </div>
                                 <div>
-                                   <div class="app-checkbox"> 
-                                       @Html.EditorFor(model => model.Contacto.TomaDecision)                                             
-                                   </div>
+                                    <div class="app-checkbox">
+                                        @Html.EditorFor(model => model.Contacto.TomaDecision)
+                                    </div>
                                 </div>
 
                             </div>
@@ -432,6 +441,134 @@
                 </div>
             </div>
         }
+    </div>
+
+</div>
+<!-- END MODAL CREATE -->
+<!-- MODAL EDIT -->
+<div class="modal fade" id="contactoEditoModal" tabindex="-1" role="dialog" aria-labelledby="modal-primary-header">
+    <div class="modal-dialog modal-primary modal-lg" role="document">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="icon-cross"></span>
+        </button>
+
+        @using (Ajax.BeginForm("Edit", "Contacto", editAjaxOptions))
+        {
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-primary-header">Tarea</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="block">
+                        <div class="app-heading app-heading-small">
+                            <div class="title">
+                                <h2>Cambiar estadado de la tarea</h2>
+                                <p>Los campos marcados con <code>*</code> son obligatorios</p>
+                            </div>
+                        </div>
+
+
+                        @Html.AntiForgeryToken()
+
+                        @Html.HiddenFor(model => model.Contacto.ContactoId)
+
+                        <input type="hidden" id="ClienteId" name="ClienteId" />
+
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Contacto.Nombre, new { @class = "control-label" })
+                                <div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-user-md"></span>
+                                        </span>
+                                        @Html.TextBoxFor(model => model.Contacto.Nombre, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Contacto.Cargo, new { @class = "control-label" })
+                                <div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-envelope-o"></span></span>
+                                        @Html.TextBoxFor(model => model.Contacto.Cargo, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <label class="control-label">F.N</label>
+                                <div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-calendar-o"></span>
+                                        </span>
+                                        @Html.TextBoxFor(model => model.Contacto.FechaNacimiento, new { @class = "form-control bs-datepicker" })
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <div>
+                                    @Html.LabelFor(model => model.Contacto.Celular, new { @class = "control-label" })
+                                </div>
+                                <div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                                        @Html.TextBoxFor(model => model.Contacto.Celular, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <div>
+                                    @Html.LabelFor(model => model.Contacto.Email, new { @class = "control-label" })
+                                </div>
+                                <div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-envelope-o"></span>
+                                        </span>
+                                        @Html.TextBoxFor(model => model.Contacto.Email, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    @Html.LabelFor(model => model.Contacto.TomaDecision, new { @class = "control-label" })
+                                </div>
+                                <div>
+                                    <div class="app-checkbox">
+                                        @Html.EditorFor(model => model.Contacto.TomaDecision)
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                    <button id="btnAddConctacto" type="submit" class="btn btn-primary">Agregar</button>
+                </div>
+            </div>
+        }
+
     </div>
 
 </div>

@@ -29,6 +29,8 @@ namespace Data
         public DbSet<Role> RoleDbSet { get; set; }
         public DbSet<Tarea> TareaDbSet { get; set; }
         public DbSet<Perfil> PefilDbset { get; set; }
+        public DbSet<Provincia> ProviciaDbSet  { get; set; }
+        public DbSet<Ciudad> CiudadDbSet { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

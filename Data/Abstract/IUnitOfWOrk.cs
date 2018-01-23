@@ -15,6 +15,8 @@ namespace Data.Abstract
         ITareaHistorialRepository TareaHistorialRepository { get; }
         IClienteRepository ClienteRepository { get; }
         IContactoRepository ContactoRepository { get; }
+        IProvinciaRepository ProvinciaRepository { get; }
+        ICiudadRepository CiudadRepository { get; }
         #endregion
 
         #region Methods

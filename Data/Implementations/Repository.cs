@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Data.Abstract;
@@ -50,6 +52,11 @@ namespace Data.Implementations
         public Task<List<TEntity>> PageAllAsync(CancellationToken cancellationToken, int skip, int take)
         {
             return Set.Skip(skip).Take(take).ToListAsync(cancellationToken);
+        }
+
+        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        {
+            return Set.Where(predicate).ToList();
         }
 
         public TEntity FindById(object id)

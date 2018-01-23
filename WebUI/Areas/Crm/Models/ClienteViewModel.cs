@@ -12,16 +12,20 @@ namespace WebUI.Areas.Crm.Models
 
         public Contacto Contacto { get; set; }
 
-        public IEnumerable<Contacto> Contactos { get; set; }
+        public IEnumerable<Provincia> Provincias { get; set; }
+
+        public IEnumerable<Ciudad> Ciudadades { get; set; }
 
         public IEnumerable<User> Users { get; set; }
+        
 
         public ClienteCreateViewModel()
         {
             Cliente = new Cliente();
             Contacto = new Contacto();
-            Contactos = new List<Contacto>();
             Users = new List<User>();
+            Provincias = new List<Provincia>();
+            Ciudadades = new List<Ciudad>();
         }
     }
 
@@ -30,5 +34,11 @@ namespace WebUI.Areas.Crm.Models
         public Cliente Cliente { get; set; }
 
         public Contacto Contacto { get; set; }
+
+        public ClienteContactoViewModel()
+        {
+            Cliente = new Cliente();
+            Contacto = new Contacto();
+        }
     }
 }

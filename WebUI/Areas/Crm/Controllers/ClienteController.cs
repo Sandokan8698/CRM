@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Common.Web.Utils;
 using Common.Web.Views;
 using Data.Abstract;
 using Domain.Entities;
@@ -21,7 +22,8 @@ namespace WebUI.Areas.Crm.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var clientes = _unitOfWork.ClienteRepository.GetAll();
+            return View(clientes);
         }
 
         // GET: Crm/Cliente/Details/5
@@ -33,7 +35,11 @@ namespace WebUI.Areas.Crm.Controllers
         // GET: Crm/Cliente/Create
         public ActionResult Create()
         {
-            ClienteCreateViewModel viewModel = new ClienteCreateViewModel();
+            ClienteCreateViewModel viewModel = new ClienteCreateViewModel
+            {
+                Provincias = _unitOfWork.ProvinciaRepository.GetAll(),
+                Ciudadades = _unitOfWork.CiudadRepository.Find(c => c.ProvinciaId == 1)
+            };
             return View(viewModel);
         }
 
@@ -51,12 +57,13 @@ namespace WebUI.Areas.Crm.Controllers
 
                     return RedirectToAction("Edit", new { id = viewModel.Cliente.ClienteId });
                 }
-                else
-                {
-                    return View(viewModel);
-                }
 
-                return RedirectToAction("Index");
+                viewModel.Provincias = _unitOfWork.ProvinciaRepository.GetAll();
+                viewModel.Ciudadades = _unitOfWork.CiudadRepository
+                    .Find(c => c.ProvinciaId == viewModel.Cliente.ProvinciaId);
+
+                return View(viewModel);
+
             }
             catch (Exception e)
             {
@@ -74,24 +81,42 @@ namespace WebUI.Areas.Crm.Controllers
                 return HttpNotFound();
             }
 
-            var viewModel = new ClienteCreateViewModel { Cliente = cliente };
+            var viewModel = new ClienteCreateViewModel
+            {
+                Cliente = cliente,
+                Provincias = _unitOfWork.ProvinciaRepository.GetAll(),
+                Ciudadades = _unitOfWork.CiudadRepository.Find(c => c.ProvinciaId == 1),
+            };
 
             return View(viewModel);
         }
 
         // POST: Crm/Cliente/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(ClienteCreateViewModel viewModel)
         {
+            viewModel.Provincias = _unitOfWork.ProvinciaRepository.GetAll();
+            viewModel.Ciudadades = _unitOfWork.CiudadRepository
+                .Find(c => c.ProvinciaId == viewModel.Cliente.ProvinciaId);
+
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    _unitOfWork.ClienteRepository.Update(viewModel.Cliente);
+                    _unitOfWork.SaveChanges();
 
-                return RedirectToAction("Index");
+                    ViewBag.Success = "El cliente se actualizo correctamente";
+                    return RedirectToAction("Edit", new { id = viewModel.Cliente.ClienteId });
+                }
+                
+                return View(viewModel);
+
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                ViewBag.Error = e.Message;
+                return View(viewModel);
             }
         }
 
@@ -117,6 +142,22 @@ namespace WebUI.Areas.Crm.Controllers
             }
         }
 
-       
+        [HttpPost]
+        public ActionResult GetCiudadByProvincia(int provicinciaId)
+        {
+            try
+            {
+                var ciudades = _unitOfWork.CiudadRepository.Find(c => c.ProvinciaId == provicinciaId);
+                var viewModel = new ClienteCreateViewModel { Ciudadades = ciudades };
+                return Json(MvcGeneralHelper.RenderViewToString(this.ControllerContext, "CiudadDropDownPartialView", viewModel, true),
+                    JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception e)
+            {
+                return new JsonBadRequest(e.Message);
+            }
+        }
+
     }
 }

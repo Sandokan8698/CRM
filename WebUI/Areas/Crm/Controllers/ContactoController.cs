@@ -30,7 +30,7 @@ namespace WebUI.Areas.Crm.Controllers
                     _unitOfWork.ContactoRepository.Add(contacto);
                     _unitOfWork.SaveChanges();
 
-                    return PartialView("ContactoRow", contacto);
+                    return PartialView("ContactoRowPartialView", contacto);
 
                 }
 
@@ -69,5 +69,33 @@ namespace WebUI.Areas.Crm.Controllers
                 return new JsonBadRequest(e.Message);
             }
         }
+
+        [HttpPost]
+        public ActionResult Edit(int clienteId, Contacto contacto)
+        {
+            
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                     contacto.ClienteId = clienteId;
+                    _unitOfWork.ContactoRepository.Update(contacto);
+                    _unitOfWork.SaveChanges();
+
+                    return Json(new {
+                        id = contacto.ContactoId,
+                        view = MvcGeneralHelper.RenderViewToString( this.ControllerContext,"ContactoRowPartialView", contacto,true)},
+                        JsonRequestBehavior.AllowGet);
+                }
+
+                throw new Exception(MvcGeneralHelper.GetModelStateErrors(ModelState));
+            }
+            catch (Exception e)
+            {
+                return new JsonBadRequest(e.Message);
+            }
+        }
+
+       
     }
 }

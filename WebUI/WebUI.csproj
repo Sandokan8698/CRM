@@ -232,6 +232,7 @@
     <Compile Include="Areas\Crm\Models\ClienteViewModel.cs" />
     <Compile Include="Areas\Crm\Models\TareaEditCreateViewModel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CiudadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -627,7 +628,9 @@
     <Content Include="Areas\Crm\Views\Cliente\Create.cshtml" />
     <Content Include="Areas\Crm\Views\Cliente\Edit.cshtml" />
     <Content Include="Areas\Crm\Views\Cliente\ClienteCreateEdit.cshtml" />
-    <Content Include="Areas\Crm\Views\Shared\ContactoRow.cshtml" />
+    <Content Include="Areas\Crm\Views\Shared\ContactoRowPartialView.cshtml" />
+    <Content Include="Areas\Crm\Views\Shared\ContactoEditPartialView.cshtml" />
+    <Content Include="Areas\Crm\Views\Cliente\Index.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -965,6 +968,7 @@
     <Content Include="Views\Shared\_layout.cshtml" />
     <Content Include="Views\Shared\SidePanel.cshtml" />
     <Content Include="Views\Shared\UserTopBarCredential.cshtml" />
+    <Content Include="Areas\Crm\Views\Shared\CiudadDropDownPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -972,6 +976,7 @@
     <Folder Include="Areas\Crm\Views\Contacto\" />
     <Folder Include="bower_components\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Ciudad\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>

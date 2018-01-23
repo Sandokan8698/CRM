@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Common.Web.Utils;
+using Common.Web.Views;
 using Data.Abstract;
 
 namespace WebUI.Controllers
@@ -24,5 +26,7 @@ namespace WebUI.Controllers
                 _unitOfWork = null;
             }
         }
+
+       
     }
 }

@@ -11,16 +11,19 @@ namespace Common.Web.Utils
     {
         public JsonBadRequest()
         {
+            this.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
         }
 
         public JsonBadRequest(string message)
         {
             this.Data = message;
+            this.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
         }
 
         public JsonBadRequest(object data)
         {
             this.Data = data;
+            this.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
         }
 
         public override void ExecuteResult(ControllerContext context)

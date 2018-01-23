@@ -41,14 +41,7 @@ namespace Domain.Entities
         [Required]
         [MaxLength(50)]
         public String Nombre { get; set; }
-
-        [Required]
-        [MaxLength(25)]
-        public string Provincia { get; set; }
-
-        [Required]
-        [MaxLength(25)]
-        public string Ciudad { get; set; }
+        
 
         [Required]
         [MaxLength(25)]
@@ -69,11 +62,18 @@ namespace Domain.Entities
 
         public virtual ICollection<Contacto> Contactos { get; set; }
 
+        public int ProvinciaId { get; set; }
+        public virtual Provincia Provincia { get; set; }
+
+        public int CiudadId { get; set; }
+        public virtual Ciudad Ciudad  { get; set; }
+
         public Cliente()
         {
             Contactos = new List<Contacto>();
             FechaNacimiento = DateTime.Now;
         }
+
         
     }
 }

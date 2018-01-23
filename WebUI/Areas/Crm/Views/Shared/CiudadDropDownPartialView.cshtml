@@ -1,0 +1,7 @@
+﻿@model WebUI.Areas.Crm.Models.ClienteCreateViewModel
+
+<div id="ciudadDropDownContainer">
+    @Html.DropDownListFor(model => Model.Cliente.CiudadId, new SelectList(Model.Ciudadades, "CiudadId", "Nombre"),
+            new { @class = "bs-select form-control", data_live_search = "true" })
+</div>
+    

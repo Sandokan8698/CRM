@@ -14,6 +14,8 @@ namespace Data.Implementations
         private ITareaHistorialRepository _tareaHistorialRepository;
         private IClienteRepository _clienteRepository;
         private IContactoRepository _contactoRepository;
+        private IProvinciaRepository _provinciaRepository;
+        private ICiudadRepository _ciudadRepository;
         #endregion
 
         #region Constructors
@@ -58,6 +60,16 @@ namespace Data.Implementations
         public IContactoRepository ContactoRepository
         {
             get { return _contactoRepository ?? (_contactoRepository = new ContactoRepository(_context)); }
+        }
+
+        public IProvinciaRepository ProvinciaRepository
+        {
+            get { return _provinciaRepository ?? (_provinciaRepository = new ProvinciaRepository(_context)); }
+        }
+
+        public ICiudadRepository CiudadRepository                                                               
+        {
+            get { return _ciudadRepository ?? (_ciudadRepository = new CiudadRepository(_context)); }         
         }
 
         public int SaveChanges()
