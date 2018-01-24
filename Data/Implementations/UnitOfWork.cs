@@ -16,6 +16,11 @@ namespace Data.Implementations
         private IContactoRepository _contactoRepository;
         private IProvinciaRepository _provinciaRepository;
         private ICiudadRepository _ciudadRepository;
+        private IVendedorRepository _vendedorRepository;
+        private ILineaNegocioRepository _lineaNegocioRepository;
+        private IProductoRepository _productoRepository;
+        private IEtapaRepository _etapaRepository;
+        private ITipoGestionRepository _tipoGestionRepository;
         #endregion
 
         #region Constructors
@@ -70,6 +75,31 @@ namespace Data.Implementations
         public ICiudadRepository CiudadRepository                                                               
         {
             get { return _ciudadRepository ?? (_ciudadRepository = new CiudadRepository(_context)); }         
+        }
+
+        public IVendedorRepository VendedorRepository
+        {
+            get { return _vendedorRepository ?? (_vendedorRepository = new VendedorRepository(_context));  }
+        }
+
+        public ILineaNegocioRepository LineaNegocioRepository
+        {
+            get { return _lineaNegocioRepository ?? (_lineaNegocioRepository = new LineaNegocioRepository(_context)); }
+        }
+
+        public IProductoRepository ProductoRepository       
+        {
+            get { return _productoRepository ?? (_productoRepository = new ProductoRepository(_context)); }
+        }
+
+        public IEtapaRepository EtapaRepository 
+        {
+            get { return _etapaRepository ?? (_etapaRepository = new EtapaRepository(_context)); }
+        }
+
+        public ITipoGestionRepository TipoGestionRepository 
+        {
+            get { return _tipoGestionRepository ?? (_tipoGestionRepository = new TipoGestionRepository(_context)); }
         }
 
         public int SaveChanges()

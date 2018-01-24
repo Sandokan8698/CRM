@@ -17,6 +17,11 @@ namespace Data.Abstract
         IContactoRepository ContactoRepository { get; }
         IProvinciaRepository ProvinciaRepository { get; }
         ICiudadRepository CiudadRepository { get; }
+        IVendedorRepository VendedorRepository { get; }
+        ILineaNegocioRepository LineaNegocioRepository { get; }
+        IProductoRepository ProductoRepository { get; }
+        IEtapaRepository EtapaRepository { get; }
+        ITipoGestionRepository TipoGestionRepository { get; }
         #endregion
 
         #region Methods

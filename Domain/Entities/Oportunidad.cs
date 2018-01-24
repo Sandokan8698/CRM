@@ -13,11 +13,16 @@ namespace Domain.Entities
     {
         public int OportunidadId { get; set; }
 
+        [Required]
+        [MaxLength(100)]
+       
+        public string Nombre { get; set; }
+        
         public int AsesorId { get; set; }
         public Vendedor Asesor { get; set; }
 
         [Required]
-        [Column("date")]
+        [Column(TypeName = "date")]
         public DateTime FechaInicio { get; set; }
 
         public int ClienteId { get; set; }
@@ -35,12 +40,12 @@ namespace Domain.Entities
         public int Cantidad { get; set; }
 
         [Required]
-        [Column("money")]
+        [Column(TypeName = "money")]
         [DisplayName("Precio de Venta Unitario")]
         public decimal PVU { get; set; }
 
         [Required]
-        [Column("money")]
+        [Column(TypeName = "money")]
         [DisplayName("Precio de Venta Unitario")]
         public decimal Potencial { get; set; }
 
@@ -48,15 +53,15 @@ namespace Domain.Entities
         public Etapa Etapa { get; set; }
 
         [Required]
-        [Column("money")]
+        [Column(TypeName = "money")]
         public decimal ExpectativaVenta { get; set; }
 
         [Required]
-        [Column("money")]
+        [Column(TypeName = "money")]
         public decimal ExpectativaAsesor { get; set; }
 
         [Required]
-        [Column("date")]
+        [Column(TypeName = "date")]
         public DateTime FechaPrevistaCierre { get; set; }
 
         public int ContactoVentaId { get; set; }

@@ -15,7 +15,7 @@ namespace WebUI.Areas.Crm.Controllers
 {
     public class ClienteController : BaseController
     {
-        // GET: Crm/Cliente
+        
         public ClienteController(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }

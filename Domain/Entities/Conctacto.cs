@@ -38,7 +38,8 @@ namespace Domain.Entities
 
         public bool TomaDecision { get; set; }
 
-        public virtual ICollection<Oportunidad> Oportunidades { get; set; }
+        public virtual ICollection<Oportunidad> OportunidadesContactoVenta { get; set; }
+        public virtual ICollection<Oportunidad> OportunidadesTomadorDesicion { get; set; }
 
         public Contacto()
         {

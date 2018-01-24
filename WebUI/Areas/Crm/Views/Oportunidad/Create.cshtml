@@ -1,0 +1,124 @@
+﻿@model WebUI.Areas.Crm.Models.OportunidadCreateViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<!-- START CONTENT TABS -->
+<div class="app-content-tabs">
+    <ul>
+        <li><a href="#tab-1" class="active"><span class="icon-bug"></span> Appellantur</a></li>
+
+    </ul>
+</div>
+
+<!-- START CONTAINER -->
+<div class="container app-content-tab active" id="tab-1">
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Oportunidad.OportunidadId)
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+
+                    <div class="app-heading app-heading-small">
+                        <div class="title">
+                            <h2>Crear nueva oportunidad</h2>
+                            <p>Los campos marcados con * son obligatorios</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.Oportunidad.Nombre, new { @class = "col-md-1 control-label" })
+                            <div class="col-md-11">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-license"></span>
+                                    </span>
+                                    @Html.TextBoxFor(model => model.Oportunidad.Nombre, new { @class = "form-control" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Oportunidad.Nombre, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="col-md-2">
+                                @Html.LabelFor(model => model.Oportunidad.Cliente, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-user"></span>
+                                    </span>
+                                    @Html.DropDownListFor(model => model.Oportunidad.Cliente, new SelectList(Model.Clientes, "ClienteId", "Nombre"), new { @class = "bs-select form-control", data_live_search = "true" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Oportunidad.Cliente, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-2">
+                                @Html.LabelFor(model => model.Oportunidad.Asesor, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-user"></span>
+                                    </span>
+                                    @Html.DropDownListFor(model => model.Oportunidad.Asesor, new SelectList(Model.Vendedores, "PerfilId", "Nombre"), new { @class = "bs-select form-control", data_live_search = "true" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Oportunidad.Cliente, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="col-md-2">
+                                @Html.LabelFor(model => model.Oportunidad.TipoCartera, new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-user"></span>
+                                    </span>
+                                    @Html.EnumDropDownListFor(model => model.Oportunidad.TipoCartera, new { @class = "bs-select form-control", data_live_search = "true" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Oportunidad.TipoCartera, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-2">
+                                @Html.LabelFor(model => model.Oportunidad.LineaNegocio, new { @class = "col-form-label" })
+                            </div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-user"></span>
+                                    </span>
+                                    @Html.DropDownListFor(model => model.Oportunidad.LineaNegocio, new SelectList(Model.LineaNegocios, "LineaNegocioId", "Descripcion"), new { @class = "bs-select form-control", data_live_search = "true" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Oportunidad.LineaNegocio, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+    <!-- END BLOCK -->
+
+</div>
+<!-- END CONTAINER -->

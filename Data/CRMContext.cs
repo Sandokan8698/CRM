@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure.Annotations;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using Domain.Entities;
 
 
@@ -32,6 +24,7 @@ namespace Data
         public DbSet<Provincia> ProviciaDbSet  { get; set; }
         public DbSet<Ciudad> CiudadDbSet { get; set; }
         public DbSet<Oportunidad> OportunidadDsDbSet { get; set; }
+        public DbSet<Contacto> ContactoDbSet { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -58,14 +51,14 @@ namespace Data
 
             modelBuilder.Entity<Oportunidad>()
                 .HasRequired(m => m.ContactoVenta)
-                .WithMany(c => c.Oportunidades)
+                .WithMany(c => c.OportunidadesContactoVenta)
                 .HasForeignKey(m => m.ContactoVentaId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Oportunidad>()
                 .HasRequired(m => m.TomadorDesicion)
-                .WithMany(c => c.Oportunidades)
-                .HasForeignKey(m => m.TomadorDesicion)
+                .WithMany(c => c.OportunidadesTomadorDesicion)
+                .HasForeignKey(m => m.TomadorDescicionId)
                 .WillCascadeOnDelete(false);
 
         }

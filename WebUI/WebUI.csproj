@@ -227,9 +227,11 @@
     <Compile Include="Areas\Admin\Models\AccountViewModels.cs" />
     <Compile Include="Areas\Crm\Controllers\ClienteController.cs" />
     <Compile Include="Areas\Crm\Controllers\ContactoController.cs" />
+    <Compile Include="Areas\Crm\Controllers\OportunidadController.cs" />
     <Compile Include="Areas\Crm\Controllers\TareaController.cs" />
     <Compile Include="Areas\Crm\CrmAreaRegistration.cs" />
     <Compile Include="Areas\Crm\Models\ClienteViewModel.cs" />
+    <Compile Include="Areas\Crm\Models\OportunidadViewModel.cs" />
     <Compile Include="Areas\Crm\Models\TareaEditCreateViewModel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CiudadController.cs" />
@@ -631,6 +633,7 @@
     <Content Include="Areas\Crm\Views\Shared\ContactoRowPartialView.cshtml" />
     <Content Include="Areas\Crm\Views\Shared\ContactoEditPartialView.cshtml" />
     <Content Include="Areas\Crm\Views\Cliente\Index.cshtml" />
+    <Content Include="Areas\Crm\Views\Oportunidad\Create.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
