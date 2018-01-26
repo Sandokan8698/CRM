@@ -4,68 +4,79 @@
     ViewBag.Title = "Index";
 }
 
+@section MenuNavigation {
+    <div class="app-heading-container app-heading-bordered bottom">
+        <ul class="breadcrumb">
+            <li><a href="#">Crm</a></li>
+            <li><a href="#">Cliente</a></li>
+            <li class="active">Lista</li>
+        </ul>
+    </div>
+}
+
+
 <div class="row">
     <div class="col-md-9">
         @foreach (var cliente in Model)
-        {            
+        {
 
-        <!-- PROFILE CARD -->
-        <div class="block block-condensed">
-            <div class="block-heading margin-bottom-0">
+            <!-- PROFILE CARD -->
+            <div class="block block-condensed">
+                <div class="block-heading margin-bottom-0">
 
-                <div class="app-heading app-heading-small">
-                    <div class="contact contact-rounded contact-bordered contact-lg margin-bottom-0">
-                        <img src="assets/images/users/user_1.jpg">
-                        <div class="contact-container">
-                            <a href="#">@cliente.Nombre</a>
-                            <span>@cliente.Division / @cliente.Sector</span>
+                    <div class="app-heading app-heading-small">
+                        <div class="contact contact-rounded contact-bordered contact-lg margin-bottom-0">
+                            <img src="assets/images/users/user_1.jpg">
+                            <div class="contact-container">
+                                <a href="#">@cliente.Nombre</a>
+                                <span>@cliente.Division / @cliente.Sector</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="block-content row-table-holder">
+
+                    <div class="row row-table">
+                        <div class="col-md-4 col-xs-12">
+                            <span class="text-bolder text-uppercase text-sm">Email:</span>
+                            <p>@cliente.Email</p>
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <span class="text-bolder text-uppercase text-sm">Telfonos:</span>
+                            <p><span class="fa fa-mobile" style="font-size:15px"></span> @cliente.Telefono / <span class="icon-phone-handset" style="font-size: 10px"></span> @cliente.TelefonoConvencional</p>
+
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <span class="text-bolder text-uppercase text-sm">Locación:</span>
+                            <p>@cliente.Provincia.Nombre, @cliente.Ciudad.Nombre</p>
                         </div>
                     </div>
-                    
-                </div>
 
-            </div>
-            <div class="block-content row-table-holder">
+                    <div class="row row-table">
+                        <div class="col-md-6 col-xs-12">
+                            <span class="text-bolder text-uppercase text-sm">Dirección:</span>
+                            <p>@cliente.Direccion</p>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <span class="text-bolder text-uppercase text-sm">Tareas Asociadas:</span>
+                            <p></p>
+                        </div>
+                    </div>
 
-                <div class="row row-table">
-                    <div class="col-md-4 col-xs-12">
-                        <span class="text-bolder text-uppercase text-sm">Email:</span>
-                        <p>@cliente.Email</p>
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <span class="text-bolder text-uppercase text-sm">Telfonos:</span>
-                        <p><span class="fa fa-mobile" style="font-size:15px"></span> @cliente.Telefono / <span class="icon-phone-handset" style="font-size: 10px"></span> @cliente.TelefonoConvencional</p>
-                        
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <span class="text-bolder text-uppercase text-sm">Locación:</span>
-                        <p>@cliente.Provincia.Nombre, @cliente.Ciudad.Nombre</p>
-                    </div>
-                </div>
-
-                <div class="row row-table">
-                    <div class="col-md-6 col-xs-12">
-                        <span class="text-bolder text-uppercase text-sm">Dirección:</span>
-                        <p>@cliente.Direccion</p>
-                    </div>
-                    <div class="col-md-6 col-xs-12">
-                        <span class="text-bolder text-uppercase text-sm">Tareas Asociadas:</span>
-                        <p></p>
-                    </div>
-                </div>
-
-                <div class="row row-table">
-                    <div class="col-xs-12">
-                        <label class="switch pull-left margin-right-15" data-toggle="tooltip" data-original-title="Activate User">
-                            <input type="checkbox" name="user[]" value="1">
-                        </label>
-                        <a href="@Url.Action("Edit", new {id = cliente.ClienteId})"><button class="btn btn-danger btn-icon-fixed pull-left"><span class="icon-pencil"></span> Editar Cliente</button></a>
-                        <button class="btn btn-info pull-right hidden-mobile">Mas Información</button>
+                    <div class="row row-table">
+                        <div class="col-xs-12">
+                            <label class="switch pull-left margin-right-15" data-toggle="tooltip" data-original-title="Activate User">
+                                <input type="checkbox" name="user[]" value="1">
+                            </label>
+                            <a href="@Url.Action("Edit", new {id = cliente.ClienteId})"><button class="btn btn-danger btn-icon-fixed pull-left"><span class="icon-pencil"></span> Editar Cliente</button></a>
+                            <button class="btn btn-info pull-right hidden-mobile">Mas Información</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- END PROFILE CARD -->
+            <!-- END PROFILE CARD -->
         }
 
         <nav>
@@ -89,6 +100,7 @@
         </nav>
 
     </div>
+
     <div class="col-md-3">
 
         <div class="block block-condensed padding-top-20">
@@ -109,13 +121,9 @@
                 </div>
 
                 <div class="list-group">
-                    <a href="#" class="list-group-item active">All Cards <span class="badge badge-default">789</span></a>
-                    <a href="#" class="list-group-item">Web Developers <span class="badge badge-primary">31</span></a>
-                    <a href="#" class="list-group-item">Web Designers <span class="badge badge-primary">45</span></a>
-                    <a href="#" class="list-group-item">PHP Developers <span class="badge badge-primary">24</span></a>
-                    <a href="#" class="list-group-item">Java Developers <span class="badge badge-primary">69</span></a>
-                    <a href="#" class="list-group-item">Managing Directors <span class="badge badge-primary">33</span></a>
-                    <a href="#" class="list-group-item">System Administrator <span class="badge badge-primary">58</span></a>
+                    <a href="#" class="list-group-item active">Todos <span class="badge badge-default">789</span></a>
+                    <a href="#" class="list-group-item">Activos <span class="badge badge-primary">31</span></a>
+                    <a href="#" class="list-group-item">Inactivos <span class="badge badge-primary">45</span></a>
                 </div>
 
                 <div class="row margin-bottom-5">

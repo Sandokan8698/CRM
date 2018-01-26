@@ -2,7 +2,9 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using Data.Abstract;
+using Domain.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using WebUI.Areas.Admin.Identity;
@@ -81,8 +83,15 @@ namespace WebUI.Areas.Admin.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    user.Id = _unitOfWork.UserRepository.FindByUserName(user.UserName).UserId;
-                    await SignInAsync(user, isPersistent: false);
+                    var contextUser = _unitOfWork.UserRepository.FindByUserName(user.UserName);
+                    var vendedor = new Vendedor();
+
+                     contextUser.Perfil = vendedor;
+                    _unitOfWork.UserRepository.Update(contextUser);
+                    _unitOfWork.SaveChanges();
+                    
+                    user.Id = contextUser.UserId;
+                    await SignInAsync(user, isPersistent: true);
                     return RedirectToAction("Index", "Home", new {area = ""});
                 }
                 else

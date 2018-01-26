@@ -1,4 +1,5 @@
-﻿@using Common.Web.HelperMethods
+﻿@using System.Globalization
+@using Common.Web.HelperMethods
 @using Domain.Entities
 @model WebUI.Areas.Crm.Models.TareaEditCreateViewModel
 
@@ -38,7 +39,7 @@
                             <p>@history.Descripcion</p>
                             <p>
                                 <a href="#" class="text-muted margin-right-10"><span class="label @Html.StatusClass((int)history.TareaEstado) label-bordered">@history.TareaEstado</span></a>
-                                <span class="pull-right text-muted"><i class="fa fa-clock-o"></i> @history.Fecha.ToString("D")</span>
+                                <span class="pull-right text-muted"><i class="fa fa-clock-o"></i> @history.Fecha.ToString("D", new CultureInfo("es-Es"))</span>
                             </p>
                        
                         </div>

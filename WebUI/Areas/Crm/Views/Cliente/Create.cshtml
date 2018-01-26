@@ -1,3 +1,14 @@
 ﻿@model WebUI.Areas.Crm.Models.ClienteCreateViewModel
 
-@Html.Partial("ClienteCreateEdit",Model)
+@section MenuNavigation {
+    <div class="app-heading-container app-heading-bordered bottom">
+        <ul class="breadcrumb">
+            <li><a href="#">Crm</a></li>
+            <li><a href="#">Cliente</a></li>
+            <li class="active">Nuevo</li>
+        </ul>
+    </div>
+}
+
+
+@Html.Partial("ClienteCreateEdit", Model)

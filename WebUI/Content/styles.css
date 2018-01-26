@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,500,600,700&subset=latin,latin-ext);
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
@@ -2197,6 +2197,28 @@ select[multiple].input-lg {
 .has-error .form-control-feedback {
   color: #a94442;
 }
+
+
+.input-validation-error .form-control {
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+    .input-validation-error .form-control:focus {
+        border-color: #843534;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+    }
+.input-validation-error .input-group-addon {
+    color: #a94442;
+    border-color: #a94442;
+    background-color: #f2dede;
+}
+.input-validation-error .form-control-feedback {
+    color: #a94442;
+}
+
+
 .has-feedback label ~ .form-control-feedback {
   top: 23px;
 }

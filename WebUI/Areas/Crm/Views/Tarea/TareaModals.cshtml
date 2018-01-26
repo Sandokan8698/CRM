@@ -26,7 +26,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal-primary-header">Tarea</h4>
                 </div>
-                @using (Ajax.BeginForm(ajaxOpts))
+                @using (Ajax.BeginForm("ChangeTareaEstado","Tarea", ajaxOpts, new {@id = "tareaEditForm-" + tarea.TareaId}))
                 {
                     <div class="modal-body">
                         <div class="block">
@@ -56,8 +56,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="EditarTarea($('#tareaEditForm-' + @tarea.TareaId))">Enviar &amp; Validar </button>
                     </div>
 
 

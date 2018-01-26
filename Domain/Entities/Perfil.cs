@@ -21,5 +21,12 @@ namespace Domain.Entities
 
         [MaxLength(15)]
         public string Apellidos { get; set; }
+
+        protected Perfil()
+        {
+            ImagenUrl = "http://localhost:50745/img/user/no-image.png";
+            Nombre = "Invintado";
+            Ocupacion = "Cambiar Perfil";
+        }
     }
 }

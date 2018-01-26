@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using Common.Web.Utils;
 using Common.Web.Views;
 using Data.Abstract;
 using WebUI.Controllers;
@@ -21,7 +22,7 @@ namespace WebUI.Areas.Crm.Controllers
 
         public ActionResult Index()
         {     
-            var tareas = _unitOfWork.TareaRepository.GetAll();
+            var tareas = _unitOfWork.TareaRepository.GetAll().OrderByDescending(c => c.Fecha);
             return View(tareas);
         }
         
@@ -167,7 +168,7 @@ namespace WebUI.Areas.Crm.Controllers
                 return View(tarea);
             }
         }
-
+        [HttpPost]
         public ActionResult ChangeTareaEstado(int tareaId, TareaHistorial tareaHistorial)
         {
             if (ModelState.IsValid && tareaId > 0)
@@ -191,10 +192,9 @@ namespace WebUI.Areas.Crm.Controllers
 
                 return PartialView("~/Areas/Crm/Views/Shared/SpanStates.cshtml", tareaHistorial.TareaEstado);
             }
+            
 
-            String messages = MvcGeneralHelper.GetModelStateErrors(ModelState);
-
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest,messages);
+            return new JsonBadRequest(MvcGeneralHelper.GetModelStateErrors(ModelState));
 
         }
 

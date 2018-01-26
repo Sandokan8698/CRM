@@ -41,7 +41,11 @@ namespace Domain.Entities
         public Tarea()
         {
             Fecha = DateTime.Now;
-            
+            Identificador = "T-" + DateTime.Now.ToString("G").Replace("/","")
+                .Replace(":","")
+                .Replace(" ","")
+                .Replace("PM", "")
+                .Replace("AM", "");
         }
 
     }

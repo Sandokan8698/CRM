@@ -1,52 +1,86 @@
 ﻿@model WebUI.Areas.Admin.Models.RegisterViewModel
+@{
+    Layout = null;
+}
 
-<div class="content-box">
-    <div class="row">
-        <div class="col-lg-6">
-            
-            <div class="element-wrapper"><h6 class="element-header">Usuario</h6>
-                <div class="element-box">
-                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new {role = "form" }))
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Boooya - Login With Background</title>
+
+    <!-- META SECTION -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- END META SECTION -->
+    <!-- CSS INCLUDE -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/styles.css")">
+    <!-- EOF CSS INCLUDE -->
+</head>
+<body>
+
+    <!-- APP WRAPPER -->
+    <div class="app app-fh">
+
+        <!-- START APP CONTAINER -->
+        <div class="app-container" style="background: url(@Url.Content("~/img/img-2.jpg")) center center no-repeat fixed;">
+
+            <div class="app-login-box">
+                <div class="app-login-box-title padding-top-30">
+                    <div class="title">SP.CRM</div>
+                    <div class="subtitle">Nuevo Usuario</div>
+                </div>
+                <div class="app-login-box-container margin-top-20">
+                    <button class="btn btn-facebook btn-block">Conectate con Facebook</button>
+                    <button class="btn btn-twitter btn-block">Conectate con Twitter</button>
+                </div>
+                <div class="app-login-box-container margin-top-20">
+                    <div class="title">Credenciales del Usuario</div>
+
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
                     {
-                        <h5 class="form-header">Crear usuario:</h5>
-                        <div class="form-desc">Los campos marcados con * son obligatorios</div>
-
-
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary()
 
-
                         <div class="form-group">
-                            @Html.LabelFor(m => m.UserName, new {@class = "control-label"}) *
-                            @Html.TextBoxFor(m => m.UserName, new {@class = "form-control", @placeholder = "Nombre de usuario"})
+                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placeholder = "nombre de usuario" })
                         </div>
-
                         <div class="form-group">
-                            @Html.LabelFor(m => m.Password, new {@class = "control-label"}) *
-                            @Html.PasswordFor(m => m.Password, new {@class = "form-control", @placeholder = "Contraseña"})
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "contraseña" })
                         </div>
-
                         <div class="form-group">
-                            @Html.LabelFor(m => m.ConfirmPassword, new {@class = "control-label"}) *
-                            @Html.PasswordFor(m => m.ConfirmPassword, new {@class = "form-control", @placeholder = "Confirmar contraseña"})
+                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", @placeholder = "confirmar contraseña" })
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">Registrar Usuario</button>
                         </div>
 
-                        <div class="form-buttons-w">
-                            <button class="btn btn-primary" type="submit"> Submit</button>
-                        </div>
                     }
-                        
-                    
                 </div>
+
             </div>
+
         </div>
-    </div>        
-</div>
+        <!-- END APP CONTAINER -->
 
-
-
-
-@section Script {
+    </div>
+    <!-- END APP WRAPPER -->
+    <!-- IMPORTANT SCRIPTS -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery/jquery-ui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/bootstrap/bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/moment/moment.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/customscrollbar/jquery.mCustomScrollbar.min.js")"></script>
+    
     @Scripts.Render("~/bundles/jqueryval")
-}
-
+    <!-- END IMPORTANT SCRIPTS -->
+    <!-- APP SCRIPTS -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app_plugins.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app_demo.js")"></script>
+    <!-- END APP SCRIPTS -->
+</body>
+</html>

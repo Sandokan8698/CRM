@@ -26,7 +26,7 @@
                         <th>
                             @Html.DisplayNameFor(model => model.CreadoPor)
                         </th>
-                        <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+                        <th>@Html.DisplayNameFor(model => model.Identificador)</th>
                         <th width="55">@Html.DisplayNameFor(model => model.TareaEstado)</th>
                     </tr>
                 </thead>
@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td></td>
+                            <td>@item.Identificador</td>
                             <td id="tareaModal-@item.TareaId"><span class="label @Html.StatusClass((int)item.TareaEstado) label-bordered">@item.TareaEstado</span></td>
                             <td>
                                 <div class="dropdown">
@@ -54,7 +54,8 @@
                                         <li>
                                             <a href="#" data-toggle="modal" data-target="#modal-primary-@item.TareaId"><span class="icon-pencil text-info"></span>        Editar Tarea</a>
                                         </li>
-                                        <li><a href="@Url.Action("Edit","Tarea", new {area = "Crm", id = item.TareaId})"><span class="icon-spell-check text-warning"></span> Detalle</a></li>
+                                        <li><a href="@Url.Action("Create","Tarea", new {area = "Crm"})"><span class="icon-plus-circle text-success"></span> Nuevo</a></li>
+                                        <li><a href="@Url.Action("Edit","Tarea", new {area = "Crm", id = item.TareaId,})"><span class="icon-spell-check text-warning"></span> Detalle</a></li>
                                         <li class="divider"></li>
                                         <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li>
                                     </ul>

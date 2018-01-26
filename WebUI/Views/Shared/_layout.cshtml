@@ -36,7 +36,8 @@
 
                 @if (Request.IsAuthenticated)
                 {
-                    @Html.Action("GetUserToBarCredential", "Home")
+                   
+                    @Html.Action("GetUserToBarCredential", "Home", new {area = ""})
                 }
 
             </div>
@@ -49,39 +50,15 @@
                             <li class="active">
                                 <a href="index.html"><span class="icon-laptop-phone"></span> Dashboard</a>
                                 <ul>
-                                    <li class="active"><a href="#">Statistics</a></li>
-                                    <li><a href="#">Visitors</a></li>
-                                    <li><a href="#">Sales</a></li>
-                                    <li><a href="#">Customers</a></li>
+                                    <li class="active"><a href="@Url.Action("Index","Home", new {area = ""})">Dashboard</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><span class="icon-archive2"></span> Navigation Item 1</a>
+                                <a href="#"><span class="icon-archive2"></span> Nuevo</a>
                                 <ul>
-                                    <li><a href="#">Sub Element 1-1</a></li>
-                                    <li><a href="#">Sub Element 1-2</a></li>
-                                    <li><a href="#">Sub Element 1-3</a></li>
-                                    <li><a href="#">Sub Element 1-4</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><span class="icon-user-plus"></span> Another Item 2</a>
-                                <ul>
-                                    <li><a href="#">Another Sub 2-1</a></li>
-                                    <li><a href="#">Another Sub 2-2</a></li>
-                                    <li><a href="#">Another Sub 2-3</a></li>
-                                    <li><a href="#">Another Sub 2-4</a></li>
-                                    <li><a href="#">Another Sub 2-5</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><span class="icon-calendar-full"></span> Perfect Item 3</a>
-                                <ul>
-                                    <li><a href="#">Perfect Sub 3-1</a></li>
-                                    <li><a href="#">Perfect Sub 3-2</a></li>
-                                    <li><a href="#">Perfect Sub 3-3</a></li>
-                                    <li><a href="#">Perfect Sub 3-4</a></li>
-                                    <li><a href="#">Perfect Sub 3-5</a></li>
+                                    <li><a href="@Url.Action("Create","Cliente", new {area = "Crm"})">Cliente</a></li>
+                                    <li><a href="@Url.Action("Create","Tarea", new {area = "Crm"})">Tarea</a></li>
+    
                                 </ul>
                             </li>
                         </ul>
@@ -94,20 +71,12 @@
                         <span class="icon-laptop-phone"></span>
                     </div>
                     <div class="title">
-                        <h1>Boooya - Admin Template</h1>
-                        <p>The revolution in admin template build</p>
+                        <h1>Sales Power - CRM</h1>
+                        <p>Todo lo que se necestia para estar en contacto con el cliente </p>
                     </div>
-                    <!--<div class="heading-elements">
-                        <a href="#" class="btn btn-danger" id="page-like"><span class="app-spinner loading"></span> loading...</a>
-                        <a href="https://themeforest.net/item/boooya-revolution-admin-template/17227946?ref=aqvatarius&license=regular&open_purchase_for_item_id=17227946" class="btn btn-success btn-icon-fixed"><span class="icon-text">$24</span> Purchase</a>
-                    </div>-->
+                    @RenderSection("PageActions", false)
                 </div>
-                <div class="app-heading-container app-heading-bordered bottom">
-                    <ul class="breadcrumb">
-                        <li><a href="#">Application</a></li>
-                        <li class="active">Dashboard</li>
-                    </ul>
-                </div>
+                @RenderSection("MenuNavigation",false)
                 <!-- END PAGE HEADING -->
                 <!-- START PAGE CONTAINER -->
                 <div class="container">
@@ -129,7 +98,7 @@
                             <div class="app-statusbar-text">@ViewBag.Error</div>
                             <div class="app-statusbar-close fa fa-times"></div>
                         </div>
-
+                        
                     }
 
                     <div class="row margin-bottom-15" style="display: none" id="loading">
@@ -165,7 +134,8 @@
     @RenderSection("PageScripts", false)
     <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/noty/jquery.noty.packaged.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/bootstrap-select/bootstrap-select.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js")"></script>
+
     <!--END PAGE SCRIPST-->
     <!-- APP SCRIPTS -->
     <script type="text/javascript" src="@Url.Content("~/Scripts/app.js")"></script>
@@ -187,6 +157,11 @@
         function OnFailure(request, error) {
             $('.modal').modal('hide');
             app_plugins.notificar("error", "Error", request.responseJSON);
+        }
+
+        //REGION DE TAREAS
+        function EditarTarea(form) {
+            form.submit();
         }
 
         //REGION CLIENTES
@@ -232,6 +207,7 @@
             form.submit();
         }
 
+        
         function ShowModalEditContacto(id) {
             
             var clienteId = $('#contactoRow-' + id +' #ClienteId').val();
@@ -304,6 +280,219 @@
             }
         });
 
+        /**
+  * This demo uses our own method of determining user's location
+  * It is not public web service that you can use
+  * You'll need to find your own. We recommend http://www.maxmind.com
+  */
+        jQuery.getJSON("https://services.amcharts.com/ip/?v=xz6Z", function (geo) {
+
+            var defaultMap = "usaLow";
+            var countryMaps = {
+                "AF": ["afghanistanLow"],
+                "AL": ["albaniaLow"],
+                "DZ": ["algeriaLow"],
+                "AD": ["andorraLow"],
+                "AO": ["angolaLow"],
+                "AR": ["argentinaLow"],
+                "AM": ["armeniaLow"],
+                "AU": ["australiaLow"],
+                "AT": ["austriaLow"],
+                "AZ": ["azerbaijanLow"],
+                "BS": ["bahamasLow"],
+                "BH": ["bahrainLow"],
+                "BD": ["bangladeshLow"],
+                "BY": ["belarusLow"],
+                "BE": ["belgiumLow"],
+                "BZ": ["belizeLow"],
+                "BT": ["bhutanLow"],
+                "BO": ["boliviaLow"],
+                "BA": ["bosniaHerzegovinaCantonsLow"],
+                "BW": ["botswanaLow"],
+                "BR": ["brazilLow"],
+                "BN": ["bruneiDarussalamLow"],
+                "BG": ["bulgariaLow"],
+                "BF": ["burkinaFasoLow"],
+                "BI": ["burundiLow"],
+                "KH": ["cambodiaLow"],
+                "CM": ["cameroonLow"],
+                "CA": ["canadaLow"],
+                "CV": ["capeVerdeLow"],
+                "CF": ["centralAfricanRepublicLow"],
+                "TD": ["chadLow"],
+                "CL": ["chileLow"],
+                "CN": ["chinaLow"],
+                "CO": ["colombiaLow"],
+                "CD": ["congoDRLow"],
+                "CG": ["congoLow"],
+                "CR": ["costaRicaLow"],
+                "HR": ["croatiaLow"],
+                "CU": ["cubaLow"],
+                "CY": ["cyprusLow"],
+                "UN": ["cyprusNorthernCyprusLow"],
+                "GB": ["unitedKingdomLow"],
+                "CZ": ["czechRepublicLow"],
+                "DK": ["denmarkLow"],
+                "DJ": ["djiboutiLow"],
+                "DO": ["dominicanRepublicLow"],
+                "EC": ["ecuadorLow"],
+                "EG": ["egyptLow"],
+                "SV": ["elSalvadorLow"],
+                "EE": ["estoniaLow"],
+                "FI": ["finlandLow"],
+                "FR": ["france2016Low"],
+                "GE": ["georgiaLow"],
+                "DE": ["germanyLow"],
+                "GR": ["greeceLow"],
+                "GT": ["guatemalaLow"],
+                "GN": ["guineaLow"],
+                "GY": ["guyanaLow"],
+                "HT": ["haitiLow"],
+                "HN": ["hondurasLow"],
+                "HK": ["hongKongLow"],
+                "HU": ["hungaryLow"],
+                "GL": ["icelandLow"],
+                "IS": ["icelandLow"],
+                "IN": ["indiaLow"],
+                "ID": ["indonesiaLow"],
+                "MY": ["malaysiaLow"],
+                "IR": ["iranLow"],
+                "IQ": ["iraqLow"],
+                "IE": ["irelandLow"],
+                "IL": ["israelLow"],
+                "PS": ["palestineLow"],
+                "VA": ["italyLow"],
+                "SM": ["sanMarinoLow"],
+                "MT": ["italyLow"],
+                "IT": ["italyLow"],
+                "JM": ["jamaicaLow"],
+                "JP": ["japanLow"],
+                "KZ": ["kazakhstanLow"],
+                "KE": ["kenyaLow"],
+                "XK": ["kosovoLow"],
+                "KG": ["kyrgyzstanLow"],
+                "LA": ["laosLow"],
+                "LV": ["latviaLow"],
+                "LT": ["lithuaniaLow"],
+                "LU": ["luxembourgLow"],
+                "MK": ["macedoniaLow"],
+                "ML": ["maliLow"],
+                "MX": ["mexicoLow"],
+                "MD": ["moldovaLow"],
+                "MN": ["mongoliaLow"],
+                "ME": ["montenegroLow"],
+                "MA": ["moroccoLow"],
+                "MM": ["myanmarLow"],
+                "NP": ["nepalLow"],
+                "NL": ["netherlandsLow"],
+                "NZ": ["newZealandLow"],
+                "NI": ["nicaraguaLow"],
+                "NG": ["nigeriaLow"],
+                "NO": ["norwayLow"],
+                "AE": ["unitedArabEmiratesLow"],
+                "OM": ["omanLow"],
+                "PK": ["pakistanLow"],
+                "PA": ["panamaLow"],
+                "PY": ["paraguayLow"],
+                "PE": ["peruLow"],
+                "PH": ["philippinesLow"],
+                "PL": ["polandLow"],
+                "PT": ["portugalLow"],
+                "PR": ["puertoRicoLow"],
+                "US": ["usaLow"],
+                "QA": ["qatarLow"],
+                "RO": ["romaniaLow"],
+                "RW": ["rwandaLow"],
+                "SA": ["saudiArabiaLow"],
+                "RS": ["serbiaLow"],
+                "SG": ["singaporeLow"],
+                "SK": ["slovakiaLow"],
+                "SI": ["sloveniaLow"],
+                "LS": ["southAfricaLow"],
+                "ZA": ["southAfricaLow"],
+                "KR": ["southKoreaLow"],
+                "ES": ["spainLow"],
+                "LK": ["sriLankaLow"],
+                "SR": ["surinameLow"],
+                "SE": ["swedenLow"],
+                "CH": ["switzerlandLow"],
+                "SY": ["syriaLow"],
+                "TW": ["taiwanLow"],
+                "TJ": ["tajikistanLow"],
+                "TH": ["thailandLow"],
+                "TR": ["turkeyLow"],
+                "UG": ["ugandaLow"],
+                "UA": ["ukraineLow"],
+                "GG": ["unitedKingdomLow"],
+                "JE": ["unitedKingdomLow"],
+                "IM": ["unitedKingdomLow"],
+                "UY": ["uruguayLow"],
+                "UZ": ["uzbekistanLow"],
+                "VE": ["venezuelaLow"],
+                "VN": ["vietnamLow"],
+                "YE": ["yemenLow"]
+            };
+
+            // calculate which map to be used
+            var currentMap = defaultMap;
+            var titles = [];
+            if (countryMaps[geo.country_code] !== undefined) {
+                currentMap = countryMaps[geo.country_code][0];
+
+                // add country title
+                if (geo.country_name) {
+                    titles.push({
+                        "text": geo.country_name
+                    });
+                }
+
+            }
+
+            var map = AmCharts.makeChart("chartdiv", {
+                "type": "map",
+                "theme": "light",
+                "colorSteps": 10,
+                "dataProvider": {
+                    "mapURL": "/lib/3/maps/svg/" + currentMap + ".svg",
+                    "getAreasFromMap": true,
+                    "zoomLevel": 0.9,
+                    "areas": []
+                },
+                "areasSettings": {
+                    "autoZoom": true,
+                    "balloonText": "[[title]]: <strong>[[value]]</strong>"
+                },
+                "valueLegend": {
+                    "right": 10,
+                    "minValue": "little",
+                    "maxValue": "a lot!"
+                },
+                "zoomControl": {
+                    "minZoomLevel": 0.9
+                },
+                "titles": titles,
+                "listeners": [{
+                    "event": "init",
+                    "method": updateHeatmap
+                }]
+            });
+
+
+            function updateHeatmap(event) {
+                var map = event.chart;
+                if (map.dataGenerated)
+                    return;
+                if (map.dataProvider.areas.length === 0) {
+                    setTimeout(updateHeatmap, 100);
+                    return;
+                }
+                for (var i = 0; i < map.dataProvider.areas.length; i++) {
+                    map.dataProvider.areas[i].value = Math.round(Math.random() * 10000);
+                }
+                map.dataGenerated = true;
+                map.validateNow();
+            }
+        });
 
     </script>
 

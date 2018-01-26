@@ -626,6 +626,24 @@
     <Content Include="Areas\Crm\Views\Shared\SpanStates.cshtml" />
     <Content Include="Areas\Crm\Views\Tarea\TareaModals.cshtml" />
     <Content Include="Areas\Crm\Views\Tarea\TareaEditCreate.cshtml" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\.eslintrc.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\.gitignore" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\Gruntfile.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\gulpfile.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\karma.conf.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\lib\jquery-fusioncharts.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\lib\transcoder-htmltable\transcoder-htmltable.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\package\fusioncharts-jquery-plugin.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\package\fusioncharts-jquery-plugin.min.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\samples\dist\bundle.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\samples\dist\bundle.min.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\samples\dist\index.html" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\samples\src\index.html" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\samples\src\index.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\src\jquery-fusioncharts.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\src\transcoder-htmltable\transcoder-htmltable.js" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\test\index.html" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\test\test.js" />
     <Content Include="Views\Shared\TareaDashboardList.cshtml" />
     <Content Include="Areas\Crm\Views\Cliente\Create.cshtml" />
     <Content Include="Areas\Crm\Views\Cliente\Edit.cshtml" />
@@ -972,6 +990,9 @@
     <Content Include="Views\Shared\SidePanel.cshtml" />
     <Content Include="Views\Shared\UserTopBarCredential.cshtml" />
     <Content Include="Areas\Crm\Views\Shared\CiudadDropDownPartialView.cshtml" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\.npmignore" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\package.json" />
+    <Content Include="Scripts\vendor\fusioncharts-jquery-plugin\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

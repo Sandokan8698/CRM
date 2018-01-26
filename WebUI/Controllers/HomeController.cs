@@ -10,12 +10,14 @@ using WebUI.model;
 
 namespace WebUI.Controllers
 {
+   
     public class HomeController : BaseController
     {
         public HomeController(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
 
+        [Authorize]
         public ActionResult Index()
         {
             var viewModel = new DashboarViewModel

@@ -1,4 +1,5 @@
 ﻿@using System.Data
+@using System.Globalization
 @using Common.Web.HelperMethods
 @using Domain.Entities
 @model IEnumerable<Domain.Entities.Tarea>
@@ -8,78 +9,116 @@
 
 }
 
-<div class="block block-condensed">
-    <div class="app-heading">
-        <div class="title">
-            <h2>Listados de tareas</h2>
-            <p></p>
-        </div>
-        <div class="heading-elements">
-            <button class="btn btn-default btn-icon-fixed"><span class="icon-file-add"></span> All Transactions</button>
+<div class="row">
+    <div class="col-md-9">
+        <div class="block block-condensed">
+            <div class="app-heading">
+                <div class="title">
+                    <h2>Listados de tareas</h2>
+                    <p></p>
+                </div>
+            </div>
+            <div class="block-content">
+                <div class="table-responsive">
+                    <table class="table table-clean-paddings margin-bottom-0">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreadoPor)
+                                </th>
+                                <th width="150">
+                                    @Html.DisplayNameFor(model => model.Identificador)
+                                </th>
+                                <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+                                <th>@Html.DisplayNameFor(model => model.AsignadoA)</th>
+                                <th width="100">@Html.DisplayNameFor(model => model.FechaCumplimiento)</th>
+                                <th width="55">@Html.DisplayNameFor(model => model.TareaEstado)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="contact contact-rounded contact-bordered contact-lg">
+                                            <img src="@item.CreadoPor.Perfil.ImagenUrl">
+                                            <div class="contact-container">
+                                                <a href="#">@item.CreadoPor.UserName</a>
+                                                <span>@item.Fecha.ToString("d",new CultureInfo("es-Es"))</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>@item.Identificador</td>
+                                    <td>@item.Descripcion</td>
+                                    <td>
+                                        <div class="contact contact-rounded contact-bordered contact-lg">
+                                            <img src="@item.AsignadoA.Perfil.ImagenUrl">
+                                            <div class="contact-container">
+                                                <a href="#">@item.AsignadoA.UserName</a>
+                                                <span>@item.Fecha.ToString("d", new CultureInfo("es"))</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>@item.FechaCumplimiento</td>
+                                    <td id="tareaModal-@item.TareaId"><span class="label @Html.StatusClass((int)item.TareaEstado) label-bordered">@item.TareaEstado</span></td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="icon-cog"></span>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-left">
+                                                <li>
+                                                    <a href="#" data-toggle="modal" data-target="#modal-primary-@item.TareaId"><span class="icon-pencil text-info"></span>        Editar Tarea</a>
+                                                </li>
+                                                <li><a href="@Url.Action("Create","Tarea", new {area = "Crm"})"><span class="icon-plus-circle text-success"></span> Nuevo</a></li>
+                                                <li><a href="@Url.Action("Edit","Tarea", new {area = "Crm", id = item.TareaId,})"><span class="icon-spell-check text-warning"></span> Detalle</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="block-content">
-        <div class="table-responsive">
-            <table class="table table-clean-paddings margin-bottom-0">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.CreadoPor)
-                        </th>
-                        <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
-                        <th>@Html.DisplayNameFor(model => model.AsignadoA)</th>
-                        <th width="100">@Html.DisplayNameFor(model => model.FechaCumplimiento)</th>
-                        <th width="55">@Html.DisplayNameFor(model => model.TareaEstado)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                <div class="contact contact-rounded contact-bordered contact-lg">
-                                    <img src="@item.CreadoPor.Perfil.ImagenUrl">
-                                    <div class="contact-container">
-                                        <a href="#">@item.CreadoPor.UserName</a>
-                                        <span>@item.Fecha.ToString("D")</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>@item.Descripcion</td>
-                            <td>
-                                <div class="contact contact-rounded contact-bordered contact-lg">
-                                    <img src="@item.AsignadoA.Perfil.ImagenUrl">
-                                    <div class="contact-container">
-                                        <a href="#">@item.AsignadoA.UserName</a>
-                                        <span>@item.Fecha.ToString("D")</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>@item.FechaCumplimiento</td>
-                            <td id="tareaModal-@item.TareaId"><span class="label @Html.StatusClass((int)item.TareaEstado) label-bordered">@item.TareaEstado</span></td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-default btn-icon btn-clean dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="icon-cog"></span>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-left">
-                                        <li>
-                                            <a href="#" data-toggle="modal" data-target="#modal-primary-@item.TareaId"><span class="icon-pencil text-info"></span>        Editar Tarea</a>
-                                        </li>
-                                        <li><a href="@Url.Action("Edit","Tarea", new {id = item.TareaId})"><span class="icon-spell-check text-warning"></span> Detalle</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#"><span class="icon-cross-circle text-danger"></span> Delete transactions</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                    }
+    <div class="col-md-3">
 
-                </tbody>
-            </table>
+        <div class="block block-condensed padding-top-20">
+            <div class="block-content">
+                <div class="form-group">
+                    <div class="input-group margin-bottom-0">
+                        <div class="input-group-addon">
+                            <span class="fa fa-search"></span>
+                        </div>
+                        <input type="text" class="form-control" name="search" placeholder="Palabra Clave" id="app_faq_search">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-default">Buscar</button>
+                        </div>
+                    </div>
+                    <p class="text-bold">
+                        <a href="#">Ajustes de Busqueda</a>
+                    </p>
+                </div>
+
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">Todas las tareas <span class="badge badge-default">789</span></a>
+                    <a href="#" class="list-group-item">Activas <span class="badge badge-primary">31</span></a>
+                    <a href="#" class="list-group-item">Cumplidas <span class="badge badge-primary">45</span></a>
+                    <a href="#" class="list-group-item">Retrasadas <span class="badge badge-primary">24</span></a>
+                    <a href="#" class="list-group-item">Canceladas <span class="badge badge-primary">69</span></a>
+                </div>
+
+            </div>
         </div>
+
     </div>
 </div>
+
 
 @Html.Action("CreateTareaModals", new { Tareas = Model })
 

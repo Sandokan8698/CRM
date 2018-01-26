@@ -1,5 +1,14 @@
 ﻿@model  WebUI.model.DashboarViewModel
 
+@section MenuNavigation {
+    <div class="app-heading-container app-heading-bordered bottom">
+        <ul class="breadcrumb">
+            <li><a href="#">Vendedor</a></li>
+            <li class="active">Dashboard</li>
+        </ul>
+    </div>
+}
+
 <div class="row">
     <div class="col-md-6">
 
@@ -80,34 +89,12 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="line">
-                                <div class="title">Messages</div>
-                                <div class="title pull-right"><span class="label label-success label-ghost label-bordered">3 NEW</span></div>
+                                <div class="title">Mensages</div>
+                                <div class="title pull-right"><span class="label label-success label-ghost label-bordered">3 NUEVOS</span></div>
                             </div>
                             <div class="intval text-left">39 / 1,589</div>
                             <div class="line">
-                                <div class="subtitle"><a href="#">Open all messages</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- END WIDGET -->
-            </li>
-            <li>
-                <!-- START WIDGET -->
-                <div class="app-widget-tile app-widget-highlight">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="icon icon-lg">
-                                <span class="icon-warning"></span>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="line">
-                                <div class="title">Server Notifications</div>
-                            </div>
-                            <div class="intval text-left">14 / 631</div>
-                            <div class="line">
-                                <div class="subtitle"><a href="#">Open all notifications</a></div>
+                                <div class="subtitle"><a href="#">Ver todos los mensages</a></div>
                             </div>
                         </div>
                     </div>
@@ -125,11 +112,11 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="line">
-                                <div class="title">Inbox Mail</div>
+                                <div class="title">Correos Recividos</div>
                             </div>
                             <div class="intval text-left">2 / 481</div>
                             <div class="line">
-                                <div class="subtitle"><a href="#">Open inbox messages</a></div>
+                                <div class="subtitle"><a href="#">Abrir mensajes de la bandeja de entrada</a></div>
                             </div>
                         </div>
                     </div>
@@ -147,12 +134,12 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="line">
-                                <div class="title">Customers</div>
+                                <div class="title">Clientes</div>
                                 <div class="title pull-right"><span class="label label-danger label-bordered">15 NEW</span></div>
                             </div>
                             <div class="intval text-left">6,233</div>
                             <div class="line">
-                                <div class="subtitle"><a href="#">Open contact list</a></div>
+                                <div class="subtitle"><a href="@Url.Action("Index","Cliente", new {area = "Crm"})">Abrir lista de clientes</a></div>
                             </div>
                         </div>
                     </div>
@@ -245,7 +232,7 @@
                     <p>Resumen estado oportunidades</p>
                 </div>
                 <div class="heading-elements">
-                    <button class="btn btn-default btn-icon-fixed"><span class="icon-sync"></span> Update</button>
+                    <button class="btn btn-default btn-icon-fixed"><span class="icon-sync"></span> Actualizar</button>
                 </div>
             </div>
 
@@ -260,51 +247,7 @@
     <div class="col-md-6">
 
         <!-- START TOP STORES -->
-        <div class="block block-condensed">
-            <div class="app-heading">
-                <div class="title">
-                    <h2>Top 5 Stores</h2>
-                    <p>Best sellers per month</p>
-                </div>
-                <div class="heading-elements">
-                    <button class="btn btn-default btn-icon-fixed"><span class="icon-store"></span>All Stores</button>
-                </div>
-            </div>
-            <div class="block-content">
 
-                <div class="form-group">
-                    <label>1. Shopnumone</label><span class="pull-right text-bold">135</span>
-                    <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="75%">
-                        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>2. Best Shoptwo</label><span class="pull-right text-bold">121</span>
-                    <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="70%">
-                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%"></div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>3. Third Awesome</label><span class="pull-right text-bold">107</span>
-                    <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="65%">
-                        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%"></div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>4. Alltranding</label><span class="pull-right text-bold">83</span>
-                    <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="51%">
-                        <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="51" aria-valuemin="0" aria-valuemax="100" style="width: 51%"></div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>5. Shop Name</label><span class="pull-right text-bold">77</span>
-                    <div class="progress progress-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="42%">
-                        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" style="width: 42%"></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
         <!-- END TOP STORES -->
 
     </div>
