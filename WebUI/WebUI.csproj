@@ -564,6 +564,7 @@
     <Content Include="img\product6.jpg" />
     <Content Include="img\product_portfolio1.jpg" />
     <Content Include="img\profile_bg1.jpg" />
+    <Content Include="img\bg1.jpg" />
     <Content Include="img\switch\switch.png" />
     <Content Include="img\user\no-image.png" />
     <Content Include="Scripts\app.js" />

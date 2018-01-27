@@ -56,6 +56,8 @@ namespace Data.Migrations
             context.ProviciaDbSet.AddOrUpdate(new Provincia { ProvinciaId = 21, Nombre = "Santa Elena" });
 
 
+
+
             context.CiudadDbSet.AddOrUpdate(new Ciudad {CiudadId = 1, ProvinciaId = 1, Nombre = "Tulcán" });
             context.CiudadDbSet.AddOrUpdate(new Ciudad {CiudadId = 2, ProvinciaId = 1, Nombre = "Montufar" });
             context.CiudadDbSet.AddOrUpdate(new Ciudad {CiudadId = 3, ProvinciaId = 1, Nombre = "Espejo" });
@@ -78,6 +80,16 @@ namespace Data.Migrations
             context.CiudadDbSet.AddOrUpdate(new Ciudad { CiudadId = 18, ProvinciaId = 3, Nombre = "Pedro Moncayo" });
             context.CiudadDbSet.AddOrUpdate(new Ciudad { CiudadId = 19, ProvinciaId = 3, Nombre = "Bancos" });
             context.CiudadDbSet.AddOrUpdate(new Ciudad { CiudadId = 20, ProvinciaId = 3, Nombre = "Cayambe" });
+
+            context.CiudadDbSet.AddOrUpdate(new Ciudad { CiudadId = 21, ProvinciaId = 4, Nombre = "Latacunga" });
+            context.CiudadDbSet.AddOrUpdate(new Ciudad { CiudadId = 22, ProvinciaId = 4, Nombre = "La Maná" });
+            context.CiudadDbSet.AddOrUpdate(new Ciudad { CiudadId = 23, ProvinciaId = 4, Nombre = "Pangua" });
+            context.CiudadDbSet.AddOrUpdate(new Ciudad { CiudadId = 24, ProvinciaId = 4, Nombre = "Pujilí" });
+            context.CiudadDbSet.AddOrUpdate(new Ciudad { CiudadId = 25, ProvinciaId = 4, Nombre = "Salcedo" });
+            context.CiudadDbSet.AddOrUpdate(new Ciudad { CiudadId = 26, ProvinciaId = 4, Nombre = "Sigchos" });
+            
+
         }
+
     }
 }

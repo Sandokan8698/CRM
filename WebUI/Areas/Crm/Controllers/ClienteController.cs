@@ -54,7 +54,8 @@ namespace WebUI.Areas.Crm.Controllers
                 {
                     _unitOfWork.ClienteRepository.Add(viewModel.Cliente);
                     _unitOfWork.SaveChanges();
-                    ViewBag.Success = "El cliente " + viewModel.Cliente.Nombre + " se creo con éxito"; 
+                    Session["Success"] = "El cliente " + viewModel.Cliente.Nombre + " se creo con éxito";
+                   
                     return RedirectToAction("Edit", new { id = viewModel.Cliente.ClienteId });
                 }
 

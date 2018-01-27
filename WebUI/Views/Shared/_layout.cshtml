@@ -61,6 +61,14 @@
     
                                 </ul>
                             </li>
+                            <li>
+                                <a href="#"><span class="icon-list"></span> Listas</a>
+                                <ul>
+                                    <li><a href="@Url.Action("Index","Cliente", new {area = "Crm"})">Cliente</a></li>
+                                    <li><a href="@Url.Action("Index","Tarea", new {area = "Crm"})">Tarea</a></li>
+    
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -91,14 +99,20 @@
 
                     }
 
-                    @if (ViewBag.Success != null)
+                    @if (Session["Success"] != null)
                     {
-                        <div class="app-statusbar app-statusbar-success" id="successStatusBar" style="display: block">
-                            <div class="app-statusbar-icon"><span class="icon-volume-high"></span></div>
-                            <div class="app-statusbar-text">@ViewBag.Error</div>
-                            <div class="app-statusbar-close fa fa-times"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="alert alert-success alert-icon-block alert-dismissible" role="alert">
+                                    <div class="alert-icon">
+                                        <span class="icon-checkmark-circle"></span>
+                                    </div>
+                                    <strong>Éxito!</strong> @Session["Success"]
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="fa fa-times"></span></button>
+                                </div>
+                            </div>
                         </div>
-                        
+                        Session["Scuccess"] = null;
                     }
 
                     <div class="row margin-bottom-15" style="display: none" id="loading">
@@ -106,6 +120,7 @@
                             <div class="app-spinner pulse pulse-success"></div>
                         </div>
                     </div>
+                    
                     @RenderBody()
 
 
