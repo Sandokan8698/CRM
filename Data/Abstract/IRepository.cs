@@ -17,6 +17,7 @@ namespace Data.Abstract
         Task<List<TEntity>> PageAllAsync(CancellationToken cancellationToken, int skip, int take);
 
         IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+        Task<List<TEntity>> FindAsync(CancellationToken cancellationToken, Expression<Func<TEntity, bool>> predicate);
         TEntity FindById(object id);
         Task<TEntity> FindByIdAsync(object id);
         Task<TEntity> FindByIdAsync(CancellationToken cancellationToken, object id);

@@ -72,6 +72,7 @@ namespace Domain.Entities
         {
             Contactos = new List<Contacto>();
             FechaNacimiento = DateTime.Now;
+            
         }
 
         

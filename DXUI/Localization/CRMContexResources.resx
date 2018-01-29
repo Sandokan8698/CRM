@@ -1,0 +1,471 @@
+﻿<root>
+    <xsd:schema id="root"
+        xmlns=""
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Ciudad" xml:space="preserve">
+    <value>Ciudad</value>
+  </data>
+    <data name="CiudadPlural" xml:space="preserve">
+    <value>Ciudad Db Set</value>
+  </data>
+    <data name="Ciudad_CiudadId" xml:space="preserve">
+    <value>Ciudad Id</value>
+  </data>
+    <data name="Ciudad_Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+    <data name="Ciudad_Provincia" xml:space="preserve">
+    <value>Provincia</value>
+  </data>
+    <data name="Provincia" xml:space="preserve">
+    <value>Provincia</value>
+  </data>
+    <data name="ProvinciaPlural" xml:space="preserve">
+    <value>Provicia Db Set</value>
+  </data>
+    <data name="Provincia_ProvinciaId" xml:space="preserve">
+    <value>Provincia Id</value>
+  </data>
+    <data name="Provincia_Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+    <data name="Claim" xml:space="preserve">
+    <value>Claim</value>
+  </data>
+    <data name="ClaimPlural" xml:space="preserve">
+    <value>Claim Db Set</value>
+  </data>
+    <data name="Claim_ClaimId" xml:space="preserve">
+    <value>Claim Id</value>
+  </data>
+    <data name="Claim_ClaimType" xml:space="preserve">
+    <value>Claim Type</value>
+  </data>
+    <data name="Claim_ClaimValue" xml:space="preserve">
+    <value>Claim Value</value>
+  </data>
+    <data name="Claim_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+    <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+    <data name="UserPlural" xml:space="preserve">
+    <value>User Db Set</value>
+  </data>
+    <data name="User_UserId" xml:space="preserve">
+    <value>User Id</value>
+  </data>
+    <data name="User_UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+    <data name="User_PasswordHash" xml:space="preserve">
+    <value>Password Hash</value>
+  </data>
+    <data name="User_SecurityStamp" xml:space="preserve">
+    <value>Security Stamp</value>
+  </data>
+    <data name="User_Perfil" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+    <data name="ExternalLogin" xml:space="preserve">
+    <value>External Login</value>
+  </data>
+    <data name="ExternalLoginPlural" xml:space="preserve">
+    <value>External Login Db Set</value>
+  </data>
+    <data name="ExternalLogin_ExternalLoginId" xml:space="preserve">
+    <value>External Login Id</value>
+  </data>
+    <data name="ExternalLogin_LoginProvider" xml:space="preserve">
+    <value>Login Provider</value>
+  </data>
+    <data name="ExternalLogin_ProviderKey" xml:space="preserve">
+    <value>Provider Key</value>
+  </data>
+    <data name="ExternalLogin_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+    <data name="Perfil" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+    <data name="PerfilPlural" xml:space="preserve">
+    <value>Pefil Dbset</value>
+  </data>
+    <data name="Perfil_PerfilId" xml:space="preserve">
+    <value>Perfil Id</value>
+  </data>
+    <data name="Perfil_ImagenUrl" xml:space="preserve">
+    <value>Imagen Url</value>
+  </data>
+    <data name="Perfil_Ocupacion" xml:space="preserve">
+    <value>Ocupacion</value>
+  </data>
+    <data name="Perfil_Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+    <data name="Perfil_Apellidos" xml:space="preserve">
+    <value>Apellidos</value>
+  </data>
+    <data name="Gerencia" xml:space="preserve">
+    <value>Gerencia</value>
+  </data>
+    <data name="GerenciaPlural" xml:space="preserve">
+    <value>Gerencia</value>
+  </data>
+    <data name="Gerencia_PerfilId" xml:space="preserve">
+    <value>Perfil Id</value>
+  </data>
+    <data name="Gerencia_ImagenUrl" xml:space="preserve">
+    <value>Imagen Url</value>
+  </data>
+    <data name="Gerencia_Ocupacion" xml:space="preserve">
+    <value>Ocupacion</value>
+  </data>
+    <data name="Gerencia_Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+    <data name="Gerencia_Apellidos" xml:space="preserve">
+    <value>Apellidos</value>
+  </data>
+    <data name="Gerencia_Nuevo" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+    <data name="Vendedor" xml:space="preserve">
+    <value>Vendedor</value>
+  </data>
+    <data name="VendedorPlural" xml:space="preserve">
+    <value>Vendedor</value>
+  </data>
+    <data name="Vendedor_PerfilId" xml:space="preserve">
+    <value>Perfil Id</value>
+  </data>
+    <data name="Vendedor_ImagenUrl" xml:space="preserve">
+    <value>Imagen Url</value>
+  </data>
+    <data name="Vendedor_Ocupacion" xml:space="preserve">
+    <value>Ocupacion</value>
+  </data>
+    <data name="Vendedor_Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+    <data name="Vendedor_Apellidos" xml:space="preserve">
+    <value>Apellidos</value>
+  </data>
+    <data name="Vendedor_PresuspuestoAsignado" xml:space="preserve">
+    <value>Presuspuesto Asignado</value>
+  </data>
+    <data name="Cliente" xml:space="preserve">
+    <value>Cliente</value>
+  </data>
+    <data name="ClientePlural" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+    <data name="Cliente_ClienteId" xml:space="preserve">
+    <value>Cliente Id</value>
+  </data>
+    <data name="Cliente_Ruc" xml:space="preserve">
+    <value>Ruc</value>
+  </data>
+    <data name="Cliente_Telefono" xml:space="preserve">
+    <value>Telefono</value>
+  </data>
+    <data name="Cliente_TelefonoConvencional" xml:space="preserve">
+    <value>Telefono Convencional</value>
+  </data>
+    <data name="Cliente_Direccion" xml:space="preserve">
+    <value>Direccion</value>
+  </data>
+    <data name="Cliente_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+    <data name="Cliente_FechaNacimiento" xml:space="preserve">
+    <value>Fecha Nacimiento</value>
+  </data>
+    <data name="Cliente_Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+    <data name="Cliente_Sector" xml:space="preserve">
+    <value>Sector</value>
+  </data>
+    <data name="Cliente_DescripcionSector" xml:space="preserve">
+    <value>Descripcion Sector</value>
+  </data>
+    <data name="Cliente_Division" xml:space="preserve">
+    <value>Division</value>
+  </data>
+    <data name="Cliente_VendedorId" xml:space="preserve">
+    <value>Vendedor Id</value>
+  </data>
+    <data name="Cliente_Ciudad" xml:space="preserve">
+    <value>Ciudad</value>
+  </data>
+    <data name="Cliente_Provincia" xml:space="preserve">
+    <value>Provincia</value>
+  </data>
+    <data name="Cliente_Vendedor" xml:space="preserve">
+    <value>Vendedor</value>
+  </data>
+    <data name="Contacto" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+    <data name="ContactoPlural" xml:space="preserve">
+    <value>Contacto Db Set</value>
+  </data>
+    <data name="Contacto_ContactoId" xml:space="preserve">
+    <value>Contacto Id</value>
+  </data>
+    <data name="Contacto_Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+    <data name="Contacto_Cargo" xml:space="preserve">
+    <value>Cargo</value>
+  </data>
+    <data name="Contacto_Celular" xml:space="preserve">
+    <value>Celular</value>
+  </data>
+    <data name="Contacto_FechaNacimiento" xml:space="preserve">
+    <value>Fecha Nacimiento</value>
+  </data>
+    <data name="Contacto_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+    <data name="Contacto_TomaDecision" xml:space="preserve">
+    <value>Toma Decision</value>
+  </data>
+    <data name="Contacto_Cliente" xml:space="preserve">
+    <value>Cliente</value>
+  </data>
+    <data name="Oportunidad" xml:space="preserve">
+    <value>Oportunidad</value>
+  </data>
+    <data name="OportunidadPlural" xml:space="preserve">
+    <value>Oportunidad Ds Db Set</value>
+  </data>
+    <data name="Oportunidad_OportunidadId" xml:space="preserve">
+    <value>Oportunidad Id</value>
+  </data>
+    <data name="Oportunidad_Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+    <data name="Oportunidad_FechaInicio" xml:space="preserve">
+    <value>Fecha Inicio</value>
+  </data>
+    <data name="Oportunidad_TipoCartera" xml:space="preserve">
+    <value>Tipo Cartera</value>
+  </data>
+    <data name="Oportunidad_Cantidad" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+    <data name="Oportunidad_PVU" xml:space="preserve">
+    <value>PVU</value>
+  </data>
+    <data name="Oportunidad_Potencial" xml:space="preserve">
+    <value>Potencial</value>
+  </data>
+    <data name="Oportunidad_ExpectativaVenta" xml:space="preserve">
+    <value>Expectativa Venta</value>
+  </data>
+    <data name="Oportunidad_ExpectativaAsesor" xml:space="preserve">
+    <value>Expectativa Asesor</value>
+  </data>
+    <data name="Oportunidad_FechaPrevistaCierre" xml:space="preserve">
+    <value>Fecha Prevista Cierre</value>
+  </data>
+    <data name="Oportunidad_Asesor" xml:space="preserve">
+    <value>Asesor</value>
+  </data>
+    <data name="Oportunidad_Cliente" xml:space="preserve">
+    <value>Cliente</value>
+  </data>
+    <data name="Oportunidad_ContactoVenta" xml:space="preserve">
+    <value>Contacto Venta</value>
+  </data>
+    <data name="Oportunidad_Etapa" xml:space="preserve">
+    <value>Etapa</value>
+  </data>
+    <data name="Oportunidad_LineaNegocio" xml:space="preserve">
+    <value>Linea Negocio</value>
+  </data>
+    <data name="Oportunidad_Producto" xml:space="preserve">
+    <value>Producto</value>
+  </data>
+    <data name="Oportunidad_TipoGestion" xml:space="preserve">
+    <value>Tipo Gestion</value>
+  </data>
+    <data name="Oportunidad_TomadorDesicion" xml:space="preserve">
+    <value>Tomador Desicion</value>
+  </data>
+    <data name="Etapa" xml:space="preserve">
+    <value>Etapa</value>
+  </data>
+    <data name="EtapaPlural" xml:space="preserve">
+    <value>Etapas</value>
+  </data>
+    <data name="Etapa_EtapaId" xml:space="preserve">
+    <value>Etapa Id</value>
+  </data>
+    <data name="Etapa_Porciento" xml:space="preserve">
+    <value>Porciento</value>
+  </data>
+    <data name="Etapa_Descripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+    <data name="LineaNegocio" xml:space="preserve">
+    <value>Linea Negocio</value>
+  </data>
+    <data name="LineaNegocioPlural" xml:space="preserve">
+    <value>Linea Negocios</value>
+  </data>
+    <data name="LineaNegocio_LineaNegocioId" xml:space="preserve">
+    <value>Linea Negocio Id</value>
+  </data>
+    <data name="LineaNegocio_Descripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+    <data name="Producto" xml:space="preserve">
+    <value>Producto</value>
+  </data>
+    <data name="ProductoPlural" xml:space="preserve">
+    <value>Productoes</value>
+  </data>
+    <data name="Producto_ProductoId" xml:space="preserve">
+    <value>Producto Id</value>
+  </data>
+    <data name="Producto_Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+    <data name="TipoGestion" xml:space="preserve">
+    <value>Tipo Gestion</value>
+  </data>
+    <data name="TipoGestionPlural" xml:space="preserve">
+    <value>Tipo Gestions</value>
+  </data>
+    <data name="TipoGestion_TipoGestionId" xml:space="preserve">
+    <value>Tipo Gestion Id</value>
+  </data>
+    <data name="TipoGestion_Descripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+    <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+    <data name="RolePlural" xml:space="preserve">
+    <value>Role Db Set</value>
+  </data>
+    <data name="Role_RoleId" xml:space="preserve">
+    <value>Role Id</value>
+  </data>
+    <data name="Role_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+    <data name="Tarea" xml:space="preserve">
+    <value>Tarea</value>
+  </data>
+    <data name="TareaPlural" xml:space="preserve">
+    <value>Tarea Db Set</value>
+  </data>
+    <data name="Tarea_TareaId" xml:space="preserve">
+    <value>Tarea Id</value>
+  </data>
+    <data name="Tarea_Fecha" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+    <data name="Tarea_Descripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+    <data name="Tarea_TareaEstado" xml:space="preserve">
+    <value>Tarea Estado</value>
+  </data>
+    <data name="Tarea_FechaCumplimiento" xml:space="preserve">
+    <value>Fecha Cumplimiento</value>
+  </data>
+    <data name="Tarea_Identificador" xml:space="preserve">
+    <value>Identificador</value>
+  </data>
+    <data name="Tarea_AsignadoA" xml:space="preserve">
+    <value>Asignado A</value>
+  </data>
+    <data name="Tarea_CreadoPor" xml:space="preserve">
+    <value>Creado Por</value>
+  </data>
+    <data name="TareaHistorial" xml:space="preserve">
+    <value>Tarea Historial</value>
+  </data>
+    <data name="TareaHistorialPlural" xml:space="preserve">
+    <value>Tarea Historials</value>
+  </data>
+    <data name="TareaHistorial_TareaHistorialId" xml:space="preserve">
+    <value>Tarea Historial Id</value>
+  </data>
+    <data name="TareaHistorial_Descripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+    <data name="TareaHistorial_Fecha" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+    <data name="TareaHistorial_TareaEstado" xml:space="preserve">
+    <value>Tarea Estado</value>
+  </data>
+    <data name="TareaHistorial_Tarea" xml:space="preserve">
+    <value>Tarea</value>
+  </data>
+</root>

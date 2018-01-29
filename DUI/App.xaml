@@ -1,0 +1,14 @@
+﻿<Application x:Class="DUI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml" Startup="OnAppStartup_UpdateThemeName">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DUI;component/Themes/CommonResources.xaml" />
+                <ResourceDictionary Source="/DUI;component/Themes/CommonStyles.xaml" />
+                <ResourceDictionary Source="/DUI;component/Themes/CommonTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

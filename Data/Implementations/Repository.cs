@@ -59,6 +59,12 @@ namespace Data.Implementations
             return Set.Where(predicate).ToList();
         }
 
+        public Task<List<TEntity>> FindAsync(CancellationToken cancellationToken, Expression<Func<TEntity, bool>> predicate)
+        {
+            return Set.Where(predicate).ToListAsync(cancellationToken);
+        }
+
+
         public TEntity FindById(object id)
         {
             return Set.Find(id);

@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4D98A00A-9D0A-4C63-9233-8FD785E26F4B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DUI</RootNamespace>
+    <AssemblyName>DUI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DemoData.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.PivotGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Charts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Controls.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Core.v17.1" />
+    <Reference Include="DevExpress.Data.v17.1" />
+    <Reference Include="DevExpress.Printing.v17.1.Core" />
+    <Reference Include="DevExpress.Mvvm.v17.1" />
+    <Reference Include="DevExpress.Xpf.Core.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.LayoutControl.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.PivotGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v17.1" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ViewModel\AgentRepositoryViewModel.cs" />
+    <Compile Include="ViewModel\CalculatorViewModel.cs" />
+    <Compile Include="ViewModel\HomeRepositoryViewModel.cs" />
+    <Compile Include="ViewModel\HomeStatisticViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ModuleSelectorViewModel.cs" />
+    <Compile Include="ViewModel\MortgageRateRepositoryViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel.cs" />
+    <Compile Include="View\AgentRepositoryView.xaml.cs">
+      <DependentUpon>AgentRepositoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CalculatorView.xaml.cs">
+      <DependentUpon>CalculatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DraftView.xaml.cs">
+      <DependentUpon>DraftView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomeRepositoryView.xaml.cs">
+      <DependentUpon>HomeRepositoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomeStatisticView.xaml.cs">
+      <DependentUpon>HomeStatisticView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ModuleSelectorView.xaml.cs">
+      <DependentUpon>ModuleSelectorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MortgageRateRepositoryView.xaml.cs">
+      <DependentUpon>MortgageRateRepositoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NavigatorView.xaml.cs">
+      <DependentUpon>NavigatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WaitScreen.xaml.cs">
+      <DependentUpon>WaitScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WaitWindow.xaml.cs">
+      <DependentUpon>WaitWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ZillowView.xaml.cs">
+      <DependentUpon>ZillowView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\Themes\ImageScrollViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Themes\RenderScrollViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageScrollViewer.cs" />
+    <Compile Include="Controls\RenderScrollContentControl.cs" />
+    <Compile Include="Controls\RenderScrollViewer.cs" />
+    <Compile Include="Controls\SimpleManipulationHelper.cs" />
+    <Compile Include="Controls\WebBrowserCreator.cs" />
+    <Compile Include="DataModel\Common\IRepository.cs" />
+    <Compile Include="DataModel\Common\IUnitOfWork.cs" />
+    <Compile Include="DataModel\DataClasses.cs" />
+    <Compile Include="DataModel\DataHelper.cs" />
+    <Compile Include="DataModel\DesignTime\DesignTimeAgentRepository.cs" />
+    <Compile Include="DataModel\DesignTime\DesignTimeHomeLayoutRepository.cs" />
+    <Compile Include="DataModel\DesignTime\DesignTimeHomePhotoRepository.cs" />
+    <Compile Include="DataModel\DesignTime\DesignTimeHomeRepository.cs" />
+    <Compile Include="DataModel\DesignTime\DesignTimeMortgageRateRepository.cs" />
+    <Compile Include="DataModel\DesignTime\DesignTimeRealtorWorldUnitOfWork.cs" />
+    <Compile Include="DataModel\Model\IAgentRepository.cs" />
+    <Compile Include="DataModel\Model\IAgentStatisticDataRepository.cs" />
+    <Compile Include="DataModel\Model\IHomeLayoutRepository.cs" />
+    <Compile Include="DataModel\Model\IHomePhotoRepository.cs" />
+    <Compile Include="DataModel\Model\IHomePopularityRatingRepository.cs" />
+    <Compile Include="DataModel\Model\IHomePriceStatisticDataRepository.cs" />
+    <Compile Include="DataModel\Model\IHomeRepository.cs" />
+    <Compile Include="DataModel\Model\IMortgageRateRepository.cs" />
+    <Compile Include="DataModel\Model\IRealtorWorldUnitOfWork.cs" />
+    <Compile Include="DataModel\Model\ISimilarHousesStatisticDataRepository.cs" />
+    <Compile Include="DataModel\Model\IUnitOfWorkFactory.cs" />
+    <Compile Include="DataModel\Runtime\AgentRepository.cs" />
+    <Compile Include="DataModel\Runtime\AgentStatisticDataRepository.cs" />
+    <Compile Include="DataModel\Runtime\HomeLayoutRepository.cs" />
+    <Compile Include="DataModel\Runtime\HomePhotoRepository.cs" />
+    <Compile Include="DataModel\Runtime\HomePopularityRatingRepository.cs" />
+    <Compile Include="DataModel\Runtime\HomePriceStatisticDataRepository.cs" />
+    <Compile Include="DataModel\Runtime\HomeRepository.cs" />
+    <Compile Include="DataModel\Runtime\LazyRepository.cs" />
+    <Compile Include="DataModel\Runtime\MortgageRateRepository.cs" />
+    <Compile Include="DataModel\Runtime\RealtorWorldUnitOfWork.cs" />
+    <Compile Include="DataModel\Runtime\SimilarHousesStatisticDataRepository.cs" />
+    <Compile Include="DataModel\Runtime\XmlRepository.cs" />
+    <Compile Include="DataModel\UnitOfWorkSource.cs" />
+    <Compile Include="Helpers\DecimalRangeConverter.cs" />
+    <Compile Include="Helpers\EntityHelpers.cs" />
+    <Compile Include="Helpers\ExceptionHelper.cs" />
+    <Compile Include="Helpers\FormatValue.cs" />
+    <Compile Include="Helpers\GridControlHelper.cs" />
+    <Compile Include="Helpers\ImageSourceConverter.cs" />
+    <Compile Include="Helpers\ImageSourceHelper.cs" />
+    <Compile Include="Helpers\KeyDownEventToCommand.cs" />
+    <Compile Include="Helpers\ListFormatConverter.cs" />
+    <Compile Include="Helpers\Payments.cs" />
+    <Compile Include="Helpers\TileLayoutControlExt.cs" />
+    <Compile Include="Helpers\VisualStateControl.cs" />
+    <Compile Include="Helpers\ZoomHelper.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\CommonResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\CommonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\CommonTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Converters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AgentRepositoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CalculatorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DraftView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\HomeRepositoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\HomeStatisticView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ModuleSelectorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MortgageRateRepositoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\NavigatorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WaitScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WaitWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ZillowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AgentPhoto.png" />
+    <Resource Include="Images\AppIcon.ico" />
+    <Resource Include="Images\Back.png" />
+    <Resource Include="Images\Calc.png" />
+    <Resource Include="Images\Home.jpg" />
+    <Resource Include="Images\HomeLayout.jpg" />
+    <Resource Include="Images\HomePhoto.jpg" />
+    <Resource Include="Images\Next.png" />
+    <Resource Include="Images\Prev.png" />
+    <Resource Include="Images\Rates.png" />
+    <Resource Include="Images\Research.png" />
+    <Resource Include="Images\Statistics.png" />
+    <Resource Include="Images\System.png" />
+    <Resource Include="Images\UnderConstruction.png" />
+    <Resource Include="Images\UserManagment.png" />
+    <Resource Include="Images\ZillowLogo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
