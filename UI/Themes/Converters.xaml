@@ -8,6 +8,22 @@
     <helpers:ListFormatConverter x:Key="ListFormatConverter" />
     <helpers:ImageSourceConverter x:Key="ImageSourceConverter" />
     <helpers:DecimalRangeConverter x:Key="DecimalRangeConverter" />
+    <helpers:SplitStringConverter x:Key="SplitStringConverter"/>
+   
+    <dxmvvm:ObjectToObjectConverter x:Key="ColumnPriorityConverter">
+        <dxmvvm:MapItem Source="Baja" Target="/Images/Priority/LowPriority.png"/>
+        <dxmvvm:MapItem Source="Normal" Target="/Images/Priority/NormalPriority.png"/>
+        <dxmvvm:MapItem Source="Alta" Target="/Images/Priority/MediumPriority.png"/>
+        <dxmvvm:MapItem Source="Urgente" Target="/Images/Priority/HighPriority.png"/>
+    </dxmvvm:ObjectToObjectConverter>
+
+    <dxmvvm:ObjectToObjectConverter x:Key="StatusToPictureConverter">
+        <dxmvvm:MapItem Source="Retrasada" Target="/Images/Tasks/icon-notStarted-16.png"/>
+        <dxmvvm:MapItem Source="Cumplida" Target="/Images/Tasks/icon-completed-16.png"/>
+        <dxmvvm:MapItem Source="Activo" Target="/Images/Tasks/icon-inProgress-16.png"/>
+        <dxmvvm:MapItem Source="Cancelada" Target="/Images/Tasks/icon-deferred-16.png"/>
+    </dxmvvm:ObjectToObjectConverter>
+
     <dx:FormatStringConverter x:Key="BedsCountFormatConverter" FormatString="{}{0} Beds" />
     <dx:FormatStringConverter x:Key="BathsCountFormatConverter" FormatString="{}{0} Baths" />
     <dx:FormatStringConverter x:Key="CurrencyFormatConverter" FormatString="c" />

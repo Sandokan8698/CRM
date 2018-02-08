@@ -1,12 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
-        xmlns:dxwuii="http://schemas.devexpress.com/winfx/2008/xaml/windowsui/internal">
+        xmlns:dxwuii="http://schemas.devexpress.com/winfx/2008/xaml/windowsui/internal"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core">
 
     <Style TargetType="ContentControl">
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsTabStop" Value="False" />
     </Style>
+   
     <Style x:Key="EmptyButton" TargetType="{x:Type Button}">
         <Setter Property="Template">
             <Setter.Value>
@@ -16,6 +18,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+   
     <Style TargetType="dxwui:PageAdornerControl">
         <Setter Property="Padding" Value="0,-46,0,0" />
         <Setter Property="Template">
@@ -48,17 +51,19 @@
             </Setter.Value>
         </Setter>
     </Style>
+  
     <Style TargetType="dxwuii:BackButton" BasedOn="{StaticResource EmptyButton}">
         <Setter Property="Margin" Value="-32,3,1,-3" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="ContentTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <Image Source="/DevExpress.RealtorWorld.Xpf;component/Images/Back.png" Stretch="None" />
+                    <Image Source="/UI;component/Images/Back.png" Stretch="None" />
                 </DataTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+   
     <Style x:Key="ModuleLinkButton" TargetType="Button">
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsTabStop" Value="False" />
@@ -112,4 +117,25 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!--#region AppBar-->
+    <Style x:Key="CollectionView.AppBar" TargetType="dxwui:AppBar">
+        <Setter Property="HideMode" Value="AlwaysVisible" />
+    </Style>
+    
+    <Style x:Key="EntityView.AppBar" BasedOn="{StaticResource CollectionView.AppBar}" TargetType="dxwui:AppBar" />
+
+    <Style x:Key="CollectionView.Command.Base" TargetType="dxwui:AppBarButton">
+    <Setter Property="HorizontalAlignment" Value="Center" />
+    <Setter Property="AllowGlyphTheming" Value="True" />
+    <Setter Property="GlyphStretch" Value="None" />
+    <Setter Property="IsEllipseEnabled" Value="False" />
+    </Style>
+
+    <Style x:Key="EntityView.Command.Save" BasedOn="{StaticResource CollectionView.Command.Base}" TargetType="dxwui:AppBarButton">
+        <Setter Property="Label" Value="Guardar" />
+        <Setter Property="Glyph" Value="{Binding Source={dx:DXImageGrayscale Image=Save_32x32.png}}" />
+        <Setter Property="Command" Value="{Binding SaveCommand}" />
+    </Style>
+    <!--#endregion AppBar-->
 </ResourceDictionary>

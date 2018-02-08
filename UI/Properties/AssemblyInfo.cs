@@ -3,11 +3,11 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
 
-[assembly: AssemblyTitle("DevExpress.RealtorWorld.Xpf")]
+[assembly: AssemblyTitle("UI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany(AssemblyInfo.AssemblyCompany)]
-[assembly: AssemblyProduct("DevExpress.RealtorWorld.Xpf")]
+[assembly: AssemblyProduct("UI")]
 [assembly: AssemblyCopyright(AssemblyInfo.AssemblyCopyright)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

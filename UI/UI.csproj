@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UI</RootNamespace>
     <AssemblyName>UI</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -120,6 +120,9 @@
       </HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DevExpress.Images.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.PivotGrid.v17.1.Core">
       <HintPath>
       </HintPath>
@@ -146,6 +149,7 @@
       </HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -247,6 +251,7 @@
     <Compile Include="Controls\RenderScrollViewer.cs" />
     <Compile Include="Controls\SimpleManipulationHelper.cs" />
     <Compile Include="Controls\WebBrowserCreator.cs" />
+    <Compile Include="Helpers\Converters.cs" />
     <Compile Include="Helpers\DecimalRangeConverter.cs" />
     <Compile Include="Helpers\EntityHelpers.cs" />
     <Compile Include="Helpers\ExceptionHelper.cs" />
@@ -270,6 +275,7 @@
     <Compile Include="Utils\CustomViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ModuleSelectorViewModel.cs" />
+    <Compile Include="ViewModel\TareaViewModel.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\GestionView.xaml.cs">
       <DependentUpon>GestionView.xaml</DependentUpon>
@@ -281,6 +287,9 @@
     <Compile Include="View\NavigatorView.xaml.cs">
       <DependentUpon>NavigatorView.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\TareaView.xaml.cs">
+      <DependentUpon>TareaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\WaitScreen.xaml.cs">
       <DependentUpon>WaitScreen.xaml</DependentUpon>
@@ -336,6 +345,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\NavigatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TareaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -424,6 +437,63 @@
       <Project>{dc2d6913-5588-48a1-8570-c92781b2d591}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Tasks\Category_HouseChores.png" />
+    <Resource Include="Images\Tasks\Category_Shopping.png" />
+    <Resource Include="Images\Tasks\Category_Work.png" />
+    <Resource Include="Images\Tasks\Column_Complete.png" />
+    <Resource Include="Images\Tasks\Column_FlagStatus.png" />
+    <Resource Include="Images\Tasks\Column_Icon.png" />
+    <Resource Include="Images\Tasks\Column_Priority.png" />
+    <Resource Include="Images\Tasks\Completed_32x32.png" />
+    <Resource Include="Images\Tasks\Completed_Flag.png" />
+    <Resource Include="Images\Tasks\Custom_Flag.png" />
+    <Resource Include="Images\Tasks\deferred16.png" />
+    <Resource Include="Images\Tasks\deferred32.png" />
+    <Resource Include="Images\Tasks\Deferred_32x32.png" />
+    <Resource Include="Images\Tasks\ListByDate_32x32.png" />
+    <Resource Include="Images\Tasks\Mr.png" />
+    <Resource Include="Images\Tasks\Ms.png" />
+    <Resource Include="Images\Tasks\NextWeek_Flag.png" />
+    <Resource Include="Images\Tasks\NoDate_Flag.png" />
+    <Resource Include="Images\Tasks\Overdue_32x32.png" />
+    <Resource Include="Images\Tasks\Prioritized_32x32.png" />
+    <Resource Include="Images\Tasks\Priority_High.png" />
+    <Resource Include="Images\Tasks\Priority_Low.png" />
+    <Resource Include="Images\Tasks\Reminder.png" />
+    <Resource Include="Images\Tasks\Status_0.png" />
+    <Resource Include="Images\Tasks\Status_1.png" />
+    <Resource Include="Images\Tasks\ThisWeek_Flag.png" />
+    <Resource Include="Images\Tasks\Today_Flag.png" />
+    <Resource Include="Images\Tasks\ToDoList_32x32.png" />
+    <Resource Include="Images\Tasks\Tomorrow_Flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Tasks\icon-completed-16.png" />
+    <Resource Include="Images\Tasks\icon-deferred-16.png" />
+    <Resource Include="Images\Tasks\icon-droplet-water-32.png" />
+    <Resource Include="Images\Tasks\icon-inProgress-16.png" />
+    <Resource Include="Images\Tasks\icon-needAssistance-16.png" />
+    <Resource Include="Images\Tasks\icon-notStarted-16.png" />
+    <Resource Include="Images\Tasks\icon-task-followup-16.png" />
+    <Resource Include="Images\Tasks\icon-task-followup-32.png" />
+    <Resource Include="Images\Tasks\icon-task-followupall-16.png" />
+    <Resource Include="Images\Tasks\icon-task-followupcustom-16.png" />
+    <Resource Include="Images\Tasks\icon-task-followupnextweek-16.png" />
+    <Resource Include="Images\Tasks\icon-task-followupnodate-16.png" />
+    <Resource Include="Images\Tasks\icon-task-followupthisweek-16.png" />
+    <Resource Include="Images\Tasks\icon-task-followuptoday-16.png" />
+    <Resource Include="Images\Tasks\icon-task-followuptomorrow-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Priority\HighPriority.png" />
+    <Resource Include="Images\Priority\LowPriority.png" />
+    <Resource Include="Images\Priority\MediumPriority.png" />
+    <Resource Include="Images\Priority\NormalPriority.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

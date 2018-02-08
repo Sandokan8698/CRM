@@ -7,10 +7,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using DevExpress.Mvvm;
 
 namespace Domain.Entities
 {
-    public class Tarea
+    public class Tarea: BaseEntity<Tarea>
     {
         public int TareaId { get; set; }
 
@@ -38,6 +39,9 @@ namespace Domain.Entities
         [MaxLength(20)]
         public string Identificador { get; set; }
 
+        [Required]
+        public TareaPrioridad Prioridad { get; set; }
+
         public Tarea()
         {
             Fecha = DateTime.Now;
@@ -49,6 +53,7 @@ namespace Domain.Entities
         }
 
     }
+    
 
     public enum TareaEstado
     {
@@ -56,5 +61,13 @@ namespace Domain.Entities
         Cancelada = 4,
         Cumplida = 2,
         Retrasada = 3
+    }
+
+    public enum TareaPrioridad
+    {
+        Baja,
+        Normal,
+        Alta,
+        Urgente
     }
 }

@@ -3,75 +3,211 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:ViewModels="clr-namespace:UI.View"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:views="clr-namespace:UI.View"
              xmlns:viewModel="clr-namespace:UI.ViewModel"
              xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
              xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
              xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
              xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-             
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:domain="clr-namespace:Domain.Entities;assembly=Domain"
              mc:Ignorable="d"
-             d:DesignHeight="596" d:DesignWidth="1201">
+             d:DesignHeight="696" d:DesignWidth="1201" >
 
     <UserControl.DataContext>
         <viewModel:GestionViewModel/>
     </UserControl.DataContext>
 
-    <dxwui:PageAdornerControl Header="Gestion">
-        <Grid>
+    <dxmvvm:Interaction.Behaviors>
+        <dxwui:WinUIMessageBoxService/>
+    </dxmvvm:Interaction.Behaviors>
+
+    <UserControl.Resources>
+        <Style x:Key="AppBarButtonStyle" TargetType="dxwui:AppBarButton">
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="EllipseDiameter" Value="35"/>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Height" Value="Auto"></Setter>
+            <Setter Property="AllowGlyphTheming" Value="True" />
+            <Setter Property="GlyphHeight" Value="20" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+    </UserControl.Resources>
+
+    <dxwui:PageAdornerControl Header="Gestion" Padding="0">
+        <Grid Margin="0,0,0,-20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition  />
+                <RowDefinition  />
+                <RowDefinition  Height="75" />
             </Grid.RowDefinitions>
-            <ViewModels:NavigatorView/>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" MinWidth="400" />
-                    <ColumnDefinition Width="12" />
-                    <ColumnDefinition Width="*" MaxWidth="500" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="12" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <views:NavigatorView Grid.ColumnSpan="3"/>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="12"/>
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <dxlc:LayoutControl Orientation="Vertical" ItemSpace="12" Padding="0" >
-                    <dxlc:LayoutGroup VerticalAlignment="Top" d:IsLocked="True">
-                        <dxlc:LayoutGroup Orientation="Vertical">
-                            <dxlc:LayoutItem Label="RUC:">
-                                <dxe:TextEdit Text="{Binding Cliente.Ruc}"></dxe:TextEdit>
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="Empresa:">
-                                <dxe:TextEdit Text="{Binding Cliente.Nombre}"></dxe:TextEdit>
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="Telefono:">
-                                <dxe:TextEdit Text="{Binding Cliente.Telefono}"></dxe:TextEdit>
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="Provincia:">
-                                <dxe:ComboBoxEdit ItemsSource="{Binding Provincias}" DisplayMember="Nombre"  SelectedItem="{Binding SelectedProvincia}"></dxe:ComboBoxEdit>
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="Ciudad:">
-                                <dxe:ComboBoxEdit ItemsSource="{Binding Ciuadades}" DisplayMember="Nombre" SelectedItem="{Binding Cliente.Ciudad}" />
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="División">
-                                <dxe:TextEdit Text="{Binding Cliente.Division}"></dxe:TextEdit>
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="Sector">
-                                <dxe:TextEdit Text="{Binding Cliente.Sector}"></dxe:TextEdit>
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="D. Sector">
-                                <dxe:TextEdit Text="{Binding Cliente.DescripcionSector}"></dxe:TextEdit>
-                            </dxlc:LayoutItem>
-                        </dxlc:LayoutGroup>
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock HorizontalAlignment="Center" FontSize="16" Text="Your Monthly Payment"/>
-                            <TextBlock FontSize="18" HorizontalAlignment="Center" Text="{Binding Payment, Converter={StaticResource Currency0FormatConverter}}"/>
-                        </StackPanel>
-                    </dxlc:LayoutGroup>
+
+                <dxlc:LayoutControl  Orientation="Horizontal" ItemSpace="12" Padding="0" Margin="0,0,3,0" >
                     <dxlc:LayoutGroup VerticalAlignment="Top">
                         <dxlc:LayoutGroup Orientation="Vertical">
-                            <dxg:GridControl ItemsSource="{Binding Ciuadades}"></dxg:GridControl>
+                            <dxlc:LayoutItem Label="RUC:">
+                                <dxe:TextEdit Text="{Binding  Cliente.Ruc, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Mask="d" MaskType="Numeric" ></dxe:TextEdit>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Empresa:">
+                                <dxe:TextEdit Text="{Binding Cliente.Nombre, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></dxe:TextEdit>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Telefono:">
+                                <dxe:TextEdit Text="{Binding Cliente.Telefono, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></dxe:TextEdit>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Provincia:">
+                                <dxe:ComboBoxEdit ItemsSource="{Binding Provincias, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" DisplayMember="Nombre" ValueMember="ProvinciaId"  SelectedItem="{Binding Cliente.Provincia}">
+                                    <dxmvvm:Interaction.Behaviors>
+                                        <dxmvvm:EventToCommand EventName="EditValueChanged" Command="{Binding OnProvinciaChangeCommand}" CommandParameter="{Binding ElementName=comboBox, Path=EditValue}" UseDispatcher="True"/>
+                                    </dxmvvm:Interaction.Behaviors>
+                                </dxe:ComboBoxEdit>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Ciudad:">
+                                <dxe:ComboBoxEdit ItemsSource="{Binding Ciuadades,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" DisplayMember="Nombre" SelectedItem="{Binding Cliente.Ciudad}" />
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="División">
+                                <dxe:TextEdit Text="{Binding Cliente.Division,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                            </dxlc:LayoutItem>
                         </dxlc:LayoutGroup>
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutControl>
-                
+
+                <dxlc:LayoutControl Grid.Column="2"  Orientation="Horizontal" ItemSpace="12" Padding="0" >
+                    <dxlc:LayoutGroup  Orientation="Vertical" Margin="0,0,2,0">
+
+                        <dxlc:LayoutGroup >
+                            <dxlc:LayoutGroup VerticalAlignment="Top">
+                                <dxlc:LayoutGroup Orientation="Vertical">
+                                    <dxlc:LayoutItem Label="Fecha Nacimiento:">
+                                        <dxe:DateEdit Text="{Binding Cliente.FechaNacimiento}"></dxe:DateEdit>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Empresa:">
+                                        <dxe:ComboBoxEdit Text="{Binding Cliente.TiPoCliente}" ItemsSource="{dxe:EnumItemsSource EnumType={x:Type domain:TiPoCliente} }"></dxe:ComboBoxEdit>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Email">
+                                        <dxe:TextEdit Text="{Binding Cliente.Email,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Mask="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" MaskType="RegEx" MaskUseAsDisplayFormat="True"></dxe:TextEdit>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Dirección">
+                                        <dxe:TextEdit Text="{Binding Cliente.Direccion,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Sector">
+                                        <dxe:TextEdit Text="{Binding Cliente.Sector,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="D. Sector">
+                                        <dxe:TextEdit Text="{Binding Cliente.DescripcionSector,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                                    </dxlc:LayoutItem>
+                                </dxlc:LayoutGroup>
+                            </dxlc:LayoutGroup>
+                        </dxlc:LayoutGroup>
+                        <!--<dxlc:LayoutGroup>
+                        <dxlc:LayoutGroup VerticalAlignment="Stretch" d:IsLocked="True">
+                            <dxlc:LayoutGroup Orientation="Vertical">
+                               <dxlc:LayoutItem VerticalAlignment="Stretch">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="Description:" Margin="0,0,0,4"/>
+                                        <dxe:TextEdit Grid.Row="1" EditValue="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" VerticalContentAlignment="Top" VerticalScrollBarVisibility="Visible"/>
+                                    </Grid>
+                                </dxlc:LayoutItem>
+                            </dxlc:LayoutGroup>
+                        </dxlc:LayoutGroup>
+                    </dxlc:LayoutGroup>-->
+                    </dxlc:LayoutGroup>
+                </dxlc:LayoutControl>
+
             </Grid>
+
+            <dxlc:LayoutGroup Grid.Row="2" Grid.Column="0" x:Name="Tabs" View="Tabs" Height="Auto"  Margin="0,14,2,0">
+                <dxlc:LayoutGroup Orientation="Vertical" dxlc:LayoutControl.TabHeader="Toma Desición">
+                    <dxlc:LayoutGroup Orientation="Vertical">
+                        <dxlc:LayoutItem Label="Nombre:">
+                            <dxe:TextEdit Text="{Binding TomadDecision.Nombre}"></dxe:TextEdit>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Cargo:">
+                            <dxe:TextEdit Text="{Binding TomadDecision.Cargo}"></dxe:TextEdit>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Telefono:">
+                            <dxe:TextEdit Text="{Binding TomadDecision.Celular}"></dxe:TextEdit>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="RUC:">
+                            <dxe:TextEdit Text="{Binding Cliente.Email}"></dxe:TextEdit>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutGroup>
+                    <dxlc:LayoutGroup Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="100">
+                        <Button Content="Guardar" />
+                    </dxlc:LayoutGroup>
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutGroup dxlc:LayoutControl.TabHeader="Contactos" Orientation="Vertical">
+                    <dxg:GridControl ItemsSource="{Binding Contactos}">
+                        <dxg:GridControl.View>
+                            <dxg:TableView AllowGrouping="False" AllowFixedGroups="True" VerticalScrollbarVisibility="Hidden" AllowBestFit="True"   ShowGroupPanel="False"/>
+                        </dxg:GridControl.View>
+                        <dxg:GridControl.Columns>
+                            <dxg:GridColumn IsSmart="True" FieldName="Nombre" />
+                            <dxg:GridColumn IsSmart="True" FieldName="Cargo" />
+                            <dxg:GridColumn IsSmart="True" FieldName="Celular" />
+                            <dxg:GridColumn IsSmart="True" FieldName="FechaNacimiento" />
+                            <dxg:GridColumn IsSmart="True" FieldName="Email" />
+                        </dxg:GridControl.Columns>
+                        <dxg:GridControl.TotalSummary>
+                            <dxg:GridSummaryItem SummaryType="Count" Alignment="Right" />
+                        </dxg:GridControl.TotalSummary>
+                        <dxg:GridControl.GroupSummary>
+                            <dxg:GridSummaryItem SummaryType="Count" />
+                        </dxg:GridControl.GroupSummary>
+                    </dxg:GridControl>
+                    <dxlc:LayoutGroup Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="100">
+                        <Button Content="Nuevo" />
+                        <Button Content="Eliminar" />
+                        <Button Content="Editar" />
+                    </dxlc:LayoutGroup>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+
+            <views:TareaView Grid.Row="1" Grid.Column="2" />
+
+            <dxwui:AppBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
+                          IsOpen="False" HideMode="Sticky"  Height="55" IsCompact="True" Margin="0,10,0,0">
+
+                <dxwui:AppBarButton 
+                    Style="{StaticResource ResourceKey=AppBarButtonStyle}"
+                    Label="Actual Size" 
+                    Glyph="{dx:DXImageGrayscale Image=Save_32x32.png}"
+                    Command="{Binding SaveClienteCommand}" />
+                
+                <dxwui:AppBarButton 
+                    Style="{StaticResource ResourceKey=AppBarButtonStyle}"
+                    Label="Actual Size" 
+                    Glyph="{dx:DXImageGrayscale Image=Find_32x32.png}"
+                    Command="{Binding SaveClienteCommand}" />
+
+
+            </dxwui:AppBar>
+
+
+
         </Grid>
+
     </dxwui:PageAdornerControl>
 </UserControl>

@@ -24,9 +24,9 @@ namespace UI {
             Start(() => base.OnStartup(e));
         }
         public static void Start(Action baseStart) {
-            ExceptionHelper.Initialize();
-            DataDirectoryHelper.SetWebBrowserMode();
-            LoadPlugins();
+            //ExceptionHelper.Initialize();
+            //DataDirectoryHelper.SetWebBrowserMode();
+            //LoadPlugins();
             ApplicationThemeHelper.ApplicationThemeName = Theme.MetropolisDark.Name;
             baseStart();
             Timeline.DesiredFrameRateProperty.OverrideMetadata(typeof(Timeline), new FrameworkPropertyMetadata(200));
@@ -46,15 +46,7 @@ namespace UI {
         }
 #endregion
         static void SetCultureInfo() {
-            CultureInfo demoCI = (CultureInfo)Thread.CurrentThread.CurrentCulture.Clone();
-           
-            demoCI.NumberFormat.CurrencySymbol = "$";
-            demoCI.DateTimeFormat = new DateTimeFormatInfo();
-            Thread.CurrentThread.CurrentCulture = demoCI;
-            CultureInfo demoUI = (CultureInfo)Thread.CurrentThread.CurrentUICulture.Clone();
-            demoUI.NumberFormat.CurrencySymbol = "$";
-            demoUI.DateTimeFormat = new DateTimeFormatInfo();
-            Thread.CurrentThread.CurrentUICulture = demoUI;
+           System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-ES");
         }
     }
 }
@@ -62,11 +54,11 @@ namespace UI {
     namespace DevExpress.Internal.DemoLauncher {
         public static class ClickOnceEntryPoint {
             public static Window CreateMainWindow() {
-                ViewLocator.Default = new ViewLocator(new[] { typeof(DevExpress.RealtorWorld.Xpf.App).Assembly });
+                ViewLocator.Default = new ViewLocator(new[] { typeof(UI.App).Assembly });
                 Application app = Application.Current;
                 app.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = DevExpress.Utils.AssemblyHelper.GetResourceUri(typeof(ClickOnceEntryPoint).Assembly, "Themes/Common.xaml") });
-                DevExpress.RealtorWorld.Xpf.App.Start(() => { });
-                return new DevExpress.RealtorWorld.Xpf.View.MainWindow();
+                UI.App.Start(() => { });
+                return new UI.View.MainWindow();
             }
         }
     }

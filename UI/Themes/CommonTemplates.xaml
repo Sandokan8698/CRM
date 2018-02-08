@@ -5,7 +5,7 @@
         xmlns:helpers="clr-namespace:UI.Helpers">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/DevExpress.RealtorWorld.Xpf;component/Themes/Converters.xaml" />
+        <ResourceDictionary Source="/UI;component/Themes/Converters.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="TileHoverAnimation" TargetType="helpers:VisualStateControl">

@@ -1,3 +1,3 @@
-﻿namespace DevExpress.RealtorWorld.Xpf.Properties {
+﻿namespace UI.Properties {
     public class AssemblyMarker { }
 }

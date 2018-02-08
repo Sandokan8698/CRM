@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Cliente
+    public  class Cliente: BaseEntity<Cliente>
     {
         public int ClienteId { get; set; }
 
@@ -63,10 +64,15 @@ namespace Domain.Entities
         public virtual ICollection<Contacto> Contactos { get; set; }
 
         public int ProvinciaId { get; set; }
+        [Required]
         public virtual Provincia Provincia { get; set; }
 
         public int CiudadId { get; set; }
+        [Required]
         public virtual Ciudad Ciudad  { get; set; }
+
+       
+        public TiPoCliente TiPoCliente { get; set; }
 
         public Cliente()
         {
@@ -74,7 +80,14 @@ namespace Domain.Entities
             FechaNacimiento = DateTime.Now;
             
         }
-
         
     }
+
+    
+    public enum TiPoCliente
+    {
+        Natural,
+        Juridico
+    }
+
 }

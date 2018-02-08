@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Data</RootNamespace>
     <AssemblyName>Data</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -177,6 +177,18 @@
     <Compile Include="Migrations\201801290018364_Migration_23.Designer.cs">
       <DependentUpon>201801290018364_Migration_23.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801300336496_Migration_24.cs" />
+    <Compile Include="Migrations\201801300336496_Migration_24.Designer.cs">
+      <DependentUpon>201801300336496_Migration_24.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801300424327_Migration_25.cs" />
+    <Compile Include="Migrations\201801300424327_Migration_25.Designer.cs">
+      <DependentUpon>201801300424327_Migration_25.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802070441250_Migration_26.cs" />
+    <Compile Include="Migrations\201802070441250_Migration_26.Designer.cs">
+      <DependentUpon>201802070441250_Migration_26.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -272,6 +284,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801290018364_Migration_23.resx">
       <DependentUpon>201801290018364_Migration_23.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801300336496_Migration_24.resx">
+      <DependentUpon>201801300336496_Migration_24.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801300424327_Migration_25.resx">
+      <DependentUpon>201801300424327_Migration_25.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802070441250_Migration_26.resx">
+      <DependentUpon>201802070441250_Migration_26.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
