@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
@@ -94,6 +95,11 @@ namespace Data.Implementations
                 entry = _context.Entry(entity);
             }
             entry.State = EntityState.Modified;
+        }
+
+        public void AddOrUpdate(TEntity entity)
+        {
+            Set.AddOrUpdate(entity);
         }
 
         public void Remove(TEntity entity)

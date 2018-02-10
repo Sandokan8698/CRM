@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Threading;
 using Data.Implementations;
 using DevExpress.Mvvm;
@@ -12,7 +14,7 @@ using UI.Utils;
 
 namespace UI.ViewModel
 {
-    public class GestionViewModel : CustomViewModel<Cliente>
+    public class GestionViewModel : SingleObjectViewModel<Cliente>
     {
         #region Propertys
         
@@ -49,14 +51,18 @@ namespace UI.ViewModel
 
         public DelegateCommand SaveClienteCommand { get; private set; }
         public DelegateCommand OnProvinciaChangeCommand { get; private set; }
+        public DelegateCommand FindCommand { get; private set; }
+        public DelegateCommand DeleteClientCommand { get; private set; }
 
         #endregion
 
         #region Ctor
         
 
+
         protected override void OnInitializeInRuntime()
         {
+           
             base.OnInitializeInRuntime();
             Cliente = new Cliente();
             Ciuadades = new List<Ciudad>();
@@ -65,6 +71,8 @@ namespace UI.ViewModel
 
             SaveClienteCommand = new DelegateCommand(Save);
             OnProvinciaChangeCommand = new DelegateCommand(OnProvinciaChange);
+            FindCommand = new DelegateCommand(Find);
+            DeleteClientCommand = new DelegateCommand(DeleteCliente,CanDeleteCliente);
         }
 
         #endregion
@@ -82,10 +90,14 @@ namespace UI.ViewModel
 
             try
             {
-                UnitOfWork.ClienteRepository.Add(Cliente);
-                UnitOfWork.SaveChanges();
-                Cliente = new Cliente();
-                ShowSuccesMensage("El cliente " + Cliente.Nombre + "se creo con éxito.");
+                if (Cliente.ClienteId <= 0)
+                {
+                    AddCliente();
+                }
+                else
+                {
+                    UpdateCliente();
+                }
             }
             catch (Exception e)
             {
@@ -95,27 +107,81 @@ namespace UI.ViewModel
         }
 
 
+        private void AddCliente()
+        {
+            UnitOfWork.ClienteRepository.Add(Cliente);
+            UnitOfWork.SaveChanges();
+            ShowSuccesMensage("El cliente " + Cliente.Nombre + "se creo con éxito.");
+            Cliente = new Cliente();
+        }
+
+        private void UpdateCliente()
+        {
+            UnitOfWork.ClienteRepository.Add(Cliente);
+            UnitOfWork.SaveChanges();
+            ShowSuccesMensage("El cliente " + Cliente.Nombre + "se actualizo con éxito.");
+        }
+
+        private void DeleteCliente()
+        {
+            if (ShowWarningWithResultMesage("El Cliente sera eliminado permanentemente, desea continuar") == MessageBoxResult.OK)
+            {
+                try
+                {
+                    UnitOfWork.ClienteRepository.Remove(Cliente);
+                    UnitOfWork.SaveChanges();
+
+                    ShowSuccesMensage("El cliente se elimino con éxito");
+                }
+                catch (Exception e)
+                {
+                    ShowErrorMensage(e.ToString());
+                }
+            }
+        }
+
+        private bool CanDeleteCliente()
+        {
+            return Cliente != null;
+        }
+
         private void Find()
         {
-            
+            CreateDocument("Clientes",this);
         }
 
-        private bool CanFind()
-        {
-            return !string.IsNullOrEmpty(Cliente.Ruc);
-        }
-
-        public async void OnProvinciaChange()
+        
+        private async void OnProvinciaChange()
         {
             if (Cliente.Provincia != null)
             {
-                var splashScreenService = GetService<ISplashScreenService>();
-                splashScreenService.ShowSplashScreen();
+                SplashScreenService.ShowSplashScreen();
                 Ciuadades = await UnitOfWork.CiudadRepository.FindAsync(CancellationToken.None, c => c.ProvinciaId == Cliente.Provincia.ProvinciaId);
-                splashScreenService.HideSplashScreen();
+                SplashScreenService.HideSplashScreen();
             }
             
         }
+
+        private async void  SetCliente(int id)
+        {
+            Cliente = await UnitOfWork.ClienteRepository.FindByIdAsync(id);
+        }
+
+        protected override void OnParameterChanged(object parameter)
+        {
+            base.OnParameterChanged(parameter);
+
+            if (parameter != null)
+            {
+                int id = (int)parameter;
+                SplashScreenService.ShowSplashScreen();
+                SetCliente(id);
+                SplashScreenService.HideSplashScreen();
+            }
+           
+        }
+
+        
 
         #endregion
     }

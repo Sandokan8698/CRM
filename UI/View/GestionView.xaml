@@ -23,6 +23,7 @@
 
     <dxmvvm:Interaction.Behaviors>
         <dxwui:WinUIMessageBoxService/>
+        <dx:WindowedDocumentUIService/>
     </dxmvvm:Interaction.Behaviors>
 
     <UserControl.Resources>
@@ -195,14 +196,18 @@
                     Label="Actual Size" 
                     Glyph="{dx:DXImageGrayscale Image=Save_32x32.png}"
                     Command="{Binding SaveClienteCommand}" />
-                
+                <dxwui:AppBarButton 
+                    Style="{StaticResource ResourceKey=AppBarButtonStyle}"
+                    Label="Actual Size" 
+                    Glyph="{dx:DXImageGrayscale Image=Remove_32x32.png}"
+                    Command="{Binding DeleteClientCommand}" />
                 <dxwui:AppBarButton 
                     Style="{StaticResource ResourceKey=AppBarButtonStyle}"
                     Label="Actual Size" 
                     Glyph="{dx:DXImageGrayscale Image=Find_32x32.png}"
-                    Command="{Binding SaveClienteCommand}" />
+                    Command="{Binding FindCommand}" />
 
-
+                
             </dxwui:AppBar>
 
 

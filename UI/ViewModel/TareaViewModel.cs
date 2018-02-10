@@ -7,7 +7,7 @@ namespace UI.ViewModel
 {
     public enum ColorState { Red, Green, Yellow }
 
-    public class TareaViewModel : CustomViewModel<Tarea>
+    public class TareaViewModel : SingleObjectViewModel<Tarea>
     {
         public TareaPrioridad TareaPrioridad { get; set; }
 
