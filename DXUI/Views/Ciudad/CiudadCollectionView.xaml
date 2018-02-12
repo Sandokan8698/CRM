@@ -42,8 +42,8 @@
             </dxg:GridControl.View>
             <dxg:GridControl.Columns>
                 <dxg:GridColumn IsSmart="True" FieldName="CiudadId" />
-                <dxg:GridColumn IsSmart="True" FieldName="Nombre" />
-                <dxg:GridColumn FieldName="Provincia.Nombre" Header="{x:Static localization:CRMContexResources.Ciudad_Provincia}" ReadOnly="True" />
+                <dxg:GridColumn IsSmart="True" FieldName="Descripcion" />
+                <dxg:GridColumn FieldName="Provincia.Descripcion" Header="{x:Static localization:CRMContexResources.Ciudad_Provincia}" ReadOnly="True" />
             </dxg:GridControl.Columns>
             <dxg:GridControl.TotalSummary>
                 <dxg:GridSummaryItem SummaryType="Count" Alignment="Right" />

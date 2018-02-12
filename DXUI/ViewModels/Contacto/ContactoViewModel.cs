@@ -71,17 +71,6 @@ namespace DXUI.ViewModels {
             }
         }
 
-        /// <summary>
-        /// The view model for the ContactoOportunidadesTomadorDesicion detail collection.
-        /// </summary>
-        public CollectionViewModelBase<Oportunidad, Oportunidad, int, ICRMContexUnitOfWork> ContactoOportunidadesTomadorDesicionDetails {
-            get {
-                return GetDetailsCollectionViewModel(
-                    propertyExpression: (ContactoViewModel x) => x.ContactoOportunidadesTomadorDesicionDetails,
-                    getRepositoryFunc: x => x.OportunidadDsDbSet,
-                    foreignKeyExpression: x => x.TomadorDescicionId,
-                    navigationExpression: x => x.TomadorDesicion);
-            }
-        }
+       
     }
 }

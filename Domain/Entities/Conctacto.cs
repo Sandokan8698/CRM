@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Contacto
+    public class Contacto: BaseEntity<Contacto>
     {
         public int ContactoId { get; set; }
 
@@ -36,11 +36,8 @@ namespace Domain.Entities
         [EmailAddress]
         public string Email { get; set; }
 
-        public bool TomaDecision { get; set; }
-
         public virtual ICollection<Oportunidad> OportunidadesContactoVenta { get; set; }
-        public virtual ICollection<Oportunidad> OportunidadesTomadorDesicion { get; set; }
-
+       
         public Contacto()
         {
             FechaNacimiento = DateTime.Now;

@@ -44,16 +44,14 @@ namespace DXUI.CRMContexDataModel {
 						builder.Property(x => x.PerfilId).DisplayName(CRMContexResources.Perfil_PerfilId);
 						builder.Property(x => x.ImagenUrl).DisplayName(CRMContexResources.Perfil_ImagenUrl);
 						builder.Property(x => x.Ocupacion).DisplayName(CRMContexResources.Perfil_Ocupacion);
-						builder.Property(x => x.Nombre).DisplayName(CRMContexResources.Perfil_Nombre);
-						builder.Property(x => x.Apellidos).DisplayName(CRMContexResources.Perfil_Apellidos);
+						
 			        }
 		        public static void BuildMetadata(MetadataBuilder<Gerencia> builder) {
 			builder.DisplayName(CRMContexResources.Gerencia);
 						builder.Property(x => x.PerfilId).DisplayName(CRMContexResources.Gerencia_PerfilId);
 						builder.Property(x => x.ImagenUrl).DisplayName(CRMContexResources.Gerencia_ImagenUrl);
 						builder.Property(x => x.Ocupacion).DisplayName(CRMContexResources.Gerencia_Ocupacion);
-						builder.Property(x => x.Nombre).DisplayName(CRMContexResources.Gerencia_Nombre);
-						builder.Property(x => x.Apellidos).DisplayName(CRMContexResources.Gerencia_Apellidos);
+						
 						builder.Property(x => x.Nuevo).DisplayName(CRMContexResources.Gerencia_Nuevo);
 			        }
 		        public static void BuildMetadata(MetadataBuilder<Vendedor> builder) {
@@ -61,8 +59,7 @@ namespace DXUI.CRMContexDataModel {
 						builder.Property(x => x.PerfilId).DisplayName(CRMContexResources.Vendedor_PerfilId);
 						builder.Property(x => x.ImagenUrl).DisplayName(CRMContexResources.Vendedor_ImagenUrl);
 						builder.Property(x => x.Ocupacion).DisplayName(CRMContexResources.Vendedor_Ocupacion);
-						builder.Property(x => x.Nombre).DisplayName(CRMContexResources.Vendedor_Nombre);
-						builder.Property(x => x.Apellidos).DisplayName(CRMContexResources.Vendedor_Apellidos);
+						
 						builder.Property(x => x.PresuspuestoAsignado).DisplayName(CRMContexResources.Vendedor_PresuspuestoAsignado);
 			        }
 		        public static void BuildMetadata(MetadataBuilder<Cliente> builder) {
@@ -91,7 +88,7 @@ namespace DXUI.CRMContexDataModel {
 						builder.Property(x => x.Celular).DisplayName(CRMContexResources.Contacto_Celular);
 						builder.Property(x => x.FechaNacimiento).DisplayName(CRMContexResources.Contacto_FechaNacimiento);
 						builder.Property(x => x.Email).DisplayName(CRMContexResources.Contacto_Email);
-						builder.Property(x => x.TomaDecision).DisplayName(CRMContexResources.Contacto_TomaDecision);
+						
 						builder.Property(x => x.Cliente).DisplayName(CRMContexResources.Contacto_Cliente);
 			        }
 		        public static void BuildMetadata(MetadataBuilder<Oportunidad> builder) {
@@ -113,7 +110,7 @@ namespace DXUI.CRMContexDataModel {
 						builder.Property(x => x.LineaNegocio).DisplayName(CRMContexResources.Oportunidad_LineaNegocio);
 						builder.Property(x => x.Producto).DisplayName(CRMContexResources.Oportunidad_Producto);
 						builder.Property(x => x.TipoGestion).DisplayName(CRMContexResources.Oportunidad_TipoGestion);
-						builder.Property(x => x.TomadorDesicion).DisplayName(CRMContexResources.Oportunidad_TomadorDesicion);
+						
 			        }
 		        public static void BuildMetadata(MetadataBuilder<Etapa> builder) {
 			builder.DisplayName(CRMContexResources.Etapa);
@@ -129,7 +126,7 @@ namespace DXUI.CRMContexDataModel {
 		        public static void BuildMetadata(MetadataBuilder<Producto> builder) {
 			builder.DisplayName(CRMContexResources.Producto);
 						builder.Property(x => x.ProductoId).DisplayName(CRMContexResources.Producto_ProductoId);
-						builder.Property(x => x.Nombre).DisplayName(CRMContexResources.Producto_Nombre);
+						builder.Property(x => x.Descripcion).DisplayName(CRMContexResources.Producto_Nombre);
 			        }
 		        public static void BuildMetadata(MetadataBuilder<TipoGestion> builder) {
 			builder.DisplayName(CRMContexResources.TipoGestion);

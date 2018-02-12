@@ -42,7 +42,7 @@
             </dxg:GridControl.View>
             <dxg:GridControl.Columns>
                 <dxg:GridColumn IsSmart="True" FieldName="OportunidadId" />
-                <dxg:GridColumn IsSmart="True" FieldName="Nombre" />
+                <dxg:GridColumn IsSmart="True" FieldName="Descripcion" />
                 <dxg:GridColumn IsSmart="True" FieldName="FechaInicio" />
                 <dxg:GridColumn IsSmart="True" FieldName="TipoCartera" />
                 <dxg:GridColumn IsSmart="True" FieldName="Cantidad" />
@@ -53,12 +53,12 @@
                 <dxg:GridColumn IsSmart="True" FieldName="FechaPrevistaCierre" />
                 <dxg:GridColumn FieldName="Asesor.ImagenUrl" Header="{x:Static localization:CRMContexResources.Oportunidad_Asesor}" ReadOnly="True" />
                 <dxg:GridColumn FieldName="Cliente.DescripcionSector" Header="{x:Static localization:CRMContexResources.Oportunidad_Cliente}" ReadOnly="True" />
-                <dxg:GridColumn FieldName="ContactoVenta.Nombre" Header="{x:Static localization:CRMContexResources.Oportunidad_ContactoVenta}" ReadOnly="True" />
+                <dxg:GridColumn FieldName="ContactoVenta.Descripcion" Header="{x:Static localization:CRMContexResources.Oportunidad_ContactoVenta}" ReadOnly="True" />
                 <dxg:GridColumn FieldName="Etapa.Descripcion" Header="{x:Static localization:CRMContexResources.Oportunidad_Etapa}" ReadOnly="True" />
                 <dxg:GridColumn FieldName="LineaNegocio.Descripcion" Header="{x:Static localization:CRMContexResources.Oportunidad_LineaNegocio}" ReadOnly="True" />
-                <dxg:GridColumn FieldName="Producto.Nombre" Header="{x:Static localization:CRMContexResources.Oportunidad_Producto}" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Producto.Descripcion" Header="{x:Static localization:CRMContexResources.Oportunidad_Producto}" ReadOnly="True" />
                 <dxg:GridColumn FieldName="TipoGestion.Descripcion" Header="{x:Static localization:CRMContexResources.Oportunidad_TipoGestion}" ReadOnly="True" />
-                <dxg:GridColumn FieldName="TomadorDesicion.Nombre" Header="{x:Static localization:CRMContexResources.Oportunidad_TomadorDesicion}" ReadOnly="True" />
+                <dxg:GridColumn FieldName="TomadorDesicion.Descripcion" Header="{x:Static localization:CRMContexResources.Oportunidad_TomadorDesicion}" ReadOnly="True" />
             </dxg:GridControl.Columns>
             <dxg:GridControl.TotalSummary>
                 <dxg:GridSummaryItem SummaryType="Count" Alignment="Right" />

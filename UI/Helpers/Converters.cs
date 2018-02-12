@@ -5,6 +5,8 @@ using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Media.Imaging;
 using DevExpress.Data.Helpers;
+using DevExpress.Mvvm.UI;
+using DevExpress.Xpf.Editors;
 using DevExpress.Xpf.Grid;
 
 namespace UI.Helpers {
@@ -44,6 +46,22 @@ namespace UI.Helpers {
         }
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture) {
             return ((GridColumnWidth)value).Value;
+        }
+    }
+
+    public class MyEventArgsConverter : EventArgsConverterBase<RoutedEventArgs>
+    {
+        protected override object Convert(object sender, RoutedEventArgs args)
+        {
+            return ((ComboBoxEdit)args.Source).SelectedItem;
+        }
+    }
+
+    public class GridEventArgsConverter : EventArgsConverterBase<RoutedEventArgs>
+    {
+        protected override object Convert(object sender, RoutedEventArgs args)
+        {
+            return ((GridControl)args.Source).SelectedItem;
         }
     }
 }

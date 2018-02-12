@@ -21,6 +21,8 @@ namespace Data.Implementations
         private IProductoRepository _productoRepository;
         private IEtapaRepository _etapaRepository;
         private ITipoGestionRepository _tipoGestionRepository;
+        private ITomaDescicionRepository _tomaDescicionRepository;
+        private ISenderoRepository _senderoRepository;
         #endregion
 
         #region Constructors
@@ -100,6 +102,16 @@ namespace Data.Implementations
         public ITipoGestionRepository TipoGestionRepository 
         {
             get { return _tipoGestionRepository ?? (_tipoGestionRepository = new TipoGestionRepository(_context)); }
+        }
+
+        public ITomaDescicionRepository TomaDescicionRepository
+        {
+            get { return _tomaDescicionRepository ?? (_tomaDescicionRepository = new TomaDescicionRepository(_context)); }
+        }
+
+        public ISenderoRepository SenderoRepository
+        {
+            get { return _senderoRepository ?? (_senderoRepository = new SenderoRepository(_context)); }
         }
 
         public int SaveChanges()

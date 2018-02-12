@@ -48,13 +48,13 @@
                 <dxg:GridColumn IsSmart="True" FieldName="Direccion" />
                 <dxg:GridColumn IsSmart="True" FieldName="Email" />
                 <dxg:GridColumn IsSmart="True" FieldName="FechaNacimiento" />
-                <dxg:GridColumn IsSmart="True" FieldName="Nombre" />
+                <dxg:GridColumn IsSmart="True" FieldName="Descripcion" />
                 <dxg:GridColumn IsSmart="True" FieldName="Sector" />
                 <dxg:GridColumn IsSmart="True" FieldName="DescripcionSector" />
                 <dxg:GridColumn IsSmart="True" FieldName="Division" />
                 <dxg:GridColumn IsSmart="True" FieldName="VendedorId" />
-                <dxg:GridColumn FieldName="Ciudad.Nombre" Header="{x:Static localization:CRMContexResources.Cliente_Ciudad}" ReadOnly="True" />
-                <dxg:GridColumn FieldName="Provincia.Nombre" Header="{x:Static localization:CRMContexResources.Cliente_Provincia}" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Ciudad.Descripcion" Header="{x:Static localization:CRMContexResources.Cliente_Ciudad}" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Provincia.Descripcion" Header="{x:Static localization:CRMContexResources.Cliente_Provincia}" ReadOnly="True" />
                 <dxg:GridColumn FieldName="Vendedor.ImagenUrl" Header="{x:Static localization:CRMContexResources.Cliente_Vendedor}" ReadOnly="True" />
             </dxg:GridControl.Columns>
             <dxg:GridControl.TotalSummary>

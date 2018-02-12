@@ -4,5 +4,6 @@
         <ResourceDictionary Source="/UI;component/Themes/CommonResources.xaml" />
         <ResourceDictionary Source="/UI;component/Themes/CommonStyles.xaml" />
         <ResourceDictionary Source="/UI;component/Themes/CommonTemplates.xaml" />
+        <ResourceDictionary Source="/UI;component/Themes/Converters.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

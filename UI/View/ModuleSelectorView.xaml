@@ -93,7 +93,7 @@
             <dxlc:Tile Header="User Management" Style="{StaticResource VerticalTile}" Background="#FF00ABDC" Command="{Binding NavigateCommand}" CommandParameter="GestionView">
                 <BitmapImage UriSource="/UI;component/Images/UserManagment.png" />
             </dxlc:Tile>
-            <dxlc:Tile Header="System Information" Style="{StaticResource VerticalTile}" Background="#FF54AF0E" Command="{Binding NavigateCommand}" CommandParameter="DraftView">
+            <dxlc:Tile Header="System Information" Style="{StaticResource VerticalTile}" Background="#FF54AF0E" Command="{Binding NavigateCommand}" CommandParameter="UserView">
                 <BitmapImage UriSource="/UI;component/Images/System.png" />
             </dxlc:Tile>
             <dxlc:Tile Command="{Binding NavigateToAgentCommand}" CommandParameter="{Binding Content.ID, RelativeSource={RelativeSource Self}}" Style="{StaticResource FlatTile}"

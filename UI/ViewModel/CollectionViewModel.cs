@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using Data.Abstract;
 using Data.Implementations;
 using DevExpress.Mvvm;
+using Sevice;
 
-namespace UI.Utils
+namespace UI.ViewModel
 {
-    public class CollectionViewModel: ViewModelBase
+    public class CollectionViewModel: ViewModel
 
     {
 
         public IUnitOfWork UnitOfWork { get; set; }
+        protected  IService Service { get; set; }
 
         protected IDocumentManagerService DocumentManagerService
         {
@@ -35,20 +32,20 @@ namespace UI.Utils
         {
             base.OnInitializeInRuntime();
             UnitOfWork = new UnitOfWork();
-
+            Service = new Service(UnitOfWork);
         }
 
-        protected void ShowErrorMensage(string mensage)
+        public void ShowErrorMensage(string mensage)
         {
             MessageBoxService.Show(mensage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        protected void ShowSuccesMensage(string mensage)
+        public void ShowSuccesMensage(string mensage)
         {
             MessageBoxService.Show(mensage, "Éxtio", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        protected MessageBoxResult ShowWarningWithResultMesage(string mesage)
+        public MessageBoxResult ShowWarningWithResultMesage(string mesage)
         {
             return MessageBoxService.Show(mesage, "Alerta", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
         }

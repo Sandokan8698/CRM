@@ -39,8 +39,8 @@
                         <Path Stretch="Fill" Fill="#f78a09" Opacity="0.1" Data="F1 M 1255,780L 1255,774.986C 1252.71,774.78 1250.63,773.874 1248.96,772.484L 1245.41,776.029C 1248,778.314 1251.33,779.774 1255,780 Z " HorizontalAlignment="Left" Height="7.516" Margin="5.41,0,0,0" VerticalAlignment="Bottom" Width="9.585"/>
                     </Grid>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="12,0,27,0">
-                        <TextBlock Text="Please Wait" FontSize="16" />
-                        <TextBlock Text="Loading..." FontSize="14" />
+                        <TextBlock Text="Espere por favor" FontSize="16" />
+                        <TextBlock Text="Cargando..." FontSize="14" />
                     </StackPanel>
                 </Grid>
             </dx:BackgroundPanel>

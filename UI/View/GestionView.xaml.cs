@@ -11,6 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DevExpress.Xpf.Grid;
+using Domain.Entities;
+using UI.ViewModel;
 
 namespace UI.View
 {
@@ -23,5 +26,36 @@ namespace UI.View
         {
             InitializeComponent();
         }
+
+
+        private void GridViewBase_OnValidateRow(object sender, GridRowValidationEventArgs e)
+        {
+            if (e.Row == null) return;
+
+            if (e.RowHandle == GridControl.NewItemRowHandle)
+            {
+
+                Contacto contacto = (Contacto)e.Row;
+                e.IsValid = contacto.IsValid;
+                e.Handled = true;
+
+            }
+
+        }
+
+        private void GridViewBase_OnInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            if (e.RowHandle == GridControl.NewItemRowHandle)
+            {
+                var viewMoel = (GestionViewModel)DataContext;
+
+                Contacto contacto = (Contacto)e.Row;
+                viewMoel.ShowErrorMensage("Contacto" + Environment.NewLine + contacto.Error);
+               
+            }
+        }
+
+
+
     }
 }

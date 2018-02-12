@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Common.EntityFrameWork.Extensions;
 using Data.Abstract;
 
 namespace Data.Implementations
@@ -105,6 +106,53 @@ namespace Data.Implementations
         public void Remove(TEntity entity)
         {
             Set.Remove(entity);
+        }
+
+        public void RemoveAll(IEnumerable<TEntity> entities)
+        {
+            Set.RemoveRange(entities);
+        }
+
+        public void UpdateRelated<TRelated, TKey>(
+            IEnumerable<TRelated> updateRelateds, 
+            Expression<Func<TRelated, bool>> predicate, 
+            Func<TRelated, TKey> selector) where TRelated: class 
+        {
+            DbSet<TRelated> relatedDbset = _context.Set<TRelated>();
+
+            List<TRelated> oldAssests = relatedDbset.Where(predicate).ToList();
+
+            List<TRelated> addedAssests = updateRelateds.ExceptBy(oldAssests, selector).ToList();
+            List<TRelated> deletedAssests = oldAssests.ExceptBy(updateRelateds, selector).ToList();
+
+            List<TRelated> updateAssets = updateRelateds.ExceptBy(addedAssests, selector).ToList();
+            updateAssets = oldAssests.ExceptBy(deletedAssests, selector).ToList();
+
+            deletedAssests.ForEach(x => _context.Entry(x).State = EntityState.Deleted);
+           
+            addedAssests.ForEach(c =>
+            {
+                var entry = _context.Entry(c);
+                if (entry.State == EntityState.Detached)
+                {
+                    relatedDbset.Attach(c);
+                    entry = _context.Entry(c);
+                }
+                entry.State = EntityState.Added;
+            });
+
+
+            updateAssets.ForEach(c =>
+            {
+                var entry = _context.Entry(c);
+                if (entry.State == EntityState.Detached)
+                {
+                    relatedDbset.Attach(c);
+                    entry = _context.Entry(c);
+                }
+                entry.State = EntityState.Modified;
+            });
+
         }
     }
 }

@@ -8,7 +8,6 @@ using DevExpress.DemoData.Helpers;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using Domain.Entities;
-using UI.Utils;
 
 namespace UI.ViewModel
 {
@@ -17,7 +16,7 @@ namespace UI.ViewModel
     {
         #region Propertys
 
-        public IEnumerable<Cliente> Clientes
+        public List<Cliente> Clientes
         {
             get { return GetProperty(() => Clientes); }
             set { SetProperty(() => Clientes, value); }

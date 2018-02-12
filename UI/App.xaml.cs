@@ -32,19 +32,19 @@ namespace UI {
             Timeline.DesiredFrameRateProperty.OverrideMetadata(typeof(Timeline), new FrameworkPropertyMetadata(200));
             SetCultureInfo();
         }
-#region LoadPlugins
-        static void LoadPlugins() {
-            foreach(string file in Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments), "UI.*.exe")) {
-                Assembly plugin = Assembly.LoadFrom(file);
-                if(plugin == null) continue;
-                Type entry = plugin.GetType("Global.Program");
-                if(entry == null) continue;
-                MethodInfo start = entry.GetMethod("Start", BindingFlags.Static | BindingFlags.Public, null, new Type[] { }, null);
-                if(start == null) continue;
-                start.Invoke(null, new object[] { });
-            }
-        }
-#endregion
+//#region LoadPlugins
+//        static void LoadPlugins() {
+//            foreach(string file in Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments), "UI.*.exe")) {
+//                Assembly plugin = Assembly.LoadFrom(file);
+//                if(plugin == null) continue;
+//                Type entry = plugin.GetType("Global.Program");
+//                if(entry == null) continue;
+//                MethodInfo start = entry.GetMethod("Start", BindingFlags.Static | BindingFlags.Public, null, new Type[] { }, null);
+//                if(start == null) continue;
+//                start.Invoke(null, new object[] { });
+//            }
+//        }
+//#endregion
         static void SetCultureInfo() {
            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-ES");
         }

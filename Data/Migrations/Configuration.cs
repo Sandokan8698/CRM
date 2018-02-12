@@ -87,7 +87,14 @@ namespace Data.Migrations
             context.CiudadDbSet.AddOrUpdate(new Ciudad { CiudadId = 24, ProvinciaId = 4, Nombre = "Pujilí" });
             context.CiudadDbSet.AddOrUpdate(new Ciudad { CiudadId = 25, ProvinciaId = 4, Nombre = "Salcedo" });
             context.CiudadDbSet.AddOrUpdate(new Ciudad { CiudadId = 26, ProvinciaId = 4, Nombre = "Sigchos" });
-            
+
+           
+            context.RoleDbSet.AddOrUpdate(r => r.Name,
+                new Role() {  Name = "Administrador" },
+                new Role() {  Name = "Vendedor" },
+                new Role() {  Name = "Gerencia" }
+                );
+           
 
         }
 

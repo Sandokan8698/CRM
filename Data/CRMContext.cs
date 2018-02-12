@@ -55,11 +55,26 @@ namespace Data
                 .HasForeignKey(m => m.ContactoVentaId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Oportunidad>()
-                .HasRequired(m => m.TomadorDesicion)
-                .WithMany(c => c.OportunidadesTomadorDesicion)
-                .HasForeignKey(m => m.TomadorDescicionId)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Cliente>()
+                .HasOptional(c => c.TomaDescicion)
+                .WithRequired(t => t.Cliente);
+
+            modelBuilder.Entity<Cliente>()
+                .HasOptional(c => c.Sendero)
+                .WithRequired(s => s.Cliente);
+
+            modelBuilder.Entity<SenderoProducto>()
+                .HasKey(s => new {s.SenderoId, s.ProductoId});
+
+            modelBuilder.Entity<SenderoProducto>()
+                .HasRequired(sp => sp.Producto)
+                .WithMany(s => s.SenderoProducto)
+                .HasForeignKey(sp => sp.ProductoId);
+
+            modelBuilder.Entity<SenderoProducto>()
+                .HasRequired(sp => sp.Sendero)
+                .WithMany(s => s.SenderoProducto)
+                .HasForeignKey(sp => sp.ProductoId);
 
         }
     }

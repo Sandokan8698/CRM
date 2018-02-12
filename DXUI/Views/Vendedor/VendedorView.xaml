@@ -43,7 +43,7 @@
                         </dxg:GridControl.View>
                         <dxg:GridControl.Columns>
                             <dxg:GridColumn IsSmart="True" FieldName="OportunidadId" />
-                            <dxg:GridColumn IsSmart="True" FieldName="Nombre" />
+                            <dxg:GridColumn IsSmart="True" FieldName="Descripcion" />
                             <dxg:GridColumn IsSmart="True" FieldName="FechaInicio" />
                             <dxg:GridColumn IsSmart="True" FieldName="TipoCartera" />
                             <dxg:GridColumn IsSmart="True" FieldName="Cantidad" />

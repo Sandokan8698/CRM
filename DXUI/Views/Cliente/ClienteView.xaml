@@ -42,7 +42,7 @@
             <dxlc:DataLayoutItem x:Name="layoutItemDivision" Binding="{Binding Division, UpdateSourceTrigger=PropertyChanged}" />
             <dxlc:DataLayoutItem x:Name="layoutItemVendedorId" Binding="{Binding VendedorId, UpdateSourceTrigger=PropertyChanged}" />
             <dxlc:DataLayoutItem x:Name="layoutItemCiudad" Binding="{Binding Ciudad, Mode=OneTime}">
-                <dxg:LookUpEdit Style="{StaticResource EntityView.LookUpEdit}" DataContext="{Binding ElementName=layoutControl, Path=DataContext}" EditValue="{Binding Entity.CiudadId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpCiudadDbSet.Entities}" ValueMember="CiudadId" DisplayMember="Nombre">
+                <dxg:LookUpEdit Style="{StaticResource EntityView.LookUpEdit}" DataContext="{Binding ElementName=layoutControl, Path=DataContext}" EditValue="{Binding Entity.CiudadId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpCiudadDbSet.Entities}" ValueMember="CiudadId" DisplayMember="Descripcion">
                     <dxg:LookUpEdit.PopupContentTemplate>
                         <ControlTemplate TargetType="ContentControl">
                             <dxg:GridControl x:Name="PART_GridControl" ShowBorder="False" ShowLoadingPanel="{Binding LookUpCiudadDbSet.IsLoading}" />
@@ -51,7 +51,7 @@
                 </dxg:LookUpEdit>
             </dxlc:DataLayoutItem>
             <dxlc:DataLayoutItem x:Name="layoutItemProvincia" Binding="{Binding Provincia, Mode=OneTime}">
-                <dxg:LookUpEdit Style="{StaticResource EntityView.LookUpEdit}" DataContext="{Binding ElementName=layoutControl, Path=DataContext}" EditValue="{Binding Entity.ProvinciaId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpProviciaDbSet.Entities}" ValueMember="ProvinciaId" DisplayMember="Nombre">
+                <dxg:LookUpEdit Style="{StaticResource EntityView.LookUpEdit}" DataContext="{Binding ElementName=layoutControl, Path=DataContext}" EditValue="{Binding Entity.ProvinciaId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpProviciaDbSet.Entities}" ValueMember="ProvinciaId" DisplayMember="Descripcion">
                     <dxg:LookUpEdit.PopupContentTemplate>
                         <ControlTemplate TargetType="ContentControl">
                             <dxg:GridControl x:Name="PART_GridControl" ShowBorder="False" ShowLoadingPanel="{Binding LookUpProviciaDbSet.IsLoading}" />
@@ -67,14 +67,14 @@
                         </dxg:GridControl.View>
                         <dxg:GridControl.Columns>
                             <dxg:GridColumn IsSmart="True" FieldName="ContactoId" />
-                            <dxg:GridColumn IsSmart="True" FieldName="Nombre" />
+                            <dxg:GridColumn IsSmart="True" FieldName="Descripcion" />
                             <dxg:GridColumn IsSmart="True" FieldName="Cargo" />
                             <dxg:GridColumn IsSmart="True" FieldName="Celular" />
                             <dxg:GridColumn IsSmart="True" FieldName="FechaNacimiento" />
                             <dxg:GridColumn IsSmart="True" FieldName="Email" />
                             <dxg:GridColumn IsSmart="True" FieldName="TomaDecision" />
-                            <dxg:GridColumn FieldName="Ciudad.Nombre" Header="{x:Static localization:CRMContexResources.Cliente_Ciudad}" ReadOnly="True" />
-                            <dxg:GridColumn FieldName="Provincia.Nombre" Header="{x:Static localization:CRMContexResources.Cliente_Provincia}" ReadOnly="True" />
+                            <dxg:GridColumn FieldName="Ciudad.Descripcion" Header="{x:Static localization:CRMContexResources.Cliente_Ciudad}" ReadOnly="True" />
+                            <dxg:GridColumn FieldName="Provincia.Descripcion" Header="{x:Static localization:CRMContexResources.Cliente_Provincia}" ReadOnly="True" />
                             <dxg:GridColumn FieldName="Vendedor.ImagenUrl" Header="{x:Static localization:CRMContexResources.Cliente_Vendedor}" ReadOnly="True" />
                         </dxg:GridControl.Columns>
                         <dxg:GridControl.TotalSummary>

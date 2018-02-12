@@ -44,7 +44,7 @@
                 <dxg:GridColumn IsSmart="True" FieldName="PerfilId" />
                 <dxg:GridColumn IsSmart="True" FieldName="ImagenUrl" />
                 <dxg:GridColumn IsSmart="True" FieldName="Ocupacion" />
-                <dxg:GridColumn IsSmart="True" FieldName="Nombre" />
+                <dxg:GridColumn IsSmart="True" FieldName="Descripcion" />
                 <dxg:GridColumn IsSmart="True" FieldName="Apellidos" />
                 <dxg:GridColumn IsSmart="True" FieldName="Nuevo" />
             </dxg:GridControl.Columns>

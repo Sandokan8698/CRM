@@ -70,7 +70,7 @@
     <value>Ciudad Id</value>
   </data>
     <data name="Ciudad_Nombre" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Descripcion</value>
   </data>
     <data name="Ciudad_Provincia" xml:space="preserve">
     <value>Provincia</value>
@@ -85,7 +85,7 @@
     <value>Provincia Id</value>
   </data>
     <data name="Provincia_Nombre" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Descripcion</value>
   </data>
     <data name="Claim" xml:space="preserve">
     <value>Claim</value>
@@ -160,7 +160,7 @@
     <value>Ocupacion</value>
   </data>
     <data name="Perfil_Nombre" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Descripcion</value>
   </data>
     <data name="Perfil_Apellidos" xml:space="preserve">
     <value>Apellidos</value>
@@ -181,7 +181,7 @@
     <value>Ocupacion</value>
   </data>
     <data name="Gerencia_Nombre" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Descripcion</value>
   </data>
     <data name="Gerencia_Apellidos" xml:space="preserve">
     <value>Apellidos</value>
@@ -205,7 +205,7 @@
     <value>Ocupacion</value>
   </data>
     <data name="Vendedor_Nombre" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Descripcion</value>
   </data>
     <data name="Vendedor_Apellidos" xml:space="preserve">
     <value>Apellidos</value>
@@ -241,7 +241,7 @@
     <value>Fecha Nacimiento</value>
   </data>
     <data name="Cliente_Nombre" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Descripcion</value>
   </data>
     <data name="Cliente_Sector" xml:space="preserve">
     <value>Sector</value>
@@ -274,7 +274,7 @@
     <value>Contacto Id</value>
   </data>
     <data name="Contacto_Nombre" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Descripcion</value>
   </data>
     <data name="Contacto_Cargo" xml:space="preserve">
     <value>Cargo</value>
@@ -304,7 +304,7 @@
     <value>Oportunidad Id</value>
   </data>
     <data name="Oportunidad_Nombre" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Descripcion</value>
   </data>
     <data name="Oportunidad_FechaInicio" xml:space="preserve">
     <value>Fecha Inicio</value>
@@ -391,7 +391,7 @@
     <value>Producto Id</value>
   </data>
     <data name="Producto_Nombre" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Descripcion</value>
   </data>
     <data name="TipoGestion" xml:space="preserve">
     <value>Tipo Gestion</value>

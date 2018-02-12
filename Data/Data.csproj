@@ -60,9 +60,11 @@
     <Compile Include="Abstract\IProvinciaRepository.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IRoleRepository.cs" />
+    <Compile Include="Abstract\ISenderoRepository.cs" />
     <Compile Include="Abstract\ITareaHistorialRepository.cs" />
     <Compile Include="Abstract\ITareaRepository.cs" />
     <Compile Include="Abstract\ITipoGestionRepository.cs" />
+    <Compile Include="Abstract\ITomaDescicionRepository.cs" />
     <Compile Include="Abstract\IUnitOfWOrk.cs" />
     <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Abstract\IVendedorRepository.cs" />
@@ -79,9 +81,11 @@
     <Compile Include="Implementations\ProvinciaRepository.cs" />
     <Compile Include="Implementations\Repository.cs" />
     <Compile Include="Implementations\RoleRepository.cs" />
+    <Compile Include="Implementations\SenderoRepository.cs" />
     <Compile Include="Implementations\TareaHistorialRepository.cs" />
     <Compile Include="Implementations\TareaRepository.cs" />
     <Compile Include="Implementations\TipoGestionRepository.cs" />
+    <Compile Include="Implementations\TomaDescicionRepository.cs" />
     <Compile Include="Implementations\UnitOfWork.cs" />
     <Compile Include="Implementations\UserRepository.cs" />
     <Compile Include="Implementations\VendedorRepository.cs" />
@@ -185,9 +189,53 @@
     <Compile Include="Migrations\201801300424327_Migration_25.Designer.cs">
       <DependentUpon>201801300424327_Migration_25.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802070441250_Migration_26.cs" />
-    <Compile Include="Migrations\201802070441250_Migration_26.Designer.cs">
-      <DependentUpon>201802070441250_Migration_26.cs</DependentUpon>
+    <Compile Include="Migrations\201802101817371_Migration_26.cs" />
+    <Compile Include="Migrations\201802101817371_Migration_26.Designer.cs">
+      <DependentUpon>201802101817371_Migration_26.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802110037316_Migration_27.cs" />
+    <Compile Include="Migrations\201802110037316_Migration_27.Designer.cs">
+      <DependentUpon>201802110037316_Migration_27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802110159281_Migration_28.cs" />
+    <Compile Include="Migrations\201802110159281_Migration_28.Designer.cs">
+      <DependentUpon>201802110159281_Migration_28.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802110418021_Migration_29.cs" />
+    <Compile Include="Migrations\201802110418021_Migration_29.Designer.cs">
+      <DependentUpon>201802110418021_Migration_29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802110524445_Migration_30.cs" />
+    <Compile Include="Migrations\201802110524445_Migration_30.Designer.cs">
+      <DependentUpon>201802110524445_Migration_30.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802111738495_Migration_31.cs" />
+    <Compile Include="Migrations\201802111738495_Migration_31.Designer.cs">
+      <DependentUpon>201802111738495_Migration_31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802112103012_Migration_32.cs" />
+    <Compile Include="Migrations\201802112103012_Migration_32.Designer.cs">
+      <DependentUpon>201802112103012_Migration_32.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802120003227_Migration_33.cs" />
+    <Compile Include="Migrations\201802120003227_Migration_33.Designer.cs">
+      <DependentUpon>201802120003227_Migration_33.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802120017556_Migration_34.cs" />
+    <Compile Include="Migrations\201802120017556_Migration_34.Designer.cs">
+      <DependentUpon>201802120017556_Migration_34.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802120023363_Migration_35.cs" />
+    <Compile Include="Migrations\201802120023363_Migration_35.Designer.cs">
+      <DependentUpon>201802120023363_Migration_35.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802120608394_Migration_37.cs" />
+    <Compile Include="Migrations\201802120608394_Migration_37.Designer.cs">
+      <DependentUpon>201802120608394_Migration_37.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802120747447_Migration_38.cs" />
+    <Compile Include="Migrations\201802120747447_Migration_38.Designer.cs">
+      <DependentUpon>201802120747447_Migration_38.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -198,6 +246,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{990AE060-5D59-427C-B236-BEF286F7A817}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{dc2d6913-5588-48a1-8570-c92781b2d591}</Project>
       <Name>Domain</Name>
@@ -291,8 +343,41 @@
     <EmbeddedResource Include="Migrations\201801300424327_Migration_25.resx">
       <DependentUpon>201801300424327_Migration_25.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802070441250_Migration_26.resx">
-      <DependentUpon>201802070441250_Migration_26.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802101817371_Migration_26.resx">
+      <DependentUpon>201802101817371_Migration_26.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802110037316_Migration_27.resx">
+      <DependentUpon>201802110037316_Migration_27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802110159281_Migration_28.resx">
+      <DependentUpon>201802110159281_Migration_28.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802110418021_Migration_29.resx">
+      <DependentUpon>201802110418021_Migration_29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802110524445_Migration_30.resx">
+      <DependentUpon>201802110524445_Migration_30.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802111738495_Migration_31.resx">
+      <DependentUpon>201802111738495_Migration_31.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802112103012_Migration_32.resx">
+      <DependentUpon>201802112103012_Migration_32.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802120003227_Migration_33.resx">
+      <DependentUpon>201802120003227_Migration_33.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802120017556_Migration_34.resx">
+      <DependentUpon>201802120017556_Migration_34.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802120023363_Migration_35.resx">
+      <DependentUpon>201802120023363_Migration_35.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802120608394_Migration_37.resx">
+      <DependentUpon>201802120608394_Migration_37.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802120747447_Migration_38.resx">
+      <DependentUpon>201802120747447_Migration_38.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

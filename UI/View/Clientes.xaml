@@ -8,7 +8,7 @@
              x:Class="UI.View.Clientes"
              mc:Ignorable="d"
              d:DesignHeight="600" d:DesignWidth="1300">
-    
+
     <UserControl.DataContext>
         <ViewModel:ClientesViewModel/>
     </UserControl.DataContext>
@@ -24,17 +24,15 @@
                 <dxg:CardView AllowGrouping="False" ShowGroupPanel="False" AllowEditing="False" CardLayout="Rows"/>
             </dxg:GridControl.View>
             <dxg:GridColumn FieldName="Ruc" IsSmart="True"/>
-            <dxg:GridColumn FieldName="Telefono" IsSmart="True"/>
+            <dxg:GridColumn FieldName="Descripcion" IsSmart="True"/>
+            <dxg:GridColumn FieldName="Telefono" IsSmart="True" SortOrder="Ascending" SortIndex="0" Header="Celular"/>
             <dxg:GridColumn FieldName="TelefonoConvencional" IsSmart="True"/>
+            <dxg:GridColumn FieldName="FechaNacimiento" IsSmart="True"/>
             <dxg:GridColumn FieldName="Direccion" IsSmart="True"/>
             <dxg:GridColumn FieldName="Email" IsSmart="True"/>
-            <dxg:GridColumn FieldName="FechaNacimiento" IsSmart="True"/>
-            <dxg:GridColumn FieldName="Nombre" IsSmart="True"/>
             <dxg:GridColumn FieldName="Sector" IsSmart="True"/>
-            <dxg:GridColumn FieldName="Provincia.Nombre" IsSmart="True">
-                
-            </dxg:GridColumn>
-            <dxg:GridColumn FieldName="Ciudad" IsSmart="True"/>
+            <dxg:GridColumn FieldName="Provincia.Descripcion" IsSmart="True" Header="Provincia"/>
+            <dxg:GridColumn FieldName="Ciudad.Descripcion" IsSmart="True" Header="Ciudad"/>
         </dxg:GridControl>
     </Grid>
 </UserControl>

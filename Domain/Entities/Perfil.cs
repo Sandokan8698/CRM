@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public abstract class Perfil
+    public abstract class Perfil : BaseEntity<Perfil> 
     {
         public int PerfilId { get; set; }
         
@@ -15,18 +15,7 @@ namespace Domain.Entities
 
         [MaxLength(15)]
         public string Ocupacion { get; set; }
-
-        [MaxLength(15)]
-        public string Nombre { get; set; }
-
-        [MaxLength(15)]
-        public string Apellidos { get; set; }
-
-        protected Perfil()
-        {
-            ImagenUrl = "http://localhost:50745/img/user/no-image.png";
-            Nombre = "Invintado";
-            Ocupacion = "Cambiar Perfil";
-        }
+        
+        
     }
 }

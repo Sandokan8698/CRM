@@ -119,23 +119,16 @@
     </Style>
 
     <!--#region AppBar-->
-    <Style x:Key="CollectionView.AppBar" TargetType="dxwui:AppBar">
-        <Setter Property="HideMode" Value="AlwaysVisible" />
-    </Style>
-    
-    <Style x:Key="EntityView.AppBar" BasedOn="{StaticResource CollectionView.AppBar}" TargetType="dxwui:AppBar" />
+   
 
-    <Style x:Key="CollectionView.Command.Base" TargetType="dxwui:AppBarButton">
-    <Setter Property="HorizontalAlignment" Value="Center" />
-    <Setter Property="AllowGlyphTheming" Value="True" />
-    <Setter Property="GlyphStretch" Value="None" />
-    <Setter Property="IsEllipseEnabled" Value="False" />
-    </Style>
-
-    <Style x:Key="EntityView.Command.Save" BasedOn="{StaticResource CollectionView.Command.Base}" TargetType="dxwui:AppBarButton">
-        <Setter Property="Label" Value="Guardar" />
-        <Setter Property="Glyph" Value="{Binding Source={dx:DXImageGrayscale Image=Save_32x32.png}}" />
-        <Setter Property="Command" Value="{Binding SaveCommand}" />
+    <Style x:Key="AppBarButtonStyle" TargetType="dxwui:AppBarButton">
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="EllipseDiameter" Value="35"/>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="Height" Value="Auto"></Setter>
+        <Setter Property="AllowGlyphTheming" Value="True" />
+        <Setter Property="GlyphHeight" Value="20" />
+        <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
     <!--#endregion AppBar-->
 </ResourceDictionary>

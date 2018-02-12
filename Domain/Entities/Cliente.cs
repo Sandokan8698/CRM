@@ -1,6 +1,7 @@
 ﻿using DevExpress.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -56,10 +57,9 @@ namespace Domain.Entities
         [MaxLength(50)]
         [DisplayName("División")]
         public string Division { get; set; }
-
-
-        public int? VendedorId { get; set; }
-        public virtual Vendedor Vendedor { get; set; }
+        
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
 
         public virtual ICollection<Contacto> Contactos { get; set; }
 
@@ -71,14 +71,17 @@ namespace Domain.Entities
         [Required]
         public virtual Ciudad Ciudad  { get; set; }
 
+        public virtual Sendero Sendero { get; set; }
        
         public TiPoCliente TiPoCliente { get; set; }
+
+       
+        public virtual TomaDescicion TomaDescicion  { get; set; }
 
         public Cliente()
         {
             Contactos = new List<Contacto>();
-            FechaNacimiento = DateTime.Now;
-            
+            FechaNacimiento = DateTime.Now;        
         }
         
     }

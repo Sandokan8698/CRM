@@ -42,7 +42,7 @@
             </dxg:GridControl.View>
             <dxg:GridControl.Columns>
                 <dxg:GridColumn IsSmart="True" FieldName="ProvinciaId" />
-                <dxg:GridColumn IsSmart="True" FieldName="Nombre" />
+                <dxg:GridColumn IsSmart="True" FieldName="Descripcion" />
             </dxg:GridControl.Columns>
             <dxg:GridControl.TotalSummary>
                 <dxg:GridSummaryItem SummaryType="Count" Alignment="Right" />

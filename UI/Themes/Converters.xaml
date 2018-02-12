@@ -9,6 +9,7 @@
     <helpers:ImageSourceConverter x:Key="ImageSourceConverter" />
     <helpers:DecimalRangeConverter x:Key="DecimalRangeConverter" />
     <helpers:SplitStringConverter x:Key="SplitStringConverter"/>
+    <helpers:MyEventArgsConverter x:Key="EventArgsConverter"/>
    
     <dxmvvm:ObjectToObjectConverter x:Key="ColumnPriorityConverter">
         <dxmvvm:MapItem Source="Baja" Target="/Images/Priority/LowPriority.png"/>

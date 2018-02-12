@@ -79,7 +79,7 @@ namespace DXUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nombre.
+        ///   Looks up a localized string similar to Descripcion.
         /// </summary>
         public static string Ciudad_Nombre {
             get {
@@ -232,7 +232,7 @@ namespace DXUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nombre.
+        ///   Looks up a localized string similar to Descripcion.
         /// </summary>
         public static string Cliente_Nombre {
             get {
@@ -376,7 +376,7 @@ namespace DXUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nombre.
+        ///   Looks up a localized string similar to Descripcion.
         /// </summary>
         public static string Contacto_Nombre {
             get {
@@ -529,7 +529,7 @@ namespace DXUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nombre.
+        ///   Looks up a localized string similar to Descripcion.
         /// </summary>
         public static string Gerencia_Nombre {
             get {
@@ -709,7 +709,7 @@ namespace DXUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nombre.
+        ///   Looks up a localized string similar to Descripcion.
         /// </summary>
         public static string Oportunidad_Nombre {
             get {
@@ -817,7 +817,7 @@ namespace DXUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nombre.
+        ///   Looks up a localized string similar to Descripcion.
         /// </summary>
         public static string Perfil_Nombre {
             get {
@@ -862,7 +862,7 @@ namespace DXUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nombre.
+        ///   Looks up a localized string similar to Descripcion.
         /// </summary>
         public static string Producto_Nombre {
             get {
@@ -898,7 +898,7 @@ namespace DXUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nombre.
+        ///   Looks up a localized string similar to Descripcion.
         /// </summary>
         public static string Provincia_Nombre {
             get {
@@ -1240,7 +1240,7 @@ namespace DXUI.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nombre.
+        ///   Looks up a localized string similar to Descripcion.
         /// </summary>
         public static string Vendedor_Nombre {
             get {

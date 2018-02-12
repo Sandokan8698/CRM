@@ -254,6 +254,9 @@
     <Compile Include="Controls\RenderScrollViewer.cs" />
     <Compile Include="Controls\SimpleManipulationHelper.cs" />
     <Compile Include="Controls\WebBrowserCreator.cs" />
+    <Compile Include="DXSplashScreen\LoadingSplashScreen.xaml.cs">
+      <DependentUpon>LoadingSplashScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\Converters.cs" />
     <Compile Include="Helpers\DecimalRangeConverter.cs" />
     <Compile Include="Helpers\EntityHelpers.cs" />
@@ -275,12 +278,15 @@
     </Compile>
     <Compile Include="Helpers\ZoomHelper.cs" />
     <Compile Include="Properties\AssemblyMarker.cs" />
-    <Compile Include="Utils\CollectionViewModel.cs" />
-    <Compile Include="Utils\SingleObjectViewModel.cs" />
+    <Compile Include="ViewModel\CollectionViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\SingleObjectViewModel.cs" />
     <Compile Include="ViewModel\ClientesViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ModuleSelectorViewModel.cs" />
     <Compile Include="ViewModel\TareaViewModel.cs" />
+    <Compile Include="ViewModel\User\UsersModalViewModel.cs" />
+    <Compile Include="ViewModel\User\UserViewModel.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\Clientes.xaml.cs">
       <DependentUpon>Clientes.xaml</DependentUpon>
@@ -289,6 +295,9 @@
       <DependentUpon>GestionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\GestionViewModel.cs" />
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ModuleSelectorView.xaml.cs">
       <DependentUpon>ModuleSelectorView.xaml</DependentUpon>
     </Compile>
@@ -299,6 +308,12 @@
     <Compile Include="View\TareaView.xaml.cs">
       <DependentUpon>TareaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\User\UsersModalView.xaml.cs">
+      <DependentUpon>UsersModalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WaitScreen.xaml.cs">
       <DependentUpon>WaitScreen.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -307,6 +322,10 @@
       <DependentUpon>WaitWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="DXSplashScreen\LoadingSplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Generic.xaml">
     </Page>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -352,6 +371,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ModuleSelectorView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -361,6 +384,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TareaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\UsersModalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\UserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -441,6 +472,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{990ae060-5d59-427c-b236-bef286f7a817}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{bec0204a-5016-4453-a55c-0ffb59296df4}</Project>
       <Name>Data</Name>
@@ -448,6 +483,10 @@
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{dc2d6913-5588-48a1-8570-c92781b2d591}</Project>
       <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sevice\Sevice.csproj">
+      <Project>{c1e76174-dd8f-4d2b-b01b-bba88c3108a9}</Project>
+      <Name>Sevice</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -506,6 +545,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DXSplashScreen\Image.png" />
+    <Resource Include="DXSplashScreen\Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -22,6 +22,8 @@ namespace Data.Abstract
         IProductoRepository ProductoRepository { get; }
         IEtapaRepository EtapaRepository { get; }
         ITipoGestionRepository TipoGestionRepository { get; }
+        ITomaDescicionRepository TomaDescicionRepository { get; }
+        ISenderoRepository SenderoRepository { get; }
         #endregion
 
         #region Methods

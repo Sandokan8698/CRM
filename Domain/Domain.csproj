@@ -60,9 +60,12 @@
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\Provincia.cs" />
     <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Sendero.cs" />
+    <Compile Include="Entities\SenderoProducto.cs" />
     <Compile Include="Entities\Tarea.cs" />
     <Compile Include="Entities\TareaHistorial.cs" />
     <Compile Include="Entities\TipoGestion.cs" />
+    <Compile Include="Entities\TomaDescicion.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Vendedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

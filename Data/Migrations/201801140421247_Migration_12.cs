@@ -8,7 +8,7 @@ namespace Data.Migrations
         public override void Up()
         {
             AddColumn("dbo.Perfil", "Ocupacion", c => c.String(maxLength: 15));
-            AddColumn("dbo.Perfil", "Nombre", c => c.String(maxLength: 15));
+            AddColumn("dbo.Perfil", "Descripcion", c => c.String(maxLength: 15));
             AddColumn("dbo.Perfil", "Apellidos", c => c.String(maxLength: 15));
             AddColumn("dbo.Tarea", "Identificador", c => c.String(maxLength: 20));
             DropColumn("dbo.Vendedor", "PefilId");
@@ -19,7 +19,7 @@ namespace Data.Migrations
             AddColumn("dbo.Vendedor", "PefilId", c => c.Int(nullable: false));
             DropColumn("dbo.Tarea", "Identificador");
             DropColumn("dbo.Perfil", "Apellidos");
-            DropColumn("dbo.Perfil", "Nombre");
+            DropColumn("dbo.Perfil", "Descripcion");
             DropColumn("dbo.Perfil", "Ocupacion");
         }
     }

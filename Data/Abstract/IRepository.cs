@@ -25,5 +25,10 @@ namespace Data.Abstract
         void Add(TEntity entity);
         void Update(TEntity entity);
         void Remove(TEntity entity);
+        void RemoveAll(IEnumerable<TEntity> entities);
+
+        void UpdateRelated<TRelated, TKey>(
+            IEnumerable<TRelated> updateRelateds, Expression<Func<TRelated, bool>> predicate,
+            Func<TRelated, TKey> selector) where TRelated:class;
     }
 }

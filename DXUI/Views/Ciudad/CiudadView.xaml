@@ -32,7 +32,7 @@
             <dxlc:DataLayoutItem x:Name="layoutItemCiudadId" Binding="{Binding CiudadId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding DataContext.IsPrimaryKeyReadOnly, RelativeSource={RelativeSource AncestorType={x:Type dxlc:DataLayoutControl}}}" />
             <dxlc:DataLayoutItem x:Name="layoutItemNombre" Binding="{Binding Nombre, UpdateSourceTrigger=PropertyChanged}" />
             <dxlc:DataLayoutItem x:Name="layoutItemProvincia" Binding="{Binding Provincia, Mode=OneTime}">
-                <dxg:LookUpEdit Style="{StaticResource EntityView.LookUpEdit}" DataContext="{Binding ElementName=layoutControl, Path=DataContext}" EditValue="{Binding Entity.ProvinciaId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpProviciaDbSet.Entities}" ValueMember="ProvinciaId" DisplayMember="Nombre">
+                <dxg:LookUpEdit Style="{StaticResource EntityView.LookUpEdit}" DataContext="{Binding ElementName=layoutControl, Path=DataContext}" EditValue="{Binding Entity.ProvinciaId, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnSourceUpdated=True}" ItemsSource="{Binding LookUpProviciaDbSet.Entities}" ValueMember="ProvinciaId" DisplayMember="Descripcion">
                     <dxg:LookUpEdit.PopupContentTemplate>
                         <ControlTemplate TargetType="ContentControl">
                             <dxg:GridControl x:Name="PART_GridControl" ShowBorder="False" ShowLoadingPanel="{Binding LookUpProviciaDbSet.IsLoading}" />

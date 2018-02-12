@@ -23,6 +23,8 @@
     <dxmvvm:Interaction.Behaviors>
         <dxwuin:FrameNavigationService Frame="{Binding ElementName=frame}" />
         <dx:DXSplashScreenService SplashScreenType="{x:Type view:WaitWindow}" />
+        <dxwui:WinUIMessageBoxService/>
+        <dx:WindowedDocumentUIService/>
     </dxmvvm:Interaction.Behaviors>
 
     <dxwui:NavigationFrame x:Name="frame" AnimationType="SlideHorizontal" BackNavigationMode="Root" />

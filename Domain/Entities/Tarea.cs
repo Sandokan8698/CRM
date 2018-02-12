@@ -35,9 +35,18 @@ namespace Domain.Entities
         public DateTime FechaCumplimiento  { get; set; }
 
         public virtual ICollection<TareaHistorial> Historial { get; set; }
+
+        [Required]
+        public TareaTipo TareaTipo { get; set; }
+
+        [Required]
+        public DateTime ProximaTarea { get; set; }
         
         [MaxLength(20)]
         public string Identificador { get; set; }
+
+        public int ClienteId { get; set; }
+        public Cliente Cliente { get; set; }
 
         [Required]
         public TareaPrioridad Prioridad { get; set; }
@@ -50,6 +59,8 @@ namespace Domain.Entities
                 .Replace(" ","")
                 .Replace("PM", "")
                 .Replace("AM", "");
+            ProximaTarea = DateTime.Now;
+            FechaCumplimiento = DateTime.Now;
         }
 
     }
@@ -69,5 +80,11 @@ namespace Domain.Entities
         Normal,
         Alta,
         Urgente
+    }
+
+    public enum TareaTipo
+    {
+        Visita,
+        LLamada
     }
 }

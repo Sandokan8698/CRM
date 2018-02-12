@@ -7,12 +7,12 @@ namespace Data.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Oportunidad", "Nombre", c => c.String(nullable: false, maxLength: 100));
+            AddColumn("dbo.Oportunidad", "Descripcion", c => c.String(nullable: false, maxLength: 100));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Oportunidad", "Nombre");
+            DropColumn("dbo.Oportunidad", "Descripcion");
         }
     }
 }

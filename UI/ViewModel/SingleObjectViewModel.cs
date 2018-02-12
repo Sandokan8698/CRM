@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Windows;
-using Data.Abstract;
-using Data.Implementations;
 using DevExpress.Mvvm;
 using Domain.Entities;
 
-namespace UI.Utils
+namespace UI.ViewModel
 {
     public class SingleObjectViewModel<T>: CollectionViewModel where T : BaseEntity<T>, IDataErrorInfo
     {

@@ -1,0 +1,34 @@
+﻿<UserControl xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:ViewModel="clr-namespace:UI.ViewModel" x:Class="UI.View.LoginView"
+             mc:Ignorable="d"
+             d:DesignHeight="800" d:DesignWidth="1200">
+
+    <UserControl.DataContext>
+        <ViewModel:LoginViewModel/>
+    </UserControl.DataContext>
+
+    <dxwui:PageAdornerControl Header="Login" Padding="0" x:Name="LayoutRoot">
+        <dxlc:LayoutControl  Orientation="Horizontal" ItemSpace="12" Padding="0" Margin="0,0,3,0" >
+            <dxlc:LayoutGroup VerticalAlignment="Center" HorizontalAlignment="Center">
+                <dxlc:LayoutGroup Orientation="Vertical" Width="400">
+                    <dxlc:LayoutItem Label="Usuario:">
+                        <dxe:ComboBoxEdit ItemsSource="{Binding Users}" DisplayMember="UserName" SelectedItem="{Binding SelectedUser, Mode=TwoWay}" AutoComplete="True"/>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Contraseña:">
+                        <dxe:PasswordBoxEdit Text="{Binding Password, Mode=TwoWay}" PasswordChar="o"/>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Width="150" HorizontalAlignment="Right">
+                       <dx:SimpleButton Content="Aceptar" Background="DarkGoldenrod" Command="{Binding LoginCommand}"/>
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
+    </dxwui:PageAdornerControl>
+</UserControl>

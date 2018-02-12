@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
 {
-    public class User
+    public class User: BaseEntity<User>
     {
         #region Fields
         private ICollection<Claim> _claims;
@@ -26,7 +26,23 @@ namespace Domain.Entities
         [Required]
         public virtual string PasswordHash { get; set; }
 
+        [NotMapped]
+        [Compare("PasswordHash", ErrorMessage = "Las contraseñas no coinciden.")]
+        public string ConfirmPassword { get; set; }
+
+        [MaxLength(15)]
         [Required]
+        public string Nombre { get; set; }
+
+        [MaxLength(15)]
+        [Required]
+        public string Apellidos { get; set; }
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+
+
         public virtual string SecurityStamp { get; set; }
         #endregion
 
@@ -55,6 +71,9 @@ namespace Domain.Entities
 
         public ICollection<Tarea> TareasCreadas { get; set; }
         public ICollection<Tarea> TareasAsignadas { get; set; }
+
+        [MaxLength(15)]
+        public string Celular { get; set; }
 
         public virtual Perfil Perfil { get; set; }
 

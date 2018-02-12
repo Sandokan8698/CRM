@@ -42,7 +42,7 @@
             </dxg:GridControl.View>
             <dxg:GridControl.Columns>
                 <dxg:GridColumn IsSmart="True" FieldName="ContactoId" />
-                <dxg:GridColumn IsSmart="True" FieldName="Nombre" />
+                <dxg:GridColumn IsSmart="True" FieldName="Descripcion" />
                 <dxg:GridColumn IsSmart="True" FieldName="Cargo" />
                 <dxg:GridColumn IsSmart="True" FieldName="Celular" />
                 <dxg:GridColumn IsSmart="True" FieldName="FechaNacimiento" />

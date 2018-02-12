@@ -67,9 +67,6 @@ namespace Domain.Entities
         public int ContactoVentaId { get; set; }
         public Contacto ContactoVenta { get; set; }
 
-        public int TomadorDescicionId { get; set; }
-        public Contacto TomadorDesicion { get; set; }
-
         public int TipoGestionId { get; set; }
         public TipoGestion TipoGestion { get; set; }
 
