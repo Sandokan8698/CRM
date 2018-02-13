@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CRMDATA" Class="CrmDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CRMDATA;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="DXUI.Properties.Settings" SettingsPropertyName="CRMDATAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Ciudad" Member="Ciudads">
+    <Type Name="Ciudad">
+      <Column Name="CiudadId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProvinciaId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Association Name="Ciudad_Cliente" Member="Clientes" ThisKey="CiudadId" OtherKey="CiudadId" Type="Cliente" />
+      <Association Name="Provincia_Ciudad" Member="Provincia" ThisKey="ProvinciaId" OtherKey="ProvinciaId" Type="Provincia" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Claim" Member="Claims">
+    <Type Name="Claim">
+      <Column Name="ClaimId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClaimType" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClaimValue" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="User_Claim" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cliente" Member="Clientes">
+    <Type Name="Cliente">
+      <Column Name="ClienteId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ruc" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Division" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FechaNacimiento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Vendedor_PerfilId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sector" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionSector" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="TelefonoConvencional" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ProvinciaId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CiudadId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TiPoCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UltimaGestion" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Cliente_Contacto" Member="Contactos" ThisKey="ClienteId" OtherKey="ClienteId" Type="Contacto" />
+      <Association Name="Cliente_Oportunidad" Member="Oportunidads" ThisKey="ClienteId" OtherKey="ClienteId" Type="Oportunidad" />
+      <Association Name="Cliente_Sendero" Member="Sendero" ThisKey="ClienteId" OtherKey="SenderoId" Type="Sendero" Cardinality="One" />
+      <Association Name="Cliente_Tarea" Member="Tareas" ThisKey="ClienteId" OtherKey="ClienteId" Type="Tarea" />
+      <Association Name="Cliente_TomaDescicion" Member="TomaDescicion" ThisKey="ClienteId" OtherKey="TomaDescicionId" Type="TomaDescicion" Cardinality="One" />
+      <Association Name="Ciudad_Cliente" Member="Ciudad" ThisKey="CiudadId" OtherKey="CiudadId" Type="Ciudad" IsForeignKey="true" />
+      <Association Name="Provincia_Cliente" Member="Provincia" ThisKey="ProvinciaId" OtherKey="ProvinciaId" Type="Provincia" IsForeignKey="true" />
+      <Association Name="User_Cliente" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Vendedor_Cliente" Member="Vendedor" ThisKey="Vendedor_PerfilId" OtherKey="PerfilId" Type="Vendedor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contacto" Member="Contactos">
+    <Type Name="Contacto">
+      <Column Name="ContactoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClienteId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Cargo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Celular" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Contacto_Oportunidad" Member="Oportunidads" ThisKey="ContactoId" OtherKey="ContactoVentaId" Type="Oportunidad" />
+      <Association Name="Cliente_Contacto" Member="Cliente" ThisKey="ClienteId" OtherKey="ClienteId" Type="Cliente" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Etapa" Member="Etapas">
+    <Type Name="Etapa">
+      <Column Name="EtapaId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Porciento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Etapa_Oportunidad" Member="Oportunidads" ThisKey="EtapaId" OtherKey="EtapaId" Type="Oportunidad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExternalLogin" Member="ExternalLogins">
+    <Type Name="ExternalLogin">
+      <Column Name="ExternalLoginId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoginProvider" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProviderKey" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_ExternalLogin" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Gerencia" Member="Gerencias">
+    <Type Name="Gerencia">
+      <Column Name="PerfilId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nuevo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Perfil_Gerencia" Member="Perfil" ThisKey="PerfilId" OtherKey="PerfilId" Type="Perfil" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LineaNegocio" Member="LineaNegocios">
+    <Type Name="LineaNegocio">
+      <Column Name="LineaNegocioId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="LineaNegocio_Oportunidad" Member="Oportunidads" ThisKey="LineaNegocioId" OtherKey="LineaNegocioId" Type="Oportunidad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Oportunidad" Member="Oportunidads">
+    <Type Name="Oportunidad">
+      <Column Name="OportunidadId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AsesorId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaInicio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ClienteId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoCartera" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LineaNegocioId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductoId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PVU" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Potencial" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="EtapaId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExpectativaVenta" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ExpectativaAsesor" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="FechaPrevistaCierre" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="TipoGestionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContactoVentaId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Cliente_Oportunidad" Member="Cliente" ThisKey="ClienteId" OtherKey="ClienteId" Type="Cliente" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Contacto_Oportunidad" Member="Contacto" ThisKey="ContactoVentaId" OtherKey="ContactoId" Type="Contacto" IsForeignKey="true" />
+      <Association Name="Etapa_Oportunidad" Member="Etapa" ThisKey="EtapaId" OtherKey="EtapaId" Type="Etapa" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="LineaNegocio_Oportunidad" Member="LineaNegocio" ThisKey="LineaNegocioId" OtherKey="LineaNegocioId" Type="LineaNegocio" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Producto_Oportunidad" Member="Producto" ThisKey="ProductoId" OtherKey="ProductoId" Type="Producto" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="TipoGestion_Oportunidad" Member="TipoGestion" ThisKey="TipoGestionId" OtherKey="TipoGestionId" Type="TipoGestion" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Vendedor_Oportunidad" Member="Vendedor" ThisKey="AsesorId" OtherKey="PerfilId" Type="Vendedor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Perfil" Member="Perfils">
+    <Type Name="Perfil">
+      <Column Name="PerfilId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImagenUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Ocupacion" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Association Name="Perfil_Gerencia" Member="Gerencia" ThisKey="PerfilId" OtherKey="PerfilId" Type="Gerencia" Cardinality="One" />
+      <Association Name="Perfil_User" Member="Users" ThisKey="PerfilId" OtherKey="Perfil_PerfilId" Type="User" />
+      <Association Name="Perfil_Vendedor" Member="Vendedor" ThisKey="PerfilId" OtherKey="PerfilId" Type="Vendedor" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Producto" Member="Productos">
+    <Type Name="Producto">
+      <Column Name="ProductoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Producto_Oportunidad" Member="Oportunidads" ThisKey="ProductoId" OtherKey="ProductoId" Type="Oportunidad" />
+      <Association Name="Producto_SenderoProducto" Member="SenderoProductos" ThisKey="ProductoId" OtherKey="ProductoId" Type="SenderoProducto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Provincia" Member="Provincias">
+    <Type Name="Provincia">
+      <Column Name="ProvinciaId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Association Name="Provincia_Ciudad" Member="Ciudads" ThisKey="ProvinciaId" OtherKey="ProvinciaId" Type="Ciudad" />
+      <Association Name="Provincia_Cliente" Member="Clientes" ThisKey="ProvinciaId" OtherKey="ProvinciaId" Type="Cliente" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Role" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Role_RoleUser" Member="RoleUsers" ThisKey="RoleId" OtherKey="Role_RoleId" Type="RoleUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoleUser" Member="RoleUsers">
+    <Type Name="RoleUser">
+      <Column Name="Role_RoleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="User_UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Role_RoleUser" Member="Role" ThisKey="Role_RoleId" OtherKey="RoleId" Type="Role" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_RoleUser" Member="User" ThisKey="User_UserId" OtherKey="UserId" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sendero" Member="Senderos">
+    <Type Name="Sendero">
+      <Column Name="SenderoId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Sendero_SenderoProducto" Member="SenderoProductos" ThisKey="SenderoId" OtherKey="ProductoId" Type="SenderoProducto" />
+      <Association Name="Cliente_Sendero" Member="Cliente" ThisKey="SenderoId" OtherKey="ClienteId" Type="Cliente" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SenderoProducto" Member="SenderoProductos">
+    <Type Name="SenderoProducto">
+      <Column Name="SenderoId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductoId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Producto_SenderoProducto" Member="Producto" ThisKey="ProductoId" OtherKey="ProductoId" Type="Producto" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Sendero_SenderoProducto" Member="Sendero" ThisKey="ProductoId" OtherKey="SenderoId" Type="Sendero" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tarea" Member="Tareas">
+    <Type Name="Tarea">
+      <Column Name="TareaId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreadoPorId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AsignadoAId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TareaEstado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCumplimiento" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Identificador" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Prioridad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TareaTipo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProximaTarea" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ClienteId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tarea_TareaHistorial" Member="TareaHistorials" ThisKey="TareaId" OtherKey="TareaId" Type="TareaHistorial" />
+      <Association Name="Cliente_Tarea" Member="Cliente" ThisKey="ClienteId" OtherKey="ClienteId" Type="Cliente" IsForeignKey="true" />
+      <Association Name="User_Tarea" Member="User" ThisKey="AsignadoAId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+      <Association Name="User_Tarea1" Member="User1" ThisKey="CreadoPorId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TareaHistorial" Member="TareaHistorials">
+    <Type Name="TareaHistorial">
+      <Column Name="TareaHistorialId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TareaId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TareaEstado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tarea_TareaHistorial" Member="Tarea" ThisKey="TareaId" OtherKey="TareaId" Type="Tarea" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoGestion" Member="TipoGestions">
+    <Type Name="TipoGestion">
+      <Column Name="TipoGestionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TipoGestion_Oportunidad" Member="Oportunidads" ThisKey="TipoGestionId" OtherKey="TipoGestionId" Type="Oportunidad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TomaDescicion" Member="TomaDescicions">
+    <Type Name="TomaDescicion">
+      <Column Name="TomaDescicionId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Cargo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Celular" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="Cliente_TomaDescicion" Member="Cliente" ThisKey="TomaDescicionId" OtherKey="ClienteId" Type="Cliente" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityStamp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Perfil_PerfilId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellidos" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Celular" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Association Name="User_Claim" Member="Claims" ThisKey="UserId" OtherKey="UserId" Type="Claim" />
+      <Association Name="User_Cliente" Member="Clientes" ThisKey="UserId" OtherKey="UserId" Type="Cliente" />
+      <Association Name="User_ExternalLogin" Member="ExternalLogins" ThisKey="UserId" OtherKey="UserId" Type="ExternalLogin" />
+      <Association Name="User_RoleUser" Member="RoleUsers" ThisKey="UserId" OtherKey="User_UserId" Type="RoleUser" />
+      <Association Name="User_Tarea" Member="Tareas" ThisKey="UserId" OtherKey="AsignadoAId" Type="Tarea" />
+      <Association Name="User_Tarea1" Member="Tareas1" ThisKey="UserId" OtherKey="CreadoPorId" Type="Tarea" />
+      <Association Name="Perfil_User" Member="Perfil" ThisKey="Perfil_PerfilId" OtherKey="PerfilId" Type="Perfil" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vendedor" Member="Vendedors">
+    <Type Name="Vendedor">
+      <Column Name="PerfilId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PresuspuestoAsignado" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Vendedor_Cliente" Member="Clientes" ThisKey="PerfilId" OtherKey="Vendedor_PerfilId" Type="Cliente" />
+      <Association Name="Vendedor_Oportunidad" Member="Oportunidads" ThisKey="PerfilId" OtherKey="AsesorId" Type="Oportunidad" />
+      <Association Name="Perfil_Vendedor" Member="Perfil" ThisKey="PerfilId" OtherKey="PerfilId" Type="Perfil" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

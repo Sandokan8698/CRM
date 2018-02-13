@@ -6,6 +6,7 @@ using DevExpress.DemoData.Helpers;
 using DevExpress.Mvvm;
 using DevExpress.Xpo;
 using Domain.Entities;
+using Sevice;
 
 namespace UI.ViewModel
 {
@@ -72,8 +73,8 @@ namespace UI.ViewModel
             try
             {
                
-                Tarea.CreadoPorId = 1;
-                Tarea.AsignadoAId = 1;
+                Tarea.CreadoPorId = UserManagerService.Instance.CurrentUser.UserId;
+                Tarea.AsignadoAId = UserManagerService.Instance.CurrentUser.UserId;
                 Tarea.ClienteId = Cliente.ClienteId;
 
                 UnitOfWork.TareaRepository.Add(Tarea);
@@ -81,6 +82,9 @@ namespace UI.ViewModel
 
                 ShowSuccesMensage(string.Format("La Tarea {0} se creo con éxito",Tarea.Identificador));
                 Tarea = new Tarea();
+
+                Gestiones = UnitOfWork.TareaRepository.GetAll().OrderByDescending(c => c.TareaId);
+
             }
             catch (Exception e)
             {

@@ -149,6 +149,8 @@
       </HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Layout.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>False</Private>
     </Reference>
@@ -235,6 +237,8 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase">
       <Private>False</Private>
     </Reference>
@@ -249,10 +253,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DashboardGroup.cs" />
     <Compile Include="Controls\ImageScrollViewer.cs" />
     <Compile Include="Controls\RenderScrollContentControl.cs" />
     <Compile Include="Controls\RenderScrollViewer.cs" />
     <Compile Include="Controls\SimpleManipulationHelper.cs" />
+    <Compile Include="Controls\VolumeLabelControl.cs" />
     <Compile Include="Controls\WebBrowserCreator.cs" />
     <Compile Include="DXSplashScreen\LoadingSplashScreen.xaml.cs">
       <DependentUpon>LoadingSplashScreen.xaml</DependentUpon>
@@ -291,10 +297,18 @@
     <Compile Include="View\Clientes.xaml.cs">
       <DependentUpon>Clientes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionView.xaml.cs">
+    <Compile Include="View\Gestion\DiarioGestionesView.xaml.cs">
+      <DependentUpon>DiarioGestionesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Gestion\DiarioGestionesViewModel.cs" />
+    <Compile Include="View\Gestion\DiasSinGestionView.xaml.cs">
+      <DependentUpon>DiasSinGestionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Gestion\DiasSinGestionarViewModel.cs" />
+    <Compile Include="View\Gestion\GestionView.xaml.cs">
       <DependentUpon>GestionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\GestionViewModel.cs" />
+    <Compile Include="ViewModel\Gestion\GestionViewModel.cs" />
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
@@ -367,7 +381,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionView.xaml">
+    <Page Include="View\Gestion\DiarioGestionesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Gestion\DiasSinGestionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Gestion\GestionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,130 @@
+﻿<UserControl xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:ViewModels="clr-namespace:UI.View.Gestion"
+             xmlns:gestion="clr-namespace:UI.ViewModel.Gestion"
+             xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+             xmlns:controls="clr-namespace:UI.Controls"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:helpers="clr-namespace:UI.Helpers"
+             x:Class="UI.View.Gestion.DiasSinGestionView"
+             mc:Ignorable="d"
+             d:DesignHeight="800" d:DesignWidth="1200">
+    <UserControl.DataContext>
+        <gestion:DiasSinGestionarViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Themes/Common.xaml"/>
+    </UserControl.Resources>
+
+    <dxmvvm:Interaction.Behaviors>
+        <dxmvvm:EventToCommand PassEventArgsToCommand="True" EventName="Loaded" Command="{Binding OnViewLoadedCommand}" />
+    </dxmvvm:Interaction.Behaviors>
+
+    <dxwui:PageAdornerControl Header="Dias sin Gestionar" Padding="0" x:Name="LayoutRoot">
+        <Grid Margin="0,0,0,-20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="12" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <dxg:GridControl ItemsSource="{Binding DiasSinGestionars}" AutoGenerateColumns="None" ShowLoadingPanel="{Binding IsLoading}">
+                <dxmvvm:Interaction.Behaviors>
+                    <dxmvvm:EventToCommand EventName="SelectedItemChanged" Command="{Binding DiasSingestionarChangeCommnad}" PassEventArgsToCommand="True">
+                        <dxmvvm:EventToCommand.EventArgsConverter>
+                            <helpers:GridEventArgsConverter/>
+                        </dxmvvm:EventToCommand.EventArgsConverter>
+                    </dxmvvm:EventToCommand>
+                </dxmvvm:Interaction.Behaviors>
+
+                <dxg:GridControl.View>
+                    <dxg:TableView AllowEditing="False" AllowConditionalFormattingMenu="True" AllowScrollAnimation="True" NavigationStyle="Row" >
+                        <dxg:TableView.FormatConditions>
+                            <dxg:IconSetFormatCondition FieldName="DiasSingestionar">
+                                <dx:IconSetFormat ElementThresholdType="Number">
+                                    <dx:IconSetElement ThresholdComparisonType="Greater" Threshold="0">
+                                        <dx:IconSetElement.Icon>
+                                            <BitmapImage UriSource="pack://application:,,,/DevExpress.Xpf.Core.v17.1;component/Core/ConditionalFormatting/Images/IconSets/Arrows3_3.png" UriCachePolicy="{x:Null}"/>
+                                        </dx:IconSetElement.Icon>
+                                    </dx:IconSetElement>
+                                </dx:IconSetFormat>
+                            </dxg:IconSetFormatCondition>
+                        </dxg:TableView.FormatConditions>
+                    </dxg:TableView>
+                </dxg:GridControl.View>
+                <dxg:GridColumn FieldName="Nombre" IsSmart="True" Width="*"/>
+                <dxg:GridColumn FieldName="PorcientoGestion" Header="% del Total de gestión" IsSmart="True" TotalSummaryContentStyle="{StaticResource completionColumnTotalSummaryContentStyle}" Width="184" MinWidth="80">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:ProgressBarEditSettings ContentDisplayMode="Value" DisplayFormat="{}{0}%" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="DiasSingestionar" IsSmart="True"/>
+                <dxg:GridColumn FieldName="Id" IsSmart="True" Visible="False"/>
+            </dxg:GridControl>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <dxc:ChartControl  Name="chartControl1"  Palette="{StaticResource ResourceKey=CustomPalette}">
+
+                    <dxc:ChartControl.Diagram>
+                        <dxc:XYDiagram2D 
+                            SeriesItemsSource="{Binding DSGSerieS, UpdateSourceTrigger=PropertyChanged}">
+                            <dxc:XYDiagram2D.SeriesItemTemplate>
+                                <DataTemplate>
+                                    <dxc:SplineAreaSeries2D  DisplayName="{Binding DisplayName}"
+                                                      DataSource="{Binding Values}"
+                                                      ArgumentDataMember="Argument"
+                                                      ValueDataMember="Valor"
+                                                             Transparency="0.3" 
+                                                             LineTension="0" 
+                                                             MarkerSize="20" 
+                                                             MarkerVisible="True">
+                                       
+                                        <dxc:SplineAreaSeries2D.Label>
+                                        <dxc:SeriesLabel  Visible="True" ConnectorVisible="False"/>
+                                        </dxc:SplineAreaSeries2D.Label>
+
+                                        <dxc:SplineAreaSeries2D.SeriesAnimation>
+                                            <dxc:Area2DGrowUpAnimation/>
+                                        </dxc:SplineAreaSeries2D.SeriesAnimation>
+
+                                    </dxc:SplineAreaSeries2D>
+                                </DataTemplate>
+                            </dxc:XYDiagram2D.SeriesItemTemplate>
+
+                            <dxc:XYDiagram2D.AxisX>
+                                <dxc:AxisX2D>
+                                    <dxc:AxisX2D.WholeRange>
+                                        <dxc:Range SideMarginsValue="0" />
+                                    </dxc:AxisX2D.WholeRange>
+                                </dxc:AxisX2D>
+                            </dxc:XYDiagram2D.AxisX>
+                            <dxc:XYDiagram2D.AxisY>
+                                <dxc:AxisY2D>
+                                    <dxc:AxisY2D.Title>
+                                        <dxc:AxisTitle Content="Total de Gestiones" />
+                                    </dxc:AxisY2D.Title>
+                                </dxc:AxisY2D>
+                            </dxc:XYDiagram2D.AxisY>
+                        </dxc:XYDiagram2D>
+                    </dxc:ChartControl.Diagram>
+                    <dxc:ChartControl.Titles>
+                        <dxc:Title Dock="Top" HorizontalAlignment="Center">Comportarmiento según tipo gestions por mes</dxc:Title>
+                    </dxc:ChartControl.Titles>
+
+                </dxc:ChartControl>
+            </Grid>
+        </Grid>
+    </dxwui:PageAdornerControl>
+</UserControl>

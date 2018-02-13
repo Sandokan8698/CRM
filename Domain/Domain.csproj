@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChartModels\DiasSinGestionarSerie.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Ciudad.cs" />
     <Compile Include="Entities\Claim.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Vendedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ViewDiasSinGestionar.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

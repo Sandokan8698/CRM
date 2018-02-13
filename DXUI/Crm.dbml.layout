@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 17, 27.125" name="Crm">
+  <DataContextMoniker Name="/CrmDataContext" />
+  <nestedChildShapes>
+    <classShape Id="48c82840-5d03-4e5b-b3da-9fbb490c14ff" absoluteBounds="6.5, 7.25, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/CrmDataContext/Ciudad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc8d7597-7347-44c1-8087-34da16f2819c" absoluteBounds="6.515, 7.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e8eb7d29-cb1f-4567-8742-f3428eb52ba6" absoluteBounds="6.25, 15.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CrmDataContext/Claim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c3f05096-982a-4f9e-b9f2-42bf25f540be" absoluteBounds="6.265, 15.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3e06aa7a-88d2-480f-8a9d-f617dd951327" absoluteBounds="9.25, 11.875, 2, 4.0785139973958309">
+      <DataClassMoniker Name="/CrmDataContext/Cliente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ad7589f-0ac6-4b41-b0be-3f50e81ffeb0" absoluteBounds="9.265, 12.335, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="de1165b8-d313-4811-875f-a6112dae6260" absoluteBounds="12, 14.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/CrmDataContext/Contacto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ecb7660-b64e-46a3-bf5a-17a88fe7642c" absoluteBounds="12.015, 15.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2b5f6d4a-1fec-455b-8698-ebf376f58a2e" absoluteBounds="12, 25.5, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/CrmDataContext/Etapa" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eaa509d8-9e9c-497a-b115-c062ac063fb4" absoluteBounds="12.015, 25.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="401a12b2-4695-4a8b-8f96-af1469e398d3" absoluteBounds="6.25, 17.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CrmDataContext/ExternalLogin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9ba766ca-e680-4bdb-9845-c7ed307b79ed" absoluteBounds="6.265, 18.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="73cdadb1-d3e8-43f3-9d5f-dd4a908fcef2" absoluteBounds="3.5, 9.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/CrmDataContext/Gerencia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d92d08d7-b609-46d9-b636-101f1b1e7fa3" absoluteBounds="3.515, 9.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="61a6040d-6005-450e-aaa4-4fa072939b08" absoluteBounds="12, 6.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/CrmDataContext/LineaNegocio" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8e0ebde3-6a06-423a-8ee4-d7d78099ca18" absoluteBounds="12.015, 7.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ad12efe3-242f-47cc-8e65-e06a673b6961" absoluteBounds="14.75, 13.125, 2, 4.0785139973958309">
+      <DataClassMoniker Name="/CrmDataContext/Oportunidad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b917d400-8902-4f87-bb2a-1b45a02c3773" absoluteBounds="14.765, 13.585, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="678db466-d621-44ef-8b5e-b7fe4755074b" absoluteBounds="0.75, 12.625, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/CrmDataContext/Perfil" />
+      <nestedChildShapes>
+        <elementListCompartment Id="12aef3de-29e5-4d75-935f-c37bc8468291" absoluteBounds="0.765, 13.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e057c2b1-cf0e-4a16-9bf5-252435d3cddf" absoluteBounds="12, 8.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/CrmDataContext/Producto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ea5dd2d4-7598-444e-8f76-5dda2113f7cc" absoluteBounds="12.015, 9.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a35f0049-1065-4c10-8325-835e4ae088e4" absoluteBounds="3.75, 7.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/CrmDataContext/Provincia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3a7f05e6-e2ae-406c-a381-513acb59891b" absoluteBounds="3.765, 7.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bbaa73b6-0316-4459-8e22-cdad1f6a2d51" absoluteBounds="3.5, 17.625, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/CrmDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b8d89e5-5274-4871-8d64-479cda473cb9" absoluteBounds="3.515, 18.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9d5b76ac-e490-4ae2-a30c-9ceb39d9162b" absoluteBounds="6.25, 12.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/CrmDataContext/RoleUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7f42f979-8ed2-4672-b958-3f0674c6c94c" absoluteBounds="6.265, 13.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="54cba39e-759e-4fa6-b388-819fa753c838" absoluteBounds="12, 10.875, 2, 1.0016910807291666">
+      <DataClassMoniker Name="/CrmDataContext/Sendero" />
+      <nestedChildShapes>
+        <elementListCompartment Id="668f2961-adad-4d05-ba19-49562cddf197" absoluteBounds="12.015, 11.335, 1.9700000000000002, 0.44169108072916669" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e572dab1-bf9d-4447-a90a-d1d2f9df5c8f" absoluteBounds="14.75, 10.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/CrmDataContext/SenderoProducto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="87240be8-acc9-4112-8e4d-31a4a0195630" absoluteBounds="14.765, 11.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cea83244-cf75-47f5-8276-3af26d2fd196" absoluteBounds="12, 18.625, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/CrmDataContext/Tarea" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a1cf42b-3451-40c4-89f9-9c8f7e8bbd77" absoluteBounds="12.015, 19.085, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="25e3ae47-de13-4483-a845-629adcd42b57" absoluteBounds="14.75, 19.375, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/CrmDataContext/TareaHistorial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c89fd033-d74f-460a-921a-2454d5b8a525" absoluteBounds="14.765, 19.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b52a5093-5970-454d-8e50-5547de7834b2" absoluteBounds="12, 23.5, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/CrmDataContext/TipoGestion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="196fb4b6-a9fa-46b6-81b6-f655c18575b5" absoluteBounds="12.015, 23.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="74802690-499c-423f-a254-238e99482fab" absoluteBounds="12, 12.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CrmDataContext/TomaDescicion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e0980656-468c-4e02-b404-215580b9f599" absoluteBounds="12.015, 13.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0304b39b-c82c-48fa-92d0-85244c54e683" absoluteBounds="3.5, 14, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/CrmDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6a95ab5e-2978-4891-b565-5786aa16f9aa" absoluteBounds="3.515, 14.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="12665037-a17a-4ff9-b997-15eef8cf22c0" absoluteBounds="3.5, 11.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/CrmDataContext/Vendedor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fb1df999-0d6a-4c8b-88fb-ebbe61c72084" absoluteBounds="3.515, 11.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.40625 : 8.6362939453125); (8.40625 : 14.5344962565104); (9.25 : 14.5344962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Ciudad/Ciudad_Cliente" />
+      <nodes>
+        <classShapeMoniker Id="48c82840-5d03-4e5b-b3da-9fbb490c14ff" />
+        <classShapeMoniker Id="3e06aa7a-88d2-480f-8a9d-f617dd951327" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 15.4142569986979); (12 : 15.4142569986979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Cliente/Cliente_Contacto" />
+      <nodes>
+        <classShapeMoniker Id="3e06aa7a-88d2-480f-8a9d-f617dd951327" />
+        <classShapeMoniker Id="de1165b8-d313-4811-875f-a6112dae6260" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 14.5392976888021); (14.2916666666667 : 14.5392976888021 : JumpStart); (14.6770833333333 : 14.5392976888021 : JumpEnd); (14.75 : 14.5392976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Cliente/Cliente_Oportunidad" />
+      <nodes>
+        <classShapeMoniker Id="3e06aa7a-88d2-480f-8a9d-f617dd951327" />
+        <classShapeMoniker Id="ad12efe3-242f-47cc-8e65-e06a673b6961" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 15.9527498372396); (14.2916666666667 : 15.9527498372396 : JumpStart); (14.6770833333333 : 15.9527498372396 : JumpEnd); (14.75 : 15.9527498372396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Contacto/Contacto_Oportunidad" />
+      <nodes>
+        <classShapeMoniker Id="de1165b8-d313-4811-875f-a6112dae6260" />
+        <classShapeMoniker Id="ad12efe3-242f-47cc-8e65-e06a673b6961" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 25.5); (14.375 : 25.125); (14.375 : 13.800896844401); (14.3854166666667 : 13.800896844401 : JumpStart); (14.6145833333333 : 13.800896844401 : JumpEnd); (14.75 : 13.800896844401)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Etapa/Etapa_Oportunidad" />
+      <nodes>
+        <classShapeMoniker Id="2b5f6d4a-1fec-455b-8698-ebf376f58a2e" />
+        <classShapeMoniker Id="ad12efe3-242f-47cc-8e65-e06a673b6961" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 7.78776401652644); (14.53125 : 8.31901401652644); (14.53125 : 15.2460237630208); (14.75 : 15.2460237630208)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/LineaNegocio/LineaNegocio_Oportunidad" />
+      <nodes>
+        <classShapeMoniker Id="61a6040d-6005-450e-aaa4-4fa072939b08" />
+        <classShapeMoniker Id="ad12efe3-242f-47cc-8e65-e06a673b6961" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 12.625); (1.75 : 9.97199625651042); (3.5 : 9.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Perfil/Perfil_Gerencia" />
+      <nodes>
+        <classShapeMoniker Id="678db466-d621-44ef-8b5e-b7fe4755074b" />
+        <classShapeMoniker Id="73cdadb1-d3e8-43f3-9d5f-dd4a908fcef2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 9.91276401652644); (14.46875 : 10.3815140165264); (14.46875 : 16.6093839173177); (14.5104166666667 : 16.6093839173177 : JumpStart); (14.6770833333333 : 16.6093839173177 : JumpEnd); (14.75 : 16.6093839173177)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Producto/Producto_Oportunidad" />
+      <nodes>
+        <classShapeMoniker Id="e057c2b1-cf0e-4a16-9bf5-252435d3cddf" />
+        <classShapeMoniker Id="ad12efe3-242f-47cc-8e65-e06a673b6961" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 7.97199625651042); (6.5 : 7.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Provincia/Provincia_Ciudad" />
+      <nodes>
+        <classShapeMoniker Id="a35f0049-1065-4c10-8325-835e4ae088e4" />
+        <classShapeMoniker Id="48c82840-5d03-4e5b-b3da-9fbb490c14ff" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.65625 : 8.56899251302083); (5.65625 : 13.9094962565104); (6.07616292317708 : 13.9094962565104 : JumpStart); (6.24282958984375 : 13.9094962565104 : JumpEnd); (8.32291666666667 : 13.9094962565104 : JumpStart); (8.48958333333333 : 13.9094962565104 : JumpEnd); (9.25 : 13.9094962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Provincia/Provincia_Cliente" />
+      <nodes>
+        <classShapeMoniker Id="a35f0049-1065-4c10-8325-835e4ae088e4" />
+        <classShapeMoniker Id="3e06aa7a-88d2-480f-8a9d-f617dd951327" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 17.625); (5.875 : 17.25); (5.875 : 14.1939925130208); (6.25 : 13.8189925130208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CrmDataContext/Role/Role_RoleUser" />
+      <nodes>
+        <classShapeMoniker Id="bbaa73b6-0316-4459-8e22-cdad1f6a2d51" />
+        <classShapeMoniker Id="9d5b76ac-e490-4ae2-a30c-9ceb39d9162b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.25 : 11.875); (10.25 : 11.3749995); (12 : 11.3749995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Cliente/Cliente_Sendero" />
+      <nodes>
+        <classShapeMoniker Id="3e06aa7a-88d2-480f-8a9d-f617dd951327" />
+        <classShapeMoniker Id="54cba39e-759e-4fa6-b388-819fa753c838" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 9.30012950826322); (14.4479166666667 : 9.30012950826322 : JumpStart); (14.6145833333333 : 9.30012950826322 : JumpEnd); (15.75 : 9.30012950826322); (15.75 : 10.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Producto/Producto_SenderoProducto" />
+      <nodes>
+        <classShapeMoniker Id="e057c2b1-cf0e-4a16-9bf5-252435d3cddf" />
+        <classShapeMoniker Id="e572dab1-bf9d-4447-a90a-d1d2f9df5c8f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 11.3758455403646); (14.3854166666667 : 11.3758455403646 : JumpStart); (14.6145833333333 : 11.3758455403646 : JumpEnd); (14.75 : 11.3758455403646)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Sendero/Sendero_SenderoProducto" />
+      <nodes>
+        <classShapeMoniker Id="54cba39e-759e-4fa6-b388-819fa753c838" />
+        <classShapeMoniker Id="e572dab1-bf9d-4447-a90a-d1d2f9df5c8f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.25 : 15.9535139973958); (10.25 : 20.1835034179688); (12 : 20.1835034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Cliente/Cliente_Tarea" />
+      <nodes>
+        <classShapeMoniker Id="3e06aa7a-88d2-480f-8a9d-f617dd951327" />
+        <classShapeMoniker Id="cea83244-cf75-47f5-8276-3af26d2fd196" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 20.2604484049479); (14.2916666666667 : 20.2604484049479 : JumpStart); (14.4583333333333 : 20.2604484049479 : JumpEnd); (14.5104166666667 : 20.2604484049479 : JumpStart); (14.6770833333333 : 20.2604484049479 : JumpEnd); (14.75 : 20.2604484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Tarea/Tarea_TareaHistorial" />
+      <nodes>
+        <classShapeMoniker Id="cea83244-cf75-47f5-8276-3af26d2fd196" />
+        <classShapeMoniker Id="25e3ae47-de13-4483-a845-629adcd42b57" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 23.5312264964944); (14.3160744349011 : 23.2151520615933 : JumpStart); (14.4339255650989 : 23.0973009313955 : JumpEnd); (14.59375 : 22.9374764964944); (14.59375 : 14.1700972666016); (14.75 : 14.1700972666016)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/TipoGestion/TipoGestion_Oportunidad" />
+      <nodes>
+        <classShapeMoniker Id="b52a5093-5970-454d-8e50-5547de7834b2" />
+        <classShapeMoniker Id="ad12efe3-242f-47cc-8e65-e06a673b6961" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 13.4142976888021); (12 : 13.4142976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Cliente/Cliente_TomaDescicion" />
+      <nodes>
+        <classShapeMoniker Id="3e06aa7a-88d2-480f-8a9d-f617dd951327" />
+        <classShapeMoniker Id="74802690-499c-423f-a254-238e99482fab" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 15.8950512695313); (5.79166666666667 : 15.8950512695313 : JumpStart); (5.95833333333333 : 15.8950512695313 : JumpEnd); (6.25 : 15.8950512695313)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/User/User_Claim" />
+      <nodes>
+        <classShapeMoniker Id="0304b39b-c82c-48fa-92d0-85244c54e683" />
+        <classShapeMoniker Id="e8eb7d29-cb1f-4567-8742-f3428eb52ba6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 14.9234981282552); (5.79166666666667 : 14.9234981282552 : JumpStart); (5.95833333333333 : 14.9234981282552 : JumpEnd); (9.25 : 14.9234981282552)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/User/User_Cliente" />
+      <nodes>
+        <classShapeMoniker Id="0304b39b-c82c-48fa-92d0-85244c54e683" />
+        <classShapeMoniker Id="3e06aa7a-88d2-480f-8a9d-f617dd951327" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 16.4893323082933); (5.81607443490112 : 16.8054067431944 : JumpStart); (5.93392556509888 : 16.9232578733921 : JumpEnd); (6.125 : 17.1143323082933); (6.125 : 18.4142976888021); (6.25 : 18.4142976888021)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/User/User_ExternalLogin" />
+      <nodes>
+        <classShapeMoniker Id="0304b39b-c82c-48fa-92d0-85244c54e683" />
+        <classShapeMoniker Id="401a12b2-4695-4a8b-8f96-af1469e398d3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 14); (4.5 : 13.1907437565104); (5.57291666666667 : 13.1907437565104 : JumpStart); (5.73958333333333 : 13.1907437565104 : JumpEnd); (6.25 : 13.1907437565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/User/User_RoleUser" />
+      <nodes>
+        <classShapeMoniker Id="0304b39b-c82c-48fa-92d0-85244c54e683" />
+        <classShapeMoniker Id="9d5b76ac-e490-4ae2-a30c-9ceb39d9162b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.45076923076923 : 16.5401025390625); (5.81607443490112 : 16.9054077431944 : JumpStart); (5.93392556509888 : 17.0232588733921 : JumpEnd); (6.0625 : 17.1518333082933); (6.0625 : 20.9940071269531); (12 : 20.9940071269531)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/User/User_Tarea" />
+      <nodes>
+        <classShapeMoniker Id="0304b39b-c82c-48fa-92d0-85244c54e683" />
+        <classShapeMoniker Id="cea83244-cf75-47f5-8276-3af26d2fd196" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 16.5077938467548); (5.81607443490112 : 16.8238682816559 : JumpStart); (5.93392556509888 : 16.9417194118537 : JumpEnd); (5.96875 : 16.9765438467548); (5.96875 : 20.9940071269531); (12 : 20.9940071269531)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/User/User_Tarea1" />
+      <nodes>
+        <classShapeMoniker Id="0304b39b-c82c-48fa-92d0-85244c54e683" />
+        <classShapeMoniker Id="cea83244-cf75-47f5-8276-3af26d2fd196" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 13.5641193782552); (3.9687475 : 13.5641193782552); (3.9687475 : 14)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Perfil/Perfil_User" />
+      <nodes>
+        <classShapeMoniker Id="678db466-d621-44ef-8b5e-b7fe4755074b" />
+        <classShapeMoniker Id="0304b39b-c82c-48fa-92d0-85244c54e683" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 12.2219962565104); (5.57291666666667 : 12.2219962565104 : JumpStart); (5.73958333333333 : 12.2219962565104 : JumpEnd); (8.32291666666667 : 12.2219962565104 : JumpStart); (8.48958333333333 : 12.2219962565104 : JumpEnd); (9.25 : 12.2219962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Vendedor/Vendedor_Cliente" />
+      <nodes>
+        <classShapeMoniker Id="12665037-a17a-4ff9-b997-15eef8cf22c0" />
+        <classShapeMoniker Id="3e06aa7a-88d2-480f-8a9d-f617dd951327" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 11.7672461282552); (5.57291666666667 : 11.7672461282552 : JumpStart); (5.73958333333333 : 11.7672461282552 : JumpEnd); (8.32291666666667 : 11.7672461282552 : JumpStart); (8.48958333333333 : 11.7672461282552 : JumpEnd); (9 : 11.7672461282552); (9 : 11.625); (10.1666666666667 : 11.625 : JumpStart); (10.3333333333333 : 11.625 : JumpEnd); (11.75 : 11.625); (11.75 : 12.1939925130208); (14.3854166666667 : 12.1939925130208 : JumpStart); (14.6145833333333 : 12.1939925130208 : JumpEnd); (15.75 : 12.1939925130208); (15.75 : 13.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Vendedor/Vendedor_Oportunidad" />
+      <nodes>
+        <classShapeMoniker Id="12665037-a17a-4ff9-b997-15eef8cf22c0" />
+        <classShapeMoniker Id="ad12efe3-242f-47cc-8e65-e06a673b6961" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 12.625); (2.2812525 : 11.9719962565104); (3.5 : 11.9719962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CrmDataContext/Perfil/Perfil_Vendedor" />
+      <nodes>
+        <classShapeMoniker Id="678db466-d621-44ef-8b5e-b7fe4755074b" />
+        <classShapeMoniker Id="12665037-a17a-4ff9-b997-15eef8cf22c0" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

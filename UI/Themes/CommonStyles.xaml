@@ -8,7 +8,7 @@
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsTabStop" Value="False" />
     </Style>
-   
+
     <Style x:Key="EmptyButton" TargetType="{x:Type Button}">
         <Setter Property="Template">
             <Setter.Value>
@@ -18,7 +18,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-   
+
     <Style TargetType="dxwui:PageAdornerControl">
         <Setter Property="Padding" Value="0,-46,0,0" />
         <Setter Property="Template">
@@ -51,7 +51,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-  
+
     <Style TargetType="dxwuii:BackButton" BasedOn="{StaticResource EmptyButton}">
         <Setter Property="Margin" Value="-32,3,1,-3" />
         <Setter Property="Cursor" Value="Hand" />
@@ -63,7 +63,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-   
+
     <Style x:Key="ModuleLinkButton" TargetType="Button">
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsTabStop" Value="False" />
@@ -119,10 +119,17 @@
     </Style>
 
     <!--#region AppBar-->
-   
+
+    <Style x:Key="AppBarStyle" TargetType="dxwui:AppBar">
+        <Setter Property="IsOpen" Value="False" />
+        <Setter Property="HideMode" Value="Sticky"/>
+        <Setter Property="Height" Value="75" />
+        <Setter Property="Margin" Value="0,10,0,0" />
+    </Style>
 
     <Style x:Key="AppBarButtonStyle" TargetType="dxwui:AppBarButton">
-        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Padding" Value="10,0,0,0"/>
+        <Setter Property="Margin" Value="0,16,0,0"/>
         <Setter Property="EllipseDiameter" Value="35"/>
         <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         <Setter Property="Height" Value="Auto"></Setter>
@@ -130,5 +137,48 @@
         <Setter Property="GlyphHeight" Value="20" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
+
+    <Style x:Key="AppBarNewButtonStyle" TargetType="dxwui:AppBarButton" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="Label" Value="Nuevo"></Setter>
+        <Setter Property="Glyph" Value="{Binding Source={dx:DXImageGrayscale Image=AddItem_32x32.png}}" />
+    </Style>
+
+    <Style x:Key="AppBarSaveButtonStyle" TargetType="dxwui:AppBarButton" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="Label" Value="Guardar"></Setter>
+        <Setter Property="Glyph" Value="{Binding Source={dx:DXImageGrayscale Image=Save_32x32.png}}" />
+    </Style>
+
+    <Style x:Key="AppBarDeleteButtonStyle" TargetType="dxwui:AppBarButton" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="Label" Value="Eliminar"></Setter>
+        <Setter Property="Glyph" Value="{Binding Source={dx:DXImageGrayscale Image=Remove_32x32.png}}" />
+    </Style>
+
+    <Style x:Key="AppBarFindButtonStyle" TargetType="dxwui:AppBarButton" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="Label" Value="Buscar"></Setter>
+        <Setter Property="Glyph" Value="{Binding Source={dx:DXImageGrayscale Image=Find_32x32.png}}" />
+    </Style>
+  
+    <Style x:Key="AppBarMenuButtonStyle" TargetType="dxwui:AppBarButton" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="Label" Value="Menu"/>
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Glyph" Value="{Binding Source={dx:DXImageGrayscale Image=DifferentFirstPage_32x32.png}}" />
+    </Style>
     <!--#endregion AppBar-->
+
+
+    <Style x:Key="completionColumnTotalSummaryContentStyle" TargetType="ContentPresenter">
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel HorizontalAlignment="Right" Margin="{StaticResource totalSummaryMargin}">
+                        <TextBlock HorizontalAlignment="Right" Foreground="{StaticResource grayForegroundBrush}" TextTrimming="CharacterEllipsis" TextAlignment="Right" IsHitTestVisible="False">
+                            <Run Text="TOTAL # OF TASKS" />
+                            <LineBreak />
+                            <Run Text="{Binding Column.TotalSummaryText, Mode=OneWay}" Foreground="{StaticResource blackForegroundBrush}" FontWeight="Bold" />
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

@@ -8,6 +8,7 @@ using DevExpress.DemoData.Helpers;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using Domain.Entities;
+using Sevice;
 
 namespace UI.ViewModel
 {
@@ -43,7 +44,7 @@ namespace UI.ViewModel
         protected override void OnInitializeInRuntime()
         {
             base.OnInitializeInRuntime();
-            Clientes = UnitOfWork.ClienteRepository.GetAll();
+            Clientes = Service.UserClientes(UserManagerService.Instance.CurrentUser.UserId);
             SelectItemCommand = new DelegateCommand(SetSelectItem);
 
         }

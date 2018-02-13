@@ -44,5 +44,10 @@ namespace Sevice
         {
             return context.UserRepository.FindById(CurrentUser.UserId);
         }
+
+        public bool UserInRole(string role)
+        {
+            return CurrentUser.Roles.Any(c => c.Name == role);
+        }
     }
 }

@@ -25,6 +25,11 @@
         <dxmvvm:MapItem Source="Cancelada" Target="/Images/Tasks/icon-deferred-16.png"/>
     </dxmvvm:ObjectToObjectConverter>
 
+    <dxmvvm:ObjectToObjectConverter x:Key="TareaTipoToPictureConverter">
+        <dxmvvm:MapItem Source="Llamada" Target="/Images/Tasks/icon-completed-16.png"/>
+        <dxmvvm:MapItem Source="Visita" Target="/Images/Tasks/icon-completed-16.png"/>
+    </dxmvvm:ObjectToObjectConverter>
+
     <dx:FormatStringConverter x:Key="BedsCountFormatConverter" FormatString="{}{0} Beds" />
     <dx:FormatStringConverter x:Key="BathsCountFormatConverter" FormatString="{}{0} Baths" />
     <dx:FormatStringConverter x:Key="CurrencyFormatConverter" FormatString="c" />

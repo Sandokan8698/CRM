@@ -59,5 +59,7 @@ namespace UI.ViewModel
         {
             return SelectedUser != null && Password != null;
         }
+
+        
     }
 }

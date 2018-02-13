@@ -17,15 +17,16 @@
     <dx:DXWindow.DataContext>
         <viewModel:MainViewModel />
     </dx:DXWindow.DataContext>
-    <dxmvvm:Interaction.Triggers>
-        <dxmvvm:EventToCommand EventName="Loaded" Command="{Binding OnViewLoadedCommand}" />
-    </dxmvvm:Interaction.Triggers>
+   
+
+
     <dxmvvm:Interaction.Behaviors>
         <dxwuin:FrameNavigationService Frame="{Binding ElementName=frame}" />
         <dx:DXSplashScreenService SplashScreenType="{x:Type view:WaitWindow}" />
         <dxwui:WinUIMessageBoxService/>
         <dx:WindowedDocumentUIService/>
+        <dxmvvm:EventToCommand PassEventArgsToCommand="True" EventName="Loaded" Command="{Binding OnViewLoadedCommand}" />
     </dxmvvm:Interaction.Behaviors>
 
-    <dxwui:NavigationFrame x:Name="frame" AnimationType="SlideHorizontal" BackNavigationMode="Root" />
+    <dxwui:NavigationFrame x:Name="frame" AnimationType="SlideHorizontal" BackNavigationMode="PreviousScreen" />
 </dx:DXWindow>

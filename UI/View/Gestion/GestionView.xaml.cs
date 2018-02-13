@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using DevExpress.Xpf.Grid;
 using Domain.Entities;
 using UI.ViewModel;
+using UI.ViewModel.Gestion;
 
-namespace UI.View
+namespace UI.View.Gestion
 {
     /// <summary>
     /// Interaction logic for GestionView.xaml

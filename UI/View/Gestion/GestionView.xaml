@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="UI.View.GestionView"
+﻿<UserControl x:Class="UI.View.Gestion.GestionView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -15,11 +15,13 @@
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:domain="clr-namespace:Domain.Entities;assembly=Domain"
              xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+             xmlns:helpers="clr-namespace:UI.Helpers"
+             xmlns:gestion="clr-namespace:UI.ViewModel.Gestion"
              mc:Ignorable="d"
              d:DesignHeight="696" d:DesignWidth="1201" >
 
     <UserControl.DataContext>
-        <viewModel:GestionViewModel/>
+        <gestion:GestionViewModel/>
     </UserControl.DataContext>
 
    
@@ -170,31 +172,35 @@
 
             </dxlc:LayoutGroup>
 
-            <views:TareaView Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" dxmvvm:ViewModelExtensions.Parameter="{Binding DataContext.Cliente, ElementName=LayoutRoot}" />
+            <views:TareaView dxmvvm:ViewModelExtensions.ParentViewModel="{Binding DataContext, ElementName=LayoutRoot}" Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" dxmvvm:ViewModelExtensions.Parameter="{Binding DataContext.Cliente, ElementName=LayoutRoot}" />
 
-            <dxwui:AppBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
-                          IsOpen="False" HideMode="Sticky"  Height="55" IsCompact="True" Margin="0,10,0,0">
+            <dxwui:AppBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource AppBarStyle}">
 
                 <dxwui:AppBarButton 
-                    Style="{StaticResource ResourceKey=AppBarButtonStyle}"
-                    Label="Actual Size" 
-                    Glyph="{dx:DXImageGrayscale Image=AddItem_32x32.png}"
+                    Style="{StaticResource ResourceKey=AppBarNewButtonStyle}"
                     Command="{Binding NewClienteCommand}" ToolTip="Nuevo" />
                 <dxwui:AppBarButton 
-                    Style="{StaticResource ResourceKey=AppBarButtonStyle}"
-                    Label="Actual Size" 
-                    Glyph="{dx:DXImageGrayscale Image=Save_32x32.png}"
+                    Style="{StaticResource ResourceKey=AppBarSaveButtonStyle}"
                     Command="{Binding SaveClienteCommand}" ToolTip ="Guardar" />
                 <dxwui:AppBarButton 
-                    Style="{StaticResource ResourceKey=AppBarButtonStyle}"
-                    Label="Nuevo" 
-                    Glyph="{dx:DXImageGrayscale Image=Remove_32x32.png}"
+                    Style="{StaticResource ResourceKey=AppBarDeleteButtonStyle}"
                     Command="{Binding DeleteClientCommand}" ToolTip="Eliminar" Content="Eliminar" />
                 <dxwui:AppBarButton 
-                    Style="{StaticResource ResourceKey=AppBarButtonStyle}"
-                    Label="Actual Size" 
-                    Glyph="{dx:DXImageGrayscale Image=Find_32x32.png}"
+                    Style="{StaticResource ResourceKey=AppBarFindButtonStyle}"
                     Command="{Binding FindCommand}" ToolTip="Buscar" />
+
+                <dxwui:AppBarButton Style="{StaticResource AppBarMenuButtonStyle}">
+                    
+                    <dxwui:AppBarButton.Flyout>
+                        <dxwui:MenuFlyout ShowIndicator="True">
+                            <dxwui:MenuFlyoutItem Content="Dias sin Gestionar" Command="{Binding NavigateCommand}" CommandParameter="DiasSinGestionView"  />
+                            <dxwui:MenuFlyoutItem Content="Diarios de Gestiones" Command="{Binding NavigateCommand}" CommandParameter="DiarioGestionesView"  />
+                            
+                            <!--<dxwui:MenuFlyoutSeparator />
+                            <dxwui:MenuFlyoutItem Content="Reset"/>-->
+                        </dxwui:MenuFlyout>
+                    </dxwui:AppBarButton.Flyout>
+                </dxwui:AppBarButton>
 
             </dxwui:AppBar>
 

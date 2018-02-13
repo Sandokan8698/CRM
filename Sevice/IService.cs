@@ -10,5 +10,7 @@ namespace Sevice
     public interface IService
     {
         bool UserHasRole(User user, Role role);
+
+        List<Cliente> UserClientes(int userId);
     }
 }

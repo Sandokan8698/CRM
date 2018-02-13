@@ -17,8 +17,22 @@ namespace Sevice
             return user.Roles.Any(c => c.RoleId == role.RoleId);
         }
 
+        
+
         public Service(IUnitOfWork UnitOfWork) : base(UnitOfWork)
         {
         }
+
+        public List<Cliente> UserClientes(int userId)
+        {
+            if (UserManagerService.Instance.UserInRole("Gerencia") ||
+                UserManagerService.Instance.UserInRole("Administrador"))
+            {
+                return unitOfWork.ClienteRepository.GetAll();
+            }
+
+            return unitOfWork.ClienteRepository.Find(c => c.UserId == userId).ToList();
+        }
+
     }
 }

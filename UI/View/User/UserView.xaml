@@ -67,29 +67,20 @@
             </dxlc:LayoutControl>
 
             <dxwui:AppBar Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
-                          IsOpen="False" HideMode="Sticky"  Height="55" IsCompact="True" Margin="0,10,0,0">
+                          Style="{StaticResource AppBarStyle}">
 
                 <dxwui:AppBarButton 
-                    Style="{StaticResource ResourceKey=AppBarButtonStyle}"
-                    Label="Actual Size" 
-                    Glyph="{dx:DXImageGrayscale Image=AddItem_32x32.png}"
+                    Style="{StaticResource ResourceKey=AppBarNewButtonStyle}"
                     Command="{Binding NewUserCommand}" ToolTip="Nuevo" />
                 <dxwui:AppBarButton 
-                    Style="{StaticResource ResourceKey=AppBarButtonStyle}"
-                    Label="Actual Size" 
-                    Glyph="{dx:DXImageGrayscale Image=Save_32x32.png}"
+                    Style="{StaticResource ResourceKey=AppBarSaveButtonStyle}"
                     Command="{Binding SaveUserCommand}" ToolTip ="Guardar" />
                 <dxwui:AppBarButton 
-                    Style="{StaticResource ResourceKey=AppBarButtonStyle}"
-                    Label="Nuevo" 
-                    Glyph="{dx:DXImageGrayscale Image=Remove_32x32.png}"
+                    Style="{StaticResource ResourceKey=AppBarDeleteButtonStyle}"
                     Command="{Binding DeleteUserCommand}" ToolTip="Eliminar" Content="Eliminar" />
                 <dxwui:AppBarButton 
-                    Style="{StaticResource ResourceKey=AppBarButtonStyle}"
-                    Label="Actual Size" 
-                    Glyph="{dx:DXImageGrayscale Image=Find_32x32.png}"
+                    Style="{StaticResource ResourceKey=AppBarFindButtonStyle}"
                     Command="{Binding FindUserCommand}" ToolTip="Buscar" />
-
             </dxwui:AppBar>
 
         </Grid>

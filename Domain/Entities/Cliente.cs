@@ -75,6 +75,16 @@ namespace Domain.Entities
        
         public TiPoCliente TiPoCliente { get; set; }
 
+        [Column(TypeName = "date")]
+        public DateTime UltimaGestion { get; set; }
+
+        public virtual ICollection<Tarea> Tareas { get; set; }
+
+        [NotMapped]
+        public int DiasSingGesgtionar
+        {
+            get { return UltimaGestion.Day - DateTime.Now.Day; }
+        }
        
         public virtual TomaDescicion TomaDescicion  { get; set; }
 

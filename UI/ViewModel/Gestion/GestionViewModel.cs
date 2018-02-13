@@ -1,21 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Threading;
-using Data.Implementations;
 using DevExpress.Mvvm;
-using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.Native;
-using DevExpress.Mvvm.POCO;
 using Domain.Entities;
 using Sevice;
 
-namespace UI.ViewModel
+namespace UI.ViewModel.Gestion
 {
     public class GestionViewModel : SingleObjectViewModel<Cliente>
     {
@@ -64,6 +57,7 @@ namespace UI.ViewModel
         public DelegateCommand DeleteClientCommand { get; private set; }
         public DelegateCommand NewClienteCommand { get; private set; }
 
+        
         #endregion
 
         #region Ctor
@@ -77,6 +71,7 @@ namespace UI.ViewModel
             Cliente = new Cliente();
             Ciuadades = new List<Ciudad>();
             Provincias = UnitOfWork.ProvinciaRepository.GetAll();
+
             Contactos = new ObservableCollection<Contacto>();
             TomaDescicion = new TomaDescicion();
             ProductosSendero = new ObservableCollection<Producto>();

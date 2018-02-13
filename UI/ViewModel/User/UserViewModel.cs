@@ -11,14 +11,14 @@ using Domain.Entities;
 
 namespace UI.ViewModel.User
 {
-    public class UserViewModel: SingleObjectViewModel<Domain.Entities.User>
+    public class UserViewModel : SingleObjectViewModel<Domain.Entities.User>
     {
         public Domain.Entities.User User
         {
             get { return GetProperty(() => User); }
             set { SetProperty(() => User, value); }
         }
-        
+
         public List<Role> Roles
         {
             get { return GetProperty(() => Roles); }
@@ -38,7 +38,7 @@ namespace UI.ViewModel.User
         public DelegateCommand DeleteUserCommand { get; private set; }
         public DelegateCommand NewUserCommand { get; private set; }
         public DelegateCommand<string> OucaptionChangeCommand { get; set; }
-       
+
         #endregion
 
 
@@ -51,7 +51,7 @@ namespace UI.ViewModel.User
             FindUserCommand = new DelegateCommand(FindUser);
             DeleteUserCommand = new DelegateCommand(DeleteUser, CanDeleteUser);
             NewUserCommand = new DelegateCommand(NewUser);
-          
+
             Roles = UnitOfWork.RoleRepository.GetAll();
 
             User = new Domain.Entities.User();
@@ -63,8 +63,8 @@ namespace UI.ViewModel.User
 
         private void NewUser()
         {
-           User = new Domain.Entities.User();
-          
+            User = new Domain.Entities.User();
+
         }
 
         private void DeleteUser()
@@ -80,7 +80,7 @@ namespace UI.ViewModel.User
                     ShowSuccesMensage("El usuario se elimino con éxito");
 
                     User = new Domain.Entities.User();
-                  
+
                 }
                 catch (Exception e)
                 {
@@ -96,33 +96,36 @@ namespace UI.ViewModel.User
 
         void AddUser()
         {
-            if (!Service.UserHasRole(User, SelectedRole))
-            {
-                UnitOfWork.RoleRepository.RemoveAll(User.Roles);
-                User.Roles.Add(SelectedRole);
-            }
-            
+            User.Roles.Add(SelectedRole);
+
             UnitOfWork.UserRepository.Add(User);
             UnitOfWork.SaveChanges();
 
             ShowSuccesMensage(string.Format("El usuario {0} {1}  se creo con éxito", User.Nombre, User.Apellidos));
 
             User = new Domain.Entities.User();
-           
+
         }
 
         void UpdateUser()
         {
-            User.Roles.Add(SelectedRole);
+            if (!Service.UserHasRole(User, SelectedRole))
+            {
+                //Porque los usuarios solo tienen un solo rol
+                //lo otro sera permisos VAGANCIA 
+                User.Roles.Clear();
+                User.Roles.Add(SelectedRole);
+            }
+
             UnitOfWork.UserRepository.Update(User);
             UnitOfWork.SaveChanges();
-
+            
             ShowSuccesMensage(string.Format("El usuario {0} {1}  se actualizo con éxito", User.Nombre, User.Apellidos));
 
             User = new Domain.Entities.User();
-           
+
         }
-        
+
         private void SaveUser()
         {
             if (!User.IsValid)
@@ -152,8 +155,8 @@ namespace UI.ViewModel.User
         {
             CreateDocument("UsersModalView", this);
         }
-        
-        private async void  SetUser(int id)
+
+        private async void SetUser(int id)
         {
             User = await UnitOfWork.UserRepository.FindByIdAsync(id);
             User.ConfirmPassword = User.PasswordHash;
@@ -161,7 +164,7 @@ namespace UI.ViewModel.User
 
             this.RaisePropertiesChanged();
         }
-        
+
         protected override void OnParameterChanged(object parameter)
         {
             base.OnParameterChanged(parameter);
@@ -172,7 +175,7 @@ namespace UI.ViewModel.User
                 SetUser((int)parameter);
                 SplashScreenService.HideSplashScreen();
             }
-           
+
         }
 
         #endregion

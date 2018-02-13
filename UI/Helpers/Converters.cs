@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using DevExpress.Data.Helpers;
 using DevExpress.Mvvm.UI;
 using DevExpress.Xpf.Editors;
 using DevExpress.Xpf.Grid;
+using DevExpress.Xpf.Charts;
 
 namespace UI.Helpers {
     public class SplitStringConverter : IValueConverter {
@@ -64,4 +67,56 @@ namespace UI.Helpers {
             return ((GridControl)args.Source).SelectedItem;
         }
     }
+
+
+
+
+
+
+    public class PaletteToBrushConverter : IValueConverter
+    {
+        public DevExpress.Xpf.Charts.CustomPalette Palette { get; set; }
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var index = (int)value;
+            if (index >= Palette.Count)
+                index = 0;
+            SolidColorBrush result = new SolidColorBrush(Palette[index]);
+            return result;
+        }
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    class BillionStringToShortStringConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (!(value is string))
+                return null;
+            string billionFormatString = "0,,.0M";
+            string thousandsFormatString = "0,.0K";
+
+            decimal dec;
+            bool parsed = decimal.TryParse((string)value, out dec);
+            if (parsed)
+            {
+                if (dec == 0)
+                    return "0";
+                else if (dec >= 0.1M * 1000000M)
+                    return dec.ToString(billionFormatString);
+                else
+                    return dec.ToString(thousandsFormatString);
+            }
+            else
+                return null;
+        }
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
 }
