@@ -12,6 +12,8 @@
              xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
              xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
              xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+             xmlns:view="clr-namespace:UI.View"
+             xmlns:viewG="clr-namespace:UI.View.Gestion"
              mc:Ignorable="d"
              d:DesignHeight="800" d:DesignWidth="1200">
 
@@ -19,36 +21,64 @@
         <gestion:DiarioGestionesViewModel/>
     </UserControl.DataContext>
 
+    <dxmvvm:Interaction.Behaviors>
+        <dxmvvm:EventToCommand PassEventArgsToCommand="True" EventName="Loaded" Command="{Binding OnViewLoadedCommand}" />
+    </dxmvvm:Interaction.Behaviors>
 
     <dxwui:PageAdornerControl Header="Diarios de Gestiones" Padding="0" x:Name="LayoutRoot">
-      <Grid>
-          <Grid.ColumnDefinitions>
-              <ColumnDefinition />
-              <ColumnDefinition Width="12"/>
-              <ColumnDefinition />
-          </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
             <dxlc:LayoutItem VerticalAlignment="Stretch" >
-                <dxg:GridControl ItemsSource="{Binding Gestiones}" AutoGenerateColumns="None" SelectedItem="{Binding SelectedCliente}">
+                <dxg:GridControl ItemsSource="{Binding Entities}" AutoGenerateColumns="None" SelectedItem="{Binding CurrentEntity}">
                     <dxg:GridControl.View>
-                        <dxg:TableView AllowBestFit="True"/>
+                        <dxg:TableView AllowBestFit="True" AllowEditing="False"/>
                     </dxg:GridControl.View>
+
                     <dxg:GridColumn FieldName="Identificador" IsSmart="True"/>
-                    <dxg:GridColumn FieldName="TareaTipo" IsSmart="True" />
-                    <dxg:GridColumn FieldName="Prioridad" IsSmart="True">
+
+                    <dxg:GridColumn FieldName="Prioridad" IsSmart="True" Width="50">
                         <dxg:GridColumn.CellTemplate>
                             <DataTemplate>
                                 <Image Source="{Binding Path=Value, Converter={StaticResource ColumnPriorityConverter}}" Stretch="None"/>
                             </DataTemplate>
                         </dxg:GridColumn.CellTemplate>
                     </dxg:GridColumn>
-                    <dxg:GridColumn FieldName="Fecha" IsSmart="True" AllowBestFit="True"/>
-                    <dxg:GridColumn FieldName="Descripcion" IsSmart="True"/>
-                    <dxg:GridColumn FieldName="TareaEstado" IsSmart="True"/>
-                    <dxg:GridColumn FieldName="FechaCumplimiento" IsSmart="True"/>
-                    <dxg:GridColumn FieldName="ProximaTarea" IsSmart="True"/>
+
+                    <dxg:GridColumn FieldName="TareaTipo" IsSmart="True" Width="75"/>
+                    <dxg:GridColumn FieldName="TareaEstado" IsSmart="True" Width="50">
+                        <dxg:GridColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Path=Value, Converter={StaticResource StatusToPictureConverter}}" Stretch="None" ToolTip="{Binding Path=Value}"/>
+                            </DataTemplate>
+                        </dxg:GridColumn.CellTemplate>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="Fecha" IsSmart="True" Width="75"/>
+                    <dxg:GridColumn FieldName="FechaCumplimiento" IsSmart="True" Width="75"/>
+                    <dxg:GridColumn FieldName="Descripcion" IsSmart="True" Width="*" ShowValidationAttributeErrors="False"/>
                 </dxg:GridControl>
             </dxlc:LayoutItem>
+
+            <dxlc:LayoutGroup Grid.Column="2" x:Name="Tabs" View="Tabs" Height="Auto" >
+                <dxlc:LayoutGroup Orientation="Vertical" dxlc:LayoutControl.TabHeader="Modificar">
+                    <dxlc:LayoutGroup Orientation="Vertical">
+                        <view:TareaView 
+                            dxmvvm:ViewModelExtensions.ParentViewModel="{Binding DataContext, ElementName=LayoutRoot}"
+                            dxmvvm:ViewModelExtensions.Parameter="{Binding DataContext.CurrentEntity, ElementName=LayoutRoot}"/>
+                    </dxlc:LayoutGroup>
+                    <dxlc:LayoutGroup Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="100"/>
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutGroup dxlc:LayoutControl.TabHeader="Historial" Orientation="Vertical">
+                    <viewG:HistorialGestion 
+                        dxmvvm:ViewModelExtensions.ParentViewModel="{Binding DataContext, ElementName=LayoutRoot}"
+                        dxmvvm:ViewModelExtensions.Parameter="{Binding DataContext.CurrentEntity, ElementName=LayoutRoot}"/>
+                </dxlc:LayoutGroup>
+
+            </dxlc:LayoutGroup>
         </Grid>
     </dxwui:PageAdornerControl>
 

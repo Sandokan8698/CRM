@@ -8,6 +8,8 @@ namespace Data.Abstract
     public interface IUnitOfWork : IDisposable
     {
         #region Properties
+        
+
         IExternalLoginRepository ExternalLoginRepository { get; }
         IRoleRepository RoleRepository { get; }
         IUserRepository UserRepository { get; }

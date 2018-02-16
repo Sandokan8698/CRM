@@ -12,8 +12,13 @@
     <UserControl.DataContext>
         <viewModel:UsersModalViewModel />
     </UserControl.DataContext>
+
+    <dxmvvm:Interaction.Behaviors>
+        <dxmvvm:EventToCommand PassEventArgsToCommand="True" EventName="Loaded" Command="{Binding OnViewLoadedCommand}" />
+    </dxmvvm:Interaction.Behaviors>
+    
     <Grid>
-        <dxg:GridControl ItemsSource="{Binding Users}" AutoGenerateColumns="None">
+        <dxg:GridControl ItemsSource="{Binding Entities}" AutoGenerateColumns="None">
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:EventToCommand EventName="MouseDoubleClick" Command="{Binding SelectItemCommand}" PassEventArgsToCommand="True">
                     <dxmvvm:EventToCommand.EventArgsConverter>
@@ -30,8 +35,7 @@
             <dxg:GridColumn FieldName="Apellidos" IsSmart="True"/>
             <dxg:GridColumn FieldName="Email" IsSmart="True"/>
             <dxg:GridColumn FieldName="Perfil.Ocupacion" Header="Ocupación" IsSmart="True"/>
-            
-            
+
         </dxg:GridControl>
     </Grid>
 </UserControl>

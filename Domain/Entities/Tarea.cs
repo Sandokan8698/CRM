@@ -26,6 +26,7 @@ namespace Domain.Entities
         public DateTime Fecha { get; set; }
 
         [MaxLength(255)]
+        [Required]
         public string Descripcion { get; set; }
 
         [DisplayName("Estado")]
@@ -46,7 +47,7 @@ namespace Domain.Entities
         public string Identificador { get; set; }
 
         public int ClienteId { get; set; }
-        public Cliente Cliente { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
         [Required]
         public TareaPrioridad Prioridad { get; set; }
@@ -61,6 +62,8 @@ namespace Domain.Entities
                 .Replace("AM", "");
             ProximaTarea = DateTime.Now;
             FechaCumplimiento = DateTime.Now;
+
+            Historial = new HashSet<TareaHistorial>();
         }
 
     }

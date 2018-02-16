@@ -255,21 +255,21 @@ namespace UI.ViewModel.Gestion
             }
 
         }
-        
+
         protected override void OnParameterChanged(object parameter)
         {
             base.OnParameterChanged(parameter);
 
             if (parameter != null)
             {
-                int id = (int)parameter;
+                int id = ((Cliente) parameter).ClienteId;
                 SplashScreenService.ShowSplashScreen();
                 SetCliente(id);
                 SplashScreenService.HideSplashScreen();
             }
 
         }
-        
+
 
         #endregion
     }

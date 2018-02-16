@@ -6,7 +6,7 @@ using Domain.Entities;
 
 namespace UI.ViewModel
 {
-    public class SingleObjectViewModel<T>: CollectionViewModel where T : BaseEntity<T>, IDataErrorInfo
+    public class SingleObjectViewModel<T>: ViewModel where T : BaseEntity<T>, IDataErrorInfo
     {
        
         

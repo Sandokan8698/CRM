@@ -94,7 +94,13 @@ namespace Data.Migrations
                 new Role() {  Name = "Vendedor" },
                 new Role() {  Name = "Gerencia" }
                 );
-           
+
+            context.PefilDbset.Add(new Vendedor()
+            {
+
+            });
+            
+            
 
         }
 

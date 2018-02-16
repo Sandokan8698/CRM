@@ -27,6 +27,7 @@ namespace Domain.Entities
         public virtual string PasswordHash { get; set; }
 
         [NotMapped]
+       
         [Compare("PasswordHash", ErrorMessage = "Las contraseñas no coinciden.")]
         public string ConfirmPassword { get; set; }
 

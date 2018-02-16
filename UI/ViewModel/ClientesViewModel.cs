@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Abstract;
 using DevExpress.DemoData.Helpers;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
@@ -12,57 +13,30 @@ using Sevice;
 
 namespace UI.ViewModel
 {
-    public class ClientesViewModel : CollectionViewModel
+    public class ClientesViewModel : CollectionViewModel<Cliente>
 
     {
-        #region Propertys
-
-        public List<Cliente> Clientes
-        {
-            get { return GetProperty(() => Clientes); }
-            set { SetProperty(() => Clientes, value); }
-        }
-
-        public Cliente SelectedCliente
-        {
-            get { return GetProperty(() => SelectedCliente); }
-            set { SetProperty(() => SelectedCliente, value); }
-        }
         
-        #endregion
-
-
-        #region Commnads
-
-        public DelegateCommand SelectItemCommand { get; private set; }
-
-        #endregion
-
-
-        #region Ctor
-
-        protected override void OnInitializeInRuntime()
-        {
-            base.OnInitializeInRuntime();
-            Clientes = Service.UserClientes(UserManagerService.Instance.CurrentUser.UserId);
-            SelectItemCommand = new DelegateCommand(SetSelectItem);
-
-        }
-
-        #endregion
-
         #region Methods
 
-        private void SetSelectItem()
+        protected override IRepository<Cliente> GetRepository()
         {
-            var parent = this.GetParentViewModel<ViewModelBase>();
+            return UnitOfWork.ClienteRepository;
+        }
 
-            ((ISupportParameter) parent).Parameter = SelectedCliente.ClienteId;
+        protected override void OnSetSelectItemChange(Cliente cliente)
+        {
+            base.OnSetSelectItemChange(cliente);
 
             var document = DocumentManagerService.FindDocument(this);
             document.DestroyOnClose = true;
             document.Close(false);
 
+        }
+
+        protected override void OnViewLoaded()
+        {
+            Entities = Service.UserClientes(UserManagerService.Instance.CurrentUser.UserId);
         }
 
         #endregion

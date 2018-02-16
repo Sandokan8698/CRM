@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:ViewModel="clr-namespace:UI.ViewModel" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:Data="clr-namespace:Data;assembly=Data"
              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:helpers="clr-namespace:UI.Helpers"
              x:Class="UI.View.Clientes"
              mc:Ignorable="d"
              d:DesignHeight="600" d:DesignWidth="1300">
@@ -12,27 +13,31 @@
     <UserControl.DataContext>
         <ViewModel:ClientesViewModel/>
     </UserControl.DataContext>
+
+    <dxmvvm:Interaction.Behaviors>
+        <dxmvvm:EventToCommand PassEventArgsToCommand="True" EventName="Loaded" Command="{Binding OnViewLoadedCommand}" />
+    </dxmvvm:Interaction.Behaviors>
+
     <Grid>
-        <dxg:GridControl ItemsSource="{Binding Clientes}" AutoGenerateColumns="None" SelectedItem="{Binding SelectedCliente}">
+        <dxg:GridControl ItemsSource="{Binding Entities}" AutoGenerateColumns="None" SelectedItem="{Binding CurrentEntity}">
             <dxmvvm:Interaction.Behaviors>
-                <dxmvvm:EventToCommand 
-                    EventName="MouseDoubleClick" 
-                    Command="{Binding SelectItemCommand}" 
-                    CommandParameter="{Binding ElementName=grid, Path=SelectedItem}"/>
+                <dxmvvm:EventToCommand EventName="MouseDoubleClick" Command="{Binding SelectItemCommand}" PassEventArgsToCommand="True">
+                    <dxmvvm:EventToCommand.EventArgsConverter>
+                        <helpers:GridEventArgsConverter/>
+                    </dxmvvm:EventToCommand.EventArgsConverter>
+                </dxmvvm:EventToCommand>
             </dxmvvm:Interaction.Behaviors>
             <dxg:GridControl.View>
                 <dxg:CardView AllowGrouping="False" ShowGroupPanel="False" AllowEditing="False" CardLayout="Rows"/>
             </dxg:GridControl.View>
+            <dxg:GridColumn FieldName="Nombre" IsSmart="True"/>
             <dxg:GridColumn FieldName="Ruc" IsSmart="True"/>
-            <dxg:GridColumn FieldName="Descripcion" IsSmart="True"/>
             <dxg:GridColumn FieldName="Telefono" IsSmart="True" SortOrder="Ascending" SortIndex="0" Header="Celular"/>
             <dxg:GridColumn FieldName="TelefonoConvencional" IsSmart="True"/>
             <dxg:GridColumn FieldName="FechaNacimiento" IsSmart="True"/>
             <dxg:GridColumn FieldName="Direccion" IsSmart="True"/>
             <dxg:GridColumn FieldName="Email" IsSmart="True"/>
-            <dxg:GridColumn FieldName="Sector" IsSmart="True"/>
-            <dxg:GridColumn FieldName="Provincia.Descripcion" IsSmart="True" Header="Provincia"/>
-            <dxg:GridColumn FieldName="Ciudad.Descripcion" IsSmart="True" Header="Ciudad"/>
+            
         </dxg:GridControl>
     </Grid>
 </UserControl>

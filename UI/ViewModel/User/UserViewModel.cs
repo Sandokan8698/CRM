@@ -172,7 +172,7 @@ namespace UI.ViewModel.User
             if (parameter != null)
             {
                 SplashScreenService.ShowSplashScreen();
-                SetUser((int)parameter);
+                SetUser(((Domain.Entities.User)parameter).UserId);
                 SplashScreenService.HideSplashScreen();
             }
 

@@ -9,6 +9,8 @@ namespace Data.Abstract
     public interface IRepository<TEntity> where TEntity : class
     {
         List<TEntity> GetAll();
+        List<TEntity> GetAllAsNoTracking();
+
         Task<List<TEntity>> GetAllAsync();
         Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken);
 

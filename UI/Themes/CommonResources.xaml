@@ -2,7 +2,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
     xmlns:system="clr-namespace:System;assembly=mscorlib"
-    xmlns:helpers="clr-namespace:UI.Helpers">
+    xmlns:helpers="clr-namespace:UI.Helpers"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm">
 
     <dxc:CustomPalette x:Key="CustomPalette">
         <dxc:CustomPalette.Colors>
@@ -14,20 +15,8 @@
         </dxc:CustomPalette.Colors>
     </dxc:CustomPalette>
 
-
     <SolidColorBrush x:Key="textBrush" Color="#6F7170" />
-    
-    <system:Double x:Key="chartLabelFontSize">10.0</system:Double>
-    <system:Double x:Key="salesVolumesCaptionFontSize">13.0</system:Double>
-    <system:Double x:Key="salesVoluemesFontSize">24.0</system:Double>
-    <FontWeight x:Key="salesVolumesFontWeight">Light</FontWeight>
 
-    <helpers:BillionStringToShortStringConverter x:Key="billionStringToShortStringConverter" />
-    
-    <DataTemplate x:Key="axisYLabelTemplate2">
-        <TextBlock Text="{Binding Path=Content, Converter={StaticResource ResourceKey=billionStringToShortStringConverter}, ConverterParameter='#0,.K'}"
-                   FontSize="{StaticResource ResourceKey=chartLabelFontSize}" Foreground="{StaticResource ResourceKey=textBrush}"/>
-    </DataTemplate>
     
 
 </ResourceDictionary>

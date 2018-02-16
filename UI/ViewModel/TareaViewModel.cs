@@ -24,14 +24,25 @@ namespace UI.ViewModel
             get { return GetProperty(() => Tarea); }
             set { SetProperty(() => Tarea, value); }
         }
-
-        public IEnumerable<Tarea> Gestiones
-        {
-           get { return GetProperty(() => Gestiones); }
-           set { SetProperty(() => Gestiones, value); }
-        }
-
+        
         public Cliente Cliente { get; set; }
+
+        /// <summary>
+        /// Para saber si una gestion de actualizar o crear y asi 
+        /// habilitar el campo de cambio de estado
+        /// </summary>
+        public bool AllowEditEstado
+        {
+            get
+            {
+                if (Tarea.TareaId > 0)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+        }
 
         #endregion
 
@@ -43,18 +54,13 @@ namespace UI.ViewModel
 
         #region Ctor
 
-        protected override void OnInitializeInDesignMode()
-        {
-            base.OnInitializeInDesignMode();
-            Gestiones = new ObservableCollection<Tarea>();
-        }
-
+       
         protected override void OnInitializeInRuntime()
         {
             base.OnInitializeInRuntime();
-            Gestiones = UnitOfWork.TareaRepository.GetAll();
+           
             
-            Tarea = new Tarea() {TareaEstado = TareaEstado.Activo};
+            Tarea = new Tarea() {TareaEstado = TareaEstado.Activo, TareaTipo = TareaTipo.LLamada};
             SaveTareaCommand = new DelegateCommand(SaveTarea, CanSaveTarea);
         }
 
@@ -67,24 +73,27 @@ namespace UI.ViewModel
         {
             if (!Tarea.IsValid)
             {
+                //Esto no va aqui
+                if (Tarea.ProximaTarea <= Tarea.Fecha)
+                {
+                    ShowErrorMensage("Valor de la proxima tarea no valido");
+                    return;
+                }
+
                 OnValidationFailed(Tarea);
+                return;
             }
 
             try
             {
-               
-                Tarea.CreadoPorId = UserManagerService.Instance.CurrentUser.UserId;
-                Tarea.AsignadoAId = UserManagerService.Instance.CurrentUser.UserId;
-                Tarea.ClienteId = Cliente.ClienteId;
-
-                UnitOfWork.TareaRepository.Add(Tarea);
-                UnitOfWork.SaveChanges();
-
-                ShowSuccesMensage(string.Format("La Tarea {0} se creo con éxito",Tarea.Identificador));
-                Tarea = new Tarea();
-
-                Gestiones = UnitOfWork.TareaRepository.GetAll().OrderByDescending(c => c.TareaId);
-
+                if (Tarea.TareaId <= 0)
+                {
+                    AddTarea();
+                }
+                else
+                {
+                    UpdateTarea();
+                }
             }
             catch (Exception e)
             {
@@ -98,10 +107,78 @@ namespace UI.ViewModel
             return Cliente == null ? false : Cliente.IsValid;
         }
 
+        private void AddTarea()
+        {
+            Tarea.CreadoPorId = UserManagerService.Instance.CurrentUser.UserId;
+            Tarea.AsignadoAId = UserManagerService.Instance.CurrentUser.UserId;
+            Tarea.ClienteId = Cliente.ClienteId;
+
+              Tarea.Historial.Add(new TareaHistorial()
+                {
+                    Fecha = DateTime.Now,
+                    TareaEstado =  Tarea.TareaEstado,
+                    Descripcion =  Tarea.Descripcion
+                });
+
+            //El cliente anterior es cargado de otro data context por eso
+            //lo vuelvo cargar aqui para q poder realizar la actualizacion 
+            //busca otro lugar para esto please
+            var elClienteDeTarea = UnitOfWork.ClienteRepository.FindById(Cliente.ClienteId);
+            elClienteDeTarea.UltimaGestion = DateTime.Now;
+
+            UnitOfWork.TareaRepository.Add(Tarea);
+            UnitOfWork.SaveChanges();
+
+            ShowSuccesMensage(string.Format("La Tarea {0} se creo con éxito", Tarea.Identificador));
+            Tarea = new Tarea();
+        }
+
+        private void UpdateTarea()
+        {
+            
+            UnitOfWork.TareaRepository.Update(Tarea);
+            UnitOfWork.SaveChanges();
+
+            Tarea.Historial.Add(new TareaHistorial()
+            {
+                Fecha = DateTime.Now,
+                TareaEstado = Tarea.TareaEstado,
+                Descripcion = Tarea.Descripcion
+            });
+
+            //El cliente anterior es cargado de otro data context por eso
+            //lo vuelvo cargar aqui para q poder realizar la actualizacion 
+            //busca otro lugar para esto please
+            var elClienteDeTarea = UnitOfWork.ClienteRepository.FindById(Cliente.ClienteId);
+            elClienteDeTarea.UltimaGestion = DateTime.Now;
+
+            ShowSuccesMensage(string.Format("La Tarea {0} se modifico con éxito", Tarea.Identificador));
+           
+        }
+
         protected override void OnParameterChanged(object parameter)
         {
             base.OnParameterChanged(parameter);
-            Cliente  = (Cliente)parameter;
+
+            if (parameter is Cliente)
+            {
+                Cliente = parameter as Cliente;
+            }
+
+            if (parameter is Tarea)
+            {
+                var tarea = parameter as Tarea;
+
+                Tarea = UnitOfWork.TareaRepository.FindById(tarea.TareaId);
+
+                if (Tarea != null)
+                {
+                    Cliente = Tarea.Cliente;
+                }
+
+               
+            }
+            
         }
          
         #endregion

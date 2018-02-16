@@ -7,6 +7,7 @@ namespace Data.Implementations
     {
         #region Fields
         private readonly CRMContex _context;
+        
         private IExternalLoginRepository _externalLoginRepository;
         private IRoleRepository _roleRepository;
         private IUserRepository _userRepository;

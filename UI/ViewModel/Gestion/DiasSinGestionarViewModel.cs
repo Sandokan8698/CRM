@@ -10,7 +10,7 @@ using UI.View;
 
 namespace UI.ViewModel.Gestion
 {
-    public class DiasSinGestionarViewModel : CollectionViewModel
+    public class DiasSinGestionarViewModel : ViewModel
     {
         #region Propertys
        
@@ -26,6 +26,8 @@ namespace UI.ViewModel.Gestion
             get { return GetProperty(() => DSGSerieS); }
             set { SetProperty(() => DSGSerieS, value); }
         }
+        
+        
         #endregion
 
         #region Commands

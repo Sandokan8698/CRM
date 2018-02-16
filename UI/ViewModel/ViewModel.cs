@@ -1,12 +1,41 @@
-﻿using System.Windows.Input;
+﻿using System.Windows;
+using System.Windows.Input;
+using Data.Abstract;
+using Data.Implementations;
 using DevExpress.Mvvm;
+using Sevice;
 
 namespace UI.ViewModel {
     public class ViewModel : ViewModelBase {
         ICommand onViewLoadedCommand;
         ICommand navigateCommand;
-        ICommand navigateToHomeCommand;
-        ICommand navigateToAgentCommand;
+       
+
+        public IUnitOfWork UnitOfWork { get; set; }
+
+        protected IService Service { get; set; }
+
+        public bool IsLoading
+        {
+            get { return GetProperty(() => IsLoading); }
+            set { SetProperty(() => IsLoading, value); }
+        }
+
+        protected IDocumentManagerService DocumentManagerService
+        {
+            get { return this.GetService<IDocumentManagerService>(); }
+        }
+
+        protected ISplashScreenService SplashScreenService
+        {
+            get { return GetService<ISplashScreenService>(); }
+        }
+
+        public IMessageBoxService MessageBoxService
+        {
+            get { return GetService<IMessageBoxService>(); }
+        }
+
 
         public ICommand OnViewLoadedCommand {
             get {
@@ -22,30 +51,46 @@ namespace UI.ViewModel {
                 return navigateCommand;
             }
         }
-        public ICommand NavigateToHomeCommand {
-            get {
-                if(navigateToHomeCommand == null)
-                    navigateToHomeCommand = new DelegateCommand<int?>(NavigateHomeRepositoryView, id => id != null);
-                return navigateToHomeCommand;
-            }
+       
+
+
+        #region Ctor
+        protected override void OnInitializeInRuntime()
+        {
+            base.OnInitializeInRuntime();
+
+            UnitOfWork = new UnitOfWork();
+            Service = new Service(UnitOfWork);
+           
+           
         }
-        public ICommand NavigateToAgentCommand {
-            get {
-                if(navigateToAgentCommand == null)
-                    navigateToAgentCommand = new DelegateCommand<int?>(NavigateAgentRepositoryView, id => id != null);
-                return navigateToAgentCommand;
-            }
-        }
-        void NavigateHomeRepositoryView(int? id) {
-            NavigationService.Navigate("HomeRepositoryView", id, this);
-        }
-        void NavigateAgentRepositoryView(int? id) {
-            NavigationService.Navigate("AgentRepositoryView", id, this);
-        }
+        #endregion
+        
+        
         public void Navigate(string target) {
             NavigationService.Navigate(target, null, this);
         }
         protected INavigationService NavigationService { get { return GetService<INavigationService>(); } }
         protected virtual void OnViewLoaded() { }
+
+        public void ShowErrorMensage(string mensage)
+        {
+            MessageBoxService.Show(mensage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public void ShowSuccesMensage(string mensage)
+        {
+            MessageBoxService.Show(mensage, "Éxtio", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public MessageBoxResult ShowWarningtMesage(string mesage)
+        {
+            return MessageBoxService.Show(mesage, "Alerta", MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
+
+        public MessageBoxResult ShowWarningWithResultMesage(string mesage)
+        {
+            return MessageBoxService.Show(mesage, "Alerta", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+        }
     }
 }

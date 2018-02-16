@@ -9,7 +9,7 @@ using Sevice;
 
 namespace UI.ViewModel
 {
-    public class LoginViewModel: CollectionViewModel
+    public class LoginViewModel: ViewModel
     {
         public string UserName
         {
@@ -44,15 +44,18 @@ namespace UI.ViewModel
             Users = UnitOfWork.UserRepository.GetAll();
             LoginCommand = new DelegateCommand(Login,CanLogin);
 
-            Password = "damg";
+           // Password = "damg";
         }
 
         void Login()
         {
-            if (UserManagerService.Instance.Login(SelectedUser, Password))
+            if (!UserManagerService.Instance.Login(SelectedUser, Password))
             {
-                Navigate("GestionView");
+                ShowWarningtMesage("Usuarion o contraseña no validos");
+                return;
             }
+
+            Navigate("GestionView");
         }
 
         bool CanLogin()

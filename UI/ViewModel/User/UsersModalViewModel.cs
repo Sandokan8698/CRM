@@ -4,55 +4,38 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Abstract;
+using Data.Implementations;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 
 namespace UI.ViewModel.User
 {
-    public class UsersModalViewModel: CollectionViewModel
+    public class UsersModalViewModel: CollectionViewModel<Domain.Entities.User>
     {
 
-        #region Propertys
-
-        public List<Domain.Entities.User> Users
-        {
-            get { return GetProperty(() => Users); }
-            set { SetProperty(() => Users, value); }
-        }
-        
-        #endregion
-
-        #region Command
-
-        public DelegateCommand<Domain.Entities.User> SelectItemCommand { get; private set; }
-
-        #endregion
-
-        #region Ctor
-
-        protected override  void OnInitializeInRuntime()
-        {
-            base.OnInitializeInRuntime();
-            Users = UnitOfWork.UserRepository.GetAll();
-            SelectItemCommand = new DelegateCommand<Domain.Entities.User>(SetSelectItem);
-        }
-        
-        #endregion
-
-
-
+       
         #region Methods
 
-        private void SetSelectItem(Domain.Entities.User user)
+        protected override void OnSetSelectItemChange(Domain.Entities.User user)
         {
-            var parent = this.GetParentViewModel<ViewModelBase>();
-
-            ((ISupportParameter)parent).Parameter = user.UserId;
+            base.OnSetSelectItemChange(user);
 
             var document = DocumentManagerService.FindDocument(this);
             document.DestroyOnClose = true;
             document.Close(false);
 
+        }
+
+        protected override IRepository<Domain.Entities.User> GetRepository()
+        {
+            return UnitOfWork.UserRepository;
+        }
+
+        protected override void OnViewLoaded()
+        {
+            base.OnViewLoaded();
+            Entities = Repository.GetAll();
         }
 
         #endregion

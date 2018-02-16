@@ -25,9 +25,9 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <dxlc:LayoutControl ItemSpace="12" Padding="0" >
+    <dxlc:LayoutControl ItemSpace="12" Padding="0">
         
-        <dxlc:LayoutGroup Orientation="Vertical">
+        <dxlc:LayoutGroup Orientation="Vertical" Margin="0,0,2,0">
            
             <dxlc:LayoutGroup Orientation="Horizontal" VerticalAlignment="Top">
                 <dxlc:LayoutGroup>
@@ -47,11 +47,9 @@
                                     <dxlc:LayoutItem Label="Fecha Inicio:">
                                         <dxe:DateEdit EditValue="{Binding Tarea.Fecha, ValidatesOnDataErrors=True, Mode=TwoWay}" Mask="G" MaskType="DateTimeAdvancingCaret" MaskUseAsDisplayFormat="True"/>
                                     </dxlc:LayoutItem>
-                                    <dxlc:LayoutItem Label="LayoutItem">
-                                        <dxe:TextEdit/>
-                                    </dxlc:LayoutItem>
+                                    
                                     <dxlc:LayoutItem Label="Estado: ">
-                                        <dxe:ComboBoxEdit EditValue="{Binding Tarea.TareaEstado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, ValidatesOnDataErrors=True}"
+                                        <dxe:ComboBoxEdit IsEnabled="{Binding AllowEditEstado}" EditValue="{Binding Tarea.TareaEstado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, ValidatesOnDataErrors=True}"
                                                           ItemsSource="{dxe:EnumItemsSource EnumType={x:Type domain:TareaEstado}}" IsTextEditable="False" >
                                             <dxe:ComboBoxEdit.EditNonEditableTemplate>
                                                 <ControlTemplate>
@@ -74,22 +72,6 @@
                                     <dxlc:LayoutItem Label="Tipo Tarea: ">
                                         <dxe:ComboBoxEdit EditValue="{Binding Tarea.TareaTipo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, ValidatesOnDataErrors=True}"
                                                           ItemsSource="{dxe:EnumItemsSource EnumType={x:Type domain:TareaTipo}}" IsTextEditable="False" >
-                                            <dxe:ComboBoxEdit.EditNonEditableTemplate>
-                                                <ControlTemplate>
-                                                    <StackPanel Orientation="Horizontal" Height="22">
-                                                        <Image Source="{Binding SelectedItem.Name, Converter={StaticResource TareaTipoToPictureConverter}}" Width="16" Stretch="Uniform" Margin="5,0"/>
-                                                        <TextBlock Text="{Binding SelectedItem.Name}" VerticalAlignment="Center"/>
-                                                    </StackPanel>
-                                                </ControlTemplate>
-                                            </dxe:ComboBoxEdit.EditNonEditableTemplate>
-                                            <dxe:ComboBoxEdit.ItemTemplate>
-                                                <DataTemplate>
-                                                    <StackPanel Orientation="Horizontal" Height="22">
-                                                        <Image Source="{Binding Name, Converter={StaticResource TareaTipoToPictureConverter}}" Width="16" Stretch="Uniform" Margin="5,0"/>
-                                                        <TextBlock Text="{Binding Name}"/>
-                                                    </StackPanel>
-                                                </DataTemplate>
-                                            </dxe:ComboBoxEdit.ItemTemplate>
                                         </dxe:ComboBoxEdit>
                                     </dxlc:LayoutItem>
                                 </dxlc:LayoutGroup>
@@ -132,37 +114,18 @@
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
             </dxlc:LayoutGroup>
-            <dxlc:LayoutItem VerticalAlignment="Top">
+            <dxlc:LayoutItem VerticalAlignment="Stretch">
                 <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Description:" Margin="0,0,0,4"/>
-                    <dxe:TextEdit Grid.Row="1" EditValue="{Binding Tarea.Descripcion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" VerticalContentAlignment="Top"/>
+                    <dxe:TextEdit Grid.Row="1"
+                                  EditValue="{Binding Tarea.Descripcion, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" VerticalContentAlignment="Stretch"/>
                 </Grid>
             </dxlc:LayoutItem>
-            <dxlc:LayoutItem VerticalAlignment="Stretch" >
-                <dxg:GridControl ItemsSource="{Binding Gestiones}" AutoGenerateColumns="None" SelectedItem="{Binding SelectedCliente}">
-                    <dxg:GridControl.View>
-                        <dxg:TableView AllowBestFit="True"/>
-                    </dxg:GridControl.View>
-                    <dxg:GridColumn FieldName="Identificador" IsSmart="True"/>
-                    <dxg:GridColumn FieldName="TareaTipo" IsSmart="True" />
-                    <dxg:GridColumn FieldName="Prioridad" IsSmart="True">
-                        <dxg:GridColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding Path=Value, Converter={StaticResource ColumnPriorityConverter}}" Stretch="None"/>
-                            </DataTemplate>
-                        </dxg:GridColumn.CellTemplate>
-                    </dxg:GridColumn>
-                    <dxg:GridColumn FieldName="Fecha" IsSmart="True" AllowBestFit="True"/>
-                    <dxg:GridColumn FieldName="Descripcion" IsSmart="True"/>
-                    <dxg:GridColumn FieldName="TareaEstado" IsSmart="True"/>
-                    <dxg:GridColumn FieldName="FechaCumplimiento" IsSmart="True"/>
-                    <dxg:GridColumn FieldName="ProximaTarea" IsSmart="True"/>
-                    </dxg:GridControl>
-            </dxlc:LayoutItem>
+         
             <dxlc:LayoutItem VerticalAlignment="Bottom">
                 <dx:SimpleButton Content="Guardar" Command="{Binding SaveTareaCommand}"/>
             </dxlc:LayoutItem>

@@ -309,6 +309,10 @@
       <DependentUpon>GestionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Gestion\GestionViewModel.cs" />
+    <Compile Include="View\Gestion\HistorialGestion.xaml.cs">
+      <DependentUpon>HistorialGestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Gestion\HistorialGestionViewModel.cs" />
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
@@ -390,6 +394,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Gestion\GestionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Gestion\HistorialGestion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

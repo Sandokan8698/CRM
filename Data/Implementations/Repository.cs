@@ -31,6 +31,11 @@ namespace Data.Implementations
             return Set.ToList();
         }
 
+        public List<TEntity> GetAllAsNoTracking()
+        {
+            return Set.AsNoTracking().ToList();
+        }
+
         public Task<List<TEntity>> GetAllAsync()
         {
             return Set.ToListAsync();

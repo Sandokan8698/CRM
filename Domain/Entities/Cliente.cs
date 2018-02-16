@@ -85,6 +85,8 @@ namespace Domain.Entities
         {
             get { return UltimaGestion.Day - DateTime.Now.Day; }
         }
+
+        public ClienteEstado ClienteEstado { get; set; }
        
         public virtual TomaDescicion TomaDescicion  { get; set; }
 
@@ -103,4 +105,10 @@ namespace Domain.Entities
         Juridico
     }
 
+
+    public enum ClienteEstado
+    {
+        Caliente,
+        Frío
+    }
 }

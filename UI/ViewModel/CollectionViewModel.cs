@@ -8,7 +8,7 @@ using Sevice;
 
 namespace UI.ViewModel
 {
-    public class CollectionViewModel<T>: ViewModel where T: class
+    public abstract class CollectionViewModel<T> : ViewModel where T : class
 
     {
 
@@ -19,32 +19,16 @@ namespace UI.ViewModel
             get { return GetProperty(() => Entities); }
             set { SetProperty(() => Entities, value); }
         }
-       
 
-        public IUnitOfWork UnitOfWork { get; set; }
-        protected  IService Service { get; set; }
-
-        public bool IsLoading
+        public T CurrentEntity
         {
-            get { return GetProperty(() => IsLoading); }
-            set { SetProperty(() => IsLoading, value); }
+            get { return GetProperty(() => CurrentEntity); }
+            set { SetProperty(() => CurrentEntity, value); }
         }
 
-        protected IDocumentManagerService DocumentManagerService
-        {
-            get { return this.GetService<IDocumentManagerService>();}
-        }
-
-        protected ISplashScreenService SplashScreenService
-        {
-            get { return GetService<ISplashScreenService>(); }
-        }
-
-        public IMessageBoxService MessageBoxService
-        {
-            get { return GetService<IMessageBoxService>(); }
-        }
-
+        protected IRepository<T> Repository { get; private set; }
+        
+     
         #endregion
 
         #region Command
@@ -57,36 +41,30 @@ namespace UI.ViewModel
         protected override void OnInitializeInRuntime()
         {
             base.OnInitializeInRuntime();
-            UnitOfWork = new UnitOfWork();
-            Service = new Service(UnitOfWork);
-            SelectItemCommand = new DelegateCommand<T>(SetSelectItem);
+
+            SelectItemCommand = new DelegateCommand<T>(OnSetSelectItemChange);
+
+            Repository = GetRepository();
+           
         }
         #endregion
 
         #region Methods
 
-        public void ShowErrorMensage(string mensage)
-        {
-            MessageBoxService.Show(mensage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-
-        public void ShowSuccesMensage(string mensage)
-        {
-            MessageBoxService.Show(mensage, "Éxtio", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        public MessageBoxResult ShowWarningWithResultMesage(string mesage)
-        {
-            return MessageBoxService.Show(mesage, "Alerta", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
-        }
-
-        protected virtual void SetSelectItem(T entity)
+        protected virtual void OnSetSelectItemChange(T entity)
         {
             var parent = this.GetParentViewModel<ViewModelBase>();
 
             ((ISupportParameter)parent).Parameter = entity;
-            
+
         }
+
+        protected override void OnViewLoaded()
+        {
+            Entities = Repository.GetAll();
+        }
+
+        protected abstract IRepository<T> GetRepository();
 
         #endregion
 
