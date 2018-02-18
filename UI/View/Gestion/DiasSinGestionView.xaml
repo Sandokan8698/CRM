@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:ViewModels="clr-namespace:UI.View.Gestion"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:gestionView="clr-namespace:UI.View.Gestion"
              xmlns:gestion="clr-namespace:UI.ViewModel.Gestion"
              xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
@@ -34,8 +35,14 @@
                 <ColumnDefinition Width="12" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
-            <dxg:GridControl ItemsSource="{Binding DiasSinGestionars}" AutoGenerateColumns="None" ShowLoadingPanel="{Binding IsLoading}">
+            <gestionView:GestionNavigatorView Grid.Column="0" Grid.ColumnSpan="3"/>
+            
+            <dxg:GridControl Grid.Row="1" Grid.Column="0" ItemsSource="{Binding DiasSinGestionars}" AutoGenerateColumns="None" ShowLoadingPanel="{Binding IsLoading}">
                 <dxmvvm:Interaction.Behaviors>
                     <dxmvvm:EventToCommand EventName="SelectedItemChanged" Command="{Binding DiasSingestionarChangeCommnad}" PassEventArgsToCommand="True">
                         <dxmvvm:EventToCommand.EventArgsConverter>
@@ -69,7 +76,7 @@
                 <dxg:GridColumn FieldName="Id" IsSmart="True" Visible="False"/>
             </dxg:GridControl>
 
-            <Grid Grid.Column="2">
+            <Grid Grid.Column="2" Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition />

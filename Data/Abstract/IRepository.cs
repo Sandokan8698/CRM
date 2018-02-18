@@ -18,13 +18,14 @@ namespace Data.Abstract
         Task<List<TEntity>> PageAllAsync(int skip, int take);
         Task<List<TEntity>> PageAllAsync(CancellationToken cancellationToken, int skip, int take);
 
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+        List<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
         Task<List<TEntity>> FindAsync(CancellationToken cancellationToken, Expression<Func<TEntity, bool>> predicate);
         TEntity FindById(object id);
         Task<TEntity> FindByIdAsync(object id);
         Task<TEntity> FindByIdAsync(CancellationToken cancellationToken, object id);
 
         void Add(TEntity entity);
+        void AddAll(IEnumerable<TEntity> entities);
         void Update(TEntity entity);
         void Remove(TEntity entity);
         void RemoveAll(IEnumerable<TEntity> entities);

@@ -46,103 +46,106 @@
 
             <views:NavigatorView Grid.ColumnSpan="3"/>
 
-            <Grid Grid.Row="1" Grid.Column="0">
-                <Grid.ColumnDefinitions >
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+            <dxlc:LayoutControl Grid.Row="1" Grid.RowSpan="2" Grid.Column="0"  Orientation="Vertical" ItemSpace="12" Padding="0">
 
-                <dxlc:LayoutControl  Orientation="Horizontal" ItemSpace="12" Padding="0">
-                    <dxlc:LayoutGroup VerticalAlignment="Top" >
-                        <dxlc:LayoutGroup Orientation="Vertical" Margin="0,0,2,0">
-                            <dxlc:LayoutItem Label="RUC:">
-                                <dxe:TextEdit Text="{Binding  Cliente.Ruc, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Mask="d" MaskType="Numeric" ></dxe:TextEdit>
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="Empresa:">
-                                <dxe:TextEdit Text="{Binding Cliente.Nombre, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></dxe:TextEdit>
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="Celular:">
-                                <dxe:TextEdit Text="{Binding Cliente.Telefono, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></dxe:TextEdit>
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="Télefono:">
-                                <dxe:TextEdit Text="{Binding Cliente.TelefonoConvencional, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></dxe:TextEdit>
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="Provincia:">
-                                <dxe:ComboBoxEdit ItemsSource="{Binding Provincias, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" DisplayMember="Nombre" ValueMember="ProvinciaId"  SelectedItem="{Binding Cliente.Provincia}">
-                                    <dxmvvm:Interaction.Behaviors>
-                                        <dxmvvm:EventToCommand EventName="EditValueChanged" Command="{Binding OnProvinciaChangeCommand}" CommandParameter="{Binding ElementName=comboBox, Path=EditValue}" UseDispatcher="True"/>
-                                    </dxmvvm:Interaction.Behaviors>
-                                </dxe:ComboBoxEdit>
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="Ciudad:">
-                                <dxe:ComboBoxEdit ItemsSource="{Binding Ciuadades,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" DisplayMember="Nombre" SelectedItem="{Binding Cliente.Ciudad}" />
-                            </dxlc:LayoutItem>
-                            <dxlc:LayoutItem Label="División">
-                                <dxe:TextEdit Text="{Binding Cliente.Division,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
-                            </dxlc:LayoutItem>
-                            
-                        </dxlc:LayoutGroup>
-                    </dxlc:LayoutGroup>
-                </dxlc:LayoutControl>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="12"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
 
-                <dxlc:LayoutControl Grid.Column="2"  Orientation="Horizontal" ItemSpace="12" Padding="0" >
-                    <dxlc:LayoutGroup  Orientation="Vertical" Margin="0,0,2,0">
+                    <dxlc:LayoutControl  Orientation="Horizontal" ItemSpace="12" Padding="0">
+                        <dxlc:LayoutGroup VerticalAlignment="Top" >
+                            <dxlc:LayoutGroup Orientation="Vertical" Margin="0,0,2,0">
+                                <dxlc:LayoutItem Label="RUC:">
+                                    <dxe:TextEdit Text="{Binding  Cliente.Ruc, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Mask="d" MaskType="Numeric" ></dxe:TextEdit>
+                                </dxlc:LayoutItem>
+                                <dxlc:LayoutItem Label="Empresa:">
+                                    <dxe:TextEdit Text="{Binding Cliente.Nombre, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></dxe:TextEdit>
+                                </dxlc:LayoutItem>
+                                <dxlc:LayoutItem Label="Celular:">
+                                    <dxe:TextEdit Text="{Binding Cliente.Telefono, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></dxe:TextEdit>
+                                </dxlc:LayoutItem>
+                                <dxlc:LayoutItem Label="Télefono:">
+                                    <dxe:TextEdit Text="{Binding Cliente.TelefonoConvencional, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></dxe:TextEdit>
+                                </dxlc:LayoutItem>
+                                <dxlc:LayoutItem Label="Provincia:">
+                                    <dxe:ComboBoxEdit ItemsSource="{Binding Provincias, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" DisplayMember="Nombre" ValueMember="ProvinciaId"  SelectedItem="{Binding Cliente.Provincia}">
+                                        <dxmvvm:Interaction.Behaviors>
+                                            <dxmvvm:EventToCommand EventName="EditValueChanged" Command="{Binding OnProvinciaChangeCommand}" CommandParameter="{Binding ElementName=comboBox, Path=EditValue}" UseDispatcher="True"/>
+                                        </dxmvvm:Interaction.Behaviors>
+                                    </dxe:ComboBoxEdit>
+                                </dxlc:LayoutItem>
+                                <dxlc:LayoutItem Label="Ciudad:">
+                                    <dxe:ComboBoxEdit ItemsSource="{Binding Ciuadades,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" DisplayMember="Nombre" SelectedItem="{Binding Cliente.Ciudad}" />
+                                </dxlc:LayoutItem>
+                                <dxlc:LayoutItem Label="División">
+                                    <dxe:TextEdit Text="{Binding Cliente.Division,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                                </dxlc:LayoutItem>
 
-                        <dxlc:LayoutGroup >
-                            <dxlc:LayoutGroup VerticalAlignment="Top">
-                                <dxlc:LayoutGroup Orientation="Vertical">
-                                    <dxlc:LayoutItem Label="Fecha Nacimiento:">
-                                        <dxe:DateEdit Text="{Binding Cliente.FechaNacimiento}" Mask="D" MaskUseAsDisplayFormat="True"></dxe:DateEdit>
-                                    </dxlc:LayoutItem>
-                                    <dxlc:LayoutItem Label="Empresa:">
-                                        <dxe:ComboBoxEdit Text="{Binding Cliente.TiPoCliente}" ItemsSource="{dxe:EnumItemsSource EnumType={x:Type domain:TiPoCliente} }"></dxe:ComboBoxEdit>
-                                    </dxlc:LayoutItem>
-                                    <dxlc:LayoutItem Label="Email">
-                                        <dxe:TextEdit Text="{Binding Cliente.Email,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Mask="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" MaskType="RegEx" MaskUseAsDisplayFormat="True"></dxe:TextEdit>
-                                    </dxlc:LayoutItem>
-                                    <dxlc:LayoutItem Label="Dirección">
-                                        <dxe:TextEdit Text="{Binding Cliente.Direccion,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
-                                    </dxlc:LayoutItem>
-                                    <dxlc:LayoutItem Label="Sector">
-                                        <dxe:TextEdit Text="{Binding Cliente.Sector,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
-                                    </dxlc:LayoutItem>
-                                    <dxlc:LayoutItem Label="D. Sector">
-                                        <dxe:TextEdit Text="{Binding Cliente.DescripcionSector,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
-                                    </dxlc:LayoutItem>
-                                    <dxlc:LayoutItem Label="Estado:">
-                                        <dxe:ComboBoxEdit   EditValue="{Binding Cliente.ClienteEstado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, ValidatesOnDataErrors=True}"
-                                                            ItemsSource="{dxe:EnumItemsSource EnumType={x:Type domain:ClienteEstado}}" IsTextEditable="False" />
-                                    </dxlc:LayoutItem>
-                                </dxlc:LayoutGroup>
                             </dxlc:LayoutGroup>
                         </dxlc:LayoutGroup>
-                       
-                    </dxlc:LayoutGroup>
-                </dxlc:LayoutControl>
+                    </dxlc:LayoutControl>
 
-            </Grid>
+                    <dxlc:LayoutControl Grid.Column="2"  Orientation="Horizontal" ItemSpace="12" Padding="0" >
+                        <dxlc:LayoutGroup  Orientation="Vertical" Margin="0,0,2,0">
 
-            <dxlc:LayoutGroup Grid.Row="2" Grid.Column="0" x:Name="Tabs" View="Tabs" Height="Auto"  Margin="0,14,2,0">
-                <dxlc:LayoutGroup Orientation="Vertical" dxlc:LayoutControl.TabHeader="Toma Desición">
-                    <dxlc:LayoutGroup Orientation="Vertical">
-                        <dxlc:LayoutItem Label="Descripcion:">
-                            <dxe:TextEdit Text="{Binding TomaDescicion.Nombre, ValidatesOnDataErrors=True,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></dxe:TextEdit>
-                        </dxlc:LayoutItem>
-                        <dxlc:LayoutItem Label="Cargo:">
-                            <dxe:TextEdit Text="{Binding TomaDescicion.Cargo, ValidatesOnDataErrors=True,  UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
-                        </dxlc:LayoutItem>
-                        <dxlc:LayoutItem Label="Telefono:">
-                            <dxe:TextEdit Text="{Binding TomaDescicion.Celular, ValidatesOnDataErrors=True,  UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
-                        </dxlc:LayoutItem>
-                       
+                            <dxlc:LayoutGroup >
+                                <dxlc:LayoutGroup VerticalAlignment="Top">
+                                    <dxlc:LayoutGroup Orientation="Vertical">
+                                        <dxlc:LayoutItem Label="Fecha N.:">
+                                            <dxe:DateEdit Text="{Binding Cliente.FechaNacimiento}" Mask="D" MaskUseAsDisplayFormat="True"></dxe:DateEdit>
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Empresa:">
+                                            <dxe:ComboBoxEdit Text="{Binding Cliente.TiPoCliente}" ItemsSource="{dxe:EnumItemsSource EnumType={x:Type domain:TiPoCliente} }"></dxe:ComboBoxEdit>
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Email">
+                                            <dxe:TextEdit Text="{Binding Cliente.Email,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Mask="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" MaskType="RegEx" MaskUseAsDisplayFormat="True"></dxe:TextEdit>
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Dirección">
+                                            <dxe:TextEdit Text="{Binding Cliente.Direccion,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Sector">
+                                            <dxe:TextEdit Text="{Binding Cliente.Sector,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="D. Sector">
+                                            <dxe:TextEdit Text="{Binding Cliente.DescripcionSector,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Estado:">
+                                            <dxe:ComboBoxEdit   EditValue="{Binding Cliente.ClienteEstado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, ValidatesOnDataErrors=True}"
+                                                            ItemsSource="{dxe:EnumItemsSource EnumType={x:Type domain:ClienteEstado}}" IsTextEditable="False" />
+                                        </dxlc:LayoutItem>
+                                    </dxlc:LayoutGroup>
+                                </dxlc:LayoutGroup>
+                            </dxlc:LayoutGroup>
+
+                        </dxlc:LayoutGroup>
+                    </dxlc:LayoutControl>
+
+                </Grid>
+
+                <dxlc:LayoutGroup VerticalAlignment="Stretch"  x:Name="Tabs" View="Tabs" Height="Auto"  Margin="0,0,2,0">
+                    <dxlc:LayoutGroup Orientation="Vertical" dxlc:LayoutControl.TabHeader="Toma Desición">
+                        <dxlc:LayoutGroup Orientation="Vertical">
+                            <dxlc:LayoutItem Label="Descripcion:">
+                                <dxe:TextEdit Text="{Binding TomaDescicion.Nombre, ValidatesOnDataErrors=True,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></dxe:TextEdit>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Cargo:">
+                                <dxe:TextEdit Text="{Binding TomaDescicion.Cargo, ValidatesOnDataErrors=True,  UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Telefono:">
+                                <dxe:TextEdit Text="{Binding TomaDescicion.Celular, ValidatesOnDataErrors=True,  UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+                            </dxlc:LayoutItem>
+
+                        </dxlc:LayoutGroup>
+                        <dxlc:LayoutGroup Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="100"/>
                     </dxlc:LayoutGroup>
-                    <dxlc:LayoutGroup Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="100"/>
-                </dxlc:LayoutGroup>
-                <dxlc:LayoutGroup dxlc:LayoutControl.TabHeader="Contactos" Orientation="Vertical">
-                    <dxg:GridControl x:Name="GrdContactos" ItemsSource="{Binding Contactos}">
-                        <dxg:GridControl.View>
-                            <dxg:TableView 
+                    <dxlc:LayoutGroup dxlc:LayoutControl.TabHeader="Contactos" Orientation="Vertical">
+                        <dxg:GridControl x:Name="GrdContactos" ItemsSource="{Binding Contactos}">
+                            <dxg:GridControl.View>
+                                <dxg:TableView 
                                 AllowGrouping="False" 
                                 AllowFixedGroups="True" 
                                 VerticalScrollbarVisibility="Hidden" 
@@ -151,31 +154,35 @@
                                 NewItemRowPosition="Top"
                                 ValidateRow="GridViewBase_OnValidateRow"
                                 InvalidRowException="GridViewBase_OnInvalidRowException">
-                                <dxg:TableView.RowCellMenuCustomizations>
-                                    <dxb:BarButtonItem Name="deleteRowItemSendero" Content="Delete" Command="{x:Static dxg:GridCommands.DeleteFocusedRow}" />
-                                </dxg:TableView.RowCellMenuCustomizations>
-                            </dxg:TableView>
-                            
-                        </dxg:GridControl.View>
-                        
-                        <dxg:GridControl.Columns>
-                            <dxg:GridColumn IsSmart="True" FieldName="Nombre" AllowBestFit="True" />
-                            <dxg:GridColumn IsSmart="True" FieldName="Cargo" />
-                            <dxg:GridColumn IsSmart="True" FieldName="Celular" />
-                            <dxg:GridColumn IsSmart="True" FieldName="FechaNacimiento" />
-                            <dxg:GridColumn IsSmart="True" FieldName="Email" AllowBestFit="True"/>
-                        </dxg:GridControl.Columns>
-                        <dxg:GridControl.TotalSummary>
-                            <dxg:GridSummaryItem SummaryType="Count" Alignment="Right" />
-                        </dxg:GridControl.TotalSummary>
-                        <dxg:GridControl.GroupSummary>
-                            <dxg:GridSummaryItem SummaryType="Count" />
-                        </dxg:GridControl.GroupSummary>
-                    </dxg:GridControl>
-                </dxlc:LayoutGroup>
-             
+                                    <dxg:TableView.RowCellMenuCustomizations>
+                                        <dxb:BarButtonItem Name="deleteRowItemSendero" Content="Delete" Command="{x:Static dxg:GridCommands.DeleteFocusedRow}" />
+                                    </dxg:TableView.RowCellMenuCustomizations>
+                                </dxg:TableView>
 
-            </dxlc:LayoutGroup>
+                            </dxg:GridControl.View>
+
+                            <dxg:GridControl.Columns>
+                                <dxg:GridColumn IsSmart="True" FieldName="Nombre" AllowBestFit="True" />
+                                <dxg:GridColumn IsSmart="True" FieldName="Cargo" />
+                                <dxg:GridColumn IsSmart="True" FieldName="Celular" />
+                                <dxg:GridColumn IsSmart="True" FieldName="FechaNacimiento" />
+                                <dxg:GridColumn IsSmart="True" FieldName="Email" AllowBestFit="True"/>
+                            </dxg:GridControl.Columns>
+                            <dxg:GridControl.TotalSummary>
+                                <dxg:GridSummaryItem SummaryType="Count" Alignment="Right" />
+                            </dxg:GridControl.TotalSummary>
+                            <dxg:GridControl.GroupSummary>
+                                <dxg:GridSummaryItem SummaryType="Count" />
+                            </dxg:GridControl.GroupSummary>
+                        </dxg:GridControl>
+                    </dxlc:LayoutGroup>
+
+
+                </dxlc:LayoutGroup>
+
+
+            </dxlc:LayoutControl>
+
 
             <views:TareaView
                 dxmvvm:ViewModelExtensions.ParentViewModel="{Binding DataContext, ElementName=LayoutRoot}"
@@ -203,6 +210,7 @@
                     
                     <dxwui:AppBarButton.Flyout>
                         <dxwui:MenuFlyout ShowIndicator="True">
+                            <dxwui:MenuFlyoutItem Content="Reasignación de Clientes" Command="{Binding NavigateCommand}" CommandParameter="ReasignacionClienteView"  />
                             <dxwui:MenuFlyoutItem Content="Dias sin Gestionar" Command="{Binding NavigateCommand}" CommandParameter="DiasSinGestionView"  />
                             <dxwui:MenuFlyoutItem Content="Diarios de Gestiones" Command="{Binding NavigateCommand}" CommandParameter="DiarioGestionesView"  />
                             

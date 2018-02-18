@@ -7,15 +7,7 @@ namespace Domain.Entities
 {
     public class User: BaseEntity<User>
     {
-        #region Fields
-        private ICollection<Claim> _claims;
-        private ICollection<ExternalLogin> _externalLogins;
-        private ICollection<Role> _roles;
-        private ICollection<Tarea> _tareasCreadas;
-        private ICollection<Tarea> _tareasAsignadas;
-        #endregion
-
-        #region Scalar Properties
+      #region Scalar Properties
 
         public int UserId { get; set; }
 
@@ -48,35 +40,35 @@ namespace Domain.Entities
         #endregion
 
         #region Navigation Properties
-        public virtual ICollection<Claim> Claims
-        {
-            get { return _claims ?? (_claims = new List<Claim>()); }
-            set { _claims = value; }
-        }
+        public virtual ICollection<Claim> Claims { get; set; }
+        
 
-        public virtual ICollection<ExternalLogin> Logins
-        {
-            get
-            {
-                return _externalLogins ??
-                    (_externalLogins = new List<ExternalLogin>());
-            }
-            set { _externalLogins = value; }
-        }
+        public virtual ICollection<ExternalLogin> Logins { get; set; } 
 
-        public virtual ICollection<Role> Roles
-        {
-            get { return _roles ?? (_roles = new List<Role>()); }
-            set { _roles = value; }
-        }
+        public virtual ICollection<Role> Roles { get; set; }
 
-        public ICollection<Tarea> TareasCreadas { get; set; }
-        public ICollection<Tarea> TareasAsignadas { get; set; }
+        public virtual ICollection<Tarea> TareasCreadas { get; set; }
+        public virtual ICollection<Tarea> TareasAsignadas { get; set; }
+
+        public virtual ICollection<ReasignacionHistorial> Reasignaciones { get; set; }
+        public virtual ICollection<ReasignacionHistorial> ResasignacionesFrom { get; set; }
+
+        public virtual ICollection<Cliente> Clientes { get; set; }
 
         [MaxLength(15)]
         public string Celular { get; set; }
 
         public virtual Perfil Perfil { get; set; }
+
+        public User()
+        {
+            Roles = new HashSet<Role>();
+            TareasCreadas = new HashSet<Tarea>();
+            TareasAsignadas = new HashSet<Tarea>();
+            Reasignaciones = new HashSet<ReasignacionHistorial>();
+            ResasignacionesFrom = new HashSet<ReasignacionHistorial>();
+            Clientes = new HashSet<Cliente>();
+        }
 
         #endregion
     }

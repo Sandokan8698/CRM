@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.Native;
@@ -123,29 +124,42 @@ namespace UI.ViewModel.Gestion
 
         }
 
-        private void AddCliente()
+        private  void AddCliente()
         {
-            Cliente.Contactos = Contactos;
-            Cliente.User = UserManagerService.Instance.UserInContext(UnitOfWork);
-           
-            ProductosSendero.ForEach(ps =>
+            Task t = Task.Run(() =>
             {
-                Cliente.Sendero.SenderoProducto.Add(new SenderoProducto()
+                Cliente.Contactos = Contactos;
+                Cliente.User = UserManagerService.Instance.UserInContext(UnitOfWork);
+
+                ProductosSendero.ForEach(ps =>
                 {
-                    Producto =  ps
+                    Cliente.Sendero.SenderoProducto.Add(new SenderoProducto()
+                    {
+                        Producto = ps
+                    });
                 });
+
+
+                UnitOfWork.ClienteRepository.Add(Cliente);
+                UnitOfWork.SaveChanges();
+
+                
             });
-            
 
-            UnitOfWork.ClienteRepository.Add(Cliente);
-            UnitOfWork.SaveChanges();
+          
+            SplashScreenService.ShowSplashScreen();
+            t.Wait();
+            SplashScreenService.HideSplashScreen();
 
-            ShowSuccesMensage("El cliente " + Cliente.Nombre + "se creo con éxito.");
+            ShowSuccesMensage("El cliente " + Cliente.Nombre + " se creo con éxito.");
 
             Cliente = new Cliente();
             TomaDescicion = new TomaDescicion();
             Contactos = new ObservableCollection<Contacto>();
             ProductosSendero = new ObservableCollection<Producto>();
+
+          
+
         }
 
         private void UpdateCliente()

@@ -61,7 +61,7 @@ namespace Data.Implementations
             return Set.Skip(skip).Take(take).ToListAsync(cancellationToken);
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public List<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             return Set.Where(predicate).ToList();
         }
@@ -90,6 +90,11 @@ namespace Data.Implementations
         public void Add(TEntity entity)
         {
             Set.Add(entity);
+        }
+
+        public void AddAll(IEnumerable<TEntity> entities)
+        {
+            Set.AddRange(entities);
         }
 
         public void Update(TEntity entity)

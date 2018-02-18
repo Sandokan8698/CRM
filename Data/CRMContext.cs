@@ -31,6 +31,10 @@ namespace Data
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
+            modelBuilder.Entity<Cliente>()
+                .HasIndex(c => c.Ruc)
+                .IsUnique(true);
+
             modelBuilder.Entity<Tarea>()
                     .HasRequired(m => m.AsignadoA)
                     .WithMany(t => t.TareasAsignadas)
@@ -42,6 +46,18 @@ namespace Data
                   .WithMany(t => t.TareasCreadas)
                   .HasForeignKey(m => m.CreadoPorId)
                   .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ReasignacionHistorial>()
+                .HasRequired(r => r.ReasignadoPor)
+                .WithMany(u => u.Reasignaciones)
+                .HasForeignKey(r => r.ReasignadoPorId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ReasignacionHistorial>()
+                .HasRequired(r => r.ReasignadoA)
+                .WithMany(u => u.ResasignacionesFrom)
+                .HasForeignKey(r => r.ReasignadoAId)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Oportunidad>()
                 .HasRequired(m => m.Asesor)

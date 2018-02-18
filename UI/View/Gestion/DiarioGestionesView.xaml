@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:ViewModels="clr-namespace:UI.View.Gestion"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:gestionView="clr-namespace:UI.View.Gestion"
              xmlns:gestion="clr-namespace:UI.ViewModel.Gestion"
              xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
              xmlns:helpers="clr-namespace:UI.Helpers"
@@ -32,8 +32,14 @@
                 <ColumnDefinition Width="12"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
-            <dxlc:LayoutItem VerticalAlignment="Stretch" >
+            <gestionView:GestionNavigatorView Grid.Row="0" Grid.ColumnSpan="3"/>
+             
+            <dxlc:LayoutItem VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0" >
                 <dxg:GridControl ItemsSource="{Binding Entities}" AutoGenerateColumns="None" SelectedItem="{Binding CurrentEntity}">
                     <dxg:GridControl.View>
                         <dxg:TableView AllowBestFit="True" AllowEditing="False"/>
@@ -63,7 +69,7 @@
                 </dxg:GridControl>
             </dxlc:LayoutItem>
 
-            <dxlc:LayoutGroup Grid.Column="2" x:Name="Tabs" View="Tabs" Height="Auto" >
+            <dxlc:LayoutGroup Grid.Column="2" Grid.Row="1" x:Name="Tabs" View="Tabs" Height="Auto" >
                 <dxlc:LayoutGroup Orientation="Vertical" dxlc:LayoutControl.TabHeader="Modificar">
                     <dxlc:LayoutGroup Orientation="Vertical">
                         <view:TareaView 

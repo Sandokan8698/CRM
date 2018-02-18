@@ -26,6 +26,7 @@ namespace Data.Abstract
         ITipoGestionRepository TipoGestionRepository { get; }
         ITomaDescicionRepository TomaDescicionRepository { get; }
         ISenderoRepository SenderoRepository { get; }
+        IReasignacionHistorialRepository ReasignacionHistorialRepository { get; }
         #endregion
 
         #region Methods

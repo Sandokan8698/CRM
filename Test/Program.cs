@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Data;
 using Data.Implementations;
 using Domain.Entities;
+using Faker;
+using Faker.Generator;
 
 namespace Test
 {
@@ -13,18 +15,14 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            var context = new CRMContex();
+            var clienteFactory = new Faker<Cliente>();
+            var clientes = clienteFactory.CreateMany(1);
 
-            var user = context.UserDbSet.FirstOrDefault(u => u.UserId == 1);
-
-            var vendedor = new Vendedor();
-           
-
-            user.Perfil = vendedor;
-
-            context.Entry<User>(user).State = System.Data.Entity.EntityState.Modified;
-
-            context.SaveChanges();
+            using (var uw = new UnitOfWork())
+            {
+                uw.ClienteRepository.AddAll(clientes);
+                uw.SaveChanges();
+            }
         }
     }
 }

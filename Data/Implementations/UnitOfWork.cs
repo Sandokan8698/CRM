@@ -24,6 +24,7 @@ namespace Data.Implementations
         private ITipoGestionRepository _tipoGestionRepository;
         private ITomaDescicionRepository _tomaDescicionRepository;
         private ISenderoRepository _senderoRepository;
+        private IReasignacionHistorialRepository _reasignacionHistorialRepository;
         #endregion
 
         #region Constructors
@@ -113,6 +114,11 @@ namespace Data.Implementations
         public ISenderoRepository SenderoRepository
         {
             get { return _senderoRepository ?? (_senderoRepository = new SenderoRepository(_context)); }
+        }
+
+        public IReasignacionHistorialRepository ReasignacionHistorialRepository         
+        {
+            get { return _reasignacionHistorialRepository ?? (_reasignacionHistorialRepository = new ReasignacionHistorialRepository(_context)); }
         }
 
         public int SaveChanges()
